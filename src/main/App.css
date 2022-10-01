@@ -6,51 +6,77 @@
     position: relative;
 }
 
-img {
-    width: 40%;
+.camera-view {
+    background: #b0b0c2;
+    width: 100%;
+    position: relative;
+}
+
+#rot-camera-image {
+    width: 36%;
     height: auto;
     /*margin-top: 50px;*/
-    margin: 150px auto 0;
+    margin: 0 auto 0;
     /*border: 1px solid yellow;*/
     display: block;
+    position: relative;
 }
 
 .top-menu-holder {
-    transition: all 1s linear;
-    -webkit-transition: all 1s linear;
-    -moz-transition: all 1s linear;
-    -o-transition: all 1s linear;
+    --transition-speed: 0.25s;
+
+    transition: all var(--transition-speed) linear;
+    -webkit-transition: all var(--transition-speed) linear;
+    -moz-transition: all var(--transition-speed) linear;
+    -o-transition: all var(--transition-speed) linear;
+
+    /*border: 1px solid red;*/
 }
 
-.wide-menu {
-}
 
 .menu-item {
-    background: green;
+    transition: all var(--transition-speed) linear;
+    -webkit-transition: all var(--transition-speed) linear;
+    -moz-transition: all var(--transition-speed) linear;
+    -o-transition: all var(--transition-speed) linear;
+    display: block;
+}
+
+.menu-item > p {
+    transition: all var(--transition-speed) linear;
+    -webkit-transition: all var(--transition-speed) linear;
+    -moz-transition: all var(--transition-speed) linear;
+    -o-transition: all var(--transition-speed) linear;
+
+    margin-top: auto;
+}
+
+
+.wide-menu > .menu-item {
+    /*background: green;*/
     display: inline-block;
     width: 33%;
     height: 100%;
     vertical-align: top;
 }
 
-
-.menu-item > p {
-    background: yellow;
+.wide-menu > .menu-item > p {
+    /*background: yellow;*/
     margin-top: 120px;
     --side-padding: 50px;
 }
 
-.menu-item:nth-child(1) > p {
+.wide-menu > .menu-item:nth-child(1) > p {
     text-align: right;
     padding-right: var(--side-padding);
 }
 
-.menu-item:nth-child(2) > p {
+.wide-menu > .menu-item:nth-child(2) > p {
     text-align: center;
     margin-top: 70px;
 }
 
-.menu-item:nth-child(3) > p {
+.wide-menu > .menu-item:nth-child(3) > p {
     padding-left: var(--side-padding);
 }
 
@@ -65,7 +91,17 @@ span{
     color: #47A3BE;
 }
 
-
+.in-camera {
+    --width: 15%;
+    border: 2px solid red;
+    width: var(--width);
+    height: auto;
+    position: absolute;
+    margin: 0 auto;
+    top: 90px;
+    left: calc(50% - var(--width) / 2);
+    clip-path: circle(35.3% at 49% 47%);
+}
 
 
 

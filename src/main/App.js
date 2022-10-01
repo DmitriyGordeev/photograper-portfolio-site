@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
 
-// import cameraImage from './../../resources/images/camera.jpg';
+import portraitExample from './../../resources/images/portrait.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 
 // this is a ratio meaning that per each 100px
@@ -17,7 +17,7 @@ class App extends React.Component {
         this.state = {
             angle: 0,
             scale: 1.0,
-            menuClass: "top-menu-holder"
+            menuClass: "top-menu-holder wide-menu"
         };
     }
 
@@ -88,14 +88,30 @@ class App extends React.Component {
                         </p>
                     </div>
                 </div>
-                <img
-                    style={{
-                        transition: "250ms ease",
-                        transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,
-                    }}
-                    src={cameraImage}
-                    alt={"camera-lenses"}
-                    className={"aspect-ratio"}/>
+
+
+                <div className={"camera-view"}>
+                    <img
+                        style={{
+                            transition: "250ms ease",
+                            transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,
+                        }}
+                        src={cameraImage}
+                        alt={"camera-lenses"}
+                        id={"rot-camera-image"}>
+                    </img>
+
+                    <img className={"in-camera"}
+                         style={{
+                             transition: "250ms ease",
+                             transform: `scale(${this.state.scale})`,
+                         }}
+                         src={portraitExample}
+                         alt={""} />
+                </div>
+
+
+
             </div>
         );
     }
