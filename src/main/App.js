@@ -16,7 +16,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             angle: 0,
-            scale: 1.0
+            scale: 1.0,
+            menuClass: "top-menu-holder"
         };
     }
 
@@ -40,14 +41,23 @@ class App extends React.Component {
 
         let angle = this.state.angle + addedAngle;
         let scale = this.state.scale + addedScale;
+        let menuClass = this.state.menuClass;
 
         // prevent from decreasing
         if (scale <= 1.0)
             scale = 1.0;
 
+        if (scale >= 1.3) {
+            menuClass = "top-menu-holder";
+        }
+        else if (scale < 1.3) {
+            menuClass = menuClass + " wide-menu";
+        }
+
         this.setState({
             angle: angle,
-            scale: scale
+            scale: scale,
+            menuClass: menuClass
         });
     }
 
@@ -55,7 +65,7 @@ class App extends React.Component {
     render() {
         return (
             <div className={"main"}>
-                <div id={"top-menu-holder"}>
+                <div className={this.state.menuClass}>
                     <div className={"menu-item"}>
                         <p>
                             <a href={"https://google.com"}>
