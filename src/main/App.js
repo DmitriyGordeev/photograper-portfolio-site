@@ -9,11 +9,14 @@ import cameraImage from './../../resources/images/round_lense.png';
 // scroll the object will rotate on 180degrees
 const deg2px = 180 / 2000;
 
+const scale2px = 1.0 / 3000;
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            angle: 0
+            angle: 0,
+            scale: 1.0
         };
     }
 
@@ -22,34 +25,29 @@ class App extends React.Component {
         window.addEventListener('wheel', this.handleScroll);
     }
 
-
-    // handleScroll(event) {
-    //     // console.log("Scrolling inside component: deltaY", event.deltaY);
-    //     // let scrollAmount = event.deltaY;
-    //     // let addedAngle = deg2px * scrollAmount;
-    //     // console.log(`scrollAmount = ${scrollAmount}, addedAngle = ${addedAngle}`);
-    //
-    //     console.log(this);
-    //     console.log(this.state.angle);
-    //
-    //     // this.setState({
-    //     //     angle: angle
-    //     // });
-    // }
-
-
     handleScroll = (event) => {
 
-        console.log("Scrolling inside component: deltaY", event.deltaY);
+        // console.log("Scrolling inside component: deltaY", event.deltaY);
         let scrollAmount = event.deltaY;
         let addedAngle = deg2px * scrollAmount;
-        console.log(`scrollAmount = ${scrollAmount}, addedAngle = ${addedAngle}`);
-        console.log("this.state.angle = " + this.state.angle);
+        let addedScale = scale2px * scrollAmount;
+        console.log(`
+            scrollAmount = ${scrollAmount},
+            addedAngle = ${addedAngle},
+            addedScale = ${addedScale}`);
+
+        // console.log("this.state.angle = " + this.state.angle);
 
         let angle = this.state.angle + addedAngle;
+        let scale = this.state.scale + addedScale;
+
+        // prevent from decreasing
+        if (scale <= 1.0)
+            scale = 1.0;
 
         this.setState({
-            angle: angle
+            angle: angle,
+            scale: scale
         });
     }
 
@@ -82,8 +80,8 @@ class App extends React.Component {
                 </div>
                 <img
                     style={{
-                        transform: `rotate(${this.state.angle}deg)`,
-                        transition: "150ms ease"
+                        transition: "250ms ease",
+                        transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,
                     }}
                     src={cameraImage}
                     alt={"camera-lenses"}
