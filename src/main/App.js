@@ -16,16 +16,28 @@ class App extends React.Component {
             <div className={"main"}>
                 <div id={"top-menu-holder"}>
                     <div className={"menu-item"}>
-                        <p>Item1</p>
+                        <p>
+                            <a href={"https://google.com"}>
+                                <span>About me</span>
+                            </a>
+                        </p>
                     </div>
                     <div className={"menu-item"}>
-                        <p>Item2</p>
+                        <p>
+                            <a href={"https://google.com"}>
+                                <span>Socials</span>
+                            </a>
+                        </p>
                     </div>
                     <div className={"menu-item"}>
-                        <p>Item3</p>
+                        <p>
+                            <a href={"https://google.com"}>
+                                <span>Contact</span>
+                            </a>
+                        </p>
                     </div>
                 </div>
-                <img src={cameraImage} alt={"camera-lenses"} className={"aspect-ratio"} />
+                <img src={cameraImage} alt={"camera-lenses"} className={"aspect-ratio"}/>
             </div>
         );
     }

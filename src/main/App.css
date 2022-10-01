@@ -30,17 +30,36 @@ img {
 #top-menu-holder p {
     /*background: yellow;*/
     margin-top: 120px;
-    color: white;
 }
 
 #top-menu-holder > .menu-item:nth-child(1) > p {
     text-align: right;
+    padding-right: 50px;
 }
 
 #top-menu-holder > .menu-item:nth-child(2) > p {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 70px;
 }
+
+#top-menu-holder > .menu-item:nth-child(3) > p {
+    padding-left: 50px;
+}
+
+p > a {
+    text-decoration: none;
+}
+
+span{
+    display: inline-block;
+    border-bottom: 2px solid #47A3BE;
+    padding-bottom: 2px;
+    color: #47A3BE;
+}
+
+
+
+
 
 
 
