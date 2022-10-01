@@ -7,6 +7,20 @@ import App from "./App";
 import './index.css'
 
 
+
+
+document.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    // event.stopPropagation();
+    // now define custom functionality
+
+    console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
+
+}, { passive: false });
+
+
+
+
 const initialState = {};
 
 function reducer(state = initialState, action) {
