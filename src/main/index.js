@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-// import App from "./App";
+import App from "./App";
 import './index.css'
-import portraitImage from './../../resources/images/rafaella-mendes-diniz-et_78QkMMQs-unsplash.jpg';
 
 
 const initialState = {};
@@ -28,7 +27,8 @@ const root = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
         <div>
-            <img src={portraitImage} alt={"portrait"} className={"aspect-ratio"} />
+            <App />
+            {/*<img src={cameraImage} alt={"camera-lenses"} className={"aspect-ratio"} />*/}
         </div>
     </Provider>,
 root);
