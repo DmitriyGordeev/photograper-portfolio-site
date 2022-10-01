@@ -8,8 +8,11 @@ import cameraImage from './../../resources/images/round_lense.png';
 // this is a ratio meaning that per each 100px
 // scroll the object will rotate on 180degrees
 const deg2px = 180 / 2000;
-
 const scale2px = 1.0 / 3000;
+
+const fixedDegAdded = 10;
+const fixedScaleAdded = 0.12;
+const transitionTime = "850ms";
 
 class App extends React.Component {
     constructor(props) {
@@ -39,8 +42,17 @@ class App extends React.Component {
 
         // console.log("this.state.angle = " + this.state.angle);
 
-        let angle = this.state.angle + addedAngle;
-        let scale = this.state.scale + addedScale;
+        let angle = 0;
+        let scale = 0;
+        if (scrollAmount > 0) {
+            angle = this.state.angle + fixedDegAdded;
+            scale = this.state.scale + fixedScaleAdded;
+        }
+        else {
+            angle = this.state.angle - fixedDegAdded;
+            scale = this.state.scale - fixedScaleAdded;
+        }
+
         let menuClass = this.state.menuClass;
 
         // prevent from decreasing
@@ -93,7 +105,7 @@ class App extends React.Component {
                 <div className={"camera-view"}>
                     <img
                         style={{
-                            transition: "250ms ease",
+                            transition: `${transitionTime} ease`,
                             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,
                         }}
                         src={cameraImage}
@@ -103,14 +115,12 @@ class App extends React.Component {
 
                     <img className={"in-camera"}
                          style={{
-                             transition: "250ms ease",
+                             transition: `${transitionTime} ease`,
                              transform: `scale(${this.state.scale})`,
                          }}
                          src={portraitExample}
                          alt={""} />
                 </div>
-
-
 
             </div>
         );
