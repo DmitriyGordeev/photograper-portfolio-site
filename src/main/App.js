@@ -14,6 +14,17 @@ class App extends React.Component {
     render() {
         return (
             <div className={"main"}>
+                <div id={"top-menu-holder"}>
+                    <div className={"menu-item"}>
+                        <p>Item1</p>
+                    </div>
+                    <div className={"menu-item"}>
+                        <p>Item2</p>
+                    </div>
+                    <div className={"menu-item"}>
+                        <p>Item3</p>
+                    </div>
+                </div>
                 <img src={cameraImage} alt={"camera-lenses"} className={"aspect-ratio"} />
             </div>
         );
