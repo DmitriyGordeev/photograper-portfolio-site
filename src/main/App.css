@@ -91,22 +91,28 @@ span{
     color: #47A3BE;
 }
 
-.in-camera {
-    --width: 15%;
-    width: var(--width);
-    height: auto;
-    position: absolute;
-    margin: 0 auto;
-    top: 89px;
-    left: calc(50% - var(--width) / 2);
-    clip-path: circle(35.3% at 49% 47%);
-}
+/*.in-camera {*/
+/*    --width: 15%;*/
+/*    width: var(--width);*/
+/*    height: auto;*/
+/*    position: absolute;*/
+/*    margin: 0 auto;*/
+/*    top: 89px;*/
+/*    left: calc(50% - var(--width) / 2);*/
+/*    clip-path: circle(35.3% at 49% 47%);*/
+/*}*/
 
-.in-camera:hover {
-    /*border: 10px solid yellow;*/
-    transition: clip-path 0.5s;
-    clip-path: circle(38.3% at 49% 47%);
-}
+/*.in-camera:hover {*/
+/*    !*border: 10px solid yellow;*!*/
+/*    transition: clip-path 0.5s;*/
+/*    clip-path: circle(38.3% at 49% 47%);*/
+/*}*/
+
+/*.in-camera:active {*/
+/*    !*border: 10px solid yellow;*!*/
+/*    transition: clip-path 0.5s;*/
+/*    clip-path: circle(100% at 49% 47%);*/
+/*}*/
 
 
 

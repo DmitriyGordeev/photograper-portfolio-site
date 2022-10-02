@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
 
+import Polaroid from "./Polaroid";
+
 import portraitExample from './../../resources/images/portrait.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 
@@ -124,6 +126,7 @@ class App extends React.Component {
                 </div>
 
 
+
                 <div className={this.state.cameraClass}>
                     <img
                         style={{
@@ -135,14 +138,26 @@ class App extends React.Component {
                         id={"rot-camera-image"}>
                     </img>
 
-                    <img className={"in-camera"}
-                         style={{
-                             transition: `${transitionTime} ease`,
-                             transform: `scale(${this.state.scale})`,
-                         }}
-                         src={portraitExample}
-                         alt={""} />
+                    {/*<img className={"in-camera"}*/}
+                    {/*     style={{*/}
+                    {/*         transition: `${transitionTime} ease`,*/}
+                    {/*         transform: `scale(${this.state.scale})`,*/}
+                    {/*     }}*/}
+                    {/*     src={portraitExample}*/}
+                    {/*     alt={""} />*/}
+
+                    <Polaroid
+                        style={{
+                            transition: `${transitionTime} ease`,
+                            transform: `scale(${this.state.scale})`
+                        }}
+                        src={portraitExample}
+                        alt={""} />
+
                 </div>
+
+
+
 
             </div>
         );
