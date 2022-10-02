@@ -7,5 +7,9 @@ body {
     background: #020A0D;
 }
 
+.invisible {
+    display: none;
+}
+
 
 

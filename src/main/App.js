@@ -20,7 +20,8 @@ class App extends React.Component {
         this.state = {
             angle: 0,
             scale: 1.0,
-            menuClass: "top-menu-holder wide-menu"
+            menuClass: "top-menu-holder wide-menu",
+            cameraClass: "camera-view"
         };
         this.locked = false;
     }
@@ -63,6 +64,7 @@ class App extends React.Component {
         }
 
         let menuClass = this.state.menuClass;
+        let cameraClass = this.state.cameraClass;
 
         // prevent from decreasing
         if (scale <= 1.0)
@@ -70,19 +72,22 @@ class App extends React.Component {
 
         if (scale >= 1.3) {
             menuClass = "top-menu-holder";
+            // cameraClass += " invisible";
         }
         else if (scale < 1.3) {
             menuClass = menuClass + " wide-menu";
+            // cameraClass = cameraClass.replace("invisible", "");
         }
 
         this.setState({
             angle: angle,
             scale: scale,
-            menuClass: menuClass
+            menuClass: menuClass,
+            cameraClass: cameraClass
         });
 
+        // adds cooldown to the scrolling event
         this.locked = true;
-
         let thisRef = this;
         setTimeout(function() {
             thisRef.locked = false;
@@ -119,7 +124,7 @@ class App extends React.Component {
                 </div>
 
 
-                <div className={"camera-view"}>
+                <div className={this.state.cameraClass}>
                     <img
                         style={{
                             transition: `${transitionTime} ease`,
