@@ -110,8 +110,10 @@ class App extends React.Component {
         console.log("App.js store", this.props.storeData.focused);
 
         let opacity = 0.0;
+        let photoExtraScale = 0.0;
         if (this.props.storeData.focused) {
             opacity = 1.0;
+            photoExtraScale = 0.2;
         }
 
         return (
@@ -169,7 +171,7 @@ class App extends React.Component {
                     <Polaroid
                         style={{
                             transition: `${transitionTime} ease`,
-                            transform: `scale(${this.state.scale})`
+                            transform: `scale(${this.state.scale + photoExtraScale})`
                         }}
                         src={portraitExample}
                         alt={""} />

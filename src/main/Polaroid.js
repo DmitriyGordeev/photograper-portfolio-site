@@ -13,7 +13,6 @@ class Polaroid extends React.Component {
 
     // сделать полое затемнение (эффект сцены?), когда polaroid в фокусе
 
-
     getClassFocused() {
         let className = this.state.className.replace("polaroid-card-hover", "");
         className = className + " active";
@@ -29,7 +28,7 @@ class Polaroid extends React.Component {
     }
 
     click = (e) => {
-        this.props.onPolaroidFocus("foo");
+        this.props.onPolaroidFocus();
 
         // if focused already - the second click will cancel the effect
         if (this.props.storeData.focused) {
