@@ -134,6 +134,13 @@ span{
 }
 
 
+.camera-view-zooming {
+    transition: 2s ease-in-out;
+    transform: scale(10);
+    opacity: 0.0;
+}
+
+
 
 
 

@@ -84,9 +84,15 @@ class App extends React.Component {
             // cameraClass = cameraClass.replace("invisible", "");
         }
 
+        // cameraEnabled = scale < 2.0;
+        // console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
 
-        cameraEnabled = scale < 1.5;
-        console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
+        if (scale >= 2.0) {
+            cameraClass += " camera-view-zooming";
+        }
+        else {
+            cameraClass = cameraClass.replace(" camera-view-zooming", "");
+        }
 
 
         this.setState({
@@ -126,10 +132,10 @@ class App extends React.Component {
         }
 
 
-        let cameraDisplay = "block";
-        if (!this.state.cameraEnabled) {
-            cameraDisplay = "none";
-        }
+        // let cameraVisibility = "visible";
+        // if (!this.state.cameraEnabled) {
+        //     cameraVisibility = "hidden";
+        // }
 
 
         return (
@@ -160,9 +166,7 @@ class App extends React.Component {
                 </div>
 
 
-                <div className={this.state.cameraClass} style={{
-                    display: cameraDisplay
-                }}>
+                <div className={this.state.cameraClass}>
                     <img
                         style={{
                             transition: `${transitionTime} ease`,
