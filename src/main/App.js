@@ -23,7 +23,8 @@ class App extends React.Component {
             angle: 0,
             scale: 1.0,
             menuClass: "top-menu-holder wide-menu",
-            cameraClass: "camera-view"
+            cameraClass: "camera-view",
+            cameraEnabled: true
         };
         this.locked = false;
     }
@@ -32,6 +33,7 @@ class App extends React.Component {
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
     }
+
 
     handleScroll = (event) => {
 
@@ -67,6 +69,7 @@ class App extends React.Component {
 
         let menuClass = this.state.menuClass;
         let cameraClass = this.state.cameraClass;
+        let cameraEnabled = this.state.cameraEnabled;
 
         // prevent from decreasing
         if (scale <= 1.0)
@@ -81,11 +84,17 @@ class App extends React.Component {
             // cameraClass = cameraClass.replace("invisible", "");
         }
 
+
+        cameraEnabled = scale < 1.5;
+        console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
+
+
         this.setState({
             angle: angle,
             scale: scale,
             menuClass: menuClass,
-            cameraClass: cameraClass
+            cameraClass: cameraClass,
+            cameraEnabled: cameraEnabled
         });
 
         // adds cooldown to the scrolling event
@@ -116,8 +125,16 @@ class App extends React.Component {
             photoExtraScale = 0.2;
         }
 
+
+        let cameraDisplay = "block";
+        if (!this.state.cameraEnabled) {
+            cameraDisplay = "none";
+        }
+
+
         return (
             <div className={"main"}>
+
                 <div className={this.state.menuClass}>
                     <div className={"menu-item"}>
                         <p>
@@ -143,7 +160,9 @@ class App extends React.Component {
                 </div>
 
 
-                <div className={this.state.cameraClass}>
+                <div className={this.state.cameraClass} style={{
+                    display: cameraDisplay
+                }}>
                     <img
                         style={{
                             transition: `${transitionTime} ease`,
@@ -178,6 +197,7 @@ class App extends React.Component {
                 </div>
 
 
+                <div className={"gallery"} />
 
 
             </div>

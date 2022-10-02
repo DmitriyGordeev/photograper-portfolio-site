@@ -126,6 +126,13 @@ span{
     transition: 850ms ease;
 }
 
+.gallery {
+    background: red;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
 
 
 
