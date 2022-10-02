@@ -48,7 +48,10 @@ class Polaroid extends React.Component {
             <div className={className}
                  onClick={this.click}
                  style={this.props.style}>
-                <img src={this.props.src} alt={this.props.alt} />
+
+                <div className={"inner"}>
+                    <img src={this.props.src} alt={this.props.alt} />
+                </div>
             </div>
         )
     }

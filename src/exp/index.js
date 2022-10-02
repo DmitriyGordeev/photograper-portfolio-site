@@ -6,7 +6,8 @@ import { createStore } from 'redux';
 import './index.css'
 import Polaroid from "../main/Polaroid";
 import portraitExample2 from "../../resources/images/portrait2.jpg";
-
+import portraitExample from "../../resources/images/portrait.jpg";
+import room from "../../resources/images/room.jpg";
 
 
 
@@ -44,9 +45,39 @@ const root = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
         <div>
-            <Polaroid
-                src={portraitExample2}
-                alt={""} />
+            {/*<Polaroid*/}
+            {/*    src={portraitExample}*/}
+            {/*    alt={""} />*/}
+
+            {/*<Polaroid*/}
+            {/*    style={{left: 100}}*/}
+            {/*    src={portraitExample2}*/}
+            {/*    alt={""} />*/}
+
+
+            <div className={"holder"}>
+                <div className={"inner"}>
+                    <img src={portraitExample} alt={""}/>
+                </div>
+            </div>
+
+            <br />
+
+            <div className={"holder"}>
+                <div className={"inner"}>
+                    <img src={portraitExample2} alt={""}/>
+                </div>
+            </div>
+
+            <br />
+
+            <div className={"holder"}>
+                <div className={"inner"}>
+                    <img src={room} alt={""}/>
+                </div>
+            </div>
+
+
         </div>
     </Provider>,
 root);

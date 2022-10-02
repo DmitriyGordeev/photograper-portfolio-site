@@ -7,6 +7,7 @@ import Polaroid from "./Polaroid";
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
+import room from "../../resources/images/room.jpg";
 
 // this is a ratio meaning that per each 100px
 // scroll the object will rotate on 180degrees
@@ -132,8 +133,8 @@ class App extends React.Component {
         let polaroidTranslateUp = 0;
         if (this.props.storeData.focused) {
             overlayOpacity = 1.0;
-            polaroidScale = 1.4;
-            polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
+            polaroidScale = 1.1;
+            polaroidTranslateUp = 80;       // when polaroid is focused lift it up a bit
         }
 
         return (
@@ -186,7 +187,7 @@ class App extends React.Component {
                             transition: `${transitionTime} ease`,
                             transform: `scale(${polaroidScale}) translate(${0}px, ${-polaroidTranslateUp}px)`
                         }}
-                        src={portraitExample2}
+                        src={room}
                         alt={""} />
                 </div>
 
