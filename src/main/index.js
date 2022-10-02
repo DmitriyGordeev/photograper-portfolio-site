@@ -14,7 +14,7 @@ document.addEventListener("wheel", (event) => {
     // event.stopPropagation();
     // now define custom functionality
 
-    console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
+    // console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
 
 }, { passive: false });
 

@@ -10,8 +10,8 @@ import cameraImage from './../../resources/images/round_lense.png';
 const deg2px = 180 / 2000;
 const scale2px = 1.0 / 3000;
 
-const fixedDegAdded = 10;
-const fixedScaleAdded = 0.12;
+const fixedDegAdded = 36;
+const fixedScaleAdded = 0.2;
 const transitionTime = "850ms";
 
 class App extends React.Component {
@@ -22,6 +22,7 @@ class App extends React.Component {
             scale: 1.0,
             menuClass: "top-menu-holder wide-menu"
         };
+        this.locked = false;
     }
 
 
@@ -31,7 +32,15 @@ class App extends React.Component {
 
     handleScroll = (event) => {
 
-        // console.log("Scrolling inside component: deltaY", event.deltaY);
+        if (this.locked) {
+            console.log("LOCKED");
+            return;
+        }
+
+        // if delta-time between two calls of this function gt delta_time_threshold -
+        // we count it as a continuous scroll
+
+        console.log("Scrolling inside component: deltaY", event.deltaY);
         let scrollAmount = event.deltaY;
         let addedAngle = deg2px * scrollAmount;
         let addedScale = scale2px * scrollAmount;
@@ -71,6 +80,14 @@ class App extends React.Component {
             scale: scale,
             menuClass: menuClass
         });
+
+        this.locked = true;
+
+        let thisRef = this;
+        setTimeout(function() {
+            thisRef.locked = false;
+            console.log("UNLOCKED");
+        }, 750);            // timeout in ms
     }
 
 

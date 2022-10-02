@@ -103,9 +103,10 @@ span{
 }
 
 .in-camera:hover {
-    border: 10px solid yellow;
+    /*border: 10px solid yellow;*/
     transition: clip-path 0.5s;
-    clip-path: circle(80.3% at 49% 47%);
+    clip-path: circle(38.3% at 49% 47%);
+
 }
 
 
