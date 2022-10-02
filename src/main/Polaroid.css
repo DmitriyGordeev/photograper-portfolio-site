@@ -1,5 +1,5 @@
 .polaroid-card {
-    --width: 12%;
+    --width: 150px;
     --padding: 10px;
     width: var(--width);
     background: transparent;
@@ -7,7 +7,7 @@
 
     position: absolute;
     margin: 0 auto;
-    top: 89px;
+    top: 85px;
     left: calc(49.5% - var(--width) / 2);
     clip-path: circle(calc(35.3% - var(--padding)) at 49% 47%);
     transition: clip-path 0.5s;

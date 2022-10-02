@@ -6,7 +6,8 @@ const SRC_DIR  = path.resolve(__dirname, "src");
 
 const config = {
     entry: {
-        main: SRC_DIR + "/main/index.js"
+        main: SRC_DIR + "/main/index.js",
+        exp: SRC_DIR + "/exp/index.js"
     },
 
     output: {

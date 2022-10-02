@@ -5,6 +5,7 @@ import "./App.css";
 import Polaroid from "./Polaroid";
 
 import portraitExample from './../../resources/images/portrait.jpg';
+import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 
 // this is a ratio meaning that per each 100px
@@ -92,6 +93,8 @@ class App extends React.Component {
         }
         else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
+
+            // TODO: также сделать display: none чтобы элемент не мешал эвентам?
         }
 
 
@@ -113,7 +116,7 @@ class App extends React.Component {
     }
 
 
-    overlayRemove() {
+    removeOverlay() {
         console.log("overlayRemove()");
         this.props.onPolaroidUnfocus();
     }
@@ -124,19 +127,14 @@ class App extends React.Component {
         console.log("App.js render()");
         console.log("App.js store", this.props.storeData.focused);
 
-        let opacity = 0.0;
-        let photoExtraScale = 0.0;
+        let overlayOpacity = 0.0;
+        let polaroidScale = this.state.scale;
+        let polaroidTranslateUp = 0;
         if (this.props.storeData.focused) {
-            opacity = 1.0;
-            photoExtraScale = 0.2;
+            overlayOpacity = 1.0;
+            polaroidScale = 1.4;
+            polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
-
-
-        // let cameraVisibility = "visible";
-        // if (!this.state.cameraEnabled) {
-        //     cameraVisibility = "hidden";
-        // }
-
 
         return (
             <div className={"main"}>
@@ -177,32 +175,22 @@ class App extends React.Component {
                         id={"rot-camera-image"}>
                     </img>
 
-                    {/*<img className={"in-camera"}*/}
-                    {/*     style={{*/}
-                    {/*         transition: `${transitionTime} ease`,*/}
-                    {/*         transform: `scale(${this.state.scale})`,*/}
-                    {/*     }}*/}
-                    {/*     src={portraitExample}*/}
-                    {/*     alt={""} />*/}
-
                     <div className={"overlay"}
-                         onClick={() => this.overlayRemove()}
+                         onClick={() => this.removeOverlay()}
                          style={{
-                             opacity: opacity
+                             opacity: overlayOpacity
                     }}></div>
 
                     <Polaroid
                         style={{
                             transition: `${transitionTime} ease`,
-                            transform: `scale(${this.state.scale + photoExtraScale})`
+                            transform: `scale(${polaroidScale}) translate(${0}px, ${-polaroidTranslateUp}px)`
                         }}
-                        src={portraitExample}
+                        src={portraitExample2}
                         alt={""} />
                 </div>
 
-
                 <div className={"gallery"} />
-
 
             </div>
         );
