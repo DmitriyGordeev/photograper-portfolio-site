@@ -25,11 +25,15 @@ const initialState = {};
 
 function reducer(state = initialState, action) {
 
-    console.log("STORE:", state);
+    console.log("[reducer()] STORE:", state);
 
-    if(action.type === "UPDATE_VALUES") {
-        console.log("[reducer()]: UPDATE_VALUES");
-        return {...state, values: action.values};
+    if(action.type === "POLAROID_FOCUSED") {
+        console.log("[reducer()] POLAROID_FOCUSED");
+        return {...state, focused: true};
+    }
+    else if (action.type === "POLAROID_UNFOCUSED") {
+        console.log("[reducer()] POLAROID_UNFOCUSED");
+        return {...state, focused: false};
     }
     return state;
 }

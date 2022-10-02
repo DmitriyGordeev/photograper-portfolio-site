@@ -10,12 +10,24 @@
     top: 89px;
     left: calc(49.5% - var(--width) / 2);
     clip-path: circle(calc(35.3% - var(--padding)) at 49% 47%);
+    transition: clip-path 0.5s;
 }
 
-.polaroid-card:hover {
-    transition: clip-path 0.5s;
+/*.polaroid-card:hover {*/
+/*    clip-path: circle(calc(38.3% - var(--padding)) at 49% 47%);*/
+/*    background: transparent;*/
+/*}*/
+
+
+.polaroid-card-hover:hover {
     clip-path: circle(calc(38.3% - var(--padding)) at 49% 47%);
     background: transparent;
+}
+
+
+.active {
+    clip-path: circle(100% at 49% 47%);
+    background: #F5F5F5;
 }
 
 .polaroid-card > img {

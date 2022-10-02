@@ -98,7 +98,22 @@ class App extends React.Component {
     }
 
 
+    overlayRemove() {
+        console.log("overlayRemove()");
+        this.props.onPolaroidUnfocus();
+    }
+
+
     render() {
+
+        console.log("App.js render()");
+        console.log("App.js store", this.props.storeData.focused);
+
+        let opacity = 0.0;
+        if (this.props.storeData.focused) {
+            opacity = 1.0;
+        }
+
         return (
             <div className={"main"}>
                 <div className={this.state.menuClass}>
@@ -126,7 +141,6 @@ class App extends React.Component {
                 </div>
 
 
-
                 <div className={this.state.cameraClass}>
                     <img
                         style={{
@@ -146,6 +160,12 @@ class App extends React.Component {
                     {/*     src={portraitExample}*/}
                     {/*     alt={""} />*/}
 
+                    <div className={"overlay"}
+                         onClick={() => this.overlayRemove()}
+                         style={{
+                             opacity: opacity
+                    }}></div>
+
                     <Polaroid
                         style={{
                             transition: `${transitionTime} ease`,
@@ -153,7 +173,6 @@ class App extends React.Component {
                         }}
                         src={portraitExample}
                         alt={""} />
-
                 </div>
 
 
@@ -169,8 +188,8 @@ export default connect(
         storeData: state
     }),
     dispatch => ({
-        // onUpdateValues: (values) => {
-        //     dispatch({ type: 'UPDATE_VALUES', values: values});
-        // }
+        onPolaroidUnfocus: (values) => {
+            dispatch({type: 'POLAROID_UNFOCUSED', values: values});
+        }
     })
 )(App);
