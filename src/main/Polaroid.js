@@ -42,18 +42,19 @@ class Polaroid extends React.Component {
     getClassFocused() {
         let className = this.state.className.replace("polaroid-card-hover", "");
         className = className + " active";
-        console.log(`className = ${className}`);
+        // console.log(`className = ${className}`);
         return className
     }
 
     getClassUnfocused() {
         let className = this.state.className.replace("active", "");
         className = className + " polaroid-card-hover";
-        console.log(`className = ${className}`);
+        // console.log(`className = ${className}`);
         return className
     }
 
     click = (e) => {
+        console.log("CLICK!");
         this.props.onPolaroidFocus();
 
         // if focused already - the second click will cancel the effect
@@ -69,6 +70,8 @@ class Polaroid extends React.Component {
         if (this.props.storeData.focused) {
             className = this.getClassFocused();
         }
+
+        console.log(`className=${className}`);
 
         return (
             <div className={className}

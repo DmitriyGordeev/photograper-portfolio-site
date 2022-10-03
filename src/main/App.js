@@ -118,8 +118,8 @@ class App extends React.Component {
 
 
     removeOverlay() {
-        console.log("overlayRemove()");
-        this.props.onPolaroidUnfocus();
+        // console.log("overlayRemove()");
+        // this.props.onPolaroidUnfocus();
     }
 
 

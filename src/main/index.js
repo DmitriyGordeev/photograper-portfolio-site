@@ -10,7 +10,7 @@ import './index.css'
 
 
 document.addEventListener("wheel", (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     // event.stopPropagation();
     // now define custom functionality
 
