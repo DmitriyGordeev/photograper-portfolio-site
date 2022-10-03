@@ -12,29 +12,23 @@ body {
 }
 
 .holder {
-    display: block;
-    width: 200px;
-    height: 300px;
+    display: inline-block;
     background: white;
     padding: 7px 7px 20px;
+    position: relative;
+    width: auto;
 }
 
 .inner {
-    width: 100%;
-    height: 100%;
-    border: white;
 }
 
 .inner > img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    /*background-image: url("http://i.stack.imgur.com/2OrtT.jpg");*/
-    /*background-size: cover;*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: 50% 50%;*/
+    width: auto;
+    height: auto;
+    /*object-fit: cover;*/
+    max-width: 100%;
+    max-height: 100%;
 }
 
 

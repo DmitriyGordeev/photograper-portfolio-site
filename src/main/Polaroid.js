@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./Polaroid.css";
+import jquery from "jquery";
 
 
 class Polaroid extends React.Component {
@@ -35,6 +36,16 @@ class Polaroid extends React.Component {
             this.props.onPolaroidUnfocus();
         }
     }
+
+
+    // componentDidMount() {
+    //     jquery("img").each(function() {
+    //         let w = $(this).width();
+    //         let h = $(this).height();
+    //         console.log(`width = ${w}, height = ${h}`);
+    //     });
+    // }
+
 
 
     render() {
