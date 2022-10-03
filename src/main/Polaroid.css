@@ -16,17 +16,33 @@
 /*}*/
 
 
+/*.polaroid-card {*/
+/*    background: transparent;*/
+/*    --padding: 10px;*/
+/*    width: fit-content;*/
+/*    margin: 0 auto;*/
+/*    clip-path: circle(calc(35% - var(--padding)) at 50% 50%);*/
+/*    transition: clip-path 0.5s;*/
+/*    display: inline-block;*/
+/*    vertical-align: middle;*/
+/*    line-height: initial;*/
+/*    position: relative;*/
+/*}*/
+
+
 .polaroid-card {
+    /* width должен быть 350px как cardSize TODO: сделать динамически ? */
+    width: 350px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto;
     background: transparent;
     --padding: 10px;
-    width: fit-content;
-    margin: 0 auto;
-    clip-path: circle(calc(35% - var(--padding)) at 50% 50%);
+    clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
     transition: clip-path 0.5s;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: initial;
-    position: relative;
 }
 
 
@@ -58,8 +74,15 @@
     display: block;
     width: auto;
     height: auto;
-    object-fit: cover;
-    margin: 0 auto;
+    /*object-fit: cover;*/
+    /*margin: 0 auto;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+    transition: 850ms ease-in-out;
 }
 
 .active > .inner {
@@ -68,7 +91,7 @@
 }
 
 .active > .inner > img {
-    display: block;
+    /*display: block;*/
     /*width: 100%;*/
     /*height: auto;*/
 }

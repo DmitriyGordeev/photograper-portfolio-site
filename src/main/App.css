@@ -146,13 +146,13 @@ span{
     --size: 350px;      /* should be equal to cardSize = 350px in Polaroid.js - TODO: fix this! */
     width: var(--size);
     height: var(--size);
-    line-height: var(--size);
-    text-align: center;
-    /*background: green;*/
+    /*line-height: var(--size);*/
+    /*text-align: center;*/
+    background: green;
     margin: 0 auto;
     /*position: relative;*/
-    background-repeat:no-repeat;
-    background-size:contain;
+    /*background-repeat:no-repeat;*/
+    /*background-size:contain;*/
 }
 
 
