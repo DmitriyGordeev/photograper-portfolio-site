@@ -40,30 +40,40 @@
     right: 0;
     margin: auto auto;
     background: transparent;
+    /*background: #F5F5F5;*/
     --padding: 10px;
-    clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
+    /*padding: var(--padding) var(--padding) calc(3 * var(--padding));*/
+    /*clip-path: circle(calc(30% - var(--padding)) at 50% 50%);*/
     transition: clip-path 0.5s;
 }
 
 
 .inner {
+    background: #F5F5F5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+
+    display: block;
     width: fit-content;
-    height: auto;
-    margin: 0 auto;
-    background: red;
+    height: fit-content;
+    padding: 5px 5px 20px;
 }
 
 
 .polaroid-card-hover:hover {
-    clip-path: circle(calc(38% - var(--padding)) at 50% 50%);
-    background: transparent;
+    /*clip-path: circle(calc(38% - var(--padding)) at 50% 50%);*/
+    /*background: transparent;*/
 }
 
 
 .active {
     clip-path: circle(500% at 49% 47%);
-    background: #F5F5F5;
-    padding: var(--padding) var(--padding) calc(3 * var(--padding));
+    /*background: #F5F5F5;*/
+
     /*height: auto;*/
     transition: 850ms ease-in-out;
     display: inline-block;
@@ -71,17 +81,10 @@
 
 
 .inner > img {
-    display: block;
-    width: auto;
-    height: auto;
+
     /*object-fit: cover;*/
     /*margin: 0 auto;*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto auto;
+
     transition: 850ms ease-in-out;
 }
 
@@ -91,7 +94,4 @@
 }
 
 .active > .inner > img {
-    /*display: block;*/
-    /*width: 100%;*/
-    /*height: auto;*/
 }

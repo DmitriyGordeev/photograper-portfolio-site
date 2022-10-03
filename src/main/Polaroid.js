@@ -4,7 +4,7 @@ import "./Polaroid.css";
 import jquery from "jquery";
 
 
-const cardSize = "350px";
+const cardSize = "320px";
 
 class Polaroid extends React.Component {
     constructor(props) {
