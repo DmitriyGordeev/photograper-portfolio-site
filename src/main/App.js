@@ -131,12 +131,8 @@ class App extends React.Component {
         let overlayOpacity = 0.0;
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
-        let overlayZIndex = "auto";
-        let polaroidZIndex = "auto";
         if (this.props.storeData.focused) {
             overlayOpacity = 1.0;
-            overlayZIndex = 100;
-            polaroidZIndex = 105;
             polaroidScale = 1.05;
             polaroidTranslateUp = 50;       // when polaroid is focused lift it up a bit
         }
@@ -147,7 +143,6 @@ class App extends React.Component {
                 <div className={"overlay"}
                      onClick={() => this.removeOverlay()}
                      style={{
-                         zIndex: overlayZIndex,
                          opacity: overlayOpacity
                      }}></div>
 
@@ -183,9 +178,9 @@ class App extends React.Component {
                              transition: `${transitionTime} ease`,
                              transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
                     }}>
+
                         <Polaroid
                             style={{
-                                zIndex: polaroidZIndex,
                                 transition: `${transitionTime} ease`,
                                 transform: `
                                     rotate(${-this.state.angle}deg) 

@@ -116,16 +116,14 @@ span{
 
 
 .overlay {
-    opacity: 0.0;
+    opacity: 1.0;
     background: red;
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    /*bottom: 0;*/
-    /*right: 0;*/
-    overflow: auto;
+    /*overflow: auto;*/
     transition: 850ms ease;
 }
 
