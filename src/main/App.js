@@ -187,7 +187,7 @@ class App extends React.Component {
                             transition: `${transitionTime} ease`,
                             transform: `scale(${polaroidScale}) translate(${0}px, ${-polaroidTranslateUp}px)`
                         }}
-                        src={room}
+                        src={portraitExample}
                         alt={""} />
                 </div>
 

@@ -4,13 +4,38 @@ import "./Polaroid.css";
 import jquery from "jquery";
 
 
+const cardSize = "350px";
+
 class Polaroid extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            className: "polaroid-card polaroid-card-hover"
+            className: "polaroid-card polaroid-card-hover",
+            width: "auto",
+            height: "auto"
         }
+        this.imgRef = React.createRef();
     }
+
+
+    onImageLoad = () => {
+        console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
+        let w = this.imgRef.current.clientWidth;
+        let h = this.imgRef.current.clientHeight;
+
+        if (w >= h) {
+            this.setState({
+                width: cardSize,
+                height: "auto"
+            })
+        } else {
+            this.setState({
+                width: "auto",
+                height: cardSize
+            })
+        }
+    };
+
 
     // сделать полое затемнение (эффект сцены?), когда polaroid в фокусе
 
@@ -38,16 +63,6 @@ class Polaroid extends React.Component {
     }
 
 
-    // componentDidMount() {
-    //     jquery("img").each(function() {
-    //         let w = $(this).width();
-    //         let h = $(this).height();
-    //         console.log(`width = ${w}, height = ${h}`);
-    //     });
-    // }
-
-
-
     render() {
 
         let className = this.getClassUnfocused();
@@ -61,7 +76,14 @@ class Polaroid extends React.Component {
                  style={this.props.style}>
 
                 <div className={"inner"}>
-                    <img src={this.props.src} alt={this.props.alt} />
+                    <img ref={this.imgRef}
+                         style={{
+                             width: this.state.width,
+                             height: this.state.height
+                         }}
+                         onLoad={this.onImageLoad}
+                         src={this.props.src}
+                         alt={this.props.alt}/>
                 </div>
             </div>
         )
@@ -75,7 +97,7 @@ export default connect(
     }),
     dispatch => ({
         onPolaroidFocus: (values) => {
-            dispatch({ type: 'POLAROID_FOCUSED', values: values});
+            dispatch({type: 'POLAROID_FOCUSED', values: values});
         },
         onPolaroidUnfocus: (values) => {
             dispatch({type: 'POLAROID_UNFOCUSED', values: values});

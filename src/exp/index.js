@@ -12,16 +12,6 @@ import room from "../../resources/images/room.jpg";
 import App from "./App.js";
 
 
-// document.addEventListener("wheel", (event) => {
-//     event.preventDefault();
-//     // event.stopPropagation();
-//     // now define custom functionality
-//
-//     // console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
-//
-// }, { passive: false });
-
-
 const initialState = {};
 
 function reducer(state = initialState, action) {
@@ -45,6 +35,19 @@ const store = createStore(reducer,
 const root = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        {/*<App />*/}
+
+
+        <div>
+            <Polaroid
+                src={portraitExample}
+                alt={""} />
+
+            {/*<Polaroid*/}
+            {/*    src={room}*/}
+            {/*    alt={""} />*/}
+        </div>
+
+
     </Provider>,
 root);
