@@ -133,7 +133,7 @@ class App extends React.Component {
         let polaroidTranslateUp = 0;
         if (this.props.storeData.focused) {
             overlayOpacity = 1.0;
-            polaroidScale = 1.05;
+            polaroidScale = 1 / this.state.scale;
             polaroidTranslateUp = 50;       // when polaroid is focused lift it up a bit
         }
 
