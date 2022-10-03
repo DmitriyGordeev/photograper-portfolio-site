@@ -1,29 +1,42 @@
+/*.polaroid-card {*/
+/*    --width: 200px;     !* Должен быть такой же как cardSize в Polaroid.js - исправить hardcode!*!*/
+/*    --padding: 10px;*/
+/*    !*width: var(--width);*!*/
+/*    background: transparent;*/
+/*    padding: var(--padding) var(--padding) calc(3 * var(--padding));*/
+
+/*    !*position: relative;*!*/
+/*    margin: 0 auto;*/
+/*    */
+/*    !*top: 40px;*!*/
+/*    !*left: 40%;*!*/
+/*    !*clip-path: circle(calc(35.3% - var(--padding)) at 49% 47%);*!*/
+/*    transition: clip-path 0.5s;*/
+/*    display: block;*/
+/*}*/
+
+
 .polaroid-card {
-    --width: 400px;     /* Должен быть такой же как cardSize в Polaroid.js - исправить hardcode!*/
-    --padding: 10px;
-    /*width: var(--width);*/
     background: transparent;
-    padding: var(--padding) var(--padding) calc(3 * var(--padding));
-
-    position: absolute;
-    /*margin: 0 auto;*/
-    top: 40px;
-    left: 40%;
-    clip-path: circle(calc(35.3% - var(--padding)) at 49% 47%);
+    --padding: 10px;
+    /*padding: var(--padding) var(--padding) calc(3 * var(--padding));*/
+    width: fit-content;
+    margin: 0 auto;
+    clip-path: circle(calc(35.3% - var(--padding)) at 50% 50%);
     transition: clip-path 0.5s;
-
-    display: block;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: initial;
+    /*text-align: left;*/
 }
+
 
 .inner {
-    width: 100%;
-    height: 100%;
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+    background: red;
 }
-
-/*.polaroid-card:hover {*/
-/*    clip-path: circle(calc(38.3% - var(--padding)) at 49% 47%);*/
-/*    background: transparent;*/
-/*}*/
 
 
 .polaroid-card-hover:hover {
@@ -46,6 +59,7 @@
     width: auto;
     height: auto;
     object-fit: cover;
+    margin: 0 auto;
 }
 
 .active > .inner {

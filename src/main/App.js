@@ -166,15 +166,34 @@ class App extends React.Component {
 
 
                 <div className={this.state.cameraClass}>
-                    <img
-                        style={{
-                            transition: `${transitionTime} ease`,
-                            transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,
-                        }}
-                        src={cameraImage}
-                        alt={"camera-lenses"}
-                        id={"rot-camera-image"}>
-                    </img>
+                    {/*<img*/}
+                    {/*    style={{*/}
+                    {/*        transition: `${transitionTime} ease`,*/}
+                    {/*        transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,*/}
+                    {/*    }}*/}
+                    {/*    src={cameraImage}*/}
+                    {/*    alt={"camera-lenses"}*/}
+                    {/*    id={"rot-camera-image"}>*/}
+                    {/*</img>*/}
+
+                    <div className={"camera-background"}
+                         style={{
+                             backgroundImage: "url(" + cameraImage + ")",
+                             transition: `${transitionTime} ease`,
+                             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
+                    }}>
+
+                        <Polaroid
+                            style={{
+                                transition: `${transitionTime} ease`,
+                                transform: `
+                                    rotate(${-this.state.angle}deg)
+                                    translate(${0}px, ${-polaroidTranslateUp}px)`
+                            }}
+                            src={portraitExample}
+                            alt={""} />
+
+                    </div>
 
                     <div className={"overlay"}
                          onClick={() => this.removeOverlay()}
@@ -182,13 +201,7 @@ class App extends React.Component {
                              opacity: overlayOpacity
                     }}></div>
 
-                    <Polaroid
-                        style={{
-                            transition: `${transitionTime} ease`,
-                            transform: `scale(${polaroidScale}) translate(${0}px, ${-polaroidTranslateUp}px)`
-                        }}
-                        src={portraitExample}
-                        alt={""} />
+
                 </div>
 
                 <div className={"gallery"} />
