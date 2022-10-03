@@ -54,7 +54,6 @@ class Polaroid extends React.Component {
     }
 
     click = (e) => {
-        console.log("CLICK!");
         this.props.onPolaroidFocus();
 
         // if focused already - the second click will cancel the effect
@@ -70,8 +69,6 @@ class Polaroid extends React.Component {
         if (this.props.storeData.focused) {
             className = this.getClassFocused();
         }
-
-        console.log(`className=${className}`);
 
         return (
             <div className={className}

@@ -118,8 +118,8 @@ class App extends React.Component {
 
 
     removeOverlay() {
-        // console.log("overlayRemove()");
-        // this.props.onPolaroidUnfocus();
+        console.log("overlayRemove()");
+        this.props.onPolaroidUnfocus();
     }
 
 
@@ -131,14 +131,25 @@ class App extends React.Component {
         let overlayOpacity = 0.0;
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
+        let overlayZIndex = "auto";
+        let polaroidZIndex = "auto";
         if (this.props.storeData.focused) {
             overlayOpacity = 1.0;
-            polaroidScale = 1.1;
-            polaroidTranslateUp = 80;       // when polaroid is focused lift it up a bit
+            overlayZIndex = 100;
+            polaroidZIndex = 105;
+            polaroidScale = 1.05;
+            polaroidTranslateUp = 50;       // when polaroid is focused lift it up a bit
         }
 
         return (
             <div className={"main"}>
+
+                <div className={"overlay"}
+                     onClick={() => this.removeOverlay()}
+                     style={{
+                         zIndex: overlayZIndex,
+                         opacity: overlayOpacity
+                     }}></div>
 
                 <div className={this.state.menuClass}>
                     <div className={"menu-item"}>
@@ -166,41 +177,25 @@ class App extends React.Component {
 
 
                 <div className={this.state.cameraClass}>
-                    {/*<img*/}
-                    {/*    style={{*/}
-                    {/*        transition: `${transitionTime} ease`,*/}
-                    {/*        transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`,*/}
-                    {/*    }}*/}
-                    {/*    src={cameraImage}*/}
-                    {/*    alt={"camera-lenses"}*/}
-                    {/*    id={"rot-camera-image"}>*/}
-                    {/*</img>*/}
-
                     <div className={"camera-background"}
                          style={{
                              backgroundImage: "url(" + cameraImage + ")",
                              transition: `${transitionTime} ease`,
                              transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
                     }}>
-
                         <Polaroid
                             style={{
+                                zIndex: polaroidZIndex,
                                 transition: `${transitionTime} ease`,
                                 transform: `
-                                    rotate(${-this.state.angle}deg)
+                                    rotate(${-this.state.angle}deg) 
+                                    scale(${polaroidScale}) 
                                     translate(${0}px, ${-polaroidTranslateUp}px)`
                             }}
                             src={portraitExample}
                             alt={""} />
 
                     </div>
-
-                    <div className={"overlay"}
-                         onClick={() => this.removeOverlay()}
-                         style={{
-                             opacity: overlayOpacity
-                    }}></div>
-
 
                 </div>
 
