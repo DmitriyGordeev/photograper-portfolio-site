@@ -168,9 +168,6 @@ class App extends React.Component {
 
     render() {
 
-        console.log("App.js render()");
-        console.log("App.js store", this.props.storeData.focused);
-
         let overlayOpacity = 1.0;
         let overlayHeight = 0;
         let polaroidScale = this.state.scale;
@@ -183,8 +180,8 @@ class App extends React.Component {
             overlayHeight = "100%";
 
             // change polaroid scale to const 1.0
-            polaroidScale = 1.0;
-            polaroidTranslateUp = 50;       // when polaroid is focused lift it up a bit
+            polaroidScale = 1.2;
+            polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
 
         return (
@@ -225,12 +222,12 @@ class App extends React.Component {
                          }}>
                     </div>
 
-                    {/*<div className={"overlay"}*/}
-                    {/*     onClick={() => this.removeOverlay()}*/}
-                    {/*     style={{*/}
-                    {/*         opacity: overlayOpacity,*/}
-                    {/*         height: overlayHeight*/}
-                    {/*     }}></div>*/}
+                    <div className={"overlay"}
+                         onClick={() => this.removeOverlay()}
+                         style={{
+                             opacity: overlayOpacity,
+                             height: overlayHeight
+                         }}></div>
 
                     {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
 
