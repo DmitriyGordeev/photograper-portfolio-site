@@ -25,7 +25,7 @@ class App extends React.Component {
             height: "auto",
             active_polaroid_index: images.length - 1
         }
-        this.imgRef = React.createRef();
+        // this.imgRef = React.createRef();
     }
 
 

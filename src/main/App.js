@@ -18,6 +18,14 @@ const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
 const transitionTime = "850ms";
 
+
+const images = [
+    portraitExample,
+    portraitExample2,
+    room
+];
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +34,8 @@ class App extends React.Component {
             scale: 1.0,
             menuClass: "top-menu-holder wide-menu",
             cameraClass: "camera-view",
-            cameraEnabled: true
+            cameraEnabled: true,
+            active_polaroid_index: images.length - 1
         };
         this.locked = false;
     }
@@ -44,9 +53,6 @@ class App extends React.Component {
             return;
         }
 
-        // if delta-time between two calls of this function gt delta_time_threshold -
-        // we count it as a continuous scroll
-
         console.log("Scrolling inside component: deltaY", event.deltaY);
         let scrollAmount = event.deltaY;
         let addedAngle = deg2px * scrollAmount;
@@ -56,18 +62,29 @@ class App extends React.Component {
             addedAngle = ${addedAngle},
             addedScale = ${addedScale}`);
 
-        // console.log("this.state.angle = " + this.state.angle);
+        console.log("this.state.angle = " + this.state.angle);
 
         let angle = 0;
         let scale = 0;
+        let active_polaroid_index = this.state.active_polaroid_index;
         if (scrollAmount > 0) {
             angle = this.state.angle + fixedDegAdded;
             scale = this.state.scale + fixedScaleAdded;
-        }
-        else {
+            active_polaroid_index -= 1;
+        } else {
             angle = this.state.angle - fixedDegAdded;
             scale = this.state.scale - fixedScaleAdded;
+            active_polaroid_index += 1;
         }
+
+
+        if (active_polaroid_index < 0) {
+            active_polaroid_index = 0;
+        }
+        else if (active_polaroid_index >= images.length) {
+            active_polaroid_index = images.length - 1;
+        }
+
 
         let menuClass = this.state.menuClass;
         let cameraClass = this.state.cameraClass;
@@ -77,26 +94,26 @@ class App extends React.Component {
         if (scale <= 1.0)
             scale = 1.0;
 
-        if (scale >= 1.3) {
-            menuClass = "top-menu-holder";
-            // cameraClass += " invisible";
-        }
-        else if (scale < 1.3) {
-            menuClass = menuClass + " wide-menu";
-            // cameraClass = cameraClass.replace("invisible", "");
+        if (angle <= 0) {
+            angle = 0;
         }
 
-        // cameraEnabled = scale < 2.0;
-        // console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
+        if (scale >= 1.3) {
+            menuClass = "top-menu-holder";
+        } else if (scale < 1.3) {
+            menuClass = menuClass + " wide-menu";
+        }
+
+        console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
 
         if (scale >= 2.0) {
             cameraClass += " camera-view-zooming";
-        }
-        else {
+        } else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
-
-            // TODO: также сделать display: none чтобы элемент не мешал эвентам?
         }
+
+
+        console.log("Active polaroid index = " + active_polaroid_index);
 
 
         this.setState({
@@ -104,13 +121,14 @@ class App extends React.Component {
             scale: scale,
             menuClass: menuClass,
             cameraClass: cameraClass,
-            cameraEnabled: cameraEnabled
+            cameraEnabled: cameraEnabled,
+            active_polaroid_index: active_polaroid_index
         });
 
         // adds cooldown to the scrolling event
         this.locked = true;
         let thisRef = this;
-        setTimeout(function() {
+        setTimeout(function () {
             thisRef.locked = false;
             console.log("UNLOCKED");
         }, 750);            // timeout in ms
@@ -120,6 +138,31 @@ class App extends React.Component {
     removeOverlay() {
         console.log("overlayRemove()");
         this.props.onPolaroidUnfocus();
+    }
+
+
+    updatePolaroids(polaroidScale, polaroidTranslateUp) {
+        console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
+        let out = [];
+        for (let i = 0; i < images.length; i++) {
+            let opacity = 0.0;
+            if (i === this.state.active_polaroid_index)
+                opacity = 1.0;
+            out.push(
+                <Polaroid
+                    key={i}
+                    style={{
+                        opacity: opacity,
+                        transition: `${transitionTime} ease`,
+                        transform: `
+                                scale(${polaroidScale}) 
+                                translate(${0}px, ${-polaroidTranslateUp}px)`
+                    }}
+                    src={images[i]}
+                    alt={""}/>
+            );
+        }
+        return out;
     }
 
 
@@ -179,28 +222,21 @@ class App extends React.Component {
                              // backgroundImage: "url(" + cameraImage + ")",
                              transition: `${transitionTime} ease`,
                              transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
-                    }}>
+                         }}>
                     </div>
 
-                    <div className={"overlay"}
-                         onClick={() => this.removeOverlay()}
-                         style={{
-                             opacity: overlayOpacity,
-                             height: overlayHeight
-                         }}></div>
+                    {/*<div className={"overlay"}*/}
+                    {/*     onClick={() => this.removeOverlay()}*/}
+                    {/*     style={{*/}
+                    {/*         opacity: overlayOpacity,*/}
+                    {/*         height: overlayHeight*/}
+                    {/*     }}></div>*/}
 
-                    <Polaroid
-                        style={{
-                            transition: `${transitionTime} ease`,
-                            transform: `
-                                scale(${polaroidScale}) 
-                                translate(${0}px, ${-polaroidTranslateUp}px)`
-                        }}
-                        src={portraitExample}
-                        alt={""} />
+                    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
+
                 </div>
 
-                <div className={"gallery"} />
+                <div className={"gallery"}/>
 
             </div>
         );
