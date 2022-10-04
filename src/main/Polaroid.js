@@ -81,6 +81,7 @@ class Polaroid extends React.Component {
                              width: this.state.width,
                              height: this.state.height
                          }}
+                         onClick={this.props.onClick}
                          onLoad={this.onImageLoad}
                          src={this.props.src}
                          alt={this.props.alt}/>

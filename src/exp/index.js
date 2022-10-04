@@ -35,19 +35,6 @@ const store = createStore(reducer,
 const root = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
-        {/*<App />*/}
-
-
-        <div>
-            <Polaroid
-                src={portraitExample}
-                alt={""} />
-
-            {/*<Polaroid*/}
-            {/*    src={room}*/}
-            {/*    alt={""} />*/}
-        </div>
-
-
+        <App />
     </Provider>,
 root);
