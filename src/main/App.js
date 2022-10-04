@@ -128,23 +128,25 @@ class App extends React.Component {
         console.log("App.js render()");
         console.log("App.js store", this.props.storeData.focused);
 
-        let overlayOpacity = 0.0;
+        let overlayOpacity = 1.0;
+        let overlayHeight = 0;
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
         if (this.props.storeData.focused) {
+
+            // change overlay's opacity to 1.0 (make it visible)
+            // and size to 100% of the screen
             overlayOpacity = 1.0;
-            polaroidScale = 1 / this.state.scale;
+            overlayHeight = "100%";
+
+            // change polaroid scale to const 1.0
+            polaroidScale = 1.0;
             polaroidTranslateUp = 50;       // when polaroid is focused lift it up a bit
         }
 
         return (
             <div className={"main"}>
 
-                {/*<div className={"overlay"}*/}
-                {/*     onClick={() => this.removeOverlay()}*/}
-                {/*     style={{*/}
-                {/*         opacity: overlayOpacity*/}
-                {/*     }}></div>*/}
 
                 <div className={this.state.menuClass}>
                     <div className={"menu-item"}>
@@ -179,6 +181,13 @@ class App extends React.Component {
                              transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
                     }}>
                     </div>
+
+                    <div className={"overlay"}
+                         onClick={() => this.removeOverlay()}
+                         style={{
+                             opacity: overlayOpacity,
+                             height: overlayHeight
+                         }}></div>
 
                     <Polaroid
                         style={{
