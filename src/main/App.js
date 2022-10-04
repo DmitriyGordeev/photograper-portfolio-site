@@ -140,11 +140,11 @@ class App extends React.Component {
         return (
             <div className={"main"}>
 
-                <div className={"overlay"}
-                     onClick={() => this.removeOverlay()}
-                     style={{
-                         opacity: overlayOpacity
-                     }}></div>
+                {/*<div className={"overlay"}*/}
+                {/*     onClick={() => this.removeOverlay()}*/}
+                {/*     style={{*/}
+                {/*         opacity: overlayOpacity*/}
+                {/*     }}></div>*/}
 
                 <div className={this.state.menuClass}>
                     <div className={"menu-item"}>
@@ -187,7 +187,7 @@ class App extends React.Component {
                                 scale(${polaroidScale}) 
                                 translate(${0}px, ${-polaroidTranslateUp}px)`
                         }}
-                        src={room}
+                        src={portraitExample}
                         alt={""} />
                 </div>
 
