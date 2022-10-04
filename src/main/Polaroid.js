@@ -4,6 +4,8 @@ import "./Polaroid.css";
 import jquery from "jquery";
 
 
+import reflection from './../../resources/images/camera_reflection.png';
+
 const cardSize = "320px";
 
 class Polaroid extends React.Component {
@@ -83,11 +85,12 @@ class Polaroid extends React.Component {
                          alt={this.props.alt}/>
 
                     <div className={"filter"} style={{
+                        // backgroundImage: "url(" + reflection + ")",
                         opacity: this.props.storeData.focused ? 0.0 : 1.0
                     }}>
-                        <div className="lens-center"></div>
-                        <div className="circle-1"></div>
-                        <div className="circle-2"></div>
+                        {/*<div className="lens-center"></div>*/}
+                        {/*<div className="circle-1"></div>*/}
+                        {/*<div className="circle-2"></div>*/}
                     </div>
                 </div>
             </div>
