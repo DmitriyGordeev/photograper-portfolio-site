@@ -42,7 +42,7 @@
     background: transparent;
     --padding: 10px;
     clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
-    transition: clip-path 0.5s;
+    transition: clip-path 0.5s, 850ms ease-in-out;
 }
 
 

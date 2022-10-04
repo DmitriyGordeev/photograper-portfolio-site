@@ -47,8 +47,8 @@ class App extends React.Component {
             out.push(
                 <Polaroid
                     key={i}
-                    style={{opacity: opacity }}
-                    onClick={() => this.click()}
+                    style={{opacity: opacity}}
+                    // onClick={() => this.click()}
                     src={images[i]}
                     alt={""} />
             );
@@ -104,6 +104,8 @@ class App extends React.Component {
                 {/*    alt={""} />*/}
 
                 {this.updatePolaroids()}
+
+                <div className={"test_button"} onClick={() => this.click()}></div>
 
             </div>
         );
