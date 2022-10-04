@@ -79,3 +79,9 @@
     background: #F5F5F5;
     transition: 850ms ease-in-out;
 }
+
+
+.polaroid-card div.img {
+    display: block;
+    background: red;
+}

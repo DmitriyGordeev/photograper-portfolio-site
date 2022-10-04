@@ -17,7 +17,6 @@ class Polaroid extends React.Component {
         this.imgRef = React.createRef();
     }
 
-
     onImageLoad = () => {
         console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
         let w = this.imgRef.current.clientWidth;
@@ -35,9 +34,6 @@ class Polaroid extends React.Component {
             })
         }
     };
-
-
-    // сделать полое затемнение (эффект сцены?), когда polaroid в фокусе
 
     getClassFocused() {
         let className = this.state.className.replace("polaroid-card-hover", "");
@@ -85,6 +81,17 @@ class Polaroid extends React.Component {
                          onLoad={this.onImageLoad}
                          src={this.props.src}
                          alt={this.props.alt}/>
+
+
+                    {/*<div*/}
+                    {/*    ref={this.imgRef}*/}
+                    {/*    className={"img"}*/}
+                    {/*    style={{*/}
+                    {/*        width: this.state.width,*/}
+                    {/*        height: this.state.height,*/}
+                    {/*        backgroundImage: `url(${this.props.src})`*/}
+                    {/*    }}*/}
+                    {/*/>*/}
                 </div>
             </div>
         )
