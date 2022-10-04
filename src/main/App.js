@@ -216,7 +216,7 @@ class App extends React.Component {
                 <div className={this.state.cameraClass}>
                     <div className={"camera-background"}
                          style={{
-                             // backgroundImage: "url(" + cameraImage + ")",
+                             backgroundImage: "url(" + cameraImage + ")",
                              transition: `${transitionTime} ease`,
                              transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
                          }}>

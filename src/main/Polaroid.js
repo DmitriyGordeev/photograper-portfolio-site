@@ -82,16 +82,13 @@ class Polaroid extends React.Component {
                          src={this.props.src}
                          alt={this.props.alt}/>
 
-
-                    {/*<div*/}
-                    {/*    ref={this.imgRef}*/}
-                    {/*    className={"img"}*/}
-                    {/*    style={{*/}
-                    {/*        width: this.state.width,*/}
-                    {/*        height: this.state.height,*/}
-                    {/*        backgroundImage: `url(${this.props.src})`*/}
-                    {/*    }}*/}
-                    {/*/>*/}
+                    <div className={"filter"} style={{
+                        opacity: this.props.storeData.focused ? 0.0 : 1.0
+                    }}>
+                        <div className="lens-center"></div>
+                        <div className="circle-1"></div>
+                        <div className="circle-2"></div>
+                    </div>
                 </div>
             </div>
         )

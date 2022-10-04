@@ -85,3 +85,45 @@
     display: block;
     background: red;
 }
+
+
+.filter {
+    position: absolute;
+    opacity: 1.0;
+    /*background: blue;*/
+    width: calc(50% - var(--padding));
+    height: calc(50% - var(--padding));
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+    transition: 850ms ease-in-out;
+}
+
+
+.filter > .circle-1 {
+    width: calc(15vmin * 0.7);
+    height: calc(15vmin * 0.7);
+    left: 50%;
+    top: 50%;
+    border-radius: 100%;
+    position: absolute;
+    background: radial-gradient(closest-side circle at center,
+    transparent 0%,
+    hsla(197, 100%, 90%, 0.4) 90%,
+    transparent 2%);
+    filter: blur(2px);
+}
+
+
+.filter > .circle-2 {
+    width: calc(10vmin * 0.4);
+    height: calc(10vmin * 0.4);
+    left: 80%;
+    top: 80%;
+    border-radius: 100%;
+    position: absolute;
+    background: hsla(197, 100%, 90%, 0.4);
+    filter: blur(1px);
+}

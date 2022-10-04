@@ -7,7 +7,7 @@
 }
 
 .camera-view {
-    background: #b0b0c2;
+    /*background: #b0b0c2;*/
     width: 100%;
     position: relative;
 }
@@ -148,11 +148,11 @@ span{
     height: var(--size);
     /*line-height: var(--size);*/
     /*text-align: center;*/
-    background: green;
+    /*background: green;*/
     margin: 0 auto;
     /*position: relative;*/
-    /*background-repeat:no-repeat;*/
-    /*background-size:contain;*/
+    background-repeat:no-repeat;
+    background-size:contain;
 }
 
 

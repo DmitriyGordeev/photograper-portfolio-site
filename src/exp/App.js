@@ -84,18 +84,26 @@ class App extends React.Component {
 
                 {/*<br />*/}
 
+
+
+
                 {/*<div className={"holder"}>*/}
-                {/*    <div className={"inner"}>*/}
-                {/*        <img src={room} alt={""}/>*/}
+                {/*    <img src={portraitExample} alt={""}/>*/}
+                {/*    <div className={"filter"}>*/}
+                {/*        <div className="lens-center"></div>*/}
+                {/*        <div className="circle-1"></div>*/}
+                {/*        <div className="circle-2"></div>*/}
                 {/*    </div>*/}
+
                 {/*</div>*/}
 
 
-                {/*<Polaroid*/}
-                {/*    style={{opacity: 1 - this.state.opacity}}*/}
-                {/*    onClick={() => this.click()}*/}
-                {/*    src={portraitExample}*/}
-                {/*    alt={""} />*/}
+
+
+                <Polaroid
+                    onClick={() => this.click()}
+                    src={room}
+                    alt={""} />
 
                 {/*<Polaroid*/}
                 {/*    style={{opacity: this.state.opacity}}*/}
@@ -103,9 +111,9 @@ class App extends React.Component {
                 {/*    src={portraitExample2}*/}
                 {/*    alt={""} />*/}
 
-                {this.updatePolaroids()}
+                {/*{this.updatePolaroids()}*/}
 
-                <div className={"test_button"} onClick={() => this.click()}></div>
+                {/*<div className={"test_button"} onClick={() => this.click()}></div>*/}
 
             </div>
         );
