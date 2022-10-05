@@ -11,7 +11,9 @@ import room from "../../resources/images/room.jpg";
 // import Polaroid from "../main/Polaroid";
 
 
-const angleOffset = 15;     // in degrees
+const angleOffsetDeg = 10;     // in degrees
+
+const numMaxImages = 3;     // how many images rolling gallery can show at the same time
 
 const images = [
     portraitExample,
@@ -23,12 +25,16 @@ const images = [
 const scroll2rotAngle = 1 / 30;     // 1deg of rotation per 40px of scrolling
 
 
+function angle2opacity(startAngle, endAngle, currentAngle) {
+    return (1 - (currentAngle - startAngle) / (endAngle - startAngle));
+}
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            angle: 0,
-            opacity: 1.0
+            angle: 0
         }
     }
 
@@ -41,7 +47,7 @@ class App extends React.Component {
         console.log("event.deltaY = " + event.deltaY);
 
         let angle = this.state.angle + event.deltaY * scroll2rotAngle;
-        console.log(`angle = ${angle}`);
+        // console.log(`angle = ${angle}`);
 
         let opacity = this.state.opacity;
 
@@ -51,14 +57,58 @@ class App extends React.Component {
 
         this.setState({
             ...this.state,
-            angle: angle,
-            opacity: opacity});
+            angle: angle
+        });
     }
 
 
 
     updateGallery() {
 
+        let debugMin = 10;
+        let debugMax = 20;
+
+        let out = [];
+        let angleOffset = -(numMaxImages - 1) * angleOffsetDeg;
+
+        for (let i = 0; i < numMaxImages; i++) {
+
+            let angle = this.state.angle - angleOffset;
+            let skewAngle = angle * 0.5;
+            let rotYAngle = angle * 1.2;
+
+            console.log(`angle = ${angle}`);
+
+            let opacity = 1.0;
+            if (this.state.angle - angleOffset >= debugMin) {
+                opacity = angle2opacity(debugMin, debugMax, angle);
+            }
+            if (this.state.angle - angleOffset <= -debugMin) {
+                opacity = angle2opacity(-debugMin, -debugMax, angle);
+            }
+            console.log(`angle = ${angle}, opacity = ${opacity}`);
+
+            let display = "block";
+            if (opacity < 0.3) {
+                display = "none";
+            }
+
+            out.push(
+                <div className={"common rot"}
+                     key={i}
+                     style={{
+                         opacity: opacity,
+                         display: display,
+                         transform: `skew(0deg, ${skewAngle}deg) rotateY(${rotYAngle}deg)`
+                     }}>
+                    <img src={images[i]} alt={""}/>
+                </div>
+            );
+
+            angleOffset -= angleOffsetDeg;
+        }
+
+        return out;
     }
 
 
@@ -68,24 +118,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-
-                <div className={"common rot"}
-                     style={{
-                         opacity: this.state.opacity,
-                         transform: `skew(0deg, ${this.state.angle - 15}deg) rotateY(${(this.state.angle - 15) * 1.1}deg)`
-                }}>
-                    <img src={room} alt={""}/>
-                </div>
-
-
-                <div className={"common rot"}
-                     style={{
-                         opacity: this.state.opacity,
-                         transform: `skew(0deg, ${this.state.angle}deg) rotateY(${this.state.angle * 1.1}deg)`
-                     }}>
-                    <img src={portraitExample} alt={""}/>
-                </div>
-
+                {this.updateGallery()}
             </div>
         );
     }
