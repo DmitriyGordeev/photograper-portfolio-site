@@ -30,28 +30,6 @@ class Menu extends React.Component {
                         <a href={"https://google.com"}><span>CONTACT</span></a>
                     </li>
                 </ul>
-
-                {/*<div className={"menu-item"}>*/}
-                {/*    <p>*/}
-                {/*        <a href={"https://google.com"}>*/}
-                {/*            <span>ABOUT ME</span>*/}
-                {/*        </a>*/}
-                {/*    </p>*/}
-                {/*</div>*/}
-                {/*<div className={"menu-item"}>*/}
-                {/*    <p>*/}
-                {/*        <a href={"https://google.com"}>*/}
-                {/*            <span>SOCIALS</span>*/}
-                {/*        </a>*/}
-                {/*    </p>*/}
-                {/*</div>*/}
-                {/*<div className={"menu-item"}>*/}
-                {/*    <p>*/}
-                {/*        <a href={"https://google.com"}>*/}
-                {/*            <span>CONTACT</span>*/}
-                {/*        </a>*/}
-                {/*    </p>*/}
-                {/*</div>*/}
             </div>
         )
     }
