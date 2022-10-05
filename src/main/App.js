@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import "./App.css";
 
 import Polaroid from "./Polaroid";
+import Menu from './Menu';
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
@@ -186,30 +187,31 @@ class App extends React.Component {
         return (
             <div className={"main"}>
 
+                <Menu />
 
-                <div className={this.state.menuClass}>
-                    <div className={"menu-item"}>
-                        <p>
-                            <a href={"https://google.com"}>
-                                <span>ABOUT ME</span>
-                            </a>
-                        </p>
-                    </div>
-                    <div className={"menu-item"}>
-                        <p>
-                            <a href={"https://google.com"}>
-                                <span>SOCIALS</span>
-                            </a>
-                        </p>
-                    </div>
-                    <div className={"menu-item"}>
-                        <p>
-                            <a href={"https://google.com"}>
-                                <span>CONTACT</span>
-                            </a>
-                        </p>
-                    </div>
-                </div>
+                {/*<div className={this.state.menuClass}>*/}
+                {/*    <div className={"menu-item"}>*/}
+                {/*        <p>*/}
+                {/*            <a href={"https://google.com"}>*/}
+                {/*                <span>ABOUT ME</span>*/}
+                {/*            </a>*/}
+                {/*        </p>*/}
+                {/*    </div>*/}
+                {/*    <div className={"menu-item"}>*/}
+                {/*        <p>*/}
+                {/*            <a href={"https://google.com"}>*/}
+                {/*                <span>SOCIALS</span>*/}
+                {/*            </a>*/}
+                {/*        </p>*/}
+                {/*    </div>*/}
+                {/*    <div className={"menu-item"}>*/}
+                {/*        <p>*/}
+                {/*            <a href={"https://google.com"}>*/}
+                {/*                <span>CONTACT</span>*/}
+                {/*            </a>*/}
+                {/*        </p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
 
                 <div className={this.state.cameraClass}>

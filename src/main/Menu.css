@@ -1,0 +1,76 @@
+.top-menu-holder {
+    --transition-speed: 0.25s;
+
+    transition: all var(--transition-speed) linear;
+    -webkit-transition: all var(--transition-speed) linear;
+    -moz-transition: all var(--transition-speed) linear;
+    -o-transition: all var(--transition-speed) linear;
+
+    /*border: 1px solid red;*/
+    background: green;
+}
+
+
+.menu-item {
+    transition: all var(--transition-speed) linear;
+    -webkit-transition: all var(--transition-speed) linear;
+    -moz-transition: all var(--transition-speed) linear;
+    -o-transition: all var(--transition-speed) linear;
+    display: block;
+
+    background: yellow;
+}
+
+.menu-item > p {
+    transition: all var(--transition-speed) linear;
+    -webkit-transition: all var(--transition-speed) linear;
+    -moz-transition: all var(--transition-speed) linear;
+    -o-transition: all var(--transition-speed) linear;
+
+    margin-top: auto;
+
+    background: blue;
+    /*position: relative;*/
+    /*top: 120px;*/
+}
+
+
+.wide-menu > .menu-item {
+    /*background: green;*/
+    display: inline-block;
+    width: 33%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.wide-menu > .menu-item > p {
+    /*background: yellow;*/
+    margin-top: 120px;
+    --side-padding: 50px;
+}
+
+.wide-menu > .menu-item:nth-child(1) > p {
+    text-align: right;
+    padding-right: var(--side-padding);
+}
+
+.wide-menu > .menu-item:nth-child(2) > p {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.wide-menu > .menu-item:nth-child(3) > p {
+    padding-left: var(--side-padding);
+}
+
+p > a {
+    background: red;
+    text-decoration: none;
+}
+
+span{
+    display: inline-block;
+    border-bottom: 2px solid #47A3BE;
+    padding-bottom: 1px;
+    color: #47A3BE;
+}
