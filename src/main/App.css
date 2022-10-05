@@ -7,7 +7,7 @@
 }
 
 .camera-view {
-    /*background: #b0b0c2;*/
+    background: #b0b0c2;
     width: 100%;
     position: relative;
 }
@@ -31,6 +31,7 @@
     -o-transition: all var(--transition-speed) linear;
 
     /*border: 1px solid red;*/
+    background: green;
 }
 
 
@@ -40,6 +41,8 @@
     -moz-transition: all var(--transition-speed) linear;
     -o-transition: all var(--transition-speed) linear;
     display: block;
+
+    background: yellow;
 }
 
 .menu-item > p {
@@ -49,6 +52,10 @@
     -o-transition: all var(--transition-speed) linear;
 
     margin-top: auto;
+
+    background: blue;
+    /*position: relative;*/
+    /*top: 120px;*/
 }
 
 
@@ -81,6 +88,7 @@
 }
 
 p > a {
+    background: red;
     text-decoration: none;
 }
 

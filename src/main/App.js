@@ -78,10 +78,10 @@ class App extends React.Component {
         }
 
 
-        if (active_polaroid_index < 0) {
-            active_polaroid_index = 0;
-        }
-        else if (active_polaroid_index >= images.length) {
+        // if (active_polaroid_index < 0) {
+        //     active_polaroid_index = 0;
+        // }
+        if (active_polaroid_index >= images.length) {
             active_polaroid_index = images.length - 1;
         }
 
@@ -106,15 +106,14 @@ class App extends React.Component {
 
         console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
 
-        if (scale >= 2.0) {
+        // when there is no images left on the camera-view we navigate to the gallery
+        if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
         } else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
         }
 
-
         console.log("Active polaroid index = " + active_polaroid_index);
-
 
         this.setState({
             angle: angle,
