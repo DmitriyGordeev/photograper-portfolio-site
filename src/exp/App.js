@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-// import "./App.css";
+import "./App.css";
+
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
-import Polaroid from "../main/Polaroid";
+
+// import Polaroid from "../main/Polaroid";
 
 
+const angleOffset = 15;     // in degrees
 
 const images = [
     portraitExample,
@@ -17,103 +20,71 @@ const images = [
 ]
 
 
+const scroll2rotAngle = 1 / 30;     // 1deg of rotation per 40px of scrolling
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            width: "auto",
-            height: "auto",
-            active_polaroid_index: images.length - 1
+            angle: 0,
+            opacity: 1.0
         }
-        // this.imgRef = React.createRef();
     }
 
 
-    click() {
+    componentDidMount() {
+        window.addEventListener('wheel', this.handleScroll);
+    }
+
+    handleScroll = (event) => {
+        console.log("event.deltaY = " + event.deltaY);
+
+        let angle = this.state.angle + event.deltaY * scroll2rotAngle;
+        console.log(`angle = ${angle}`);
+
+        let opacity = this.state.opacity;
+
+        if (angle >= 60) {
+            opacity = 0.5;
+        }
+
         this.setState({
             ...this.state,
-            active_polaroid_index: this.state.active_polaroid_index - 1
-        })
+            angle: angle,
+            opacity: opacity});
     }
 
 
-    updatePolaroids() {
-        console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
-        let out = [];
-        for (let i = 0; i < images.length; i++) {
-            let opacity = 0.0;
-            if (i === this.state.active_polaroid_index)
-                opacity = 1.0;
-            out.push(
-                <Polaroid
-                    key={i}
-                    style={{opacity: opacity}}
-                    // onClick={() => this.click()}
-                    src={images[i]}
-                    alt={""} />
-            );
-        }
-        return out;
+
+    updateGallery() {
+
     }
+
+
 
 
 
     render() {
         return (
             <div>
-                {/*<div className={"holder"}>*/}
-                {/*    <div className={"inner"}>*/}
-                {/*        <img ref={this.imgRef}*/}
-                {/*             style={{*/}
-                {/*                 width: this.state.width,*/}
-                {/*                 height: this.state.height*/}
-                {/*             }}*/}
-                {/*             onLoad={this.onImageLoad}*/}
-                {/*             src={portraitExample}*/}
-                {/*             alt={""}/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
 
-                {/*<br />*/}
-
-                {/*<div className={"holder"}>*/}
-                {/*    <div className={"inner"}>*/}
-                {/*        <img src={portraitExample2} alt={""}/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-                {/*<br />*/}
+                <div className={"common rot"}
+                     style={{
+                         opacity: this.state.opacity,
+                         transform: `skew(0deg, ${this.state.angle - 15}deg) rotateY(${(this.state.angle - 15) * 1.1}deg)`
+                }}>
+                    <img src={room} alt={""}/>
+                </div>
 
 
-
-
-                {/*<div className={"holder"}>*/}
-                {/*    <img src={portraitExample} alt={""}/>*/}
-                {/*    <div className={"filter"}>*/}
-                {/*        <div className="lens-center"></div>*/}
-                {/*        <div className="circle-1"></div>*/}
-                {/*        <div className="circle-2"></div>*/}
-                {/*    </div>*/}
-
-                {/*</div>*/}
-
-
-
-
-                <Polaroid
-                    onClick={() => this.click()}
-                    src={room}
-                    alt={""} />
-
-                {/*<Polaroid*/}
-                {/*    style={{opacity: this.state.opacity}}*/}
-                {/*    onClick={() => this.click()}*/}
-                {/*    src={portraitExample2}*/}
-                {/*    alt={""} />*/}
-
-                {/*{this.updatePolaroids()}*/}
-
-                {/*<div className={"test_button"} onClick={() => this.click()}></div>*/}
+                <div className={"common rot"}
+                     style={{
+                         opacity: this.state.opacity,
+                         transform: `skew(0deg, ${this.state.angle}deg) rotateY(${this.state.angle * 1.1}deg)`
+                     }}>
+                    <img src={portraitExample} alt={""}/>
+                </div>
 
             </div>
         );
@@ -125,8 +96,5 @@ export default connect(
         storeData: state
     }),
     dispatch => ({
-        onPolaroidUnfocus: (values) => {
-            dispatch({type: 'POLAROID_UNFOCUSED', values: values});
-        }
     })
 )(App);

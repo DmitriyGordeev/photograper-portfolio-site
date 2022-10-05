@@ -1,0 +1,33 @@
+.common {
+    --height: 200px;
+    position: absolute;
+    background: white;
+    display: inline-block;
+    padding: 5px 5px 20px 5px;
+}
+
+.rot {
+    top: 150px;
+
+    /*-moz-transform: skew(0deg, 12deg);*/
+    /*-webkit-transform: skew(0deg, 12deg);*/
+    /*-o-transform: skew(0deg, 12deg);*/
+    /*-ms-transform: skew(0deg, 12deg);*/
+    /*transform: skew(0deg, -15deg);*/
+    /*transition: 500ms ease-in-out;*/
+    transform-origin: center left;
+}
+
+.common:hover {
+    margin-left: 10px;
+    transition: all 450ms ease-in-out, transform 0ms;
+}
+
+.common:hover img {
+    /*height: calc(var(--height) * 1.1);*/
+}
+
+img {
+    width: auto;
+    height: var(--height);
+}
