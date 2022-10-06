@@ -5,6 +5,7 @@
 
 body {
     background: #020A0D;
+    overflow: hidden; /* Hide scrollbars */
 }
 
 .invisible {

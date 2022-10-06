@@ -9,6 +9,7 @@ import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
+import Gallery from "./Gallery";
 
 // this is a ratio meaning that per each 100px
 // scroll the object will rotate on 180degrees
@@ -36,7 +37,8 @@ class App extends React.Component {
             menuClass: "top-menu-holder wide-menu",
             cameraClass: "camera-view",
             cameraEnabled: true,
-            active_polaroid_index: images.length - 1
+            active_polaroid_index: images.length - 1,
+            galleryOpacity: 0.0
         };
         this.locked = false;
     }
@@ -108,10 +110,13 @@ class App extends React.Component {
         console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
 
         // when there is no images left on the camera-view we navigate to the gallery
+        let galleryOpacity = 0.0;
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
+            galleryOpacity = 1.0;
         } else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
+            galleryOpacity = 0.0;
         }
 
         console.log("Active polaroid index = " + active_polaroid_index);
@@ -122,7 +127,8 @@ class App extends React.Component {
             menuClass: menuClass,
             cameraClass: cameraClass,
             cameraEnabled: cameraEnabled,
-            active_polaroid_index: active_polaroid_index
+            active_polaroid_index: active_polaroid_index,
+            galleryOpacity: galleryOpacity
         });
 
         // adds cooldown to the scrolling event
@@ -189,31 +195,6 @@ class App extends React.Component {
 
                 <Menu />
 
-                {/*<div className={this.state.menuClass}>*/}
-                {/*    <div className={"menu-item"}>*/}
-                {/*        <p>*/}
-                {/*            <a href={"https://google.com"}>*/}
-                {/*                <span>ABOUT ME</span>*/}
-                {/*            </a>*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*    <div className={"menu-item"}>*/}
-                {/*        <p>*/}
-                {/*            <a href={"https://google.com"}>*/}
-                {/*                <span>SOCIALS</span>*/}
-                {/*            </a>*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*    <div className={"menu-item"}>*/}
-                {/*        <p>*/}
-                {/*            <a href={"https://google.com"}>*/}
-                {/*                <span>CONTACT</span>*/}
-                {/*            </a>*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-
                 <div className={this.state.cameraClass}>
                     <div className={"camera-background"}
                          style={{
@@ -231,10 +212,9 @@ class App extends React.Component {
                          }}></div>
 
                     {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
-
                 </div>
 
-                <div className={"gallery"}/>
+                <Gallery opacity={this.state.galleryOpacity} />
 
             </div>
         );

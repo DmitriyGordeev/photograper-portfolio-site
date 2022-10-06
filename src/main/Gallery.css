@@ -1,0 +1,58 @@
+.common {
+    --height: 200px;
+    position: absolute;
+    background: white;
+    display: inline-block;
+    padding: 5px 5px 20px 5px;
+}
+
+.rot {
+    top: 150px;
+
+    /*-moz-transform: skew(0deg, 12deg);*/
+    /*-webkit-transform: skew(0deg, 12deg);*/
+    /*-o-transform: skew(0deg, 12deg);*/
+    /*-ms-transform: skew(0deg, 12deg);*/
+    /*transform: skew(0deg, -15deg);*/
+
+
+    transition: 150ms ease-in-out;
+    transform-origin: center left;
+}
+
+.common:hover {
+    margin-left: 16px;
+    transition: all 450ms ease-in-out, transform 0ms;
+}
+
+.common:hover img {
+    /*height: calc(var(--height) * 1.1);*/
+}
+
+img {
+    width: auto;
+    height: var(--height);
+}
+
+
+
+
+.button {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.button:active {
+    background: red;
+}
+
+.gallery {
+    /*border: 1px solid red;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+}
