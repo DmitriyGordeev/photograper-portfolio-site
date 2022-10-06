@@ -15,7 +15,7 @@ import img3 from "../../resources/images/img3.jpg";
 // import Polaroid from "../main/Polaroid";
 
 
-const angleOffsetDeg = 35;     // in degrees
+const angleOffsetDeg = 20;     // in degrees
 
 const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
@@ -42,6 +42,17 @@ function angle2opacity(startAngle, endAngle, currentAngle) {
         return 0.0;
     return value;
 }
+
+
+// function angle2opacity_sigmoid(startAngle, endAngle, currentAngle) {
+//     let value = (1 - (currentAngle - startAngle) / (endAngle - startAngle));
+//     if (value > 1.0)
+//         value = 1.0;
+//     else if (value < 0.0)
+//         value = 0.0;
+//
+//     return 1 / (1 + Math.exp(-value));
+// }
 
 
 class App extends React.Component {
@@ -72,8 +83,8 @@ class App extends React.Component {
 
     updateGallery() {
 
-        let minAngle = 50;
-        let maxAngle = 80;
+        let minAngle = 5;
+        let maxAngle = 46;
 
         let out = [];
 
@@ -128,13 +139,27 @@ class App extends React.Component {
     }
 
 
+    nextButton() {
+        let componentRef = this;
+        let prev_start_index = startIndex;
 
+        setInterval(() => {
+            if (startIndex === prev_start_index) {
+                componentRef.setState({
+                    ...this.state,
+                    angle: this.state.angle += 7,
+                    start_index: startIndex
+                });
+            }
+        }, 100);
+    }
 
 
     render() {
         return (
             <div>
                 {this.updateGallery()}
+                <div className={"button"} onClick={() => this.nextButton()}></div>
             </div>
         );
     }

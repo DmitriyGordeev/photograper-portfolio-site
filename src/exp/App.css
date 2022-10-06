@@ -33,3 +33,19 @@ img {
     width: auto;
     height: var(--height);
 }
+
+
+
+
+.button {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.button:active {
+    background: red;
+}
