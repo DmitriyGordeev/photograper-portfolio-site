@@ -8,27 +8,39 @@ import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
 import reflection from "../../resources/images/camera_reflection.png";
+import img1 from "../../resources/images/img1.jpg";
+import img2 from "../../resources/images/img2.jpg";
+import img3 from "../../resources/images/img3.jpg";
 
 // import Polaroid from "../main/Polaroid";
 
 
-const angleOffsetDeg = 17;     // in degrees
+const angleOffsetDeg = 35;     // in degrees
 
-const numMaxImages = 3;     // how many images rolling gallery can show at the same time
+const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
 const images = [
     portraitExample,
     portraitExample2,
     room,
-    reflection
+    reflection,
+    img1,
+    img2,
+    img3
 ]
 
+let startIndex = 0;
 
 const scroll2rotAngle = 1 / 30;     // 1deg of rotation per 40px of scrolling
 
 
 function angle2opacity(startAngle, endAngle, currentAngle) {
-    return (1 - (currentAngle - startAngle) / (endAngle - startAngle));
+    let value = (1 - (currentAngle - startAngle) / (endAngle - startAngle));
+    if (value > 1.0)
+        return 1.0;
+    else if (value < 0.0)
+        return 0.0;
+    return value;
 }
 
 
@@ -36,7 +48,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            angle: 0
+            angle: 0,
+            start_index: 0
         }
     }
 
@@ -47,19 +60,11 @@ class App extends React.Component {
 
     handleScroll = (event) => {
         console.log("event.deltaY = " + event.deltaY);
-
         let angle = this.state.angle + event.deltaY * scroll2rotAngle;
-        // console.log(`angle = ${angle}`);
-
-        let opacity = this.state.opacity;
-
-        if (angle >= 60) {
-            opacity = 0.5;
-        }
-
         this.setState({
             ...this.state,
-            angle: angle
+            angle: angle,
+            start_index: startIndex
         });
     }
 
@@ -67,32 +72,38 @@ class App extends React.Component {
 
     updateGallery() {
 
-        let minAngle = 10;
-        let maxAngle = 20;
+        let minAngle = 50;
+        let maxAngle = 80;
 
         let out = [];
-        let angleOffset = (numMaxImages - 1) * angleOffsetDeg;
 
-        for (let i = 0; i < images.length; i++) {
+        for (let i = this.state.start_index;
+             i < Math.min(images.length, this.state.start_index + numMaxImages);
+             i++) {
 
-            let angle = this.state.angle - angleOffset;
+            console.log(`[Cycle debug] [${i}] startIndex = ${startIndex}`);
+
+            let angle = this.state.angle - i * angleOffsetDeg;
             let skewAngle = angle * 0.76;
             let rotYAngle = angle * 1.2;
 
-            console.log(`angle = ${angle}`);
+            console.log(`[Cycle debug] [${i}] angle = ${angle}`);
 
             let opacity = 1.0;
-            if (this.state.angle - angleOffset >= minAngle) {
+            if (angle >= minAngle) {
                 opacity = angle2opacity(minAngle, maxAngle, angle);
             }
-            if (this.state.angle - angleOffset <= -minAngle) {
+            if (angle <= -minAngle) {
                 opacity = angle2opacity(-minAngle, -maxAngle, angle);
             }
-            console.log(`angle = ${angle}, opacity = ${opacity}`);
+
+            console.log(`[Cycle debug] [${i}] opacity = ${opacity}`);
 
             let display = "block";
-            if (opacity < 0.3) {
+            if (opacity < 0.1) {
                 display = "none";
+                startIndex += 1;
+
                 // todo: setState() start_index += 1 ? а как start_index -= 1 ?
                 //  break ?
                 // Сделать порциями будет легче
@@ -110,10 +121,10 @@ class App extends React.Component {
                 </div>
             );
 
-            angleOffset -= angleOffsetDeg;
+            // angleOffset += angleOffsetDeg;
         }
 
-        return out;
+        return out.reverse();       // reverse because we need the right order of images layered
     }
 
 
