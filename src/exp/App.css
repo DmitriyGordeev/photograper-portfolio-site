@@ -14,12 +14,14 @@
     /*-o-transform: skew(0deg, 12deg);*/
     /*-ms-transform: skew(0deg, 12deg);*/
     /*transform: skew(0deg, -15deg);*/
-    /*transition: 500ms ease-in-out;*/
+
+
+    transition: 150ms ease-in-out;
     transform-origin: center left;
 }
 
 .common:hover {
-    margin-left: 10px;
+    margin-left: 16px;
     transition: all 450ms ease-in-out, transform 0ms;
 }
 

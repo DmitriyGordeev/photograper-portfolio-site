@@ -7,18 +7,20 @@ import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
+import reflection from "../../resources/images/camera_reflection.png";
 
 // import Polaroid from "../main/Polaroid";
 
 
-const angleOffsetDeg = 10;     // in degrees
+const angleOffsetDeg = 17;     // in degrees
 
 const numMaxImages = 3;     // how many images rolling gallery can show at the same time
 
 const images = [
     portraitExample,
     portraitExample2,
-    room
+    room,
+    reflection
 ]
 
 
@@ -65,32 +67,35 @@ class App extends React.Component {
 
     updateGallery() {
 
-        let debugMin = 10;
-        let debugMax = 20;
+        let minAngle = 10;
+        let maxAngle = 20;
 
         let out = [];
-        let angleOffset = -(numMaxImages - 1) * angleOffsetDeg;
+        let angleOffset = (numMaxImages - 1) * angleOffsetDeg;
 
-        for (let i = 0; i < numMaxImages; i++) {
+        for (let i = 0; i < images.length; i++) {
 
             let angle = this.state.angle - angleOffset;
-            let skewAngle = angle * 0.5;
+            let skewAngle = angle * 0.76;
             let rotYAngle = angle * 1.2;
 
             console.log(`angle = ${angle}`);
 
             let opacity = 1.0;
-            if (this.state.angle - angleOffset >= debugMin) {
-                opacity = angle2opacity(debugMin, debugMax, angle);
+            if (this.state.angle - angleOffset >= minAngle) {
+                opacity = angle2opacity(minAngle, maxAngle, angle);
             }
-            if (this.state.angle - angleOffset <= -debugMin) {
-                opacity = angle2opacity(-debugMin, -debugMax, angle);
+            if (this.state.angle - angleOffset <= -minAngle) {
+                opacity = angle2opacity(-minAngle, -maxAngle, angle);
             }
             console.log(`angle = ${angle}, opacity = ${opacity}`);
 
             let display = "block";
             if (opacity < 0.3) {
                 display = "none";
+                // todo: setState() start_index += 1 ? а как start_index -= 1 ?
+                //  break ?
+                // Сделать порциями будет легче
             }
 
             out.push(
