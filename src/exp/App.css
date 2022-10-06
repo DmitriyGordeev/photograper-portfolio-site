@@ -7,14 +7,13 @@
 }
 
 .rot {
-    top: 150px;
+    top: calc(50% - var(--height) / 2);
 
     /*-moz-transform: skew(0deg, 12deg);*/
     /*-webkit-transform: skew(0deg, 12deg);*/
     /*-o-transform: skew(0deg, 12deg);*/
     /*-ms-transform: skew(0deg, 12deg);*/
     /*transform: skew(0deg, -15deg);*/
-
 
     transition: 150ms ease-in-out;
     transform-origin: center left;
@@ -50,7 +49,15 @@ img {
     background: red;
 }
 
+.gallery-container {
+    width: 80%;
+    background: green;
+}
+
 .gallery {
     border: 1px solid red;
     position: relative;
+    height: 500px;
+    margin: auto auto;
+    width: 300px;
 }

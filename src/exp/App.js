@@ -32,7 +32,7 @@ const images = [
 let startIndex = 0;
 let scrollDirection = 0;
 
-const scroll2rotAngle = 1 / 250;     // 1deg of rotation per 40px of scrolling
+const scroll2rotAngle = 1 / 60;     // 1deg of rotation per 40px of scrolling
 
 
 function angle2opacity(startAngle, endAngle, currentAngle) {
@@ -191,8 +191,10 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className={"gallery"}>
-                {this.updateGallery()}
+            <div className={"gallery-container"}>
+                <div className={"gallery"}>
+                    {this.updateGallery()}
+                </div>
                 <div className={"button"} onClick={() => this.nextButton()}></div>
             </div>
         );
