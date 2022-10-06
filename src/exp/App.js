@@ -15,7 +15,7 @@ import img3 from "../../resources/images/img3.jpg";
 // import Polaroid from "../main/Polaroid";
 
 
-const angleOffsetDeg = 15;     // in degrees
+const angleOffsetDeg = 16;     // in degrees
 
 const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
@@ -32,7 +32,7 @@ const images = [
 let startIndex = 0;
 let scrollDirection = 0;
 
-const scroll2rotAngle = 1 / 30;     // 1deg of rotation per 40px of scrolling
+const scroll2rotAngle = 1 / 500;     // 1deg of rotation per 40px of scrolling
 
 
 function angle2opacity(startAngle, endAngle, currentAngle) {
@@ -74,7 +74,7 @@ class App extends React.Component {
     handleScroll = (event) => {
         console.log("event.deltaY = " + event.deltaY);
         let angle = this.state.angle + event.deltaY * scroll2rotAngle;
-
+        console.log(`angle = ${this.state.angle}`);
 
         if (event.deltaY === 0) {
             scrollDirection = 0;
@@ -106,8 +106,9 @@ class App extends React.Component {
 
     updateGallery() {
 
-        let minAngle = 3;
-        let maxAngle = 40;
+        let minAngle = 1;
+        let maxAngle = angleOffsetDeg + 2;
+        let maxNegAngle = -angleOffsetDeg * numMaxImages;
 
         let out = [];
 
@@ -128,13 +129,13 @@ class App extends React.Component {
                 opacity = angle2opacity(minAngle, maxAngle, angle);
             }
             if (angle <= -minAngle) {
-                opacity = angle2opacity(-minAngle, -maxAngle, angle);
+                opacity = angle2opacity(-minAngle, maxNegAngle, angle);
             }
 
             console.log(`[Cycle debug] [${i}] opacity = ${opacity}`);
 
             let display = "block";
-            if (opacity < 0.1) {
+            if (opacity <= 0.0) {
                 display = "none";
 
                 if (scrollDirection > 0) {
