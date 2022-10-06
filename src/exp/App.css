@@ -49,3 +49,8 @@ img {
 .button:active {
     background: red;
 }
+
+.gallery {
+    border: 1px solid red;
+    position: relative;
+}

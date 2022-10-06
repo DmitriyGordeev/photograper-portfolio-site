@@ -70,6 +70,7 @@ class App extends React.Component {
         window.addEventListener('wheel', this.handleScroll);
     }
 
+
     handleScroll = (event) => {
         console.log("event.deltaY = " + event.deltaY);
         let angle = this.state.angle + event.deltaY * scroll2rotAngle;
@@ -93,6 +94,14 @@ class App extends React.Component {
         });
     }
 
+
+    onPhotoClick(index) {
+        console.log(`Clicked on ${index}`);
+
+        // TODO: enable overlay
+        // TODO: make centered Polaroid visible
+        // TODO: enable focus
+    }
 
 
     updateGallery() {
@@ -144,6 +153,7 @@ class App extends React.Component {
             out.push(
                 <div className={"common rot"}
                      key={i}
+                     onClick={() => this.onPhotoClick(i)}
                      style={{
                          opacity: opacity,
                          display: display,
@@ -178,10 +188,9 @@ class App extends React.Component {
     }
 
 
-
     render() {
         return (
-            <div>
+            <div className={"gallery"}>
                 {this.updateGallery()}
                 <div className={"button"} onClick={() => this.nextButton()}></div>
             </div>
