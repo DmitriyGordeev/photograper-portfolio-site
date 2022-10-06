@@ -15,7 +15,7 @@ import img3 from "../../resources/images/img3.jpg";
 // import Polaroid from "../main/Polaroid";
 
 
-const angleOffsetDeg = 20;     // in degrees
+const angleOffsetDeg = 15;     // in degrees
 
 const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
@@ -30,6 +30,7 @@ const images = [
 ]
 
 let startIndex = 0;
+let scrollDirection = 0;
 
 const scroll2rotAngle = 1 / 30;     // 1deg of rotation per 40px of scrolling
 
@@ -72,6 +73,19 @@ class App extends React.Component {
     handleScroll = (event) => {
         console.log("event.deltaY = " + event.deltaY);
         let angle = this.state.angle + event.deltaY * scroll2rotAngle;
+
+
+        if (event.deltaY === 0) {
+            scrollDirection = 0;
+        }
+        else if (event.deltaY > 0) {
+            scrollDirection = 1;
+        }
+        else {
+            scrollDirection = -1;
+        }
+
+
         this.setState({
             ...this.state,
             angle: angle,
@@ -83,8 +97,8 @@ class App extends React.Component {
 
     updateGallery() {
 
-        let minAngle = 5;
-        let maxAngle = 46;
+        let minAngle = 3;
+        let maxAngle = 40;
 
         let out = [];
 
@@ -113,11 +127,18 @@ class App extends React.Component {
             let display = "block";
             if (opacity < 0.1) {
                 display = "none";
-                startIndex += 1;
 
-                // todo: setState() start_index += 1 ? а как start_index -= 1 ?
-                //  break ?
-                // Сделать порциями будет легче
+                if (scrollDirection > 0) {
+                    startIndex += 1;
+                    if (startIndex > images.length - 1)
+                        startIndex = images.length - 1;
+                }
+
+                if (scrollDirection < 0) {
+                    startIndex -= 1;
+                    if (startIndex < 0)
+                        startIndex = 0;
+                }
             }
 
             out.push(
@@ -142,8 +163,10 @@ class App extends React.Component {
     nextButton() {
         let componentRef = this;
         let prev_start_index = startIndex;
+        scrollDirection = 1;
 
         setInterval(() => {
+            console.log(`startIndex = ${startIndex}, prev_start_index = ${prev_start_index}`);
             if (startIndex === prev_start_index) {
                 componentRef.setState({
                     ...this.state,
@@ -151,8 +174,9 @@ class App extends React.Component {
                     start_index: startIndex
                 });
             }
-        }, 100);
+        }, 200);
     }
+
 
 
     render() {
