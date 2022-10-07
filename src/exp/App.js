@@ -132,7 +132,7 @@ class App extends React.Component {
                 if (scrollDirection > 0) {
                     startIndex += 1;
                     if (startIndex > images.length - 1)
-                        startIndex = images.length - numMaxImages;          // todo: should be (images.length - 1) ?
+                        startIndex = images.length - 1;
                 }
 
                 if (scrollDirection < 0) {
@@ -162,12 +162,16 @@ class App extends React.Component {
 
 
     nextButton() {
+        console.log(`[ nextButton() ] state.start_index = ${this.state.start_index} vs startIndex = ${startIndex}`);
+        if (startIndex >= images.length - 1) {
+            return;
+        }
+
         let componentRef = this;
         let prev_start_index = startIndex;
         scrollDirection = 1;
 
         let id = setInterval(() => {
-            console.log(`SPAM ? startIndex = ${startIndex}, prev_start_index = ${prev_start_index}`);
             if (startIndex === prev_start_index) {
                 componentRef.setState({
                     ...this.state,
@@ -176,15 +180,26 @@ class App extends React.Component {
                 });
             }
             else {
-                // Stop rotating after startIndex has changed
+                // Once we stopped rotating, clear interval and reset scrollDirection
                 scrollDirection = 0;
                 clearInterval(id);
+
+                // current setState() will sync startIndex and this.start.index (Bad design - need refactoring)
+                componentRef.setState({
+                    ...this.state,
+                    angle: this.state.angle,
+                    start_index: startIndex
+                });
             }
         }, 100);
     }
 
 
     prevButton() {
+        if (this.state.start_index === 0) {
+            return;
+        }
+
         let componentRef = this;
         let endAngle = this.state.angle - angleOffsetDeg;       // we need to rotate to this angle
         scrollDirection = -1;
@@ -203,7 +218,7 @@ class App extends React.Component {
                 });
             }
             else {
-                // Stop rotating after startIndex has changed
+                // Once we stopped rotating, clear interval and reset scrollDirection
                 scrollDirection = 0;
                 clearInterval(id);
 
