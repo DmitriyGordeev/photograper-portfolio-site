@@ -18,6 +18,7 @@ import ImageHelper from "./ImageHelper";
 
 const angleOffsetDeg = 16;     // in degrees
 
+const btnRotSpeed = 1;
 const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
 const images = [
@@ -170,7 +171,7 @@ class App extends React.Component {
             if (startIndex === prev_start_index) {
                 componentRef.setState({
                     ...this.state,
-                    angle: this.state.angle += 2,
+                    angle: this.state.angle += btnRotSpeed,
                     start_index: startIndex
                 });
             }
@@ -185,19 +186,19 @@ class App extends React.Component {
 
     prevButton() {
         let componentRef = this;
-        let prev_start_index = startIndex;
+        let endAngle = this.state.angle - angleOffsetDeg;       // we need to rotate to this angle
         scrollDirection = -1;
-
+        startIndex -= 1;
 
         // # 1. need to decrease startIndex
         // # 2. rotate until desired angle is reached ? (instead of index ?)
 
         let id = setInterval(() => {
-            console.log(`startIndex = ${startIndex}, prev_start_index = ${prev_start_index}`);
-            if (startIndex === prev_start_index) {
+            console.log(`angle = ${this.state.angle}, endAngle = ${endAngle}`);
+            if (this.state.angle !== endAngle) {
                 componentRef.setState({
                     ...this.state,
-                    angle: this.state.angle -= 2,
+                    angle: this.state.angle -= btnRotSpeed,
                     start_index: startIndex
                 });
             }
