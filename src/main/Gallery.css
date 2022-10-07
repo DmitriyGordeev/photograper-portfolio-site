@@ -1,41 +1,49 @@
 .gallery-container {
+    --gallery-size: 400px;
     width: 80%;
-    background: green;
-    height: 300px;
+    /*background: green;*/
+    height: var(--gallery-size);
+    margin: auto auto;
 }
 
-.gallery-container > div {
-    margin: auto auto;
+.gallery-container > div:nth-child(1) {
+    margin: 0 auto;
     width: fit-content;
-    height: 300px;
-    border: yellow;
+    height: var(--gallery-size);
+    --left-offset: -200px;
+    /*background: orange;*/
+    position: relative;
+    display: inline-block;
+    /*left: var(--left-offset);*/
+    /*left: 0;*/
 }
 
 .gallery {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     position: relative;
     top: 0;
     left: 0;
     margin: auto auto;
     display: inline-block;
 
-    height: 300px;
+    height: var(--gallery-size);
     width: 300px;
 }
 
 .control-panel {
     background: blue;
     width: 100px;
-    height: 300px;
+    height: var(--gallery-size);
     display: inline-block;
     vertical-align: top;
     position: relative;
+    left: 100px;
 }
 
 
 /* TODO: rename this class ! */
 .common {
-    --height: 200px;
+    --height: 250px;
     position: absolute;
     background: white;
     display: inline-block;
@@ -89,6 +97,29 @@ img {
 
 .gallery-button:active {
     opacity: 0.8;
+}
+
+.text-holder {
+    /*background: cyan;*/
+    width: 500px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    position: relative;
+}
+
+.text-holder > div {
+    /*background: blue;*/
+    color: white;
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
 

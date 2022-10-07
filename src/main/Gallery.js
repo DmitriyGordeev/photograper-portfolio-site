@@ -229,9 +229,9 @@ class Gallery extends React.Component {
 
     render() {
         return (
-            <div className={"gallery-container"}>
+            <div className={"gallery-container"} style={{opacity: this.props.opacity}}>
                 <div>
-                    <div style={{opacity: this.props.opacity}} className={"gallery"}>
+                    <div className={"gallery"}>
                         {this.updateGallery()}
                     </div>
                     <div className={"control-panel"}>
@@ -240,8 +240,11 @@ class Gallery extends React.Component {
                     </div>
                 </div>
 
-
-
+                <div className={"text-holder"}>
+                    <div>
+                        <p>I have some text for ya</p>
+                    </div>
+                </div>
             </div>
         )
     }
