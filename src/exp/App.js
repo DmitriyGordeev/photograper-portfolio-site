@@ -11,6 +11,7 @@ import reflection from "../../resources/images/camera_reflection.png";
 import img1 from "../../resources/images/img1.jpg";
 import img2 from "../../resources/images/img2.jpg";
 import img3 from "../../resources/images/img3.jpg";
+import ImageHelper from "./ImageHelper";
 
 // import Polaroid from "../main/Polaroid";
 
@@ -32,7 +33,7 @@ const images = [
 let startIndex = 0;
 let scrollDirection = 0;
 
-const scroll2rotAngle = 1 / 60;     // 1deg of rotation per 40px of scrolling
+const scroll2rotAngle = 1 / 300;     // 1deg of rotation per 40px of scrolling
 
 
 function angle2opacity(startAngle, endAngle, currentAngle) {
@@ -43,17 +44,6 @@ function angle2opacity(startAngle, endAngle, currentAngle) {
         return 0.0;
     return value;
 }
-
-
-// function angle2opacity_sigmoid(startAngle, endAngle, currentAngle) {
-//     let value = (1 - (currentAngle - startAngle) / (endAngle - startAngle));
-//     if (value > 1.0)
-//         value = 1.0;
-//     else if (value < 0.0)
-//         value = 0.0;
-//
-//     return 1 / (1 + Math.exp(-value));
-// }
 
 
 class App extends React.Component {
@@ -141,7 +131,7 @@ class App extends React.Component {
                 if (scrollDirection > 0) {
                     startIndex += 1;
                     if (startIndex > images.length - 1)
-                        startIndex = images.length - 1;
+                        startIndex = images.length - numMaxImages;          // todo: should be (images.length - 1) ?
                 }
 
                 if (scrollDirection < 0) {
@@ -160,11 +150,10 @@ class App extends React.Component {
                          display: display,
                          transform: `skew(0deg, ${skewAngle}deg) rotateY(${rotYAngle}deg)`
                      }}>
-                    <img src={images[i]} alt={""}/>
+                    {/*<img src={images[i]} alt={""}/>*/}
+                    <ImageHelper src={images[i]} alt={""} />
                 </div>
             );
-
-            // angleOffset += angleOffsetDeg;
         }
 
         return out.reverse();       // reverse because we need the right order of images layered
@@ -176,12 +165,51 @@ class App extends React.Component {
         let prev_start_index = startIndex;
         scrollDirection = 1;
 
-        setInterval(() => {
-            console.log(`startIndex = ${startIndex}, prev_start_index = ${prev_start_index}`);
+        let id = setInterval(() => {
+            console.log(`SPAM ? startIndex = ${startIndex}, prev_start_index = ${prev_start_index}`);
             if (startIndex === prev_start_index) {
                 componentRef.setState({
                     ...this.state,
                     angle: this.state.angle += 2,
+                    start_index: startIndex
+                });
+            }
+            else {
+                // Stop rotating after startIndex has changed
+                scrollDirection = 0;
+                clearInterval(id);
+            }
+        }, 100);
+    }
+
+
+    prevButton() {
+        let componentRef = this;
+        let prev_start_index = startIndex;
+        scrollDirection = -1;
+
+
+        // # 1. need to decrease startIndex
+        // # 2. rotate until desired angle is reached ? (instead of index ?)
+
+        let id = setInterval(() => {
+            console.log(`startIndex = ${startIndex}, prev_start_index = ${prev_start_index}`);
+            if (startIndex === prev_start_index) {
+                componentRef.setState({
+                    ...this.state,
+                    angle: this.state.angle -= 2,
+                    start_index: startIndex
+                });
+            }
+            else {
+                // Stop rotating after startIndex has changed
+                scrollDirection = 0;
+                clearInterval(id);
+
+                // forcing rerender to update with the new startIndex value (this is bad design - need to refactor)
+                componentRef.setState({
+                    ...this.state,
+                    angle: this.state.angle,
                     start_index: startIndex
                 });
             }
@@ -195,7 +223,9 @@ class App extends React.Component {
                 <div className={"gallery"}>
                     {this.updateGallery()}
                 </div>
-                <div className={"button"} onClick={() => this.nextButton()}></div>
+
+                <div className={"button-prev"} onClick={() => this.prevButton()}></div>
+                <div className={"button-next"} onClick={() => this.nextButton()}></div>
             </div>
         );
     }

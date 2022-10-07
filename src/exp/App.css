@@ -24,9 +24,6 @@
     transition: all 450ms ease-in-out, transform 0ms;
 }
 
-.common:hover img {
-    /*height: calc(var(--height) * 1.1);*/
-}
 
 img {
     width: auto;
@@ -36,7 +33,7 @@ img {
 
 
 
-.button {
+.button-next {
     width: 100px;
     height: 100px;
     background: yellow;
@@ -45,9 +42,24 @@ img {
     bottom: 50px;
 }
 
-.button:active {
+.button-next:active {
     background: red;
 }
+
+
+.button-prev {
+    width: 100px;
+    height: 100px;
+    background: green;
+    position: fixed;
+    right: 50px;
+    bottom: 220px;
+}
+
+.button-prev:active {
+    background: blue;
+}
+
 
 .gallery-container {
     width: 80%;
