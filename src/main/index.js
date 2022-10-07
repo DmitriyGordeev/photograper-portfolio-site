@@ -35,6 +35,15 @@ function reducer(state = initialState, action) {
         console.log("[reducer()] POLAROID_UNFOCUSED");
         return {...state, focused: false};
     }
+    if(action.type === "GALLERY_FOCUSED") {
+        console.log("[reducer()] GALLERY_FOCUSED imgIndex = " + action.imgIndex);
+        return {...state, focused: true};
+    }
+    else if (action.type === "GALLERY_UNFOCUSED") {
+        console.log("[reducer()] GALLERY_UNFOCUSED");
+        return {...state, focused: false};
+    }
+
     return state;
 }
 

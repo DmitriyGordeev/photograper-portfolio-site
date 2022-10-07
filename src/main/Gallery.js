@@ -86,11 +86,13 @@ class Gallery extends React.Component {
     onPhotoClick(index) {
         console.log(`Clicked on ${index}`);
 
+
+
         // TODO: enable overlay
         // TODO: make centered Polaroid visible
         // TODO: enable focus
 
-        this.props.onPolaroidFocus();
+        this.props.onFocus(index);
     }
 
 
@@ -231,7 +233,7 @@ class Gallery extends React.Component {
 
     removeOverlay() {
         console.log("overlayRemove()");
-        this.props.onPolaroidUnfocus();
+        this.props.onUnfocus();
     }
 
 
@@ -239,10 +241,12 @@ class Gallery extends React.Component {
         let overlayHeight = 0.0;
         let overlayWidth = 0.0;
         let polaroidOpacity = 0.0;
+        let focusImgIndex = -1;
         if (this.props.storeData.focused) {
             overlayHeight = "100%";
             overlayWidth = "100%";
             polaroidOpacity = 1.0;
+            focusImgIndex = this.props.storeData.imgIndex;
         }
 
         return (
@@ -277,7 +281,7 @@ class Gallery extends React.Component {
                         opacity: polaroidOpacity,
                         transition: `${850}ms ease`,
                     }}
-                    src={images[0]}
+                    src={images[focusImgIndex]}
                     alt={""}/>
 
             </div>
@@ -288,11 +292,11 @@ class Gallery extends React.Component {
 export default connect(
     state => ({storeData: state}),
     dispatch => ({
-        onPolaroidFocus: () => {
-            dispatch({type: 'POLAROID_FOCUSED'});
+        onFocus: (imgIndex) => {
+            dispatch({type: 'GALLERY_FOCUSED', imgIndex: imgIndex});
         },
-        onPolaroidUnfocus: (values) => {
-            dispatch({type: 'POLAROID_UNFOCUSED', values: values});
+        onUnfocus: (imgIndex) => {
+            dispatch({type: 'GALLERY_UNFOCUSED'});
         }
     })
 )(Gallery)
