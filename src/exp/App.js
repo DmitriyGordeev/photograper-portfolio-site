@@ -151,8 +151,8 @@ class App extends React.Component {
                          display: display,
                          transform: `skew(0deg, ${skewAngle}deg) rotateY(${rotYAngle}deg)`
                      }}>
-                    {/*<img src={images[i]} alt={""}/>*/}
-                    <ImageHelper src={images[i]} alt={""} />
+                    <img src={images[i]} alt={""}/>
+                    {/*<ImageHelper src={images[i]} alt={""} />*/}
                 </div>
             );
         }
@@ -191,7 +191,7 @@ class App extends React.Component {
                     start_index: startIndex
                 });
             }
-        }, 100);
+        }, 50);
     }
 
 
@@ -204,9 +204,6 @@ class App extends React.Component {
         let endAngle = this.state.angle - angleOffsetDeg;       // we need to rotate to this angle
         scrollDirection = -1;
         startIndex -= 1;
-
-        // # 1. need to decrease startIndex
-        // # 2. rotate until desired angle is reached ? (instead of index ?)
 
         let id = setInterval(() => {
             console.log(`angle = ${this.state.angle}, endAngle = ${endAngle}`);
@@ -229,7 +226,7 @@ class App extends React.Component {
                     start_index: startIndex
                 });
             }
-        }, 100);
+        }, 50);
     }
 
 

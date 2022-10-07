@@ -1,3 +1,39 @@
+.gallery-container {
+    width: 80%;
+    background: green;
+    height: 300px;
+}
+
+.gallery-container > div {
+    margin: auto auto;
+    width: fit-content;
+    height: 300px;
+    border: yellow;
+}
+
+.gallery {
+    border: 1px solid red;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: auto auto;
+    display: inline-block;
+
+    height: 300px;
+    width: 300px;
+}
+
+.control-panel {
+    background: blue;
+    width: 100px;
+    height: 300px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+
+/* TODO: rename this class ! */
 .common {
     --height: 200px;
     position: absolute;
@@ -7,14 +43,13 @@
 }
 
 .rot {
-    top: 150px;
+    top: 100px;
 
     /*-moz-transform: skew(0deg, 12deg);*/
     /*-webkit-transform: skew(0deg, 12deg);*/
     /*-o-transform: skew(0deg, 12deg);*/
     /*-ms-transform: skew(0deg, 12deg);*/
     /*transform: skew(0deg, -15deg);*/
-
 
     transition: 150ms ease-in-out;
     transform-origin: center left;
@@ -26,7 +61,6 @@
 }
 
 .common:hover img {
-    /*height: calc(var(--height) * 1.1);*/
 }
 
 img {
@@ -35,24 +69,26 @@ img {
 }
 
 
-
-
-.button {
+.gallery-button {
     width: 100px;
     height: 100px;
-    background: yellow;
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
+    position: relative;
+    display: inline-block;
 }
 
-.button:active {
+.next {
+    background: #a3ffa3;
+}
+
+.prev {
     background: red;
-}
-
-.gallery {
-    /*border: 1px solid red;*/
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
 }
+
+.gallery-button:active {
+    opacity: 0.8;
+}
+
+
