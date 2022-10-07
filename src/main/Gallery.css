@@ -1,7 +1,7 @@
 .gallery-container {
     --gallery-size: 400px;
     width: 80%;
-    /*background: green;*/
+    background: green;
     height: var(--gallery-size);
     margin: auto auto;
 }
@@ -11,7 +11,7 @@
     width: fit-content;
     height: var(--gallery-size);
     --left-offset: -200px;
-    /*background: orange;*/
+    background: orange;
     position: relative;
     display: inline-block;
     /*left: var(--left-offset);*/

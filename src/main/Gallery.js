@@ -8,6 +8,7 @@ import reflection from "../../resources/images/camera_reflection.png";
 import img1 from "../../resources/images/img1.jpg";
 import img2 from "../../resources/images/img2.jpg";
 import img3 from "../../resources/images/img3.jpg";
+import Polaroid from "./Polaroid";
 
 
 
@@ -88,6 +89,8 @@ class Gallery extends React.Component {
         // TODO: enable overlay
         // TODO: make centered Polaroid visible
         // TODO: enable focus
+
+        this.props.onPolaroidFocus();
     }
 
 
@@ -191,7 +194,6 @@ class Gallery extends React.Component {
     }
 
 
-
     prevButton() {
         if (this.state.start_index === 0) {
             return;
@@ -227,7 +229,22 @@ class Gallery extends React.Component {
     }
 
 
+    removeOverlay() {
+        console.log("overlayRemove()");
+        this.props.onPolaroidUnfocus();
+    }
+
+
     render() {
+        let overlayHeight = 0.0;
+        let overlayWidth = 0.0;
+        let polaroidOpacity = 0.0;
+        if (this.props.storeData.focused) {
+            overlayHeight = "100%";
+            overlayWidth = "100%";
+            polaroidOpacity = 1.0;
+        }
+
         return (
             <div className={"gallery-container"} style={{opacity: this.props.opacity}}>
                 <div>
@@ -245,6 +262,24 @@ class Gallery extends React.Component {
                         <p>I have some text for ya</p>
                     </div>
                 </div>
+
+                {/* TODO: this is another overlay, ideally should be only one */}
+                <div className={"overlay"}
+                     onClick={() => this.removeOverlay()}
+                     style={{
+                         width: overlayWidth,
+                         height: "100%"
+                     }}></div>
+
+
+                <Polaroid
+                    style={{
+                        opacity: polaroidOpacity,
+                        transition: `${850}ms ease`,
+                    }}
+                    src={images[0]}
+                    alt={""}/>
+
             </div>
         )
     }
@@ -252,5 +287,12 @@ class Gallery extends React.Component {
 
 export default connect(
     state => ({storeData: state}),
-    dispatch => ({})
+    dispatch => ({
+        onPolaroidFocus: () => {
+            dispatch({type: 'POLAROID_FOCUSED'});
+        },
+        onPolaroidUnfocus: (values) => {
+            dispatch({type: 'POLAROID_UNFOCUSED', values: values});
+        }
+    })
 )(Gallery)
