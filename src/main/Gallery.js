@@ -315,6 +315,9 @@ class Gallery extends React.Component {
 
 
                 <div className={"right"}>
+                    <div className={"text-container"}>
+                        <p>Some text</p>
+                    </div>
                 </div>
 
 
