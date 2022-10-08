@@ -2,7 +2,7 @@
 .gallery-container {
     width: 90%;
     height: 400px;
-    background: green;
+    /*background: green;*/
     margin: 0 auto;
 
     transition: 850ms ease;
@@ -14,12 +14,12 @@
 }
 
 .left {
-    background: red;
+    /*background: red;*/
     width: 60%;
 }
 
 .right {
-    background: blue;
+    /*background: blue;*/
     width: 40%;
     height: 100%;
     position: relative;
@@ -27,14 +27,14 @@
 
 
 .gallery {
-    background: cyan;
+    /*background: cyan;*/
     position: relative;
     top: 0;
     left: 0;
     margin: auto auto;
     display: inline-block;
     height: 400px;
-    width: 70%;
+    width: 55%;
     float: right;
 }
 
@@ -73,7 +73,7 @@
 
 
 .control-panel {
-    background: orangered;
+    /*background: orangered;*/
     width: 100px;
     height: 400px;
     display: inline-block;
@@ -87,14 +87,15 @@
     height: 100px;
     position: relative;
     display: inline-block;
+    clip-path: circle(20% at 52% 50%);
+    background: #313131;
 }
 
 .next {
-    background: #a3ffa3;
 }
 
 .prev {
-    background: red;
+    /*background: red;*/
     position: absolute;
     bottom: 0;
     left: 0;
@@ -109,7 +110,7 @@
 }
 
 .text-container {
-    background: aquamarine;
+    /*background: aquamarine;*/
     position: absolute;
     width: 100%;
     height: fit-content;
@@ -123,8 +124,9 @@
 .text-container > p {
     width: fit-content;
     margin: 0 auto;
-    background: red;
+    /*background: red;*/
     padding: 10px;
+    color: white;
 }
 
 
@@ -149,6 +151,24 @@
     margin: auto auto;
 }
 
+
+.gallery-button > img {
+    width: 100px;
+    height: auto;
+}
+
+img.arrow {
+    display: block;
+    /*background: blue;*/
+    width: 20%;
+    height: 20%;
+    margin: auto auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 
 

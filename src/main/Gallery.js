@@ -8,7 +8,9 @@ import reflection from "../../resources/images/camera_reflection.png";
 import img1 from "../../resources/images/img1.jpg";
 import img2 from "../../resources/images/img2.jpg";
 import img3 from "../../resources/images/img3.jpg";
-import Polaroid from "./Polaroid";
+
+import arrowUp from "../../resources/images/arrow_up.svg";
+import arrowDown from "../../resources/images/arrow_down.svg";
 
 
 const angleOffsetDeg = 16;     // in degrees
@@ -256,8 +258,12 @@ class Gallery extends React.Component {
 
                 <div className={"left"}>
                     <div className={"control-panel"}>
-                        <div className={"gallery-button next"} onClick={() => this.prevButton()}></div>
-                        <div className={"gallery-button prev"} onClick={() => this.nextButton()}></div>
+                        <div className={"gallery-button next"} onClick={() => this.prevButton()}>
+                            <img className={"arrow"} src={arrowUp} alt={""}/>
+                        </div>
+                        <div className={"gallery-button prev"} onClick={() => this.nextButton()}>
+                            <img className={"arrow"} src={arrowDown} alt={""}/>
+                        </div>
                     </div>
                     <div className={"gallery"}>
                         {this.updateGallery()}

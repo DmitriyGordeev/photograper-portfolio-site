@@ -189,28 +189,28 @@ class App extends React.Component {
 
                 <Menu />
 
-                <div className={this.state.cameraClass}>
-                    <div className={"camera-background"}
-                         style={{
-                             backgroundImage: "url(" + cameraImage + ")",
-                             transition: `${transitionTime} ease`,
-                             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
-                         }}>
-                    </div>
+                {/*<div className={this.state.cameraClass}>*/}
+                {/*    <div className={"camera-background"}*/}
+                {/*         style={{*/}
+                {/*             backgroundImage: "url(" + cameraImage + ")",*/}
+                {/*             transition: `${transitionTime} ease`,*/}
+                {/*             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`*/}
+                {/*         }}>*/}
+                {/*    </div>*/}
 
-                    <div className={"overlay"}
-                         onClick={() => this.removeOverlay()}
-                         style={{
-                             opacity: overlayOpacity,
-                             height: overlayHeight
-                         }}></div>
+                {/*    <div className={"overlay"}*/}
+                {/*         onClick={() => this.removeOverlay()}*/}
+                {/*         style={{*/}
+                {/*             opacity: overlayOpacity,*/}
+                {/*             height: overlayHeight*/}
+                {/*         }}></div>*/}
 
-                    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
-                </div>
+                {/*    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
+                {/*</div>*/}
 
-                <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
+                {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
 
-                {/*<Gallery opacity={1.0} />*/}
+                <Gallery opacity={1.0} />
 
             </div>
         );

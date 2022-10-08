@@ -13,6 +13,8 @@ import img2 from "../../resources/images/img2.jpg";
 import img3 from "../../resources/images/img3.jpg";
 import ImageHelper from "./ImageHelper";
 
+import arrowUp from "../../resources/images/arrow_up.svg";
+
 // import Polaroid from "../main/Polaroid";
 
 
@@ -233,12 +235,15 @@ class App extends React.Component {
     render() {
         return (
             <div className={"gallery-container"}>
-                <div className={"gallery"}>
-                    {this.updateGallery()}
-                </div>
+                {/*<div className={"gallery"}>*/}
+                {/*    {this.updateGallery()}*/}
+                {/*</div>*/}
 
-                <div className={"button-prev"} onClick={() => this.prevButton()}></div>
-                <div className={"button-next"} onClick={() => this.nextButton()}></div>
+                {/*<div className={"button-prev"} onClick={() => this.prevButton()}></div>*/}
+                {/*<div className={"button-next"} onClick={() => this.nextButton()}></div>*/}
+
+                <img src={arrowUp} alt={""} />
+
             </div>
         );
     }

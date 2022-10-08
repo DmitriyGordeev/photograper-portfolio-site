@@ -63,7 +63,7 @@ img {
 
 .gallery-container {
     width: 80%;
-    background: green;
+    /*background: green;*/
 }
 
 .gallery {
@@ -72,4 +72,13 @@ img {
     height: 500px;
     margin: auto auto;
     width: 300px;
+}
+
+body {
+    background: white;
+}
+
+img {
+    width: 100px;
+    height: 100px;
 }
