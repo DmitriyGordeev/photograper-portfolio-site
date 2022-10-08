@@ -48,7 +48,8 @@ class Gallery extends React.Component {
         this.state = {
             angle: 0,
             start_index: 0,
-            focusedImageIndex: -1
+            focusedImageIndex: -1,
+            focused: false
         }
     }
 
@@ -85,7 +86,8 @@ class Gallery extends React.Component {
 
         this.setState({
             ...this.state,
-            focusedImageIndex: index
+            focusedImageIndex: index,
+            focused: true
         })
 
         // TODO: enable overlay
@@ -230,78 +232,27 @@ class Gallery extends React.Component {
 
 
     removeOverlay() {
-        console.log("overlayRemove()");
-        // this.props.onUnfocus();
-
         this.setState({
             ...this.state,
-            focusedImageIndex: -1
+            focused: false
         })
     }
 
 
-    render() {
-        // let overlayHeight = 0.0;
-        // let overlayWidth = 0.0;
-        // let polaroidOpacity = 0.0;
-        // let focusImgIndex = -1;
-        // if (this.props.storeData.focused) {
-        //     overlayHeight = "100%";
-        //     overlayWidth = "100%";
-        //     polaroidOpacity = 1.0;
-        //     focusImgIndex = this.props.storeData.imgIndex;
-        // }
 
-        let overlayHeight = 0.0;
-        let overlayWidth = 0.0;
-        let polaroidOpacity = 0.0;
-        let polaroidHeight = 0.0;
-        let idx = 0;
-        if (this.state.focusedImageIndex !== -1) {
-            overlayHeight = "100%";
+    render() {
+        let overlayWidth = 0;
+        let cardOpacity = 0;
+        let idx = this.state.focusedImageIndex;
+        if (this.state.focused) {
             overlayWidth = "100%";
-            polaroidOpacity = 1.0;
-            polaroidHeight = "auto";
-            idx = this.state.focusedImageIndex;
+            cardOpacity = 1.0;
+            idx = (idx === -1) ? 0 : idx;       // if idx == -1 we set it to 0, otherwise leave as is
         }
 
 
         return (
             <div className={"gallery-container"} style={{opacity: this.props.opacity}}>
-                {/*<div>*/}
-                {/*    <div className={"gallery"}>*/}
-                {/*        {this.updateGallery()}*/}
-                {/*    </div>*/}
-                {/*    <div className={"control-panel"}>*/}
-                {/*        <div className={"gallery-button next"} onClick={() => this.prevButton()}></div>*/}
-                {/*        <div className={"gallery-button prev"} onClick={() => this.nextButton()}></div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-                {/*<div className={"text-holder"}>*/}
-                {/*    <div>*/}
-                {/*        <p>Some text</p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-                {/*/!* TODO: this is another overlay, ideally should be only one *!/*/}
-                {/*<div className={"overlay"}*/}
-                {/*     onClick={() => this.removeOverlay()}*/}
-                {/*     style={{*/}
-                {/*         width: overlayWidth,*/}
-                {/*         height: "100%"*/}
-                {/*     }}>*/}
-                {/*</div>*/}
-
-
-                {/*<div className={"common"}*/}
-                {/*     style={{*/}
-                {/*         opacity: polaroidOpacity,*/}
-                {/*     }}>*/}
-                {/*    <img src={images[idx]}*/}
-                {/*         alt={""}/>*/}
-                {/*</div>*/}
-
 
                 <div className={"left"}>
                     <div className={"control-panel"}>
@@ -320,11 +271,22 @@ class Gallery extends React.Component {
                 </div>
 
 
-                <div className={"gallery-focus-image"} style={{opacity: polaroidOpacity}}>
-                    <img src={images[idx]}
-                         alt={""}/>
-                </div>
+                <div className={"overlay"}
+                     onClick={() => this.removeOverlay()}
+                     style={{
+                         width: overlayWidth,
+                         height: "100%"
+                     }}>
 
+                    {/* appears when we click on the gallery image */}
+                    <div className={"gallery-focus-image"}
+                         style={{opacity: cardOpacity}}
+                         onClick={() => this.removeOverlay()}>
+
+                        <img src={images[idx]}
+                             alt={""}/>
+                    </div>
+                </div>
 
             </div>
         )
