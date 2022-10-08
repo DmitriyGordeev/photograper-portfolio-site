@@ -41,7 +41,7 @@ class App extends React.Component {
             cameraEnabled: true,
             active_polaroid_index: images.length - 1,
             galleryOpacity: 0.0,
-            galleryMode: true
+            galleryMode: false
         };
         this.locked = false;
     }
@@ -54,25 +54,20 @@ class App extends React.Component {
 
     handleScroll = (event) => {
 
+        if (this.state.galleryMode) {
+            return;
+        }
+
         if (this.locked) {
-            console.log("LOCKED");
             return;
         }
 
         console.log("Scrolling inside component: deltaY", event.deltaY);
         let scrollAmount = event.deltaY;
-        let addedAngle = deg2px * scrollAmount;
-        let addedScale = scale2px * scrollAmount;
-        console.log(`
-            scrollAmount = ${scrollAmount},
-            addedAngle = ${addedAngle},
-            addedScale = ${addedScale}`);
-
-        console.log("this.state.angle = " + this.state.angle);
-
         let angle = 0;
         let scale = 0;
         let active_polaroid_index = this.state.active_polaroid_index;
+
         if (scrollAmount > 0) {
             angle = this.state.angle + fixedDegAdded;
             scale = this.state.scale + fixedScaleAdded;
@@ -83,14 +78,9 @@ class App extends React.Component {
             active_polaroid_index += 1;
         }
 
-
-        // if (active_polaroid_index < 0) {
-        //     active_polaroid_index = 0;
-        // }
         if (active_polaroid_index >= images.length) {
             active_polaroid_index = images.length - 1;
         }
-
 
         let menuClass = this.state.menuClass;
         let cameraClass = this.state.cameraClass;
@@ -110,20 +100,14 @@ class App extends React.Component {
             menuClass = menuClass + " wide-menu";
         }
 
-        console.log(`scale = ${scale}, cameraEnabled = ${cameraEnabled}`);
-
         // when there is no images left on the camera-view we navigate to the gallery
-        let galleryOpacity = 0.0;
-        let galleryMode = false;
+        let galleryMode = this.state.galleryMode;
 
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
-            // galleryOpacity = 1.0;
             galleryMode = true;
         } else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
-            // galleryOpacity = 0.0;
-            // galleryMode = false;
         }
 
         this.setState({
@@ -205,28 +189,28 @@ class App extends React.Component {
 
                 <Menu />
 
-                {/*<div className={this.state.cameraClass}>*/}
-                {/*    <div className={"camera-background"}*/}
-                {/*         style={{*/}
-                {/*             backgroundImage: "url(" + cameraImage + ")",*/}
-                {/*             transition: `${transitionTime} ease`,*/}
-                {/*             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`*/}
-                {/*         }}>*/}
-                {/*    </div>*/}
+                <div className={this.state.cameraClass}>
+                    <div className={"camera-background"}
+                         style={{
+                             backgroundImage: "url(" + cameraImage + ")",
+                             transition: `${transitionTime} ease`,
+                             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
+                         }}>
+                    </div>
 
-                {/*    <div className={"overlay"}*/}
-                {/*         onClick={() => this.removeOverlay()}*/}
-                {/*         style={{*/}
-                {/*             opacity: overlayOpacity,*/}
-                {/*             height: overlayHeight*/}
-                {/*         }}></div>*/}
+                    <div className={"overlay"}
+                         onClick={() => this.removeOverlay()}
+                         style={{
+                             opacity: overlayOpacity,
+                             height: overlayHeight
+                         }}></div>
 
-                {/*    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
-                {/*</div>*/}
+                    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
+                </div>
 
-                {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
+                <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
 
-                <Gallery opacity={1.0} />
+                {/*<Gallery opacity={1.0} />*/}
 
             </div>
         );

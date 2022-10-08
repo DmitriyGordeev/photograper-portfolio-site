@@ -4,6 +4,8 @@
     height: 400px;
     background: green;
     margin: 0 auto;
+
+    transition: 850ms ease;
 }
 
 .gallery-container > div {
@@ -132,6 +134,7 @@
     width: auto;
     transition: 850ms;
 }
+
 
 .gallery-focus-image img {
     height: var(--focus-image-height);
