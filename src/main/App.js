@@ -41,7 +41,7 @@ class App extends React.Component {
             cameraEnabled: true,
             active_polaroid_index: images.length - 1,
             galleryOpacity: 0.0,
-            galleryMode: false
+            galleryMode: true
         };
         this.locked = false;
     }
@@ -115,6 +115,7 @@ class App extends React.Component {
         // when there is no images left on the camera-view we navigate to the gallery
         let galleryOpacity = 0.0;
         let galleryMode = false;
+
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
             // galleryOpacity = 1.0;
@@ -204,26 +205,28 @@ class App extends React.Component {
 
                 <Menu />
 
-                <div className={this.state.cameraClass}>
-                    <div className={"camera-background"}
-                         style={{
-                             backgroundImage: "url(" + cameraImage + ")",
-                             transition: `${transitionTime} ease`,
-                             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
-                         }}>
-                    </div>
+                {/*<div className={this.state.cameraClass}>*/}
+                {/*    <div className={"camera-background"}*/}
+                {/*         style={{*/}
+                {/*             backgroundImage: "url(" + cameraImage + ")",*/}
+                {/*             transition: `${transitionTime} ease`,*/}
+                {/*             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`*/}
+                {/*         }}>*/}
+                {/*    </div>*/}
 
-                    <div className={"overlay"}
-                         onClick={() => this.removeOverlay()}
-                         style={{
-                             opacity: overlayOpacity,
-                             height: overlayHeight
-                         }}></div>
+                {/*    <div className={"overlay"}*/}
+                {/*         onClick={() => this.removeOverlay()}*/}
+                {/*         style={{*/}
+                {/*             opacity: overlayOpacity,*/}
+                {/*             height: overlayHeight*/}
+                {/*         }}></div>*/}
 
-                    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
-                </div>
+                {/*    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
+                {/*</div>*/}
 
-                <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
+                {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
+
+                <Gallery opacity={1.0} />
 
             </div>
         );

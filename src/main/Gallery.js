@@ -11,7 +11,6 @@ import img3 from "../../resources/images/img3.jpg";
 import Polaroid from "./Polaroid";
 
 
-
 const angleOffsetDeg = 16;     // in degrees
 
 const btnRotSpeed = 1;
@@ -43,7 +42,6 @@ function angle2opacity(startAngle, endAngle, currentAngle) {
 }
 
 
-
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
@@ -67,11 +65,9 @@ class Gallery extends React.Component {
 
         if (event.deltaY === 0) {
             scrollDirection = 0;
-        }
-        else if (event.deltaY > 0) {
+        } else if (event.deltaY > 0) {
             scrollDirection = 1;
-        }
-        else {
+        } else {
             scrollDirection = -1;
         }
 
@@ -183,8 +179,7 @@ class Gallery extends React.Component {
                     angle: this.state.angle += btnRotSpeed,
                     start_index: startIndex
                 });
-            }
-            else {
+            } else {
                 // Once we stopped rotating, clear interval and reset scrollDirection
                 scrollDirection = 0;
                 clearInterval(id);
@@ -218,8 +213,7 @@ class Gallery extends React.Component {
                     angle: this.state.angle -= btnRotSpeed,
                     start_index: startIndex
                 });
-            }
-            else {
+            } else {
                 // Once we stopped rotating, clear interval and reset scrollDirection
                 scrollDirection = 0;
                 clearInterval(id);
@@ -274,30 +268,30 @@ class Gallery extends React.Component {
 
         return (
             <div className={"gallery-container"} style={{opacity: this.props.opacity}}>
-                <div>
-                    <div className={"gallery"}>
-                        {this.updateGallery()}
-                    </div>
-                    <div className={"control-panel"}>
-                        <div className={"gallery-button next"} onClick={() => this.prevButton()}></div>
-                        <div className={"gallery-button prev"} onClick={() => this.nextButton()}></div>
-                    </div>
-                </div>
+                {/*<div>*/}
+                {/*    <div className={"gallery"}>*/}
+                {/*        {this.updateGallery()}*/}
+                {/*    </div>*/}
+                {/*    <div className={"control-panel"}>*/}
+                {/*        <div className={"gallery-button next"} onClick={() => this.prevButton()}></div>*/}
+                {/*        <div className={"gallery-button prev"} onClick={() => this.nextButton()}></div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-                <div className={"text-holder"}>
-                    <div>
-                        <p>Some text</p>
-                    </div>
-                </div>
+                {/*<div className={"text-holder"}>*/}
+                {/*    <div>*/}
+                {/*        <p>Some text</p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-                {/* TODO: this is another overlay, ideally should be only one */}
-                <div className={"overlay"}
-                     onClick={() => this.removeOverlay()}
-                     style={{
-                         width: overlayWidth,
-                         height: "100%"
-                     }}>
-                </div>
+                {/*/!* TODO: this is another overlay, ideally should be only one *!/*/}
+                {/*<div className={"overlay"}*/}
+                {/*     onClick={() => this.removeOverlay()}*/}
+                {/*     style={{*/}
+                {/*         width: overlayWidth,*/}
+                {/*         height: "100%"*/}
+                {/*     }}>*/}
+                {/*</div>*/}
 
 
                 {/*<div className={"common"}*/}
@@ -308,9 +302,21 @@ class Gallery extends React.Component {
                 {/*         alt={""}/>*/}
                 {/*</div>*/}
 
-                <div className={"common gallery-focus"}>
-                    <img src={images[idx]} alt={""}/>
+
+                <div className={"left"}>
+                    <div className={"control-panel"}>
+                        <div className={"gallery-button next"} onClick={() => this.prevButton()}></div>
+                        <div className={"gallery-button prev"} onClick={() => this.nextButton()}></div>
+                    </div>
+                    <div className={"gallery"}>
+                        {this.updateGallery()}
+                    </div>
                 </div>
+
+
+                <div className={"right"}>
+                </div>
+
 
             </div>
         )

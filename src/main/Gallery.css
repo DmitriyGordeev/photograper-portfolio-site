@@ -1,44 +1,109 @@
+/*.gallery-container {*/
+/*    --gallery-size: 400px;*/
+/*    width: 80%;*/
+/*    background: green;*/
+/*    height: var(--gallery-size);*/
+/*    margin: auto auto;*/
+/*    transition: 850ms ease-in-out;*/
+/*}*/
+
+/*.gallery-container > div:nth-child(1) {*/
+/*    margin: 0 auto;*/
+/*    width: fit-content;*/
+/*    height: var(--gallery-size);*/
+/*    --left-offset: -200px;*/
+/*    background: orange;*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    !*left: var(--left-offset);*!*/
+/*    !*left: 0;*!*/
+/*}*/
+
+
+
+
+
+/*.text-holder {*/
+/*    !*background: cyan;*!*/
+/*    width: 500px;*/
+/*    height: 100%;*/
+/*    display: inline-block;*/
+/*    vertical-align: top;*/
+/*    float: right;*/
+/*    position: relative;*/
+/*}*/
+
+/*.text-holder > div {*/
+/*    !*background: blue;*!*/
+/*    color: white;*/
+/*    margin: auto auto;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    width: fit-content;*/
+/*    height: fit-content;*/
+/*}*/
+
+
+/*.gallery-focus {*/
+
+/*}*/
+
+
+/*!*.gallery-image-focus {*!*/
+/*!*    position: absolute;*!*/
+/*!*    margin: auto auto;*!*/
+/*!*    top: 0;*!*/
+/*!*    bottom: 0;*!*/
+/*!*    left: 0;*!*/
+/*!*    right: 0;*!*/
+/*!*    height: var(--height);*!*/
+/*!*    background: white;*!*/
+/*!*    display: inline-block;*!*/
+/*!*    padding: 5px 5px 20px 5px;*!*/
+/*!*}*!*/
+
+
+
+
+
+
 .gallery-container {
-    --gallery-size: 400px;
-    width: 80%;
-    background: green;
-    height: var(--gallery-size);
-    margin: auto auto;
-    transition: 850ms ease-in-out;
+    width: 90%;
+    height: 300px;
+    /*background: green;*/
+    margin: 0 auto;
 }
 
-.gallery-container > div:nth-child(1) {
-    margin: 0 auto;
-    width: fit-content;
-    height: var(--gallery-size);
-    --left-offset: -200px;
-    background: orange;
-    position: relative;
+.gallery-container > div {
     display: inline-block;
-    /*left: var(--left-offset);*/
-    /*left: 0;*/
+    height: 100%;
+    vertical-align: top;
 }
+
+.left {
+    /*background: red;*/
+    width: 60%;
+}
+
+.right {
+    /*background: blue;*/
+    height: 40%;
+}
+
 
 .gallery {
-    /*border: 1px solid red;*/
+    /*background: cyan;*/
     position: relative;
     top: 0;
     left: 0;
     margin: auto auto;
     display: inline-block;
-
-    height: var(--gallery-size);
-    width: 300px;
-}
-
-.control-panel {
-    background: blue;
-    width: 100px;
-    height: var(--gallery-size);
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    left: 100px;
+    height: 400px;
+    width: 70%;
+    float: right;
 }
 
 
@@ -52,7 +117,7 @@
 }
 
 .rot {
-    top: 100px;
+    bottom: 0;
 
     /*-moz-transform: skew(0deg, 12deg);*/
     /*-webkit-transform: skew(0deg, 12deg);*/
@@ -64,17 +129,25 @@
     transform-origin: center left;
 }
 
+.rot img {
+    width: auto;
+    height: var(--height);
+}
+
 .common:hover {
     margin-left: 16px;
     transition: all 450ms ease-in-out, transform 0ms;
 }
 
-.common:hover img {
-}
 
-img {
-    width: auto;
-    height: var(--height);
+.control-panel {
+    /*background: orangered;*/
+    width: 100px;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    float: right;
 }
 
 .gallery-button {
@@ -96,51 +169,19 @@ img {
 }
 
 .gallery-button:hover {
-    opacity: 0.9;
+    opacity: 0.6;
 }
 
 .gallery-button:active {
-    opacity: 0.5;
-}
-
-.text-holder {
-    /*background: cyan;*/
-    width: 500px;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
-    float: right;
-    position: relative;
-}
-
-.text-holder > div {
-    /*background: blue;*/
-    color: white;
-    margin: auto auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: fit-content;
-    height: fit-content;
+    opacity: 0.4;
 }
 
 
-.gallery-focus {
-
-}
 
 
-/*.gallery-image-focus {*/
-/*    position: absolute;*/
-/*    margin: auto auto;*/
-/*    top: 0;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    height: var(--height);*/
-/*    background: white;*/
-/*    display: inline-block;*/
-/*    padding: 5px 5px 20px 5px;*/
-/*}*/
+
+
+
+
+
+
