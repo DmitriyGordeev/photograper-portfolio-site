@@ -11,6 +11,8 @@ import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
 import Gallery from "./Gallery";
 
+// import jquery from 'jquery';
+
 // this is a ratio meaning that per each 100px
 // scroll the object will rotate on 180degrees
 const deg2px = 180 / 2000;
@@ -38,7 +40,8 @@ class App extends React.Component {
             cameraClass: "camera-view",
             cameraEnabled: true,
             active_polaroid_index: images.length - 1,
-            galleryOpacity: 0.0
+            galleryOpacity: 0.0,
+            galleryMode: false
         };
         this.locked = false;
     }
@@ -111,15 +114,16 @@ class App extends React.Component {
 
         // when there is no images left on the camera-view we navigate to the gallery
         let galleryOpacity = 0.0;
+        let galleryMode = false;
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
-            galleryOpacity = 1.0;
+            // galleryOpacity = 1.0;
+            galleryMode = true;
         } else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
-            galleryOpacity = 0.0;
+            // galleryOpacity = 0.0;
+            // galleryMode = false;
         }
-
-        console.log("Active polaroid index = " + active_polaroid_index);
 
         this.setState({
             angle: angle,
@@ -128,7 +132,8 @@ class App extends React.Component {
             cameraClass: cameraClass,
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
-            galleryOpacity: galleryOpacity
+            // galleryOpacity: galleryOpacity,
+            galleryMode: galleryMode
         });
 
         // adds cooldown to the scrolling event
@@ -148,6 +153,10 @@ class App extends React.Component {
 
 
     updatePolaroids(polaroidScale, polaroidTranslateUp) {
+        if (this.state.galleryMode) {
+            return [];
+        }
+
         console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
         let out = [];
         for (let i = 0; i < images.length; i++) {
@@ -214,7 +223,7 @@ class App extends React.Component {
                     {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
                 </div>
 
-                <Gallery opacity={this.state.galleryOpacity} />
+                <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
 
             </div>
         );

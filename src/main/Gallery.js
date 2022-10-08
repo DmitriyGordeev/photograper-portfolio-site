@@ -49,7 +49,8 @@ class Gallery extends React.Component {
         super(props);
         this.state = {
             angle: 0,
-            start_index: 0
+            start_index: 0,
+            focusedImageIndex: -1
         }
     }
 
@@ -86,13 +87,16 @@ class Gallery extends React.Component {
     onPhotoClick(index) {
         console.log(`Clicked on ${index}`);
 
-
+        this.setState({
+            ...this.state,
+            focusedImageIndex: index
+        })
 
         // TODO: enable overlay
         // TODO: make centered Polaroid visible
         // TODO: enable focus
 
-        this.props.onFocus(index);
+        // this.props.onFocus(index);
     }
 
 
@@ -233,21 +237,40 @@ class Gallery extends React.Component {
 
     removeOverlay() {
         console.log("overlayRemove()");
-        this.props.onUnfocus();
+        // this.props.onUnfocus();
+
+        this.setState({
+            ...this.state,
+            focusedImageIndex: -1
+        })
     }
 
 
     render() {
+        // let overlayHeight = 0.0;
+        // let overlayWidth = 0.0;
+        // let polaroidOpacity = 0.0;
+        // let focusImgIndex = -1;
+        // if (this.props.storeData.focused) {
+        //     overlayHeight = "100%";
+        //     overlayWidth = "100%";
+        //     polaroidOpacity = 1.0;
+        //     focusImgIndex = this.props.storeData.imgIndex;
+        // }
+
         let overlayHeight = 0.0;
         let overlayWidth = 0.0;
         let polaroidOpacity = 0.0;
-        let focusImgIndex = -1;
-        if (this.props.storeData.focused) {
+        let polaroidHeight = 0.0;
+        let idx = 0;
+        if (this.state.focusedImageIndex !== -1) {
             overlayHeight = "100%";
             overlayWidth = "100%";
             polaroidOpacity = 1.0;
-            focusImgIndex = this.props.storeData.imgIndex;
+            polaroidHeight = "auto";
+            idx = this.state.focusedImageIndex;
         }
+
 
         return (
             <div className={"gallery-container"} style={{opacity: this.props.opacity}}>
@@ -263,7 +286,7 @@ class Gallery extends React.Component {
 
                 <div className={"text-holder"}>
                     <div>
-                        <p>I have some text for ya</p>
+                        <p>Some text</p>
                     </div>
                 </div>
 
@@ -273,16 +296,21 @@ class Gallery extends React.Component {
                      style={{
                          width: overlayWidth,
                          height: "100%"
-                     }}></div>
+                     }}>
+                </div>
 
 
-                <Polaroid
-                    style={{
-                        opacity: polaroidOpacity,
-                        transition: `${850}ms ease`,
-                    }}
-                    src={images[focusImgIndex]}
-                    alt={""}/>
+                {/*<div className={"common"}*/}
+                {/*     style={{*/}
+                {/*         opacity: polaroidOpacity,*/}
+                {/*     }}>*/}
+                {/*    <img src={images[idx]}*/}
+                {/*         alt={""}/>*/}
+                {/*</div>*/}
+
+                <div className={"common gallery-focus"}>
+                    <img src={images[idx]} alt={""}/>
+                </div>
 
             </div>
         )

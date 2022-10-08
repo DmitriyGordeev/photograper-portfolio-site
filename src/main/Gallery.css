@@ -4,6 +4,7 @@
     background: green;
     height: var(--gallery-size);
     margin: auto auto;
+    transition: 850ms ease-in-out;
 }
 
 .gallery-container > div:nth-child(1) {
@@ -76,7 +77,6 @@ img {
     height: var(--height);
 }
 
-
 .gallery-button {
     width: 100px;
     height: 100px;
@@ -95,8 +95,12 @@ img {
     left: 0;
 }
 
+.gallery-button:hover {
+    opacity: 0.9;
+}
+
 .gallery-button:active {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .text-holder {
@@ -123,3 +127,20 @@ img {
 }
 
 
+.gallery-focus {
+
+}
+
+
+/*.gallery-image-focus {*/
+/*    position: absolute;*/
+/*    margin: auto auto;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    height: var(--height);*/
+/*    background: white;*/
+/*    display: inline-block;*/
+/*    padding: 5px 5px 20px 5px;*/
+/*}*/

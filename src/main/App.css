@@ -39,6 +39,7 @@
     transform: scale(10);
     opacity: 0.0;
     height: 0;
+    display: none;
 }
 
 
