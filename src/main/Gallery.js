@@ -283,7 +283,8 @@ class Gallery extends React.Component {
                          style={{opacity: cardOpacity}}
                          onClick={() => this.removeOverlay()}>
 
-                        <img src={images[idx]}
+                        <img style={{display: this.state.focused ? "block" : "none"}}
+                             src={images[idx]}
                              alt={""}/>
                     </div>
                 </div>
