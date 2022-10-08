@@ -197,6 +197,25 @@
 }
 
 
+.gallery-focus-image {
+    height: 300px;
+    width: auto;
+}
+
+.gallery-focus-image img {
+    height: 300px;
+    background: white;
+    padding: 5px 5px 20px 5px;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+}
+
+
 
 
 

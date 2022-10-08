@@ -313,11 +313,16 @@ class Gallery extends React.Component {
                     </div>
                 </div>
 
-
                 <div className={"right"}>
                     <div className={"text-container"}>
                         <p>Some text</p>
                     </div>
+                </div>
+
+
+                <div className={"gallery-focus-image"} style={{opacity: polaroidOpacity}}>
+                    <img src={images[idx]}
+                         alt={""}/>
                 </div>
 
 
