@@ -4,8 +4,9 @@
 }
 
 body {
-    background: #020A0D;
+    /*background: #020A0D;*/
     overflow: hidden; /* Hide scrollbars */
+    background: url("../../resources/images/ep_naturalblack.webp") repeat;
 }
 
 .invisible {

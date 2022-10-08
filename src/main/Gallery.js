@@ -195,7 +195,7 @@ class Gallery extends React.Component {
                     start_index: startIndex
                 });
             }
-        }, 50);
+        }, 30);
     }
 
 
@@ -229,7 +229,7 @@ class Gallery extends React.Component {
                     start_index: startIndex
                 });
             }
-        }, 50);
+        }, 30);
     }
 
 
