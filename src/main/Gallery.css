@@ -46,6 +46,7 @@
     background: white;
     display: inline-block;
     padding: 5px 5px 20px 5px;
+    border-radius: 3px;
 }
 
 .rot {
@@ -135,6 +136,7 @@
     height: var(--focus-image-height);
     width: auto;
     transition: 850ms;
+
 }
 
 
@@ -149,6 +151,8 @@
     right: 0;
     bottom: 0;
     margin: auto auto;
+
+    border-radius: 3px;
 }
 
 
