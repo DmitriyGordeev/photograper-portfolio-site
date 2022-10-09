@@ -9,7 +9,7 @@
     margin: auto auto;
     background: transparent;
     --padding: 10px;
-    clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
+    clip-path: circle(calc(22% - var(--padding)) at 50% 50%);
     transition: clip-path 0.5s, 850ms ease-in-out;
 }
 
@@ -32,7 +32,7 @@
 
 
 .polaroid-card-hover:hover {
-    clip-path: circle(calc(32% - var(--padding)) at 50% 50%);
+    clip-path: circle(calc(25% - var(--padding)) at 50% 50%);
 }
 
 
@@ -51,7 +51,7 @@
 
 .polaroid-card div.img {
     display: block;
-    background: red;
+    /*background: red;*/
 }
 
 

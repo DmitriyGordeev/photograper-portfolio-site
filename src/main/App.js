@@ -9,6 +9,10 @@ import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
+import manPhoto from "../../resources/images/man_photo.jpg";
+
+
+
 import Gallery from "./Gallery";
 
 // import jquery from 'jquery';
@@ -190,22 +194,30 @@ class App extends React.Component {
                 <Menu />
 
                 <div className={this.state.cameraClass}>
-                    <div className={"camera-background"}
-                         style={{
-                             backgroundImage: "url(" + cameraImage + ")",
-                             transition: `${transitionTime} ease`,
-                             transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
-                         }}>
+
+                    <div className={"background-photo"} style={{
+                        // backgroundImage: `url(${manPhoto})`,
+                        backgroundSize: this.state.scale * 100 + "%"
+                    }} />
+
+                    <div className={"camera-container"}>
+                        <div className={"camera-background"}
+                             style={{
+                                 backgroundImage: "url(" + cameraImage + ")",
+                                 transition: `${transitionTime} ease`,
+                                 transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
+                             }}>
+                        </div>
+
+                        <div className={"overlay"}
+                             onClick={() => this.removeOverlay()}
+                             style={{
+                                 opacity: overlayOpacity,
+                                 height: overlayHeight
+                             }}></div>
+
+                        {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
                     </div>
-
-                    <div className={"overlay"}
-                         onClick={() => this.removeOverlay()}
-                         style={{
-                             opacity: overlayOpacity,
-                             height: overlayHeight
-                         }}></div>
-
-                    {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
                 </div>
 
                 <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
