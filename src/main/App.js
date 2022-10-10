@@ -191,36 +191,44 @@ class App extends React.Component {
         return (
             <div className={"main"}>
 
-                <MenuVert />
+                <div className={"side-menu-container"}>
+                    <MenuVert />
+                </div>
 
-                {/*<div className={this.state.cameraClass}>*/}
+                <div className={"camera-view-container"}>
+                    <div className={this.state.cameraClass}>
 
-                {/*    <div className={"background-photo"} style={{*/}
-                {/*        // backgroundImage: `url(${manPhoto})`,*/}
-                {/*        backgroundSize: this.state.scale * 100 + "%"*/}
-                {/*    }} />*/}
+                        <div className={"background-photo"} style={{
+                            // backgroundImage: `url(${manPhoto})`,
+                            backgroundSize: this.state.scale * 100 + "%"
+                        }} />
 
-                {/*    <div className={"camera-container"} style={{*/}
-                {/*        width: widthTEST * this.state.scale*/}
-                {/*    }}>*/}
-                {/*        <div className={"camera-background"}*/}
-                {/*             style={{*/}
-                {/*                 backgroundImage: "url(" + cameraImage + ")",*/}
-                {/*                 transition: `${transitionTime} ease`,*/}
-                {/*                 transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`*/}
-                {/*             }}>*/}
-                {/*        </div>*/}
+                        <div className={"camera-container"} style={{
+                            width: widthTEST * this.state.scale
+                        }}>
+                            <div className={"camera-background"}
+                                 style={{
+                                     backgroundImage: "url(" + cameraImage + ")",
+                                     transition: `${transitionTime} ease`,
+                                     transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
+                                 }}>
+                            </div>
 
-                {/*        <div className={"overlay"}*/}
-                {/*             onClick={() => this.removeOverlay()}*/}
-                {/*             style={{*/}
-                {/*                 opacity: overlayOpacity,*/}
-                {/*                 height: overlayHeight*/}
-                {/*             }}></div>*/}
+                            <div className={"overlay"}
+                                 onClick={() => this.removeOverlay()}
+                                 style={{
+                                     opacity: overlayOpacity,
+                                     height: overlayHeight
+                                 }}></div>
 
-                {/*        {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+                            {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
+                        </div>
+                    </div>
+                </div>
+
+
+
+
 
                 {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
 

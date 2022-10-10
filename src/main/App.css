@@ -7,16 +7,26 @@
 }
 
 
+.side-menu-container {
+    height: 100%;
+    width: 400px;
+    display: inline-block;
+}
+
+.camera-view-container {
+    /*background: cyan;*/
+    width: calc(100% - 400px);
+    height: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+
 .camera-view {
     /*background: #b0b0c2;*/
-    /*width: 100%;*/
     position: relative;
-    /*margin-top: 20px;*/
-
-    /*width: 20%;*/
-    /*height: 20%;*/
     width: 100%;
-    height: 400px;
+    height: 100%;
 }
 
 
@@ -24,7 +34,7 @@
     width: 60%;
     height: 500px;
 
-    margin: 0 auto;
+    margin: auto auto;
 
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
