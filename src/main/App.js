@@ -3,7 +3,9 @@ import {connect} from "react-redux";
 import "./App.css";
 
 import Polaroid from "./Polaroid";
-import Menu from './Menu';
+import MenuVert from "./MenuVert";
+import Gallery from "./Gallery";
+// import Menu from './Menu';
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
@@ -12,10 +14,6 @@ import room from "../../resources/images/room.jpg";
 import manPhoto from "../../resources/images/man_photo.jpg";
 
 
-
-import Gallery from "./Gallery";
-
-// import jquery from 'jquery';
 
 // this is a ratio meaning that per each 100px
 // scroll the object will rotate on 180degrees
@@ -193,38 +191,38 @@ class App extends React.Component {
         return (
             <div className={"main"}>
 
-                <Menu />
+                <MenuVert />
 
-                <div className={this.state.cameraClass}>
+                {/*<div className={this.state.cameraClass}>*/}
 
-                    <div className={"background-photo"} style={{
-                        // backgroundImage: `url(${manPhoto})`,
-                        backgroundSize: this.state.scale * 100 + "%"
-                    }} />
+                {/*    <div className={"background-photo"} style={{*/}
+                {/*        // backgroundImage: `url(${manPhoto})`,*/}
+                {/*        backgroundSize: this.state.scale * 100 + "%"*/}
+                {/*    }} />*/}
 
-                    <div className={"camera-container"} style={{
-                        width: widthTEST * this.state.scale
-                    }}>
-                        <div className={"camera-background"}
-                             style={{
-                                 backgroundImage: "url(" + cameraImage + ")",
-                                 transition: `${transitionTime} ease`,
-                                 transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
-                             }}>
-                        </div>
+                {/*    <div className={"camera-container"} style={{*/}
+                {/*        width: widthTEST * this.state.scale*/}
+                {/*    }}>*/}
+                {/*        <div className={"camera-background"}*/}
+                {/*             style={{*/}
+                {/*                 backgroundImage: "url(" + cameraImage + ")",*/}
+                {/*                 transition: `${transitionTime} ease`,*/}
+                {/*                 transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`*/}
+                {/*             }}>*/}
+                {/*        </div>*/}
 
-                        <div className={"overlay"}
-                             onClick={() => this.removeOverlay()}
-                             style={{
-                                 opacity: overlayOpacity,
-                                 height: overlayHeight
-                             }}></div>
+                {/*        <div className={"overlay"}*/}
+                {/*             onClick={() => this.removeOverlay()}*/}
+                {/*             style={{*/}
+                {/*                 opacity: overlayOpacity,*/}
+                {/*                 height: overlayHeight*/}
+                {/*             }}></div>*/}
 
-                        {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
-                    </div>
-                </div>
+                {/*        {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-                <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
+                {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
 
                 {/*<Gallery opacity={1.0} />*/}
 

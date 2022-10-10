@@ -234,16 +234,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className={"gallery-container"}>
-                {/*<div className={"gallery"}>*/}
-                {/*    {this.updateGallery()}*/}
-                {/*</div>*/}
-
-                {/*<div className={"button-prev"} onClick={() => this.prevButton()}></div>*/}
-                {/*<div className={"button-next"} onClick={() => this.nextButton()}></div>*/}
-
-                <img src={arrowUp} alt={""} />
-
+            <div id={"target"}>
             </div>
         );
     }

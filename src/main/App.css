@@ -1,13 +1,10 @@
 .main {
-    width: 95%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     /*border: 1px solid black;*/
     position: relative;
 }
-
-
-
 
 
 .camera-view {

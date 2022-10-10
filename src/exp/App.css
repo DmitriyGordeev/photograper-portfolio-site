@@ -1,84 +1,103 @@
-.common {
-    --height: 200px;
-    position: absolute;
-    background: white;
-    display: inline-block;
-    padding: 5px 5px 20px 5px;
-}
-
-.rot {
-    top: calc(50% - var(--height) / 2);
-
-    /*-moz-transform: skew(0deg, 12deg);*/
-    /*-webkit-transform: skew(0deg, 12deg);*/
-    /*-o-transform: skew(0deg, 12deg);*/
-    /*-ms-transform: skew(0deg, 12deg);*/
-    /*transform: skew(0deg, -15deg);*/
-
-    transition: 150ms ease-in-out;
-    transform-origin: center left;
-}
-
-.common:hover {
-    margin-left: 16px;
-    transition: all 450ms ease-in-out, transform 0ms;
-}
-
-
-img {
-    width: auto;
-    height: var(--height);
-}
-
-
-
-
-.button-next {
-    width: 100px;
-    height: 100px;
-    background: yellow;
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-}
-
-.button-next:active {
-    background: red;
-}
-
-
-.button-prev {
-    width: 100px;
-    height: 100px;
-    background: green;
-    position: fixed;
-    right: 50px;
-    bottom: 220px;
-}
-
-.button-prev:active {
-    background: blue;
-}
-
-
-.gallery-container {
-    width: 80%;
-    /*background: green;*/
-}
-
-.gallery {
-    border: 1px solid red;
-    position: relative;
+#target {
+    width: 500px;
     height: 500px;
-    margin: auto auto;
-    width: 300px;
+    /*background: #1E4BA2;*/
+    border-radius: 30px;
+
+    border: 10px solid #1E4BA2;
+    box-sizing: border-box;
 }
 
-body {
-    background: white;
+
+#target:hover {
+    border: 250px solid #1E4BA2;
+    transition: 850ms ease-in-out;
 }
 
-img {
-    width: 100px;
-    height: 100px;
-}
+
+
+
+/*.common {*/
+/*    --height: 200px;*/
+/*    position: absolute;*/
+/*    background: white;*/
+/*    display: inline-block;*/
+/*    padding: 5px 5px 20px 5px;*/
+/*}*/
+
+/*.rot {*/
+/*    top: calc(50% - var(--height) / 2);*/
+
+/*    !*-moz-transform: skew(0deg, 12deg);*!*/
+/*    !*-webkit-transform: skew(0deg, 12deg);*!*/
+/*    !*-o-transform: skew(0deg, 12deg);*!*/
+/*    !*-ms-transform: skew(0deg, 12deg);*!*/
+/*    !*transform: skew(0deg, -15deg);*!*/
+
+/*    transition: 150ms ease-in-out;*/
+/*    transform-origin: center left;*/
+/*}*/
+
+/*.common:hover {*/
+/*    margin-left: 16px;*/
+/*    transition: all 450ms ease-in-out, transform 0ms;*/
+/*}*/
+
+
+/*img {*/
+/*    width: auto;*/
+/*    height: var(--height);*/
+/*}*/
+
+
+
+
+/*.button-next {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background: yellow;*/
+/*    position: fixed;*/
+/*    right: 50px;*/
+/*    bottom: 50px;*/
+/*}*/
+
+/*.button-next:active {*/
+/*    background: red;*/
+/*}*/
+
+
+/*.button-prev {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background: green;*/
+/*    position: fixed;*/
+/*    right: 50px;*/
+/*    bottom: 220px;*/
+/*}*/
+
+/*.button-prev:active {*/
+/*    background: blue;*/
+/*}*/
+
+
+/*.gallery-container {*/
+/*    width: 80%;*/
+/*    !*background: green;*!*/
+/*}*/
+
+/*.gallery {*/
+/*    border: 1px solid red;*/
+/*    position: relative;*/
+/*    height: 500px;*/
+/*    margin: auto auto;*/
+/*    width: 300px;*/
+/*}*/
+
+/*body {*/
+/*    background: white;*/
+/*}*/
+
+/*img {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*}*/

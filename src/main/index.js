@@ -53,7 +53,7 @@ const store = createStore(reducer,
 const root = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
-        <div>
+        <div style={{width: "100%", height: "100%"}}>
             <App />
             {/*<img src={cameraImage} alt={"camera-lenses"} className={"aspect-ratio"} />*/}
         </div>

@@ -1,17 +1,23 @@
 * {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
     /*background: #020A0D;*/
     overflow: hidden; /* Hide scrollbars */
     background: #070B14;
-    /*background: url("../../resources/images/ep_naturalblack.webp") repeat;*/
 }
 
-.invisible {
-    display: none;
+#app {
+    width: 100%;
+    height: 100%;
 }
 
 
