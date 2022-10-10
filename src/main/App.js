@@ -176,6 +176,8 @@ class App extends React.Component {
         let overlayHeight = 0;
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
+
+        let widthTEST = 450;
         if (this.props.storeData.focused) {
 
             // change overlay's opacity to 1.0 (make it visible)
@@ -200,7 +202,9 @@ class App extends React.Component {
                         backgroundSize: this.state.scale * 100 + "%"
                     }} />
 
-                    <div className={"camera-container"}>
+                    <div className={"camera-container"} style={{
+                        width: widthTEST * this.state.scale
+                    }}>
                         <div className={"camera-background"}
                              style={{
                                  backgroundImage: "url(" + cameraImage + ")",
