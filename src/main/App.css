@@ -50,7 +50,7 @@
 .camera-view > .camera-container {
     width: 450px;
     height: 450px;
-    background: #1E4BA2;
+    /*background: #1E4BA2;*/
     position: absolute;
     opacity: 1.0;
 
@@ -60,8 +60,10 @@
     left: 0;
     right: 0;
 
-    border-radius: 40px;
+    border-radius: 60px;
     transition: 650ms ease-in-out;
+    box-sizing: border-box;
+    border: 15px solid #1E4BA2;
 }
 
 

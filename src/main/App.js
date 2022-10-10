@@ -199,7 +199,6 @@ class App extends React.Component {
                     <div className={this.state.cameraClass}>
 
                         <div className={"background-photo"} style={{
-                            // backgroundImage: `url(${manPhoto})`,
                             backgroundSize: this.state.scale * 100 + "%"
                         }} />
 
