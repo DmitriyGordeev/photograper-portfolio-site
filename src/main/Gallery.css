@@ -2,7 +2,7 @@
 .gallery-container {
     width: 70%;
     height: 400px;
-    /*background: green;*/
+    background: green;
     margin: 0 auto;
 
     transition: 850ms ease;
@@ -14,12 +14,12 @@
 }
 
 .left {
-    /*background: red;*/
+    background: red;
     width: 60%;
 }
 
 .right {
-    /*background: blue;*/
+    background: blue;
     width: 40%;
     height: 100%;
     position: relative;
@@ -111,15 +111,15 @@
 }
 
 .text-container {
-    /*background: aquamarine;*/
+    background: aquamarine;
     position: absolute;
-    width: 100%;
-    height: fit-content;
+    width: 45vw;
+    height: 100vw;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto auto;
+    /*margin: auto auto;*/
 }
 
 .text-container > p {
