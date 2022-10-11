@@ -11,27 +11,29 @@ class MenuVert extends React.Component {
     }
 
 
-    // addItems(itemClass) {
-    //     let elements = [];
-    //     if (this.props.storeData.focused) {
-    //         return elements;
-    //     }
-    //
-    //     elements.push(
-    //         <div className={itemClass} style={{}}>ABOUT ME</div>
-    //     );
-    //     elements.push(
-    //         <div className={itemClass}>SOCIALS</div>
-    //     );
-    //     elements.push(
-    //         <div className={itemClass}>CONTACT</div>
-    //     );
-    //     elements.push(
-    //         <div id={"gallery-button"} className={itemClass}>GALLERY</div>
-    //     );
-    //
-    //     return elements;
-    // }
+    addItems(itemClass) {
+        let elements = [];
+
+        elements.push(
+            <div className={itemClass}>SOCIALS</div>
+        );
+        elements.push(
+            <div className={itemClass}>CONTACT</div>
+        );
+
+        if (this.props.galleryMode) {
+            return elements;
+        }
+
+        elements.splice(0, 0,
+            <div className={itemClass}>ABOUT ME</div>);
+
+        elements.push(
+            <div id={"gallery-button"} className={itemClass}>GALLERY</div>
+        );
+
+        return elements;
+    }
 
 
     render() {
@@ -43,11 +45,12 @@ class MenuVert extends React.Component {
 
         return (
             <div className={"menu-side"}>
-                <div className={"menu-center"}>
-                    <div className={itemClass}>ABOUT ME</div>
-                    <div className={itemClass}>SOCIALS</div>
-                    <div className={itemClass}>CONTACT</div>
-                    <div id={"gallery-button"} className={itemClass}>GALLERY</div>
+                <div className={this.props.galleryMode ? "menu-simple" : "menu-center"}>
+                    {this.addItems(itemClass)}
+                    {/*<div className={itemClass}>ABOUT ME</div>*/}
+                    {/*<div className={itemClass}>SOCIALS</div>*/}
+                    {/*<div className={itemClass}>CONTACT</div>*/}
+                    {/*<div id={"gallery-button"} className={itemClass}>GALLERY</div>*/}
                 </div>
             </div>
         )

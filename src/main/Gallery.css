@@ -1,6 +1,6 @@
 
 .gallery-container {
-    width: 60%;
+    width: 70%;
     height: 400px;
     /*background: green;*/
     margin: 0 auto;
@@ -34,8 +34,8 @@
     margin: auto auto;
     display: inline-block;
     height: 400px;
-    width: 55%;
-    float: right;
+    width: 65%;
+    float: left;
 }
 
 
@@ -50,7 +50,7 @@
 }
 
 .rot {
-    bottom: 0;
+    bottom: 25px;
 
     /*-moz-transform: skew(0deg, 12deg);*/
     /*-webkit-transform: skew(0deg, 12deg);*/
@@ -74,8 +74,8 @@
 
 
 .control-panel {
-    /*background: orangered;*/
-    width: 45%;
+    /*background: blueviolet;*/
+    width: 30%;
     height: 400px;
     display: inline-block;
     vertical-align: top;

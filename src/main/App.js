@@ -190,7 +190,7 @@ class App extends React.Component {
             <div className={"main"}>
 
                 <div className={"side-menu-container"} style={{
-                    height: this.state.galleryMode ? 100 : "100%",
+                    height: this.state.galleryMode ? "fit-content" : "100%",
                 }}>
                     <MenuVert galleryMode={this.state.galleryMode}/>
                 </div>
@@ -202,7 +202,7 @@ class App extends React.Component {
 
                         <div className={"camera-container"} style={{
                             width: camContainerWidth * this.state.scale,
-                            height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.2,
+                            height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
                             // background: this.state.scale > 1.0 ? "#1E4BA2" : "transparent"
                         }}>
 
