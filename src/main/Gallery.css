@@ -2,7 +2,7 @@
 .gallery-container {
     width: 70%;
     height: 400px;
-    background: green;
+    /*background: green;*/
     margin: 0 auto;
 
     transition: 850ms ease;
@@ -14,12 +14,12 @@
 }
 
 .left {
-    background: red;
+    /*background: red;*/
     width: 60%;
 }
 
 .right {
-    background: blue;
+    /*background: blue;*/
     width: 40%;
     height: 100%;
     position: relative;
@@ -111,24 +111,23 @@
 }
 
 .text-container {
-    background: aquamarine;
+    /*background: cyan;*/
     position: absolute;
-    width: 45vw;
+    width: 40vw;
     height: 100vw;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    /*margin: auto auto;*/
 }
 
-.text-container > p {
-    width: fit-content;
-    margin: 0 auto;
-    /*background: red;*/
-    padding: 10px;
-    color: white;
-}
+/*.text-container > p {*/
+/*    width: fit-content;*/
+/*    margin: 0 auto;*/
+/*    !*background: red;*!*/
+/*    padding: 10px;*/
+/*    color: white;*/
+/*}*/
 
 
 .gallery-focus-image {
@@ -174,8 +173,24 @@ img.arrow {
     right: 0;
 }
 
+.line {
+    width: 80%;
+    height: 2px;
+    background: #F5F5F5;
+    margin: 30px 0;
+    transform: skew(-60deg);
+}
 
+.left-line {
+    display: inline-block;
+    float: left;
+}
 
+.right-line {
+    display: inline-block;
+    float: right;
+    transform: skew(60deg);
+}
 
 
 

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './Gallery.css';
+import './texts.css';
+
 import portraitExample from "../../resources/images/portrait.jpg";
 import portraitExample2 from "../../resources/images/portrait2.jpg";
 import room from "../../resources/images/room.jpg";
@@ -271,7 +273,12 @@ class Gallery extends React.Component {
 
                 <div className={"right"}>
                     <div className={"text-container"}>
-                        <p>Some text</p>
+                        <h1 className={"text left-text"}>My name is </h1>
+                        <h2 className={"text left-text"}>I like photography and video-editing</h2>
+                        <div className={"line"} />
+                        <h2 className={"text right-text"}>I travel around the world <br/>to capture memorable moments</h2>
+                        <div className={"line right-line"} />
+                        <h2 className={"text left-text"}>You can find my profile here</h2>
                     </div>
                 </div>
 
