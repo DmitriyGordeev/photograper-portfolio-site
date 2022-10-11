@@ -1,5 +1,5 @@
 .menu-side {
-    /*background: blue;*/
+    background: blue;
     height: 100%;
     position: relative;
     width: 400px;
@@ -16,9 +16,17 @@
 
 .menu-item {
     color: white;
-    font-size: 50px;
+    /*font-size: 50px;*/
     padding-left: 40px;
     font-weight: 600;
+}
+
+.large {
+    font-size: 50px;
+}
+
+.small {
+    font-size: 20px;
 }
 
 #gallery-button.menu-item {

@@ -189,11 +189,15 @@ class App extends React.Component {
         return (
             <div className={"main"}>
 
-                <div className={"side-menu-container"}>
-                    <MenuVert />
+                <div className={"side-menu-container"} style={{
+                    height: this.state.galleryMode ? 100 : "100%"
+                }}>
+                    <MenuVert galleryMode={this.state.galleryMode}/>
                 </div>
 
-                <div className={"camera-view-container"}>
+                <div className={"camera-view-container"} style={{
+                    height: this.state.galleryMode ? 0 : "100%"
+                }}>
                     <div className={this.state.cameraClass}>
 
                         <div className={"camera-container"} style={{
@@ -201,6 +205,9 @@ class App extends React.Component {
                             height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.2,
                             background: this.state.scale > 1.0 ? "#1E4BA2" : "transparent"
                         }}>
+
+                            <div id={"round-point"} onClick={() => {}}/>
+
                             <div className={"camera-background"}
                                  style={{
                                      backgroundImage: "url(" + cameraImage + ")",
@@ -214,14 +221,19 @@ class App extends React.Component {
                                  style={{
                                      opacity: overlayOpacity,
                                      height: overlayHeight
-                                 }}></div>
+                                 }}>
+                            </div>
 
                             {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
+
                         </div>
                     </div>
                 </div>
 
-                {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
+                <div className={"gallery-side"}>
+                    <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
+                </div>
+
 
                 {/*<Gallery opacity={1.0} />*/}
 

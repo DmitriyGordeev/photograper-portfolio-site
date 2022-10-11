@@ -63,15 +63,21 @@ class Polaroid extends React.Component {
 
     render() {
 
+        // let position = "absolute";
         let className = this.getClassUnfocused();
         if (this.props.storeData.focused) {
             className = this.getClassFocused();
+            // position = "fixed";
         }
 
         return (
             <div className={className}
                  onClick={this.click}
-                 style={this.props.style}>
+                 style={{
+                     ...this.props.style,
+                     // position: position,
+                     // transition: "all 850ms"
+            }}>
 
                 <div className={"inner"}>
                     <img ref={this.imgRef}

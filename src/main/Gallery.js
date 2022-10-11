@@ -252,7 +252,6 @@ class Gallery extends React.Component {
             idx = (idx === -1) ? 0 : idx;       // if idx == -1 we set it to 0, otherwise leave as is
         }
 
-
         return (
             <div className={"gallery-container"} style={{opacity: this.props.opacity}}>
 
@@ -275,7 +274,6 @@ class Gallery extends React.Component {
                         <p>Some text</p>
                     </div>
                 </div>
-
 
                 <div className={"overlay"}
                      onClick={() => this.removeOverlay()}

@@ -1,6 +1,6 @@
 
 .gallery-container {
-    width: 90%;
+    width: 60%;
     height: 400px;
     /*background: green;*/
     margin: 0 auto;
@@ -41,7 +41,7 @@
 
 /* TODO: rename this class ! */
 .common {
-    --height: 250px;
+    --height: 220px;
     position: absolute;
     background: white;
     display: inline-block;
@@ -75,7 +75,7 @@
 
 .control-panel {
     /*background: orangered;*/
-    width: 100px;
+    width: 45%;
     height: 400px;
     display: inline-block;
     vertical-align: top;
