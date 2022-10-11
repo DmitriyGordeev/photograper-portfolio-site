@@ -12,7 +12,9 @@ body {
 body {
     /*background: #020A0D;*/
     overflow: hidden; /* Hide scrollbars */
-    background: #070B14;
+    /*background: #070B14;*/
+    /*background: #0b0b4b;*/
+    background: #0a2463;
 }
 
 #app {

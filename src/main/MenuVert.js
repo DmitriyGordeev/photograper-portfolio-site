@@ -10,6 +10,30 @@ class MenuVert extends React.Component {
         }
     }
 
+
+    // addItems(itemClass) {
+    //     let elements = [];
+    //     if (this.props.storeData.focused) {
+    //         return elements;
+    //     }
+    //
+    //     elements.push(
+    //         <div className={itemClass} style={{}}>ABOUT ME</div>
+    //     );
+    //     elements.push(
+    //         <div className={itemClass}>SOCIALS</div>
+    //     );
+    //     elements.push(
+    //         <div className={itemClass}>CONTACT</div>
+    //     );
+    //     elements.push(
+    //         <div id={"gallery-button"} className={itemClass}>GALLERY</div>
+    //     );
+    //
+    //     return elements;
+    // }
+
+
     render() {
 
         let itemClass = "menu-item large";
