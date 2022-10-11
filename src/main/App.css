@@ -13,9 +13,10 @@
     display: inline-block;
 }
 
+
 .camera-view-container {
     /*background: cyan;*/
-    width: calc(100% - 400px);
+    width: calc(100% - 400px);      /* -400px because of the side-menu-container  */
     height: 100%;
     display: inline-block;
     position: relative;
@@ -60,22 +61,12 @@
     left: 0;
     right: 0;
 
-    border-radius: 60px;
+    border-radius: 40px;
     transition: 650ms ease-in-out;
     box-sizing: border-box;
     border: 15px solid #1E4BA2;
 }
 
-
-/*#rot-camera-image {*/
-/*    width: 36%;*/
-/*    height: auto;*/
-/*    !*margin-top: 50px;*!*/
-/*    margin: 0 auto 0;*/
-/*    !*border: 1px solid yellow;*!*/
-/*    display: block;*/
-/*    position: relative;*/
-/*}*/
 
 .overlay {
     opacity: 1.0;

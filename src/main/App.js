@@ -5,14 +5,12 @@ import "./App.css";
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
 import Gallery from "./Gallery";
-// import Menu from './Menu';
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
 import manPhoto from "../../resources/images/man_photo.jpg";
-
 
 
 // this is a ratio meaning that per each 100px
@@ -31,7 +29,6 @@ const images = [
     room
 ];
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -43,7 +40,8 @@ class App extends React.Component {
             cameraEnabled: true,
             active_polaroid_index: images.length - 1,
             galleryOpacity: 0.0,
-            galleryMode: false
+            galleryMode: false,
+            borderWidth: 15
         };
         this.locked = false;
     }
@@ -120,7 +118,7 @@ class App extends React.Component {
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
             // galleryOpacity: galleryOpacity,
-            galleryMode: galleryMode
+            galleryMode: galleryMode,
         });
 
         // adds cooldown to the scrolling event
@@ -175,7 +173,7 @@ class App extends React.Component {
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
 
-        let widthTEST = 450;
+        let camContainerWidth = 450;
         if (this.props.storeData.focused) {
 
             // change overlay's opacity to 1.0 (make it visible)
@@ -198,12 +196,10 @@ class App extends React.Component {
                 <div className={"camera-view-container"}>
                     <div className={this.state.cameraClass}>
 
-                        <div className={"background-photo"} style={{
-                            backgroundSize: this.state.scale * 100 + "%"
-                        }} />
-
                         <div className={"camera-container"} style={{
-                            width: widthTEST * this.state.scale
+                            width: camContainerWidth * this.state.scale,
+                            height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.2,
+                            background: this.state.scale > 1.0 ? "#1E4BA2" : "transparent"
                         }}>
                             <div className={"camera-background"}
                                  style={{
@@ -224,10 +220,6 @@ class App extends React.Component {
                         </div>
                     </div>
                 </div>
-
-
-
-
 
                 {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
 

@@ -2,6 +2,7 @@
     /*background: blue;*/
     height: 100%;
     position: relative;
+    width: 400px;
 }
 
 .menu-center {
@@ -16,7 +17,7 @@
 .menu-item {
     color: white;
     font-size: 50px;
-    padding-left: 60px;
+    padding-left: 40px;
     font-weight: 600;
 }
 
