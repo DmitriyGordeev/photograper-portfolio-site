@@ -6,9 +6,27 @@ import './MenuVert.css';
 class MenuVert extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        }
+        // this.state = {
+        //     socialsX: 0,
+        //     socialsY: 0,
+        //     socialsW: 0,
+        //     socialsH: 0
+        // }
+        // this.socialRef = React.createRef();
     }
+
+
+    componentDidMount() {
+        // let socialsBox = this.socialRef.current.getBoundingClientRect();
+        // this.setState({
+        //     ...this.state,
+        //     socialsX: socialsBox.x,
+        //     socialsY: socialsBox.y,
+        //     socialsW: socialsBox.width,
+        //     socialsH: socialsBox.height
+        // });
+    }
+
 
     addItems(itemClass) {
         let elements = [];

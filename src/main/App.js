@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
 import "./about.css";
+import './socials.css';
 
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
@@ -44,6 +45,7 @@ class App extends React.Component {
             galleryMode: false,
             borderWidth: 15,
             aboutDialogWidth: 0,
+            socialsOn: false
         };
         this.locked = false;
         this.aboutRef = React.createRef();
@@ -202,9 +204,17 @@ class App extends React.Component {
             aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
         }
 
+        let socialsTopPos = "100vh";
+        if (this.state.socialsOn) {
+            socialsTopPos = 0;
+        }
+
 
         return (
-            <div className={"main"} >
+            <div className={"main"} onClick={() => {this.setState({
+                ...this.state,
+                socialsOn: true
+            })}}>
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
@@ -286,11 +296,14 @@ class App extends React.Component {
                             <p className={"about-socials"}>You can also find me here</p>
                         </div>
                     </div>
-
-
-
                 </div>
 
+
+                <div className={"socials-dialog"} style={{
+                    top: socialsTopPos
+                }}>
+                    <div></div>
+                </div>
 
             </div>
         );
