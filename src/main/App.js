@@ -41,14 +41,23 @@ class App extends React.Component {
             active_polaroid_index: images.length - 1,
             galleryOpacity: 0.0,
             galleryMode: false,
-            borderWidth: 15
+            borderWidth: 15,
+            aboutDialogWidth: 0,
+            aboutLeftPos: "100vw"
         };
         this.locked = false;
+        this.aboutRef = React.createRef();
     }
 
 
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
+
+        // this will define how wide is 'About Me' dialog window
+        this.setState({
+            ...this.state,
+            aboutDialogWidth: this.aboutRef.current.offsetWidth
+        });
     }
 
 
@@ -187,14 +196,20 @@ class App extends React.Component {
         }
 
         return (
-            <div className={"main"}>
+            <div className={"main"} onClick={() => {
+                this.setState({...this.state, aboutLeftPos: `calc(100vw - ${this.state.aboutDialogWidth}px)`})
+            }}>
 
+
+                {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
                     height: this.state.galleryMode ? "fit-content" : "100%",
                 }}>
                     <MenuVert galleryMode={this.state.galleryMode}/>
                 </div>
 
+
+                {/* CAMERA VIEW ------------------------------------*/}
                 <div className={"camera-view-container"} style={{
                     height: this.state.galleryMode ? 0 : "100%",
                 }}>
@@ -230,10 +245,21 @@ class App extends React.Component {
                     </div>
                 </div>
 
+
+                {/* GALLERY VIEW ------------------------------------*/}
                 <div className={"gallery-side"}>
                     <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
                     {/*<Gallery opacity={1.0} />*/}
                 </div>
+
+
+                {/* ABOUT DIALOG ------------------------------------*/}
+                <div ref={this.aboutRef}
+                     className={"about-dialog"}
+                     style={{left: this.state.aboutLeftPos}}>
+                </div>
+
+
             </div>
         );
     }
