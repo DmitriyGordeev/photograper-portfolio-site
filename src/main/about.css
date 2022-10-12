@@ -1,0 +1,54 @@
+.about-dialog {
+    width: 60vw;
+    height: 100vw;
+    position: fixed;
+    background: green;
+    top: 0;
+    left: 100vw;
+    transition: 650ms ease-in-out;
+}
+
+#about-content-wrapper {
+    /*background: cyan;*/
+    width: 80%;
+    height: 40%;
+    margin: 0 auto;
+}
+
+#about-content-wrapper p,h1 {
+    /*background: blueviolet;*/
+    color: white;
+}
+
+/*#about-content-wrapper p {*/
+/*    font-weight: 400;*/
+/*}*/
+
+#about-top-block {
+    /*background: blue;*/
+    width: 100%;
+    height: fit-content;
+}
+
+#about-bottom-block {
+    /*background: red;*/
+    width: 100%;
+    height: 40%;
+}
+
+/* TODO: this is almost duplication from Gallery.css (.common) - refactor*/
+.about-photo-wrapper {
+    --image-height: 220px;
+    height: var(--image-height);
+    width: auto;
+
+    display: inline-block;
+    padding: 5px 5px 20px 5px;
+    background: white;
+    /*box-sizing: border-box;*/
+    border-radius: 3px;
+}
+
+.about-photo-wrapper img {
+    height: var(--image-height);
+}

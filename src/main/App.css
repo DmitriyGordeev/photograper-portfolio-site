@@ -132,15 +132,7 @@
 }
 
 
-.about-dialog {
-    width: 500px;
-    height: 500px;
-    position: fixed;
-    background: green;
-    top: 0;
-    left: 100vw;
-    transition: 850ms ease-in-out;
-}
+
 
 
 

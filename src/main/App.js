@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
+import "./about.css";
 
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
@@ -257,18 +258,36 @@ class App extends React.Component {
                 </div>
 
 
-                {/* ABOUT DIALOG ------------------------------------*/}
+                {/* 'ABOUT ME' DIALOG ------------------------------------*/}
                 <div ref={this.aboutRef}
                      className={"about-dialog"}
                      style={{left: aboutPos}}>
 
                     <div style={{
                         background: "white",
-                        width: 100,
-                        height: 100,
+                        width: 50,
+                        height: 50,
                         marginTop: 10,
                         marginLeft: 10
                     }} onClick={() => {this.props.closeAboutDialog()}} />
+
+                    <div id={"about-content-wrapper"}>
+                        <div id={"about-top-block"}>
+                            <p> About Me </p><br/>
+                            <div className={"about-photo-wrapper"}>
+                                <img src={portraitExample2} alt={""}/>
+                            </div>
+                        </div>
+                        <div id={"about-bottom-block"}>
+                            <br/><h1>My name</h1><br/>
+                            <p>Some long text here Some long text here
+                                Some long text here Some long text here Some long text here</p>
+                            <div className={"line"} style={{width: "50%"}}/>
+                            <p className={"about-socials"}>You can also find me here</p>
+                        </div>
+                    </div>
+
+
 
                 </div>
 
