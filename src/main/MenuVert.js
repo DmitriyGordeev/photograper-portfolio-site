@@ -32,10 +32,10 @@ class MenuVert extends React.Component {
         let elements = [];
 
         elements.push(
-            <div key={elements.length} className={itemClass}>SOCIALS</div>
+            <div key={elements.length} className={"menu-item"}><span className={itemClass}>SOCIALS</span></div>
         );
         elements.push(
-            <div key={elements.length} className={itemClass}>CONTACT</div>
+            <div key={elements.length} className={"menu-item"}><span className={itemClass}>CONTACT</span></div>
         );
 
         if (this.props.galleryMode) {
@@ -44,14 +44,13 @@ class MenuVert extends React.Component {
 
         elements.splice(0, 0,
             <div key={elements.length}
-                 className={itemClass}
-                 onClick={() => {this.props.openAboutDialog()}}>
-                ABOUT ME
+                 className={"menu-item"}>
+                <span className={itemClass} onClick={() => {this.props.openAboutDialog()}}>ABOUT ME</span>
             </div>);
 
         elements.push(
             <div key={elements.length}
-                 id={"gallery-button"} className={itemClass}>GALLERY</div>
+                 id={"gallery-button"} className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
         );
 
         return elements;
@@ -60,7 +59,7 @@ class MenuVert extends React.Component {
 
     render() {
 
-        let itemClass = "menu-item large";
+        let itemClass = " large";
         if (this.props.galleryMode) {
             itemClass = "menu-item small";
         }
