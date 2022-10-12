@@ -231,10 +231,9 @@ class App extends React.Component {
                 </div>
 
                 <div className={"gallery-side"}>
-                    {/*<Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />*/}
-                    <Gallery opacity={1.0} />
+                    <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
+                    {/*<Gallery opacity={1.0} />*/}
                 </div>
-
             </div>
         );
     }
