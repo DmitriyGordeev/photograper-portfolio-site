@@ -43,7 +43,6 @@ class App extends React.Component {
             galleryMode: false,
             borderWidth: 15,
             aboutDialogWidth: 0,
-            aboutLeftPos: "100vw"
         };
         this.locked = false;
         this.aboutRef = React.createRef();
@@ -195,11 +194,16 @@ class App extends React.Component {
             polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
 
-        return (
-            <div className={"main"} onClick={() => {
-                this.setState({...this.state, aboutLeftPos: `calc(100vw - ${this.state.aboutDialogWidth}px)`})
-            }}>
 
+        let aboutPos = "100vw";
+        console.log("this.props.storeData.aboutMe = " + this.props.storeData.aboutMe);
+        if (this.props.storeData.aboutMe) {
+            aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
+        }
+
+
+        return (
+            <div className={"main"} >
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
@@ -256,7 +260,16 @@ class App extends React.Component {
                 {/* ABOUT DIALOG ------------------------------------*/}
                 <div ref={this.aboutRef}
                      className={"about-dialog"}
-                     style={{left: this.state.aboutLeftPos}}>
+                     style={{left: aboutPos}}>
+
+                    <div style={{
+                        background: "white",
+                        width: 100,
+                        height: 100,
+                        marginTop: 10,
+                        marginLeft: 10
+                    }} onClick={() => {this.props.closeAboutDialog()}} />
+
                 </div>
 
 
@@ -272,6 +285,9 @@ export default connect(
     dispatch => ({
         onPolaroidUnfocus: (values) => {
             dispatch({type: 'POLAROID_UNFOCUSED', values: values});
+        },
+        closeAboutDialog: (values) => {
+            dispatch({type: 'ABOUT_DIALOG_CLOSE'});
         }
     })
 )(App);

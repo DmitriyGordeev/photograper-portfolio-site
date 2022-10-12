@@ -27,6 +27,7 @@ function reducer(state = initialState, action) {
 
     console.log("[reducer()] STORE:", state);
 
+    // TODO: switch - case
     if(action.type === "POLAROID_FOCUSED") {
         console.log("[reducer()] POLAROID_FOCUSED");
         return {...state, focused: true};
@@ -42,6 +43,14 @@ function reducer(state = initialState, action) {
     else if (action.type === "GALLERY_UNFOCUSED") {
         console.log("[reducer()] GALLERY_UNFOCUSED");
         return {...state, focused: false};
+    }
+    else if (action.type === "ABOUT_DIALOG_OPEN") {
+        console.log("[reducer()] ABOUT_DIALOG_OPEN");
+        return {...state, aboutMe: true};
+    }
+    else if (action.type === "ABOUT_DIALOG_CLOSE") {
+        console.log("[reducer()] ABOUT_DIALOG_CLOSE");
+        return {...state, aboutMe: false};
     }
 
     return state;

@@ -10,15 +10,14 @@ class MenuVert extends React.Component {
         }
     }
 
-
     addItems(itemClass) {
         let elements = [];
 
         elements.push(
-            <div className={itemClass}>SOCIALS</div>
+            <div key={elements.length} className={itemClass}>SOCIALS</div>
         );
         elements.push(
-            <div className={itemClass}>CONTACT</div>
+            <div key={elements.length} className={itemClass}>CONTACT</div>
         );
 
         if (this.props.galleryMode) {
@@ -26,10 +25,15 @@ class MenuVert extends React.Component {
         }
 
         elements.splice(0, 0,
-            <div className={itemClass}>ABOUT ME</div>);
+            <div key={elements.length}
+                 className={itemClass}
+                 onClick={() => {this.props.openAboutDialog()}}>
+                ABOUT ME
+            </div>);
 
         elements.push(
-            <div id={"gallery-button"} className={itemClass}>GALLERY</div>
+            <div key={elements.length}
+                 id={"gallery-button"} className={itemClass}>GALLERY</div>
         );
 
         return elements;
@@ -47,10 +51,6 @@ class MenuVert extends React.Component {
             <div className={"menu-side"}>
                 <div className={this.props.galleryMode ? "menu-simple" : "menu-center"}>
                     {this.addItems(itemClass)}
-                    {/*<div className={itemClass}>ABOUT ME</div>*/}
-                    {/*<div className={itemClass}>SOCIALS</div>*/}
-                    {/*<div className={itemClass}>CONTACT</div>*/}
-                    {/*<div id={"gallery-button"} className={itemClass}>GALLERY</div>*/}
                 </div>
             </div>
         )
@@ -59,5 +59,9 @@ class MenuVert extends React.Component {
 
 export default connect(
     state => ({storeData: state}),
-    dispatch => ({})
+    dispatch => ({
+        openAboutDialog: (values) => {
+            dispatch({type: 'ABOUT_DIALOG_OPEN'});
+        }
+    })
 )(MenuVert)
