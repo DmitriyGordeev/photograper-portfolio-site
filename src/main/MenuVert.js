@@ -32,7 +32,9 @@ class MenuVert extends React.Component {
         let elements = [];
 
         elements.push(
-            <div key={elements.length} className={"menu-item"}><span className={itemClass}>SOCIALS</span></div>
+            <div key={elements.length}
+                 className={"menu-item"}
+                 onClick={() => {this.props.openSocialDialog()}}><span className={itemClass}>SOCIALS</span></div>
         );
         elements.push(
             <div key={elements.length} className={"menu-item"}><span className={itemClass}>CONTACT</span></div>
@@ -79,6 +81,9 @@ export default connect(
     dispatch => ({
         openAboutDialog: (values) => {
             dispatch({type: 'ABOUT_DIALOG_OPEN'});
+        },
+        openSocialDialog: (values) => {
+            dispatch({type: 'SOCIAL_DIALOG_OPEN'});
         }
     })
 )(MenuVert)

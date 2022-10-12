@@ -205,10 +205,9 @@ class App extends React.Component {
         }
 
         let socialsTopPos = "100vh";
-        if (this.state.socialsOn) {
+        if (this.props.storeData.socialOpen) {
             socialsTopPos = 0;
         }
-
 
         return (
             <div className={"main"} onClick={() => {this.setState({
@@ -299,10 +298,10 @@ class App extends React.Component {
                 </div>
 
 
-                <div className={"socials-dialog"} style={{
-                    top: socialsTopPos
-                }}>
-                    <div></div>
+                <div className={"socials-dialog"}
+                     style={{top: socialsTopPos}}
+                     onClick={() => {this.props.closeSocialDialog()}}>
+                    <div>TODO</div>
                 </div>
 
             </div>
@@ -320,6 +319,9 @@ export default connect(
         },
         closeAboutDialog: (values) => {
             dispatch({type: 'ABOUT_DIALOG_CLOSE'});
+        },
+        closeSocialDialog: (values) => {
+            dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
         }
     })
 )(App);

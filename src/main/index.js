@@ -44,6 +44,7 @@ function reducer(state = initialState, action) {
         console.log("[reducer()] GALLERY_UNFOCUSED");
         return {...state, focused: false};
     }
+
     else if (action.type === "ABOUT_DIALOG_OPEN") {
         console.log("[reducer()] ABOUT_DIALOG_OPEN");
         return {...state, aboutMe: true};
@@ -51,6 +52,15 @@ function reducer(state = initialState, action) {
     else if (action.type === "ABOUT_DIALOG_CLOSE") {
         console.log("[reducer()] ABOUT_DIALOG_CLOSE");
         return {...state, aboutMe: false};
+    }
+
+    else if (action.type === "SOCIAL_DIALOG_OPEN") {
+        console.log("[reducer()] SOCIAL_DIALOG_OPEN");
+        return {...state, socialOpen: true};
+    }
+    else if (action.type === "SOCIAL_DIALOG_CLOSE") {
+        console.log("[reducer()] SOCIAL_DIALOG_CLOSE");
+        return {...state, socialOpen: false};
     }
 
     return state;
