@@ -17,14 +17,6 @@ class MenuVert extends React.Component {
 
 
     componentDidMount() {
-        // let socialsBox = this.socialRef.current.getBoundingClientRect();
-        // this.setState({
-        //     ...this.state,
-        //     socialsX: socialsBox.x,
-        //     socialsY: socialsBox.y,
-        //     socialsW: socialsBox.width,
-        //     socialsH: socialsBox.height
-        // });
     }
 
 
@@ -37,7 +29,9 @@ class MenuVert extends React.Component {
                  onClick={() => {this.props.openSocialDialog()}}><span className={itemClass}>SOCIALS</span></div>
         );
         elements.push(
-            <div key={elements.length} className={"menu-item"}><span className={itemClass}>CONTACT</span></div>
+            <div key={elements.length}
+                 className={"menu-item"}
+                 onClick={() => {this.props.openContactDialog()}}><span className={itemClass}>CONTACT</span></div>
         );
 
         if (this.props.galleryMode) {
@@ -84,6 +78,9 @@ export default connect(
         },
         openSocialDialog: (values) => {
             dispatch({type: 'SOCIAL_DIALOG_OPEN'});
+        },
+        openContactDialog: (values) => {
+            dispatch({type: 'CONTACT_DIALOG_OPEN'});
         }
     })
 )(MenuVert)

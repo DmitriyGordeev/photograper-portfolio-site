@@ -1,0 +1,26 @@
+
+/* TODO: this is duplication of social-dialog from socials.css - need refactoring! */
+.contact-dialog {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(7, 11, 20, 0.7);
+    position: fixed;
+
+    left: 0;
+    transition: 650ms ease;
+}
+
+
+.contact-dialog > div {
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto auto;
+
+    border-radius: 5px;
+    background: white;
+}

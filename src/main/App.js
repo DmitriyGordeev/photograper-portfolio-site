@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import "./App.css";
 import "./about.css";
 import './socials.css';
+import './contact.css';
 
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
@@ -209,6 +210,11 @@ class App extends React.Component {
             socialsTopPos = 0;
         }
 
+        let contactBottomPos = "100vh";
+        if (this.props.storeData.contactDialogOpen) {
+            contactBottomPos = 0;
+        }
+
         return (
             <div className={"main"} onClick={() => {this.setState({
                 ...this.state,
@@ -304,6 +310,13 @@ class App extends React.Component {
                     <div>TODO</div>
                 </div>
 
+
+                <div className={"contact-dialog"}
+                     style={{bottom: contactBottomPos}}
+                     onClick={() => {this.props.closeContactDialog()}}>
+                    <div>TODO</div>
+                </div>
+
             </div>
         );
     }
@@ -322,6 +335,9 @@ export default connect(
         },
         closeSocialDialog: (values) => {
             dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
+        },
+        closeContactDialog: (values) => {
+            dispatch({type: 'CONTACT_DIALOG_CLOSE'});
         }
     })
 )(App);

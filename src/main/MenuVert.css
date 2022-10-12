@@ -36,6 +36,13 @@
     /*background: green;*/
 }
 
+.menu-item span:hover {
+    background: white;
+    cursor: pointer;
+    color: black;
+    transition: 150ms;
+}
+
 .large {
     font-size: 50px;
     padding-left: 40px;

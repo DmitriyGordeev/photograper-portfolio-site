@@ -63,6 +63,15 @@ function reducer(state = initialState, action) {
         return {...state, socialOpen: false};
     }
 
+    else if (action.type === "CONTACT_DIALOG_OPEN") {
+        console.log("[reducer()] CONTACT_DIALOG_OPEN");
+        return {...state, contactDialogOpen: true};
+    }
+    else if (action.type === "CONTACT_DIALOG_CLOSE") {
+        console.log("[reducer()] CONTACT_DIALOG_CLOSE");
+        return {...state, contactDialogOpen: false};
+    }
+
     return state;
 }
 
