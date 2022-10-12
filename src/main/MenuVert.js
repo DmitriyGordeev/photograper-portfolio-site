@@ -46,7 +46,8 @@ class MenuVert extends React.Component {
 
         elements.push(
             <div key={elements.length}
-                 id={"gallery-button"} className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
+                 id={"gallery-button"}
+                 className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
         );
 
         return elements;
