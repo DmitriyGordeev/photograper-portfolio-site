@@ -4,6 +4,7 @@ import "./App.css";
 import "./about.css";
 import './socials.css';
 import './contact.css';
+import './texts.css';
 
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
@@ -278,26 +279,28 @@ class App extends React.Component {
                      className={"about-dialog"}
                      style={{left: aboutPos}}>
 
-                    <div style={{
-                        background: "white",
-                        width: 50,
-                        height: 50,
-                        marginTop: 10,
-                        marginLeft: 10
-                    }} onClick={() => {this.props.closeAboutDialog()}} />
+                    <div className={"header-bar"}>
+                        <div id={"about-close-button"} onClick={() => {this.props.closeAboutDialog()}} />
+                    </div>
 
                     <div id={"about-content-wrapper"}>
                         <div id={"about-top-block"}>
-                            <p> About Me </p><br/>
-                            <div className={"about-photo-wrapper"}>
-                                <img src={portraitExample2} alt={""}/>
+                            <p>About Me</p><br/>
+                            <div style={{margin: "0 auto", width: "fit-content"}}>
+                                <div className={"about-photo-wrapper"}>
+                                    <img src={portraitExample2} alt={""}/>
+                                </div>
                             </div>
                         </div>
                         <div id={"about-bottom-block"}>
-                            <br/><h1>My name</h1><br/>
-                            <p>Some long text here Some long text here
-                                Some long text here Some long text here Some long text here</p>
-                            <div className={"line"} style={{width: "50%"}}/>
+                            <br/><p style={{fontSize: 19, textAlign: "center", color: "white"}}>HI, MY NAME IS </p>
+
+                            {/* TODO: текстовые элементы появляются постепенно (впервый раз) */}
+
+                            <p>I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR.
+                                I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>
+
+                            {/*<div className={"line"} style={{width: "50%"}}/>*/}
                             <p className={"about-socials"}>You can also find me here</p>
                         </div>
                     </div>

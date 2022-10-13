@@ -63,7 +63,8 @@
 
 #gallery-button.menu-item > span:hover {
     cursor: pointer;
-    color: #1E4BA2;
+    /*color: #1E4BA2;*/
+    color: black;
 }
 
 
