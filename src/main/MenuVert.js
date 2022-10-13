@@ -25,13 +25,17 @@ class MenuVert extends React.Component {
 
         elements.push(
             <div key={elements.length}
-                 className={"menu-item"}
-                 onClick={() => {this.props.openSocialDialog()}}><span className={itemClass}>SOCIALS</span></div>
+                 className={"menu-item"}>
+                <span className={itemClass}
+                      onClick={() => {this.props.openSocialDialog()}}>SOCIALS</span>
+            </div>
         );
         elements.push(
             <div key={elements.length}
-                 className={"menu-item"}
-                 onClick={() => {this.props.openContactDialog()}}><span className={itemClass}>CONTACT</span></div>
+                 className={"menu-item"}>
+                <span className={itemClass}
+                      onClick={() => {this.props.openContactDialog()}}>CONTACT</span>
+            </div>
         );
 
         if (this.props.galleryMode) {

@@ -16,6 +16,7 @@ import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
 import manPhoto from "../../resources/images/man_photo.jpg";
 import closeButton from "../../resources/images/close.svg";
+import instagramIcon from "../../resources/images/instagram_icon.svg";
 
 
 // this is a ratio meaning that per each 100px
@@ -318,7 +319,17 @@ class App extends React.Component {
                 <div className={"socials-dialog"}
                      style={{top: socialsTopPos}}
                      onClick={() => {this.props.closeSocialDialog()}}>
-                    <div>TODO</div>
+                    <div>
+                        <p style={{marginTop: 10}}>MY SOCIALS</p>
+
+                        <div className={"socials-item"}>
+                            <img src={instagramIcon} alt={""}/>
+                        </div>
+
+                        {/*<p >INSTAGRAM</p>*/}
+                        {/*<p className={"socials-item"}>VK</p>*/}
+
+                    </div>
                 </div>
 
 

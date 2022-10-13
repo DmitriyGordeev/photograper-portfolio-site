@@ -19,6 +19,33 @@
     right: 0;
     margin: auto auto;
 
-    border-radius: 5px;
-    background: white;
+    border-radius: 10px;
+    background: #eee5e9;
 }
+
+p {
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+}
+
+p:nth-child(1) {
+    color: #d64933;
+    font-size: 14px;
+    cursor: default;
+}
+
+/*.socials-item {*/
+/*    color: #7C7C7C;*/
+/*    transition: 250ms ease;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.socials-item:hover {*/
+/*    !*color: #92DCE5;*!*/
+/*    color: #1E4BA2;*/
+/*}*/
+
+
