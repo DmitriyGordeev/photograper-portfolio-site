@@ -15,6 +15,7 @@ import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImage from './../../resources/images/round_lense.png';
 import room from "../../resources/images/room.jpg";
 import manPhoto from "../../resources/images/man_photo.jpg";
+import closeButton from "../../resources/images/close.svg";
 
 
 // this is a ratio meaning that per each 100px
@@ -280,7 +281,9 @@ class App extends React.Component {
                      style={{left: aboutPos}}>
 
                     <div className={"header-bar"}>
-                        <div id={"about-close-button"} onClick={() => {this.props.closeAboutDialog()}} />
+                        <div id={"about-close-button"} onClick={() => {this.props.closeAboutDialog()}}>
+                            <img src={closeButton} alt={""}/>
+                        </div>
                     </div>
 
                     <div id={"about-content-wrapper"}>
@@ -301,7 +304,14 @@ class App extends React.Component {
                                 I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>
 
                             {/*<div className={"line"} style={{width: "50%"}}/>*/}
-                            <p className={"about-socials"}>You can also find me here</p>
+
+                            <div className={"write-me-button"}>WRITE ME</div><br/>
+                            <p className={"about-socials"}>Or, You can also find me here</p>
+                            <div className={"socials-stroke"}>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
