@@ -298,12 +298,10 @@ class App extends React.Component {
                         <div id={"about-bottom-block"}>
                             <br/><p style={{fontSize: 19, textAlign: "center", color: "white"}}>HI, MY NAME IS </p>
 
-                            {/* TODO: текстовые элементы появляются постепенно (впервый раз) */}
+                            {/* TODO: текстовые элементы появляются постепенно (но только впервый раз?) */}
 
                             <p>I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR.
                                 I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>
-
-                            {/*<div className={"line"} style={{width: "50%"}}/>*/}
 
                             <div className={"write-me-button"}>WRITE ME</div><br/>
                             <p className={"about-socials"}>Or, You can also find me here</p>

@@ -23,6 +23,16 @@
     width: 30px;
     height: 30px;
     display: inline-block;
+    /*background: #92DCE5;*/
+    /*clip-path: circle(100% at 50% 50%);*/
+    transition: 100ms ease;
+}
+
+#about-close-button:hover {
+    /*clip-path: circle(50% at 50% 50%);*/
+    background: rgba(146, 220, 229, 0.2);
+    transform: scale(1.2);
+    box-sizing: border-box;
 }
 
 #about-close-button > img {
@@ -30,7 +40,7 @@
 }
 
 #about-close-button:hover > img {
-    transform: rotateZ(90deg);
+    transform: rotateZ(90deg) scale(0.6);
 }
 
 #about-top-block > p {
