@@ -38,14 +38,11 @@ const images = [
 let state0 = {
     angle: 0,
     scale: 1.0,
-    // menuClass: "top-menu-holder wide-menu",
     cameraClass: "camera-view",
     cameraEnabled: true,
     active_polaroid_index: images.length - 1,
     galleryOpacity: 0.0,
     galleryMode: false,
-    borderWidth: 15,
-    aboutDialogWidth: 0,
     socialsOn: false
 };
 
@@ -84,6 +81,7 @@ class App extends React.Component {
                 galleryMode: true,
                 angle: 0,
                 scale: 1.0,
+                cameraClass: this.state.cameraClass + " camera-view-zooming",
                 active_polaroid_index: images.length - 1});
         }
         else if (this.state.galleryMode && !this.props.storeData.galleryMode) {
@@ -235,6 +233,7 @@ class App extends React.Component {
         console.log("this.props.storeData.aboutMe = " + this.props.storeData.aboutMe);
         if (this.props.storeData.aboutMe) {
             aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
+            console.log("AboutMe: aboutPos = " + aboutPos);
         }
 
         let socialsTopPos = "100vh";

@@ -37,9 +37,9 @@
 }
 
 .menu-item span:hover {
-    background: white;
+    background: #eee5e9;
     cursor: pointer;
-    color: black;
+    color: #0a0a1a;
     transition: 150ms;
 }
 

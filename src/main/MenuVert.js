@@ -40,6 +40,7 @@ class MenuVert extends React.Component {
             elements.push(
                 <div key={elements.length}
                      id={"gallery-button"}
+                     onClick={() => {this.props.galleryOn()}}
                      className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
             );
 
@@ -87,6 +88,9 @@ export default connect(
         },
         openContactDialog: (values) => {
             dispatch({type: 'CONTACT_DIALOG_OPEN'});
+        },
+        galleryOn: (values) => {
+            dispatch({type: 'GALLERY_MODE_ON'});
         },
         galleryOff: (values) => {
             dispatch({type: 'GALLERY_MODE_OFF'});
