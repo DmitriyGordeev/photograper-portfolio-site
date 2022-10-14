@@ -260,10 +260,12 @@ class Gallery extends React.Component {
                 <div className={"left"}>
                     <div className={"control-panel"}>
                         <div className={"gallery-button next"} onClick={() => this.prevButton()}>
-                            <img className={"arrow"} src={arrowUp} alt={""}/>
+                            <div><img className={"arrow"} src={arrowUp} alt={""}/></div>
+                            <p>previous</p>
                         </div>
                         <div className={"gallery-button prev"} onClick={() => this.nextButton()}>
-                            <img className={"arrow"} src={arrowDown} alt={""}/>
+                            <div><img className={"arrow"} src={arrowDown} alt={""}/></div>
+                            <p>next</p>
                         </div>
                     </div>
                     <div className={"gallery"}>
