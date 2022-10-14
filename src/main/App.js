@@ -219,10 +219,10 @@ class App extends React.Component {
         }
 
         return (
-            <div className={"main"} onClick={() => {this.setState({
+            <div className={"main"} /*onClick={() => {this.setState({
                 ...this.state,
                 socialsOn: true
-            })}}>
+            })}}*/>
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
@@ -340,10 +340,27 @@ class App extends React.Component {
                 </div>
 
 
-                <div className={"contact-dialog"}
+                <div className={"contact-dialog-overlay"}
                      style={{bottom: contactBottomPos}}
-                     onClick={() => {this.props.closeContactDialog()}}>
-                    <div>TODO</div>
+                     /*onClick={() => {this.props.closeContactDialog()}}*/>
+
+                    <div id={"contact-dialog"}>
+                        <p>WRITE ME</p>
+                        <div>
+                            <input type="email" id="email" placeholder={"your email"}
+                                   pattern=".+@globex\.com" size="30" required />
+                        </div>
+                        <div>
+                            <textarea rows={5} id={"message"} placeholder={"Your message"} required />
+                        </div>
+
+                        <input id={"submit"} type={"submit"} value={"SEND"} />
+
+                        <p id={"plain-email"}>
+                            <span>or you can copy my email</span><br/>
+                            <span>email@email.com</span>
+                        </p>
+                    </div>
                 </div>
 
             </div>

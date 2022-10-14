@@ -1,6 +1,6 @@
 
 /* TODO: this is duplication of social-dialog from socials.css - need refactoring! */
-.contact-dialog {
+.contact-dialog-overlay {
     width: 100vw;
     height: 100vh;
     background: rgba(7, 11, 20, 0.7);
@@ -10,10 +10,9 @@
     transition: 650ms ease;
 }
 
-
-.contact-dialog > div {
+#contact-dialog {
     width: 300px;
-    height: 250px;
+    height: fit-content;
     position: absolute;
     top: 0;
     left: 0;
@@ -21,6 +20,119 @@
     right: 0;
     margin: auto auto;
 
-    border-radius: 5px;
-    background: white;
+    border-radius: 10px;
+    background: #1E4BA2;
+    
+    --placeholder-color: #b6b6b6;
 }
+
+#contact-dialog > div {
+    width: 80%;
+    margin: 20px auto;
+    /*background: gray;*/
+    height: fit-content;
+}
+
+#contact-dialog > p:nth-child(1) {
+    color: white;
+    margin-top: 18px;
+    font-size: 12px;
+}
+
+
+input#email {
+    border:0;
+    outline:0;
+    background: #183D86;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    /*border-bottom: 2px solid #92DCE5;*/
+}
+
+input#email:focus {
+    outline:none!important;
+}
+
+textarea#message {
+    outline:none!important;
+    /*border-top: none;*/
+    /*border-left: none;*/
+    /*border-right: none;*/
+    /*border-bottom: 2px solid #92DCE5;*/
+    background: #183D86;
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* THIS WILL SET PLACEHOLDER COLOR ----------------------------- */
+input#email::-webkit-input-placeholder {
+    color: var(--placeholder-color)
+}
+input#email:-moz-placeholder { /* Firefox 18- */
+    color: var(--placeholder-color)
+}
+input#email::-moz-placeholder {  /* Firefox 19+ */
+    color: var(--placeholder-color)
+}
+input#email:-ms-input-placeholder {
+    color: var(--placeholder-color)
+}
+input#email::placeholder {
+    color: var(--placeholder-color)
+}
+
+
+textarea#message::-webkit-input-placeholder {
+    color: var(--placeholder-color)
+}
+textarea#message:-moz-placeholder { /* Firefox 18- */
+    color: var(--placeholder-color)
+}
+textarea#message::-moz-placeholder {  /* Firefox 19+ */
+    color: var(--placeholder-color)
+}
+textarea#message:-ms-input-placeholder {
+    color: var(--placeholder-color)
+}
+textarea#message::placeholder {
+    color: var(--placeholder-color)
+}
+/* -------------------------------------------------------------- */
+
+input#submit {
+    background: #d64933;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 5px 24px;
+    display: block;
+    margin: 0 auto;
+}
+
+#plain-email {
+    background: #eee5e9;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+#plain-email :nth-child(1) {
+    font-size: 10px;
+}
+
+#plain-email :nth-child(3) {
+    color: #1E4BA2;
+}
+
+
