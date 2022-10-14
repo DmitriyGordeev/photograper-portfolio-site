@@ -69,7 +69,7 @@ class App extends React.Component {
 
     handleScroll = (event) => {
 
-        if (this.state.galleryMode) {
+        if (this.props.storeData.galleryMode) {
             return;
         }
 
@@ -116,11 +116,12 @@ class App extends React.Component {
         // }
 
         // when there is no images left on the camera-view we navigate to the gallery
-        let galleryMode = this.state.galleryMode;
+        // let galleryMode = this.props.storeData.galleryMode;
 
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
-            galleryMode = true;
+            // galleryMode = true;
+            this.props.galleryOn();
         } else {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
         }
@@ -132,7 +133,7 @@ class App extends React.Component {
             cameraClass: cameraClass,
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
-            galleryMode: galleryMode,
+            // galleryMode: galleryMode,
         });
 
         // adds cooldown to the scrolling event
@@ -152,7 +153,7 @@ class App extends React.Component {
 
 
     updatePolaroids(polaroidScale, polaroidTranslateUp) {
-        if (this.state.galleryMode) {
+        if (this.props.storeData.galleryMode) {
             return [];
         }
 
@@ -186,7 +187,7 @@ class App extends React.Component {
 
 
     resetValuesOnBack() {
-        let cameraClass = this.state.cameraClass.replace(" camera-view-zooming", "");
+        // let cameraClass = this.state.cameraClass.replace(" camera-view-zooming", "");
         this.setState({...this.state,
             angle: 0,
             scale: 1.0,
@@ -241,18 +242,18 @@ class App extends React.Component {
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
-                    height: this.state.galleryMode ? "fit-content" : "100%",
+                    height: this.props.storeData.galleryMode ? "fit-content" : "100%",
                 }}>
-                    <span id={"back-button"}
-                          onClick={() => { this.resetValuesOnBack() }}
-                          style={{display: this.state.galleryMode ? "block" : "none"}}>BACK</span>
-                    <MenuVert galleryMode={this.state.galleryMode}/>
+                    {/*<span id={"back-button"}*/}
+                    {/*      onClick={() => { this.resetValuesOnBack() }}*/}
+                    {/*      style={{display: this.props.storeData.galleryMode ? "block" : "none"}}>BACK</span>*/}
+                    <MenuVert/>
                 </div>
 
 
                 {/* CAMERA VIEW ------------------------------------*/}
                 <div className={"camera-view-container"} style={{
-                    height: this.state.galleryMode ? 0 : "100%",
+                    height: this.props.storeData.galleryMode ? 0 : "100%",
                 }}>
                     <div className={this.state.cameraClass}>
 
@@ -289,7 +290,7 @@ class App extends React.Component {
 
                 {/* GALLERY VIEW ------------------------------------*/}
                 <div className={"gallery-side"}>
-                    <Gallery opacity={this.state.galleryMode ? 1.0 : 0.0} />
+                    <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
                     {/*<Gallery opacity={1.0} />*/}
                 </div>
 
@@ -402,6 +403,9 @@ export default connect(
         },
         closeContactDialog: (values) => {
             dispatch({type: 'CONTACT_DIALOG_CLOSE'});
+        },
+        galleryOn: (values) => {
+            dispatch({type: 'GALLERY_MODE_ON'});
         }
     })
 )(App);

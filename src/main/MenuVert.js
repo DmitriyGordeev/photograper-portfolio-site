@@ -28,7 +28,7 @@ class MenuVert extends React.Component {
             </div>
         );
 
-        if (!this.props.galleryMode) {
+        if (!this.props.storeData.galleryMode) {
             elements.splice(0, 0,
                 <div key={elements.length}
                      className={"menu-item"}>
@@ -45,6 +45,13 @@ class MenuVert extends React.Component {
 
             return elements;
         }
+        else {
+            elements.splice(0, 0,
+                <div key={elements.length}
+                     className={"menu-item"}>
+                    <span className={itemClass} onClick={() => {this.props.galleryOff()}}>BACK</span>
+                </div>);
+        }
 
         return elements;
     }
@@ -54,14 +61,14 @@ class MenuVert extends React.Component {
 
         let itemClass = " large";
         let marginTop = 0;
-        if (this.props.galleryMode) {
+        if (this.props.storeData.galleryMode) {
             itemClass = "menu-item small";
             marginTop = 0;
         }
 
         return (
             <div className={"menu-side"} style={{marginTop: marginTop}}>
-                <div className={this.props.galleryMode ? "menu-simple" : "menu-center"}>
+                <div className={this.props.storeData.galleryMode ? "menu-simple" : "menu-center"}>
                     {this.addItems(itemClass)}
                 </div>
             </div>
@@ -80,6 +87,9 @@ export default connect(
         },
         openContactDialog: (values) => {
             dispatch({type: 'CONTACT_DIALOG_OPEN'});
+        },
+        galleryOff: (values) => {
+            dispatch({type: 'GALLERY_MODE_OFF'});
         }
     })
 )(MenuVert)

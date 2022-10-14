@@ -21,7 +21,7 @@ document.addEventListener("wheel", (event) => {
 
 
 
-const initialState = {};
+const initialState = {galleryMode: false};
 
 function reducer(state = initialState, action) {
 
@@ -63,6 +63,7 @@ function reducer(state = initialState, action) {
         return {...state, socialOpen: false};
     }
 
+
     else if (action.type === "CONTACT_DIALOG_OPEN") {
         console.log("[reducer()] CONTACT_DIALOG_OPEN");
         return {...state, contactDialogOpen: true};
@@ -70,6 +71,16 @@ function reducer(state = initialState, action) {
     else if (action.type === "CONTACT_DIALOG_CLOSE") {
         console.log("[reducer()] CONTACT_DIALOG_CLOSE");
         return {...state, contactDialogOpen: false};
+    }
+
+
+    else if (action.type === "GALLERY_MODE_ON") {
+        console.log("[reducer()] GALLERY_MODE_ON");
+        return {...state, galleryMode: true};
+    }
+    else if (action.type === "GALLERY_MODE_OFF") {
+        console.log("[reducer()] GALLERY_MODE_OFF");
+        return {...state, galleryMode: false};
     }
 
     return state;
