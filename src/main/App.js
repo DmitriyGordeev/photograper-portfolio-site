@@ -41,7 +41,7 @@ class App extends React.Component {
         this.state = {
             angle: 0,
             scale: 1.0,
-            menuClass: "top-menu-holder wide-menu",
+            // menuClass: "top-menu-holder wide-menu",
             cameraClass: "camera-view",
             cameraEnabled: true,
             active_polaroid_index: images.length - 1,
@@ -97,7 +97,7 @@ class App extends React.Component {
             active_polaroid_index = images.length - 1;
         }
 
-        let menuClass = this.state.menuClass;
+        // let menuClass = this.state.menuClass;
         let cameraClass = this.state.cameraClass;
         let cameraEnabled = this.state.cameraEnabled;
 
@@ -109,11 +109,11 @@ class App extends React.Component {
             angle = 0;
         }
 
-        if (scale >= 1.3) {
-            menuClass = "top-menu-holder";
-        } else if (scale < 1.3) {
-            menuClass = menuClass + " wide-menu";
-        }
+        // if (scale >= 1.3) {
+        //     menuClass = "top-menu-holder";
+        // } else if (scale < 1.3) {
+        //     menuClass = menuClass + " wide-menu";
+        // }
 
         // when there is no images left on the camera-view we navigate to the gallery
         let galleryMode = this.state.galleryMode;
@@ -125,10 +125,10 @@ class App extends React.Component {
             cameraClass = cameraClass.replace(" camera-view-zooming", "");
         }
 
+
         this.setState({
             angle: angle,
             scale: scale,
-            menuClass: menuClass,
             cameraClass: cameraClass,
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
@@ -185,6 +185,17 @@ class App extends React.Component {
     }
 
 
+    resetValuesOnBack() {
+        let cameraClass = this.state.cameraClass.replace(" camera-view-zooming", "");
+        this.setState({...this.state,
+            angle: 0,
+            scale: 1.0,
+            active_polaroid_index: images.length - 1,
+            cameraClass: cameraClass,
+            galleryMode: false});
+    }
+
+
     render() {
 
         let overlayOpacity = 1.0;
@@ -232,6 +243,9 @@ class App extends React.Component {
                 <div className={"side-menu-container"} style={{
                     height: this.state.galleryMode ? "fit-content" : "100%",
                 }}>
+                    <span id={"back-button"}
+                          onClick={() => { this.resetValuesOnBack() }}
+                          style={{display: this.state.galleryMode ? "block" : "none"}}>BACK</span>
                     <MenuVert galleryMode={this.state.galleryMode}/>
                 </div>
 

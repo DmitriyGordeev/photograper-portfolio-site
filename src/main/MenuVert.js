@@ -28,29 +28,23 @@ class MenuVert extends React.Component {
             </div>
         );
 
-        if (this.props.galleryMode) {
+        if (!this.props.galleryMode) {
             elements.splice(0, 0,
                 <div key={elements.length}
-                     className={"menu-item"}
-                     style={{marginBottom: 20}}>
-                <span className={itemClass} style={{fontSize: 16}}
-                      onClick={() => {}}>BACK</span>
-                </div>
+                     className={"menu-item"}>
+                    <span className={itemClass} onClick={() => {
+                        this.props.openAboutDialog()
+                    }}>ABOUT ME</span>
+                </div>);
+
+            elements.push(
+                <div key={elements.length}
+                     id={"gallery-button"}
+                     className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
             );
+
             return elements;
         }
-
-        elements.splice(0, 0,
-            <div key={elements.length}
-                 className={"menu-item"}>
-                <span className={itemClass} onClick={() => {this.props.openAboutDialog()}}>ABOUT ME</span>
-            </div>);
-
-        elements.push(
-            <div key={elements.length}
-                 id={"gallery-button"}
-                 className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
-        );
 
         return elements;
     }
