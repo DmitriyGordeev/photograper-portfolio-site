@@ -320,18 +320,18 @@ class App extends React.Component {
                      style={{top: socialsTopPos}}
                      onClick={() => {this.props.closeSocialDialog()}}>
                     <div>
-                        <p style={{marginTop: 10}}>MY SOCIALS</p>
+                        <p style={{marginTop: 20, marginBottom: 20}}>MY SOCIALS</p>
 
                         <div className={"socials-item"}>
                             <div>
-                                <img src={instagramIcon} alt={""}/>
+                                {/*<img src={instagramIcon} alt={""}/>*/}
                                 <p>Instagram</p>
                             </div>
                         </div>
 
                         <div className={"socials-item"}>
                             <div>
-                                <img src={instagramIcon} alt={""}/>
+                                {/*<img src={instagramIcon} alt={""}/>*/}
                                 <p>VK</p>
                             </div>
                         </div>

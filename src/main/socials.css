@@ -30,23 +30,24 @@ p {
     font-size: 16px;
 }
 
-p:nth-child(1) {
+.socials-dialog > div > p:nth-child(1) {
     color: #d64933;
     font-size: 14px;
     cursor: default;
-    padding: 15px;
+    /*padding: 15px;*/
+    margin-bottom: 12px;
 }
 
 .socials-item {
     --item-height: 40px;
 
     /*color: #7C7C7C;*/
-    transition: 250ms ease;
+    /*transition: 450ms ease;*/
     cursor: pointer;
     /*background: gray;*/
     width: 100%;
     height: var(--item-height);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .socials-item > div {
@@ -54,8 +55,9 @@ p:nth-child(1) {
     height: var(--item-height);
     /*background: red;*/
     margin: 0 auto;
-    padding: 10px;
+    /*padding: 10px;*/
     border-radius: 10px;
+    transition: 250ms ease;
 }
 
 .socials-item img {
@@ -64,12 +66,13 @@ p:nth-child(1) {
 }
 
 .socials-item p {
-    display: inline-block;
-    height: var(--item-height);
+    /*display: inline-block;*/
+    /*height: var(--item-height);*/
+    /*!*vertical-align: top;*!*/
+    /*!*padding-left: 10px;*!*/
+    /*!*padding-right: 10px;*!*/
+
     line-height: var(--item-height);
-    vertical-align: top;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .socials-item:hover > div {
