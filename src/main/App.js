@@ -134,23 +134,12 @@ class App extends React.Component {
             angle = 0;
         }
 
-        // if (scale >= 1.3) {
-        //     menuClass = "top-menu-holder";
-        // } else if (scale < 1.3) {
-        //     menuClass = menuClass + " wide-menu";
-        // }
-
         // when there is no images left on the camera-view we navigate to the gallery
-        // let galleryMode = this.props.storeData.galleryMode;
 
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
-            // galleryMode = true;
             this.props.galleryOn();
-        } else {
-            cameraClass = cameraClass.replace(" camera-view-zooming", "");
         }
-
 
         this.setState({
             angle: angle,
@@ -158,7 +147,6 @@ class App extends React.Component {
             cameraClass: cameraClass,
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
-            // galleryMode: galleryMode,
         });
 
         // adds cooldown to the scrolling event
