@@ -64,7 +64,7 @@ class Gallery extends React.Component {
 
 
     handleScroll = (event) => {
-        console.log("event.deltaY = " + event.deltaY);
+        // console.log("event.deltaY = " + event.deltaY);
         let angle = this.state.angle + event.deltaY * scroll2rotAngle;
 
 
@@ -86,7 +86,7 @@ class Gallery extends React.Component {
 
 
     onPhotoClick(index) {
-        console.log(`Clicked on ${index}`);
+        // console.log(`Clicked on ${index}`);
 
         this.setState({
             ...this.state,
@@ -114,13 +114,13 @@ class Gallery extends React.Component {
              i < Math.min(images.length, this.state.start_index + numMaxImages);
              i++) {
 
-            console.log(`[Cycle debug] [${i}] startIndex = ${startIndex}`);
+            // console.log(`[Cycle debug] [${i}] startIndex = ${startIndex}`);
 
             let angle = this.state.angle - i * angleOffsetDeg;
             let skewAngle = angle * 0.76;
             let rotYAngle = angle * 1.2;
 
-            console.log(`[Cycle debug] [${i}] angle = ${angle}`);
+            // console.log(`[Cycle debug] [${i}] angle = ${angle}`);
 
             let opacity = 1.0;
             if (angle >= minAngle) {
@@ -130,7 +130,7 @@ class Gallery extends React.Component {
                 opacity = angle2opacity(-minAngle, maxNegAngle, angle);
             }
 
-            console.log(`[Cycle debug] [${i}] opacity = ${opacity}`);
+            // console.log(`[Cycle debug] [${i}] opacity = ${opacity}`);
 
             let display = "block";
             if (opacity <= 0.0) {
@@ -169,7 +169,7 @@ class Gallery extends React.Component {
 
 
     nextButton() {
-        console.log(`[ nextButton() ] state.start_index = ${this.state.start_index} vs startIndex = ${startIndex}`);
+        // console.log(`[ nextButton() ] state.start_index = ${this.state.start_index} vs startIndex = ${startIndex}`);
         if (startIndex >= images.length - 1) {
             return;
         }
@@ -212,7 +212,7 @@ class Gallery extends React.Component {
         startIndex -= 1;
 
         let id = setInterval(() => {
-            console.log(`angle = ${this.state.angle}, endAngle = ${endAngle}`);
+            // console.log(`angle = ${this.state.angle}, endAngle = ${endAngle}`);
             if (this.state.angle !== endAngle) {
                 componentRef.setState({
                     ...this.state,

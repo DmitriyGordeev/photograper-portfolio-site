@@ -35,22 +35,25 @@ const images = [
     room
 ];
 
+let state0 = {
+    angle: 0,
+    scale: 1.0,
+    // menuClass: "top-menu-holder wide-menu",
+    cameraClass: "camera-view",
+    cameraEnabled: true,
+    active_polaroid_index: images.length - 1,
+    galleryOpacity: 0.0,
+    galleryMode: false,
+    borderWidth: 15,
+    aboutDialogWidth: 0,
+    socialsOn: false
+};
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            angle: 0,
-            scale: 1.0,
-            // menuClass: "top-menu-holder wide-menu",
-            cameraClass: "camera-view",
-            cameraEnabled: true,
-            active_polaroid_index: images.length - 1,
-            galleryOpacity: 0.0,
-            galleryMode: false,
-            borderWidth: 15,
-            aboutDialogWidth: 0,
-            socialsOn: false
-        };
+        this.state = state0;
         this.locked = false;
         this.aboutRef = React.createRef();
     }
@@ -64,6 +67,28 @@ class App extends React.Component {
             ...this.state,
             aboutDialogWidth: this.aboutRef.current.offsetWidth
         });
+
+        console.log("Component Did Mount");
+    }
+
+
+    componentDidUpdate(prevProps) {
+        // // Typical usage (don't forget to compare props):
+        // if (this.props.userID !== prevProps.userID) {
+        //     this.fetchData(this.props.userID);
+        // }
+
+
+        if (!this.state.galleryMode && this.props.storeData.galleryMode) {
+            this.setState({...this.state,
+                galleryMode: true,
+                angle: 0,
+                scale: 1.0,
+                active_polaroid_index: images.length - 1});
+        }
+        else if (this.state.galleryMode && !this.props.storeData.galleryMode) {
+            this.setState(state0);
+        }
     }
 
 
@@ -235,18 +260,12 @@ class App extends React.Component {
         }
 
         return (
-            <div className={"main"} /*onClick={() => {this.setState({
-                ...this.state,
-                socialsOn: true
-            })}}*/>
+            <div className={"main"}>
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
                     height: this.props.storeData.galleryMode ? "fit-content" : "100%",
                 }}>
-                    {/*<span id={"back-button"}*/}
-                    {/*      onClick={() => { this.resetValuesOnBack() }}*/}
-                    {/*      style={{display: this.props.storeData.galleryMode ? "block" : "none"}}>BACK</span>*/}
                     <MenuVert/>
                 </div>
 
@@ -260,7 +279,6 @@ class App extends React.Component {
                         <div className={"camera-container"} style={{
                             width: camContainerWidth * this.state.scale,
                             height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
-                            // background: this.state.scale > 1.0 ? "#1E4BA2" : "transparent"
                         }}>
 
                             <div id={"round-point"} onClick={() => {}}/>
