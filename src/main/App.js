@@ -181,6 +181,11 @@ class App extends React.Component {
     }
 
 
+    contactFormClickOverride(e) {
+        e.stopPropagation();
+    }
+
+
     render() {
 
         let overlayOpacity = 1.0;
@@ -342,13 +347,15 @@ class App extends React.Component {
 
                 <div className={"contact-dialog-overlay"}
                      style={{bottom: contactBottomPos}}
-                     /*onClick={() => {this.props.closeContactDialog()}}*/>
+                     onClick={() => {this.props.closeContactDialog()}}>
 
-                    <div id={"contact-dialog"}>
+                    <div id={"contact-dialog"}
+                         onClick={(e) => {this.contactFormClickOverride(e)}}>
+
                         <p>WRITE ME</p>
                         <div>
                             <input type="email" id="email" placeholder={"your email"}
-                                   pattern=".+@globex\.com" size="30" required />
+                                   size="30" required />
                         </div>
                         <div>
                             <textarea rows={5} id={"message"} placeholder={"Your message"} required />

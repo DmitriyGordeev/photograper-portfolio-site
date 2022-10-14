@@ -48,6 +48,7 @@ input#email {
     padding: 10px;
     box-sizing: border-box;
     border-radius: 5px;
+    color: #eee5e9;
     /*border-bottom: 2px solid #92DCE5;*/
 }
 
@@ -68,6 +69,7 @@ textarea#message {
     box-sizing: border-box;
     border: none;
     border-radius: 5px;
+    color: #eee5e9;
 }
 
 
@@ -117,6 +119,14 @@ input#submit {
     padding: 5px 24px;
     display: block;
     margin: 0 auto;
+
+    transition: 250ms ease;
+}
+
+input#submit:hover {
+    background: #ff2100;
+    /*transform: scaleX(1.05);*/
+    cursor: pointer;
 }
 
 #plain-email {
