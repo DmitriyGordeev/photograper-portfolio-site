@@ -28,6 +28,8 @@
     padding: 5px 5px 20px;
     background: transparent;
     transition: 850ms ease-in-out;
+
+    border-radius: 3px;
 }
 
 

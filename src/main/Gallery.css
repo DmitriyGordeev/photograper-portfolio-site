@@ -58,7 +58,7 @@
     /*-ms-transform: skew(0deg, 12deg);*/
     /*transform: skew(0deg, -15deg);*/
 
-    transition: 150ms ease-in-out;
+    transition: 10ms linear;
     transform-origin: center left;
 }
 

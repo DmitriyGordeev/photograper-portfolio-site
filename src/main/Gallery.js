@@ -64,24 +64,24 @@ class Gallery extends React.Component {
 
 
     handleScroll = (event) => {
-        // console.log("event.deltaY = " + event.deltaY);
-        let angle = this.state.angle + event.deltaY * scroll2rotAngle;
-
-
-        if (event.deltaY === 0) {
-            scrollDirection = 0;
-        } else if (event.deltaY > 0) {
-            scrollDirection = 1;
-        } else {
-            scrollDirection = -1;
-        }
-
-
-        this.setState({
-            ...this.state,
-            angle: angle,
-            start_index: startIndex
-        });
+        // // console.log("event.deltaY = " + event.deltaY);
+        // let angle = this.state.angle + event.deltaY * scroll2rotAngle;
+        //
+        //
+        // if (event.deltaY === 0) {
+        //     scrollDirection = 0;
+        // } else if (event.deltaY > 0) {
+        //     scrollDirection = 1;
+        // } else {
+        //     scrollDirection = -1;
+        // }
+        //
+        //
+        // this.setState({
+        //     ...this.state,
+        //     angle: angle,
+        //     start_index: startIndex
+        // });
     }
 
 

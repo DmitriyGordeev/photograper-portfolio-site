@@ -7,7 +7,7 @@
     position: fixed;
 
     left: 0;
-    transition: 650ms ease;
+    transition: 450ms ease-in-out;
 }
 
 #contact-dialog {

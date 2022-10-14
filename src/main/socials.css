@@ -4,7 +4,7 @@
     background: rgba(7, 11, 20, 0.7);
     position: fixed;
     left: 0;
-    transition: 650ms ease;
+    transition: 450ms ease-in-out;
 }
 
 .socials-dialog > div {
