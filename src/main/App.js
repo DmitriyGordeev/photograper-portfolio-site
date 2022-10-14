@@ -323,11 +323,18 @@ class App extends React.Component {
                         <p style={{marginTop: 10}}>MY SOCIALS</p>
 
                         <div className={"socials-item"}>
-                            <img src={instagramIcon} alt={""}/>
+                            <div>
+                                <img src={instagramIcon} alt={""}/>
+                                <p>Instagram</p>
+                            </div>
                         </div>
 
-                        {/*<p >INSTAGRAM</p>*/}
-                        {/*<p className={"socials-item"}>VK</p>*/}
+                        <div className={"socials-item"}>
+                            <div>
+                                <img src={instagramIcon} alt={""}/>
+                                <p>VK</p>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

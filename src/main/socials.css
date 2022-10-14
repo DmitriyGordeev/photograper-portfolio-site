@@ -25,7 +25,6 @@
 
 p {
     text-align: center;
-    padding: 10px;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
@@ -35,17 +34,50 @@ p:nth-child(1) {
     color: #d64933;
     font-size: 14px;
     cursor: default;
+    padding: 15px;
 }
 
-/*.socials-item {*/
-/*    color: #7C7C7C;*/
-/*    transition: 250ms ease;*/
-/*    cursor: pointer;*/
-/*}*/
+.socials-item {
+    --item-height: 40px;
 
-/*.socials-item:hover {*/
-/*    !*color: #92DCE5;*!*/
-/*    color: #1E4BA2;*/
-/*}*/
+    /*color: #7C7C7C;*/
+    transition: 250ms ease;
+    cursor: pointer;
+    /*background: gray;*/
+    width: 100%;
+    height: var(--item-height);
+    margin-bottom: 20px;
+}
+
+.socials-item > div {
+    width: 60%;
+    height: var(--item-height);
+    /*background: red;*/
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.socials-item img {
+    height: 100%;
+    display: inline-block;
+}
+
+.socials-item p {
+    display: inline-block;
+    height: var(--item-height);
+    line-height: var(--item-height);
+    vertical-align: top;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.socials-item:hover > div {
+    background: #e0d8dc;
+}
+
+.socials-item:hover p {
+    color: #1E4BA2;
+}
 
 
