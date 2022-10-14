@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
 
-    transition: 850ms ease-in-out;
+    /*transition: 100ms ease-in-out;*/
 }
 
 .menu-center {
@@ -14,7 +14,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 850ms ease-in-out;
+    transition: 450ms ease-in-out;
 }
 
 .menu-simple {
@@ -22,7 +22,7 @@
     height: 100%;
     padding-left: 40px;
     margin-top: 20px;
-    transition: 850ms ease-in-out;
+    transition: 650ms ease-in-out;
 }
 
 .menu-item {
@@ -66,6 +66,20 @@
     cursor: pointer;
     /*color: #1E4BA2;*/
     /*color: black;*/
+    color: #d64933;
+}
+
+.menu-item.back-button {
+    margin-bottom: 20px;
+}
+
+.menu-item.back-button > span {
+    font-size: 16px;
+    color: #92DCE5;
+}
+
+.menu-item.back-button > span:hover {
+    cursor: pointer;
     color: #d64933;
 }
 
