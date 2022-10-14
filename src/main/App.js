@@ -132,7 +132,6 @@ class App extends React.Component {
             cameraClass: cameraClass,
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
-            // galleryOpacity: galleryOpacity,
             galleryMode: galleryMode,
         });
 
@@ -329,14 +328,12 @@ class App extends React.Component {
 
                         <div className={"socials-item"}>
                             <div>
-                                {/*<img src={instagramIcon} alt={""}/>*/}
                                 <p>Instagram</p>
                             </div>
                         </div>
 
                         <div className={"socials-item"}>
                             <div>
-                                {/*<img src={instagramIcon} alt={""}/>*/}
                                 <p>VK</p>
                             </div>
                         </div>

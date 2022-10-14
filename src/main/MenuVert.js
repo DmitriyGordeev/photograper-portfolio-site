@@ -6,19 +6,9 @@ import './MenuVert.css';
 class MenuVert extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     socialsX: 0,
-        //     socialsY: 0,
-        //     socialsW: 0,
-        //     socialsH: 0
-        // }
-        // this.socialRef = React.createRef();
+        this.state = {
+        }
     }
-
-
-    componentDidMount() {
-    }
-
 
     addItems(itemClass) {
         let elements = [];
@@ -39,6 +29,14 @@ class MenuVert extends React.Component {
         );
 
         if (this.props.galleryMode) {
+            elements.splice(0, 0,
+                <div key={elements.length}
+                     className={"menu-item"}
+                     style={{marginBottom: 20}}>
+                <span className={itemClass} style={{fontSize: 16}}
+                      onClick={() => {}}>BACK</span>
+                </div>
+            );
             return elements;
         }
 
@@ -61,12 +59,14 @@ class MenuVert extends React.Component {
     render() {
 
         let itemClass = " large";
+        let marginTop = 0;
         if (this.props.galleryMode) {
             itemClass = "menu-item small";
+            marginTop = 0;
         }
 
         return (
-            <div className={"menu-side"}>
+            <div className={"menu-side"} style={{marginTop: marginTop}}>
                 <div className={this.props.galleryMode ? "menu-simple" : "menu-center"}>
                     {this.addItems(itemClass)}
                 </div>
