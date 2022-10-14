@@ -2,9 +2,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(7, 11, 20, 0.7);
-    /*opacity: 0.5;*/
     position: fixed;
-
     left: 0;
     transition: 650ms ease;
 }
@@ -40,11 +38,7 @@ p {
 
 .socials-item {
     --item-height: 40px;
-
-    /*color: #7C7C7C;*/
-    /*transition: 450ms ease;*/
     cursor: pointer;
-    /*background: gray;*/
     width: 100%;
     height: var(--item-height);
     margin-bottom: 10px;
@@ -53,9 +47,7 @@ p {
 .socials-item > div {
     width: 60%;
     height: var(--item-height);
-    /*background: red;*/
     margin: 0 auto;
-    /*padding: 10px;*/
     border-radius: 10px;
     transition: 250ms ease;
 }
@@ -66,13 +58,8 @@ p {
 }
 
 .socials-item p {
-    /*display: inline-block;*/
-    /*height: var(--item-height);*/
-    /*!*vertical-align: top;*!*/
-    /*!*padding-left: 10px;*!*/
-    /*!*padding-right: 10px;*!*/
-
     line-height: var(--item-height);
+    color: #0a0a1a;
 }
 
 .socials-item:hover > div {

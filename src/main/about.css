@@ -2,12 +2,12 @@
     width: 60vw;
     height: 100vw;
     position: fixed;
-    background: #162236;
-    /*background: black;*/
+    background: #0a0a1a;
 
     top: 0;
     left: 100vw;
     transition: 450ms ease-in-out;
+    border-left: 4px solid #1E4BA2;
 }
 
 .header-bar {
@@ -27,6 +27,7 @@
     /*background: #92DCE5;*/
     /*clip-path: circle(100% at 50% 50%);*/
     transition: 100ms ease;
+    border-radius: 5px;
 }
 
 #about-close-button:hover {
@@ -35,6 +36,7 @@
     /*background: #070B14;*/
     transform: scale(1.2);
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 #about-close-button > img {
@@ -69,10 +71,6 @@
     /*color: black;*/
 }
 
-/*#about-content-wrapper p {*/
-/*    font-weight: 400;*/
-/*}*/
-
 #about-top-block {
     /*background: blue;*/
     width: 100%;
@@ -106,6 +104,8 @@
 #about-bottom-block p {
     margin-bottom: 10px;
     font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     color: #e7e7e7;
     /*color: black;*/
     /*font-weight: 600;*/
