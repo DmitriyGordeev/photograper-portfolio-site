@@ -25,7 +25,6 @@
     position: relative;
 }
 
-
 .gallery {
     /*background: cyan;*/
     position: relative;
@@ -37,7 +36,6 @@
     width: 65%;
     float: left;
 }
-
 
 /* TODO: rename this class ! */
 .common {
@@ -71,7 +69,6 @@
     margin-left: 16px;
     transition: all 450ms ease-in-out, transform 0ms;
 }
-
 
 .control-panel {
     /*background: blueviolet;*/
@@ -111,13 +108,12 @@
     /*background: cyan;*/
     position: absolute;
     width: 40vw;
-    height: 100vw;
+    height: 100%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
-
 
 .gallery-focus-image {
     --focus-image-height: 300px;
@@ -125,7 +121,6 @@
     width: auto;
     transition: 850ms;
 }
-
 
 .gallery-focus-image img {
     height: var(--focus-image-height);
@@ -141,12 +136,6 @@
 
     border-radius: 3px;
 }
-
-
-/*.gallery-button img {*/
-/*    width: 100px;*/
-/*    height: auto;*/
-/*}*/
 
 .gallery-button > div {
     background: #17173d;
@@ -207,6 +196,17 @@ img.arrow {
     transform: skew(60deg);
 }
 
+
+
+.class-invisible {
+    opacity: 0.0;
+    transition: 850ms linear;
+}
+
+.class-visible {
+    opacity: 1.0;
+    transition: 850ms linear;
+}
 
 
 

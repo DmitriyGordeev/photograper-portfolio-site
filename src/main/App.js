@@ -65,7 +65,7 @@ class App extends React.Component {
             aboutDialogWidth: this.aboutRef.current.offsetWidth
         });
 
-        console.log("Component Did Mount");
+        // console.log("Component Did Mount");
     }
 
 
@@ -100,7 +100,7 @@ class App extends React.Component {
             return;
         }
 
-        console.log("Scrolling inside component: deltaY", event.deltaY);
+        // console.log("Scrolling inside component: deltaY", event.deltaY);
         let scrollAmount = event.deltaY;
         let angle = 0;
         let scale = 0;
@@ -152,13 +152,13 @@ class App extends React.Component {
         let thisRef = this;
         setTimeout(function () {
             thisRef.locked = false;
-            console.log("UNLOCKED");
+            // console.log("UNLOCKED");
         }, 750);            // timeout in ms
     }
 
 
     removeOverlay() {
-        console.log("overlayRemove()");
+        // console.log("overlayRemove()");
         this.props.onPolaroidUnfocus();
     }
 
@@ -168,7 +168,7 @@ class App extends React.Component {
             return [];
         }
 
-        console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
+        // console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
         let out = [];
         for (let i = 0; i < images.length; i++) {
             let opacity = 0.0;
@@ -208,6 +208,14 @@ class App extends React.Component {
     }
 
 
+    // getGallery() {
+    //     if (this.props.storeData.galleryMode) {
+    //         return <Gallery />;
+    //     }
+    //     return [];
+    // }
+
+
     render() {
 
         let overlayOpacity = 1.0;
@@ -230,10 +238,10 @@ class App extends React.Component {
 
 
         let aboutPos = "100vw";
-        console.log("this.props.storeData.aboutMe = " + this.props.storeData.aboutMe);
+        // console.log("this.props.storeData.aboutMe = " + this.props.storeData.aboutMe);
         if (this.props.storeData.aboutMe) {
             aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
-            console.log("AboutMe: aboutPos = " + aboutPos);
+            // console.log("AboutMe: aboutPos = " + aboutPos);
         }
 
         let socialsTopPos = "100vh";
@@ -295,6 +303,7 @@ class App extends React.Component {
 
                 {/* GALLERY VIEW ------------------------------------*/}
                 <div className={"gallery-side"}>
+                    {/*{this.getGallery()}*/}
                     <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
                     {/*<Gallery opacity={1.0} />*/}
                 </div>

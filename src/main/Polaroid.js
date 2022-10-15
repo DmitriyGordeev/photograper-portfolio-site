@@ -20,7 +20,7 @@ class Polaroid extends React.Component {
     }
 
     onImageLoad = () => {
-        console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
+        // console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
         let w = this.imgRef.current.clientWidth;
         let h = this.imgRef.current.clientHeight;
 
@@ -40,14 +40,14 @@ class Polaroid extends React.Component {
     getClassFocused() {
         let className = this.state.className.replace("polaroid-card-hover", "");
         className = className + " active";
-        // console.log(`className = ${className}`);
+        // // console.log(`className = ${className}`);
         return className
     }
 
     getClassUnfocused() {
         let className = this.state.className.replace("active", "");
         className = className + " polaroid-card-hover";
-        // console.log(`className = ${className}`);
+        // // console.log(`className = ${className}`);
         return className
     }
 
