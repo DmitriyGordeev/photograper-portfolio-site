@@ -179,10 +179,11 @@ img.arrow {
 
 .line {
     width: 80%;
-    height: 2px;
-    background: #F5F5F5;
+    height: 1px;
+    /*background: #d64933;*/
     margin: 30px 0;
-    transform: skew(-60deg);
+    border-radius: 3px;
+    /*transform: skew(-60deg);*/
 }
 
 .left-line {
@@ -193,7 +194,7 @@ img.arrow {
 .right-line {
     display: inline-block;
     float: right;
-    transform: skew(60deg);
+    /*transform: skew(60deg);*/
 }
 
 
@@ -209,6 +210,15 @@ img.arrow {
 }
 
 
+.description {
+    margin: 30px 0;
+    width: 90%;
+    font-family: 'Oswald', sans-serif;
+}
+
+h1.description:nth-of-type(1) {
+    font-size: 32px;
+}
 
 
 

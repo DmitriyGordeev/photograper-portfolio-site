@@ -56,7 +56,9 @@ class Gallery extends React.Component {
             focused: false,
             class1: "class-invisible",
             class2: "class-invisible",
-            class3: "class-invisible"
+            class3: "class-invisible",
+            class4: "class-invisible",
+            class5: "class-invisible"
         }
 
         this.firstUpdateHappend = false;
@@ -75,17 +77,25 @@ class Gallery extends React.Component {
             let thisRef = this;
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class1: "class-visible"});
-            }, 1000);
+            }, 800);
 
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class2: "class-visible"});
-            }, 5000);
+            }, 4000);
 
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class3: "class-visible"});
+            }, 6000);
+
+            setTimeout(() => {
+                thisRef.setState({...thisRef.state, class4: "class-visible"});
             }, 8000);
+
+            setTimeout(() => {
+                thisRef.setState({...thisRef.state, class5: "class-visible"});
+            }, 10000);
         }
     }
 
@@ -302,12 +312,10 @@ class Gallery extends React.Component {
 
                 <div className={"right"}>
                     <div className={"text-container"}>
-                        <h1 className={"text left-text " + this.state.class2}>My name is </h1>
-                        <h2 className={"text left-text " + this.state.class3}>I like photography and video-editing</h2>
-                        <div className={"line"} />
-                        <h2 className={"text right-text"}>I travel around the world <br/>to capture memorable moments</h2>
-                        <div className={"line right-line"} />
-                        <h2 className={"text left-text"}>You can find my profile here</h2>
+                        <h1 className={"description text left-text " + this.state.class2}>Hi, my name is </h1>
+                        <h2 className={"description text left-text " + this.state.class3}>I like photography and video-editing</h2>
+                        <h2 className={"description text right-text " + this.state.class4}>I travel around the world <br/>to capture memorable moments</h2>
+                        <h2 className={"description text left-text " + this.state.class5}>You can find my profile here</h2>
                     </div>
                 </div>
 
