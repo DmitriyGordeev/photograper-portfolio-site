@@ -46,8 +46,8 @@
 
 
 .active > .inner {
-    background: #F5F5F5;
-    transition: 850ms ease-in-out;
+    background: #eee5e9;
+    transition: 450ms ease-in-out;
 }
 
 

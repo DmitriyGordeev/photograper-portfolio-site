@@ -63,11 +63,9 @@ class Polaroid extends React.Component {
 
     render() {
 
-        // let position = "absolute";
         let className = this.getClassUnfocused();
         if (this.props.storeData.focused) {
             className = this.getClassFocused();
-            // position = "fixed";
         }
 
         return (
@@ -75,8 +73,6 @@ class Polaroid extends React.Component {
                  onClick={this.click}
                  style={{
                      ...this.props.style,
-                     // position: position,
-                     // transition: "all 850ms"
             }}>
 
                 <div className={"inner"}>
@@ -91,12 +87,8 @@ class Polaroid extends React.Component {
                          alt={this.props.alt}/>
 
                     <div className={"filter"} style={{
-                        // backgroundImage: "url(" + reflection + ")",
                         opacity: this.props.storeData.focused ? 0.0 : 1.0
                     }}>
-                        {/*<div className="lens-center"></div>*/}
-                        {/*<div className="circle-1"></div>*/}
-                        {/*<div className="circle-2"></div>*/}
                     </div>
                 </div>
             </div>
