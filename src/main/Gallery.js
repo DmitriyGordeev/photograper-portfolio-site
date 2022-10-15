@@ -329,7 +329,7 @@ class Gallery extends React.Component {
                     </div>
                 </div>
 
-                <div className={"overlay"}
+                <div className={"gallery-overlay"}
                      onClick={() => this.removeOverlay()}
                      style={{
                          width: overlayWidth,
