@@ -17,6 +17,7 @@ import room from "../../resources/images/room.jpg";
 import manPhoto from "../../resources/images/man_photo.jpg";
 import closeButton from "../../resources/images/close.svg";
 import instagramIcon from "../../resources/images/instagram_icon.svg";
+import vkIcon from "../../resources/images/vk_icon.svg";
 
 
 // this is a ratio meaning that per each 100px
@@ -340,9 +341,9 @@ class App extends React.Component {
                             <div className={"write-me-button"}>WRITE ME</div><br/>
                             <p className={"about-socials"}>Or, You can also find me here</p>
                             <div className={"socials-stroke"}>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                <div><img src={instagramIcon} alt={"instagram_icon"}/></div>
+                                <div><img src={vkIcon} alt={"instagram_icon"}/></div>
+                                {/*<div></div>*/}
                             </div>
                         </div>
                     </div>

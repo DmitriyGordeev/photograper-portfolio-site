@@ -1,6 +1,6 @@
 .about-dialog {
     width: 60vw;
-    height: 100vw;
+    height: 100vh;
     position: fixed;
     background: #17172c;
 
@@ -63,8 +63,14 @@
 #about-content-wrapper {
     /*background: cyan;*/
     width: 65%;
-    height: 40%;
-    margin: 0 auto;
+    height: fit-content;
+    /*margin: 0 auto;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
 }
 
 #about-content-wrapper p,h1 {
@@ -94,7 +100,7 @@
 
     display: inline-block;
     padding: 5px 5px 20px 5px;
-    background: white;
+    background: #eee5e9;
     /*box-sizing: border-box;*/
     border-radius: 3px;
 }
@@ -135,21 +141,30 @@
 
 .write-me-button:hover {
     background: #92DCE5;
-    color: #212121;
+    /*background: #d64933;*/
+    color: #0a0a1a;
 }
 
 .socials-stroke {
     /*background: black;*/
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     width: fit-content;
     height: fit-content;
+    margin: 0 auto;
 }
 
 .socials-stroke > div {
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: white;
-    margin-right: 10px;
-    border-radius: 20px;
+    /*background: white;*/
+    /*margin-right: 10px;*/
+    /*border-radius: 20px;*/
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.socials-stroke > div > img {
+    width: 100%;
+    height: auto;
 }
