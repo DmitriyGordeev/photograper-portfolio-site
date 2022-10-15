@@ -54,6 +54,8 @@ class Gallery extends React.Component {
             start_index: 0,
             focusedImageIndex: -1,
             focused: false,
+            classLeft: "left-collapsed",
+            classRight: "right-expanded",
             class1: "class-invisible",
             class2: "class-invisible",
             class3: "class-invisible",
@@ -82,20 +84,28 @@ class Gallery extends React.Component {
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class2: "class-visible"});
-            }, 4000);
+            }, 2000);
 
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class3: "class-visible"});
-            }, 6000);
+            }, 4000);
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class4: "class-visible"});
-            }, 8000);
+            }, 6000);
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class5: "class-visible"});
             }, 10000);
+
+            setTimeout(() => {
+                thisRef.setState({
+                    ...thisRef.state,
+                    classLeft: "left",
+                    classRight: "right"
+                });
+            }, 10500);
         }
     }
 
@@ -294,7 +304,7 @@ class Gallery extends React.Component {
         return (
             <div className={"gallery-container " + this.state.class1}>
 
-                <div className={"left"}>
+                <div className={this.state.classLeft}>
                     <div className={"control-panel"}>
                         <div className={"gallery-button next"} onClick={() => this.prevButton()}>
                             <div><img className={"arrow"} src={arrowUp} alt={""}/></div>
@@ -310,9 +320,9 @@ class Gallery extends React.Component {
                     </div>
                 </div>
 
-                <div className={"right"}>
+                <div className={this.state.classRight}>
                     <div className={"text-container"}>
-                        <h1 className={"description text left-text " + this.state.class2}>Hi, my name is </h1>
+                        <h1 className={"description text center-text " + this.state.class2}>Hi, my name is </h1>
                         <h2 className={"description text left-text " + this.state.class3}>I like photography and video-editing</h2>
                         <h2 className={"description text right-text " + this.state.class4}>I travel around the world <br/>to capture memorable moments</h2>
                         <h2 className={"description text left-text " + this.state.class5}>You can find my profile here</h2>
