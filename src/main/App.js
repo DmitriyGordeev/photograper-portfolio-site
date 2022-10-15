@@ -230,7 +230,7 @@ class App extends React.Component {
             // change overlay's opacity to 1.0 (make it visible)
             // and size to 100% of the screen
             overlayOpacity = 1.0;
-            overlayHeight = "100%";
+            overlayHeight = "160vh";
 
             // change polaroid scale to const 1.0
             polaroidScale = 1.2;
