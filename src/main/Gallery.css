@@ -85,12 +85,12 @@
     height: 90px;
     position: relative;
     display: inline-block;
-    background: #1E4BA2;
+    /*background: #1E4BA2;*/
     border-radius: 18px;
 }
 
 .gallery-button:hover {
-    background: #3a3a65;
+    /*background: #3a3a65;*/
     cursor: pointer;
 }
 
@@ -138,7 +138,7 @@
 }
 
 .gallery-button > div {
-    background: #17173d;
+    background: #1E4BA2;
     width: 70%;
     height: 55%;
     margin: auto auto;
@@ -147,12 +147,14 @@
     /*bottom: 0;*/
     left: 0;
     right: 0;
-    clip-path: circle(45% at 50% 50%);
+    /*clip-path: circle(45% at 50% 50%);*/
     transition: 250ms ease-in-out;
+    border-radius: 12px;
 }
 
 .gallery-button:hover > div {
-    background: #1E4BA2;
+    background: #d64933;
+    /*background: #eee5e9;*/
 }
 
 img.arrow {
@@ -197,8 +199,6 @@ img.arrow {
     /*transform: skew(60deg);*/
 }
 
-
-
 .class-invisible {
     opacity: 0.0;
     transition: 850ms linear;
@@ -208,7 +208,6 @@ img.arrow {
     opacity: 1.0;
     transition: 850ms linear;
 }
-
 
 .description {
     margin: 30px 0;
