@@ -12,7 +12,7 @@ import Gallery from "./Gallery";
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
-import cameraImage from './../../resources/images/round_lense.png';
+import cameraImageSvg from './../../resources/images/camera-lense4.svg';
 import room from "../../resources/images/room.jpg";
 import manPhoto from "../../resources/images/man_photo.jpg";
 import closeButton from "../../resources/images/close.svg";
@@ -281,7 +281,7 @@ class App extends React.Component {
 
                             <div className={"camera-background"}
                                  style={{
-                                     backgroundImage: "url(" + cameraImage + ")",
+                                     backgroundImage: "url(" + cameraImageSvg + ")",
                                      transition: `${transitionTime} ease`,
                                      transform: `rotate(${this.state.angle}deg) scale(${this.state.scale})`
                                  }}>
