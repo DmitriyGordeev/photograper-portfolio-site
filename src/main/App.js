@@ -338,12 +338,14 @@ class App extends React.Component {
                             <p>I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR.
                                 I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>
 
-                            <div className={"write-me-button"}>WRITE ME</div><br/>
+                            <div className={"write-me-button"}
+                                 onClick={() => {this.props.openContactDialog()}}>
+                                WRITE ME
+                            </div><br/>
                             <p className={"about-socials"}>Or, You can also find me here</p>
                             <div className={"socials-stroke"}>
                                 <div><img src={instagramIcon} alt={"instagram_icon"}/></div>
                                 <div><img src={vkIcon} alt={"instagram_icon"}/></div>
-                                {/*<div></div>*/}
                             </div>
                         </div>
                     </div>
@@ -415,6 +417,9 @@ export default connect(
         },
         closeSocialDialog: (values) => {
             dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
+        },
+        openContactDialog: (values) => {
+            dispatch({type: 'CONTACT_DIALOG_OPEN'});
         },
         closeContactDialog: (values) => {
             dispatch({type: 'CONTACT_DIALOG_CLOSE'});
