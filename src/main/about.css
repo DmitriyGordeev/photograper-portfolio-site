@@ -7,7 +7,7 @@
     top: 0;
     left: 100vw;
     transition: 450ms ease-in-out;
-    border-left: 4px solid #1E4BA2;
+    /*border-left: 4px solid #1E4BA2;*/
 }
 
 .header-bar {
@@ -32,11 +32,13 @@
 
 #about-close-button:hover {
     /*clip-path: circle(50% at 50% 50%);*/
-    background: rgba(146, 220, 229, 0.2);
+    /*background: rgba(146, 220, 229, 0.2);*/
     /*background: #070B14;*/
+    background: #d64933;
     transform: scale(1.2);
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: 100ms ease;
 }
 
 #about-close-button > img {

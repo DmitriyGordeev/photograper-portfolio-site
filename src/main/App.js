@@ -192,7 +192,7 @@ class App extends React.Component {
     }
 
 
-    contactFormClickOverride(e) {
+    stopClickPropagation(e) {
         e.stopPropagation();
     }
 
@@ -352,7 +352,7 @@ class App extends React.Component {
                 <div className={"socials-dialog"}
                      style={{top: socialsTopPos}}
                      onClick={() => {this.props.closeSocialDialog()}}>
-                    <div>
+                    <div onClick={(e) => {this.stopClickPropagation(e)}}>
                         <p style={{marginTop: 20, marginBottom: 20}}>MY SOCIALS</p>
 
                         <div className={"socials-item"}>
@@ -376,7 +376,7 @@ class App extends React.Component {
                      onClick={() => {this.props.closeContactDialog()}}>
 
                     <div id={"contact-dialog"}
-                         onClick={(e) => {this.contactFormClickOverride(e)}}>
+                         onClick={(e) => {this.stopClickPropagation(e)}}>
 
                         <p>WRITE ME</p>
                         <div>
