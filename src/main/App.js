@@ -153,7 +153,6 @@ class App extends React.Component {
         let thisRef = this;
         setTimeout(function () {
             thisRef.locked = false;
-            // console.log("UNLOCKED");
         }, 750);            // timeout in ms
     }
 
@@ -295,7 +294,41 @@ class App extends React.Component {
                                  }}>
                             </div>
 
-                            {this.updatePolaroids(polaroidScale, polaroidTranslateUp)}
+                            {/*{this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
+
+                            <Polaroid
+                                style={{
+                                    opacity: (this.state.active_polaroid_index === 2) ? 1.0 : 0.0,
+                                    transition: `${transitionTime} ease`,
+                                    transform: `
+                                scale(${polaroidScale}) 
+                                translate(${0}px, ${-polaroidTranslateUp}px)`
+                                }}
+                                src={images[0]}
+                                alt={""}/>
+
+                            <Polaroid
+                                style={{
+                                    opacity: (this.state.active_polaroid_index === 1) ? 1.0 : 0.0,
+                                    transition: `${transitionTime} ease`,
+                                    transform: `
+                                scale(${polaroidScale}) 
+                                translate(${0}px, ${-polaroidTranslateUp}px)`
+                                }}
+                                src={images[1]}
+                                alt={""}/>
+
+                            <Polaroid
+                                style={{
+                                    opacity: (this.state.active_polaroid_index === 0) ? 1.0 : 0.0,
+                                    transition: `${transitionTime} ease`,
+                                    transform: `
+                                scale(${polaroidScale}) 
+                                translate(${0}px, ${-polaroidTranslateUp}px)`
+                                }}
+                                src={images[2]}
+                                alt={""}/>
+
 
                         </div>
                     </div>
@@ -304,9 +337,7 @@ class App extends React.Component {
 
                 {/* GALLERY VIEW ------------------------------------*/}
                 <div className={"gallery-side"}>
-                    {/*{this.getGallery()}*/}
                     <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
-                    {/*<Gallery opacity={1.0} />*/}
                 </div>
 
 

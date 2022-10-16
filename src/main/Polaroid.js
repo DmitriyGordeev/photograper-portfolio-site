@@ -19,22 +19,25 @@ class Polaroid extends React.Component {
         this.imgRef = React.createRef();
     }
 
+    ПОПРОБОВАТЬ ЗАГРУЗКУ В ГАЛАРЕЕ ЧЕРЕЗ div background,
+    и, если это сработает, вернуться сюда и подумать как брать размер изображения в onLoad
+
     onImageLoad = () => {
         // console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
-        let w = this.imgRef.current.clientWidth;
-        let h = this.imgRef.current.clientHeight;
-
-        if (w >= h) {
-            this.setState({
-                width: cardSize,
-                height: "auto"
-            })
-        } else {
-            this.setState({
-                width: "auto",
-                height: cardSize
-            })
-        }
+        // let w = this.imgRef.current.clientWidth;
+        // let h = this.imgRef.current.clientHeight;
+        //
+        // if (w >= h) {
+        //     this.setState({
+        //         width: cardSize,
+        //         height: "auto"
+        //     })
+        // } else {
+        //     this.setState({
+        //         width: "auto",
+        //         height: cardSize
+        //     })
+        // }
     };
 
     getClassFocused() {
@@ -76,15 +79,19 @@ class Polaroid extends React.Component {
             }}>
 
                 <div className={"inner"}>
-                    <img ref={this.imgRef}
-                         style={{
-                             width: this.state.width,
-                             height: this.state.height
-                         }}
-                         onClick={this.props.onClick}
-                         onLoad={this.onImageLoad}
-                         src={this.props.src}
-                         alt={this.props.alt}/>
+                {/*    <img ref={this.imgRef}*/}
+                {/*         style={{*/}
+                {/*             width: this.state.width,*/}
+                {/*             height: this.state.height*/}
+                {/*         }}*/}
+                {/*         onClick={this.props.onClick}*/}
+                {/*         onLoad={this.onImageLoad}*/}
+                {/*         src={this.props.src}*/}
+                {/*         alt={this.props.alt}/>*/}
+
+                    <div className={"polaroid-image-background"}
+                         ref={this.imgRef}
+                         style={{backgroundImage: `url(${this.props.src})`}} />
 
                     <div className={"filter"} style={{
                         opacity: this.props.storeData.focused ? 0.0 : 1.0

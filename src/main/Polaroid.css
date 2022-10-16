@@ -33,6 +33,18 @@
 }
 
 
+.polaroid-image-background {
+    width: 250px;
+    height: 250px;
+    /*background: red;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    -webkit-transform: translate3d(0,0,1px);
+    -webkit-backface-visibility: hidden;
+}
+
+
 .polaroid-card-hover:hover {
     clip-path: circle(calc(25% - var(--padding)) at 50% 50%);
 }
