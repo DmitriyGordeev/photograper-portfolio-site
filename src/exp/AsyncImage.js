@@ -12,67 +12,85 @@ class AsyncImage extends React.Component {
         };
     }
 
-    componentDidMount() {
+    load = url => {
+        return new Promise(res => {
+            const img = new Image();
+
+            // we disable cache for demo
+            img.src = url + '?r=' + Math.random();
+
+            // further wait for the decoding
+            img.onload = (evt) => {
+                img.decode().then(() => res(img));
+            };
+        });
+    }
+
+
+    getImages = imgs => {
         let thisRef = this;
+        const promises = imgs.map(async url => {
+            const image = await thisRef.load(url);
 
-        const load = url => {
-            return new Promise(res => {
-                const img = new Image();
+            let w = image.naturalWidth;
+            let h = image.naturalHeight;
+            let aspectRatio = w / h;
 
-                // we disable cache for demo
-                img.src = url + '?r=' + Math.random();
+            // TODO: default props  hfix and wfix
 
-                // further wait for the decoding
-                img.onload = (evt) => {
-                    img.decode().then(() => res(img));
-                };
-            });
-        }
-
-        const getImages = imgs => {
-            const promises = imgs.map(async url => {
-                const image = await load(url);
-
-                let w = image.naturalWidth;
-                let h = image.naturalHeight;
-                let aspectRatio = w / h;
-
-                // TODO: default props  hfix and wfix
-
-                if (this.props.hfix) {
+            if (this.props.hfix) {
+                h = this.props.size;
+                w = aspectRatio * h;
+            } else {
+                if (aspectRatio >= 1) {
+                    w = this.props.size;
+                    h = w / aspectRatio;
+                } else {
                     h = this.props.size;
                     w = aspectRatio * h;
                 }
-                else {
-                    if (aspectRatio >= 1) {
-                        w = this.props.size;
-                        h = w / aspectRatio;
-                    }
-                    else {
-                        h = this.props.size;
-                        w = aspectRatio * h;
-                    }
-                }
+            }
 
-                thisRef.setState({
-                    ...thisRef.state,
-                    div: <div className={"photo"}
-                              style={{
-                                  backgroundImage: `url(${image.src})`,
-                                  width: w,
-                                  height: h
-                              }} />
-                });
+            thisRef.setState({
+                ...thisRef.state,
+                div: <div className={"photo"}
+                          style={{
+                              backgroundImage: `url(${image.src})`,
+                              width: w,
+                              height: h
+                          }}/>
             });
-            return Promise.all(promises);
-        }
+        });
+        return Promise.all(promises);
+    }
 
-        getImages([this.props.src]).then(() => {
+
+    componentDidMount() {
+        console.log("componentDidMount()");
+        this.getImages([this.props.src]).then(() => {
             console.log("then() callback");
         });
     }
 
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log("shouldComponentUpdate()");
+        console.log("prevState.div = " + this.state.div + " | nextState.div = " + nextState.div);
+
+        if (this.state.div === nextState.div) {
+            return false;
+        }
+
+        this.getImages([this.props.src]).then(() => {
+            console.log("then() callback");
+        });
+
+        return true;
+    }
+
+
     render() {
+        console.log("render");
         return (
             <div className={"photo-border"}>{this.state.div}</div>
         );

@@ -32,11 +32,14 @@ class App extends React.Component {
         super(props);
         this.state = {
             loaded: false,
+            idx: 0
         }
     }
 
 
     render() {
+
+        console.log(this.state.idx);
 
         return (
             <div style={{
@@ -44,8 +47,11 @@ class App extends React.Component {
                 height: "100%",
                 background: "green"
             }}>
-                <AsyncImage size={300} src={img1} hfix={true} />
-                <div className={"button"}/>
+                <AsyncImage size={300} src={images[this.state.idx]} hfix={true} />
+                <div className={"button"}
+                     onClick={() => {
+                         this.setState({...this.state, idx: this.state.idx + 1})}
+                }/>
             </div>
         );
     }
