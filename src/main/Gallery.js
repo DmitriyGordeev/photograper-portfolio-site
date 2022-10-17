@@ -290,7 +290,8 @@ class Gallery extends React.Component {
     removeOverlay() {
         this.setState({
             ...this.state,
-            focused: false
+            focused: false,
+            focusedImageIndex: -1
         })
     }
 
@@ -306,6 +307,8 @@ class Gallery extends React.Component {
             idx = (idx === -1) ? 0 : idx;       // if idx == -1 we set it to 0, otherwise leave as is
             console.log("idx = " + idx);
         }
+
+        console.log("WARNING! idx = " + idx);
 
         return (
             <div className={"gallery-container " + this.state.class1}>
@@ -356,11 +359,12 @@ class Gallery extends React.Component {
                     <div className={"gallery-focus-image-holder"}
                          style={{
                              opacity: cardOpacity,
-                             display: this.state.focused ? "block" : "none"
+                             // display: this.state.focused ? "block" : "none"
+                             left: this.state.focused ? 0 : "100vw"
                          }}
                          onClick={() => this.removeOverlay()}>
 
-                        <AsyncImage size={300} src={images[idx]} hfix={false} />
+                        <AsyncImage tag={"OVERLAY"} size={300} src={images[idx]} hfix={false} />
                     </div>
 
 

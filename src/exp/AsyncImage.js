@@ -87,16 +87,20 @@ class AsyncImage extends React.Component {
             return false;
         }
 
-        this.getImages([this.props.src]).then(() => {
-            console.log("then() callback");
-        });
+        // this.getImages([this.props.src]).then(() => {
+        //     console.log("then() callback");
+        // });
 
         return true;
     }
 
 
     render() {
-        console.log("render");
+
+        this.getImages([this.props.src]).then(() => {
+            console.log("then() callback");
+        });
+
         return (
             <div className={"photo-border"}>{this.state.div}</div>
         );

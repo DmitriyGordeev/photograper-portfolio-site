@@ -26,6 +26,8 @@ class AsyncImage extends React.Component {
             img.onload = (evt) => {
                 img.decode().then(() => res(img));
             };
+
+            console.log("reaching this code");
         });
     }
 
@@ -39,18 +41,14 @@ class AsyncImage extends React.Component {
             let h = image.naturalHeight;
             let aspectRatio = w / h;
 
-            // TODO: default props  hfix and wfix
-
             if (this.props.hfix) {
                 h = this.props.size;
                 w = aspectRatio * h;
-            }
-            else {
+            } else {
                 if (aspectRatio >= 1) {
                     w = this.props.size;
                     h = w / aspectRatio;
-                }
-                else {
+                } else {
                     h = this.props.size;
                     w = aspectRatio * h;
                 }
@@ -64,7 +62,7 @@ class AsyncImage extends React.Component {
                               backgroundImage: `url(${image.src})`,
                               width: w,
                               height: h
-                          }} />
+                          }}/>
             });
         });
         return Promise.all(promises);
@@ -72,34 +70,64 @@ class AsyncImage extends React.Component {
 
 
     componentDidMount() {
-        console.log("componentDidMount()");
+        console.log("AsyncImage: componentDidMount()");
         this.getImages([this.props.src]).then(() => {
-            console.log("then() callback");
+            console.log("AsyncImage: then() callback");
         });
     }
 
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log("shouldComponentUpdate()");
+        console.log(this.props.tag + " AsyncImage: shouldComponentUpdate()");
 
-        console.log("this.state.src = " + this.state.src);
-        console.log("nextState.src = " + nextState.src);
-        console.log("nextProps.src = " + nextProps.src);
+        console.log(this.props.tag + " AsyncImage: this.state.src = " + this.state.src);
+        console.log(this.props.tag + " AsyncImage: nextState.src = " + nextState.src);
+        console.log(this.props.tag + " AsyncImage: nextProps.src = " + nextProps.src);
 
         if (this.state.src === nextState.src && this.state.src === nextProps.src) {
+            console.log(this.props.tag + " AsyncImage: shouldComponentUpdate() return false");
             return false;
         }
 
-        this.getImages([this.props.src]).then(() => {
-            console.log("then() callback");
-        });
+        console.log(this.props.tag + " AsyncImage: passed false -> true");
+
+        // if (typeof nextProps.src === 'undefined') {
+        //     // this.setState({
+        //     //     ...this.state,
+        //     //     src: "",
+        //     //     div: <div className={"async-photo"}
+        //     //               style={{
+        //     //                   width: 300,
+        //     //                   height: 300
+        //     //               }} />
+        //     // });
+        // }
+        // else {
+        //
+        // }
 
         return true;
     }
 
+
     render() {
+
+        this.getImages([this.props.src]).then(() => {});
+
+        console.log(this.props.tag + " , AsyncImage.render(): this.props.src = " + this.props.src);
+
+        let element = this.state.div;
+        if (typeof this.props.src === 'undefined') {
+            element = <div className={"async-photo"}
+                           style={{
+                               width: 300,
+                               height: 300
+                           }}/>;
+            console.log("UNDEFINED");
+        }
+
         return (
-            <div className={"async-photo-border"}>{this.state.div}</div>
+            <div className={"async-photo-border"}>{element}</div>
         );
     }
 }

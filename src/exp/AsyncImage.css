@@ -12,4 +12,5 @@
     height: 300px;
     background: #eee5e9;
     background-size: cover;
+    transition: 450ms;
 }
