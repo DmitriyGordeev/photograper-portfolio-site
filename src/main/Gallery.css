@@ -158,9 +158,16 @@
     right: 0;
     bottom: 0;
     margin: auto auto;
-    width: auto;
+    width: fit-content;
+    height: fit-content;          /* TODO: this repeats size attribute of AsyncImage in Gallery (fix this?) */
     position: fixed;
+    transition: 450ms ease-in-out;
 }
+
+.gallery-focus-image-holder:hover {
+    transform: scale(1.08);
+}
+
 
 .gallery-button > div {
     background: #1E4BA2;
