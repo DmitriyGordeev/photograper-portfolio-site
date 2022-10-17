@@ -9,7 +9,8 @@ class AsyncImage extends React.Component {
         super(props);
         this.state = {
             src: "",
-            div: <div className={"photo"}/>
+            div: <div className={"photo"}/>,
+            blank: false
         };
     }
 
@@ -57,6 +58,7 @@ class AsyncImage extends React.Component {
             thisRef.setState({
                 ...thisRef.state,
                 src: image.src,
+                blank: false,
                 div: <div className={"async-photo"}
                           style={{
                               backgroundImage: `url(${image.src})`,
@@ -89,41 +91,27 @@ class AsyncImage extends React.Component {
             return false;
         }
 
-        console.log(this.props.tag + " AsyncImage: passed false -> true");
-
-        // if (typeof nextProps.src === 'undefined') {
-        //     // this.setState({
-        //     //     ...this.state,
-        //     //     src: "",
-        //     //     div: <div className={"async-photo"}
-        //     //               style={{
-        //     //                   width: 300,
-        //     //                   height: 300
-        //     //               }} />
-        //     // });
-        // }
-        // else {
-        //
-        // }
-
         return true;
     }
 
 
     render() {
 
-        this.getImages([this.props.src]).then(() => {});
-
-        console.log(this.props.tag + " , AsyncImage.render(): this.props.src = " + this.props.src);
+        console.log(this.props.tag + " AsyncImage: render()");
 
         let element = this.state.div;
         if (typeof this.props.src === 'undefined') {
-            element = <div className={"async-photo"}
-                           style={{
-                               width: 300,
-                               height: 300
-                           }}/>;
-            console.log("UNDEFINED");
+            if (!this.state.blank) {
+                element = <div className={"async-photo"}
+                               style={{
+                                   width: 200,
+                                   height: 200
+                               }}/>;
+                this.setState({...this.state, div: element, blank: true, src: ""});
+            }
+        }
+        else {
+            this.getImages([this.props.src]).then(() => {});
         }
 
         return (

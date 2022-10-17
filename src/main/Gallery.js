@@ -364,7 +364,7 @@ class Gallery extends React.Component {
                          }}
                          onClick={() => this.removeOverlay()}>
 
-                        <AsyncImage tag={"OVERLAY"} size={300} src={images[idx]} hfix={false} />
+                        <AsyncImage tag={"OVERLAY"} size={400} src={images[idx]} hfix={false} />
                     </div>
 
 
