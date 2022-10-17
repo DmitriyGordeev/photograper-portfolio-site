@@ -1,0 +1,15 @@
+
+.async-photo-border {
+    background: #eee5e9;
+    padding: 5px 5px 20px 5px;
+    border-radius: 3px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.async-photo {
+    width: 300px;       /* default size of the placeholder before image is loaded */
+    height: 300px;      /* default size of the placeholder before image is loaded */
+    background: #eee5e9;
+    background-size: cover;
+}

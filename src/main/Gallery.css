@@ -53,11 +53,11 @@
 
 /* TODO: rename this class ! */
 .common {
-    --height: 220px;
+    /*--height: 220px;*/
     position: absolute;
     background: white;
     display: inline-block;
-    padding: 5px 5px 20px 5px;
+    /*padding: 5px 5px 20px 5px;*/
     border-radius: 3px;
 }
 
@@ -76,7 +76,7 @@
 
 .rot img {
     width: auto;
-    height: var(--height);
+    /*height: var(--height);*/
 }
 
 .common:hover {
@@ -150,6 +150,16 @@
     margin: auto auto;
 
     border-radius: 3px;
+}
+
+.gallery-focus-image-holder {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto auto;
+    width: auto;
+    position: fixed;
 }
 
 .gallery-button > div {

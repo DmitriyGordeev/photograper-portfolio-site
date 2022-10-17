@@ -4,6 +4,9 @@ import {connect} from "react-redux";
 import "./AsyncImage.css";
 
 
+const cardSize = 300;
+
+
 class AsyncImage extends React.Component {
     constructor(props) {
         super(props);
@@ -39,6 +42,7 @@ class AsyncImage extends React.Component {
 
                 // TODO: default props  hfix and wfix
 
+
                 if (this.props.hfix) {
                     h = this.props.size;
                     w = aspectRatio * h;
@@ -54,9 +58,11 @@ class AsyncImage extends React.Component {
                     }
                 }
 
+                console.log("w = " + w + ", h = " + h);
+
                 thisRef.setState({
                     ...thisRef.state,
-                    div: <div className={"photo"}
+                    div: <div className={"async-photo"}
                               style={{
                                   backgroundImage: `url(${image.src})`,
                                   width: w,
@@ -74,7 +80,7 @@ class AsyncImage extends React.Component {
 
     render() {
         return (
-            <div className={"photo-border"}>{this.state.div}</div>
+            <div className={"async-photo-border"}>{this.state.div}</div>
         );
     }
 }

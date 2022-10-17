@@ -14,6 +14,7 @@ import img3 from "../../resources/images/img3.jpg";
 import arrowUp from "../../resources/images/arrow_up.svg";
 import arrowDown from "../../resources/images/arrow_down.svg";
 
+import AsyncImage from "./AsyncImage";
 
 const angleOffsetDeg = 16;     // in degrees
 
@@ -35,6 +36,7 @@ let scrollDirection = 0;
 
 const scroll2rotAngle = 1 / 300;     // 1deg of rotation per 40px of scrolling
 
+const galleryCardSize = 220;
 
 function angle2opacity(startAngle, endAngle, currentAngle) {
     let value = (1 - (currentAngle - startAngle) / (endAngle - startAngle));
@@ -205,8 +207,11 @@ class Gallery extends React.Component {
                          display: display,
                          transform: `skew(0deg, ${skewAngle}deg) rotateY(${rotYAngle}deg)`
                      }}>
-                    <img src={images[i]} alt={""} />
+
+                    {/*<img src={images[i]} alt={""} />*/}
                     {/*<ImageHelper src={images[i]} alt={""} />*/}
+
+                    <AsyncImage size={galleryCardSize} hfix={true} src={images[i]} />
                 </div>
             );
         }
@@ -299,6 +304,7 @@ class Gallery extends React.Component {
             overlayWidth = "100%";
             cardOpacity = 1.0;
             idx = (idx === -1) ? 0 : idx;       // if idx == -1 we set it to 0, otherwise leave as is
+            console.log("idx = " + idx);
         }
 
         return (
@@ -337,14 +343,27 @@ class Gallery extends React.Component {
                      }}>
 
                     {/* appears when we click on the gallery image */}
-                    <div className={"gallery-focus-image"}
-                         style={{opacity: cardOpacity}}
+                    {/*<div className={"gallery-focus-image"}*/}
+                    {/*     style={{opacity: cardOpacity}}*/}
+                    {/*     onClick={() => this.removeOverlay()}>*/}
+
+                    {/*    <img style={{display: this.state.focused ? "block" : "none"}}*/}
+                    {/*         src={images[idx]}*/}
+                    {/*         alt={""}/>*/}
+                    {/*</div>*/}
+
+
+                    <div className={"gallery-focus-image-holder"}
+                         style={{
+                             opacity: cardOpacity,
+                             display: this.state.focused ? "block" : "none"
+                         }}
                          onClick={() => this.removeOverlay()}>
 
-                        <img style={{display: this.state.focused ? "block" : "none"}}
-                             src={images[idx]}
-                             alt={""}/>
+                        <AsyncImage size={300} src={images[idx]} hfix={false} />
                     </div>
+
+
                 </div>
 
             </div>

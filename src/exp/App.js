@@ -44,7 +44,7 @@ class App extends React.Component {
                 height: "100%",
                 background: "green"
             }}>
-                <AsyncImage src={img1} />
+                <AsyncImage size={300} src={img1} hfix={true} />
                 <div className={"button"}/>
             </div>
         );
