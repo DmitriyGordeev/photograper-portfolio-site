@@ -8,6 +8,7 @@ class AsyncImage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            src: "",
             div: <div className={"photo"}/>
         };
     }
@@ -18,7 +19,8 @@ class AsyncImage extends React.Component {
             const img = new Image();
 
             // we disable cache for demo
-            img.src = url + '?r=' + Math.random();
+            // img.src = url + '?r=' + Math.random();
+            img.src = url;
 
             // further wait for the decoding
             img.onload = (evt) => {
@@ -56,6 +58,7 @@ class AsyncImage extends React.Component {
 
             thisRef.setState({
                 ...thisRef.state,
+                src: image.src,
                 div: <div className={"async-photo"}
                           style={{
                               backgroundImage: `url(${image.src})`,
@@ -78,9 +81,12 @@ class AsyncImage extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         console.log("shouldComponentUpdate()");
-        // console.log("prevState.div = " + this.state.div + " | nextState.div = " + nextState.div);
 
-        if (this.state.div === nextState.div) {
+        console.log("this.state.src = " + this.state.src);
+        console.log("nextState.src = " + nextState.src);
+        console.log("nextProps.src = " + nextProps.src);
+
+        if (this.state.src === nextState.src && this.state.src === nextProps.src) {
             return false;
         }
 
