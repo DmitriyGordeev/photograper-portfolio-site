@@ -34,7 +34,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             loaded: false,
-            img: <img src={""} alt={""} />
+            div: <div className={"photo"}/>
         }
     }
 
@@ -59,25 +59,22 @@ class App extends React.Component {
 
         const getImgs = imgs => {
             const promises = imgs.map(async url => {
-                const img = await load(url);
+                const image = await load(url);
                 console.log("map.promise");
-                this.setState({...this.state, img: <img src={img.src} alt={""} />});
+
+                this.setState({
+                    ...this.state,
+                    div: <div className={"photo"} style={{backgroundImage: `url(${image.src})`}} />,
+                    loaded: true});
+
             });
             return Promise.all(promises);
         }
 
         getImgs([img1]).then(() => {
             console.log("then() callback");
-            this.setState({...this.state, loaded: true});
         });
     }
-
-    // setImage() {
-    //     if (this.state.loaded) {
-    //         return (<img style={{width: 300, height: "auto"}} src={img1} loading={"lazy"} alt={""}/>);
-    //     }
-    //     return [];
-    // }
 
     render() {
 
@@ -88,7 +85,7 @@ class App extends React.Component {
                 background: "green"
             }}>
 
-                {this.state.img}
+                {this.state.div}
 
                 <div className={"button"}/>
             </div>
