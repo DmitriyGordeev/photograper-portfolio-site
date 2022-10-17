@@ -35,46 +35,6 @@ class App extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //
-    //     const load = url => {
-    //         return new Promise(res => {
-    //             const img = new Image();
-    //
-    //             // we disable cache for demo
-    //             img.src = url + '?r=' + Math.random();
-    //
-    //             // further wait for the decoding
-    //             img.onload = (evt) => {
-    //                 console.log("img.naturalWidth = " + img.naturalWidth +
-    //                     ", img.naturalHeight = " + img.naturalHeight);
-    //                 img.decode().then(() => res(img));
-    //             };
-    //         });
-    //     }
-    //
-    //
-    //     let thisRef = this;
-    //
-    //
-    //     const getImgs = imgs => {
-    //         const promises = imgs.map(async url => {
-    //             const image = await load(url);
-    //             console.log("map.promise");
-    //
-    //             thisRef.setState({
-    //                 ...thisRef.state,
-    //                 div: <div className={"photo"} style={{backgroundImage: `url(${image.src})`}} />,
-    //                 loaded: true});
-    //
-    //         });
-    //         return Promise.all(promises);
-    //     }
-    //
-    //     getImgs([img1]).then(() => {
-    //         console.log("then() callback");
-    //     });
-    // }
 
     render() {
 

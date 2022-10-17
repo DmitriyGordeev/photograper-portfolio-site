@@ -35,10 +35,6 @@ class AsyncImage extends React.Component {
         const getImages = imgs => {
             const promises = imgs.map(async url => {
                 const image = await load(url);
-                console.log("map.promise");
-
-                console.log("image.naturalWidth = " + image.naturalWidth +
-                    ", image.naturalHeight = " + image.naturalHeight);
 
                 let w = image.naturalWidth;
                 let h = image.naturalHeight;
@@ -54,8 +50,6 @@ class AsyncImage extends React.Component {
                     h = cardSize;
                     w = aspectRatio * h;
                 }
-
-                console.log(`w = ${w}, h = ${h}`);
 
                 thisRef.setState({
                     ...thisRef.state,
