@@ -43,11 +43,14 @@ class App extends React.Component {
         const load = url => {
             return new Promise(res => {
                 const img = new Image();
+
                 // we disable cache for demo
                 img.src = url + '?r=' + Math.random();
+
                 // further wait for the decoding
                 img.onload = (evt) => {
-                    console.log('loaded data of a single image');
+                    console.log("img.naturalWidth = " + img.naturalWidth +
+                        ", img.naturalHeight = " + img.naturalHeight);
                     img.decode().then(() => res(img));
                 };
             });
