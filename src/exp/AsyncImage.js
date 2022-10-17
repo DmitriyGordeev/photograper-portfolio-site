@@ -4,6 +4,9 @@ import {connect} from "react-redux";
 import "./AsyncImage.css";
 
 
+const cardSize = 300;
+
+
 class AsyncImage extends React.Component {
     constructor(props) {
         super(props);
@@ -24,8 +27,6 @@ class AsyncImage extends React.Component {
 
                 // further wait for the decoding
                 img.onload = (evt) => {
-                    console.log("img.naturalWidth = " + img.naturalWidth +
-                        ", img.naturalHeight = " + img.naturalHeight);
                     img.decode().then(() => res(img));
                 };
             });
@@ -36,9 +37,34 @@ class AsyncImage extends React.Component {
                 const image = await load(url);
                 console.log("map.promise");
 
+                console.log("image.naturalWidth = " + image.naturalWidth +
+                    ", image.naturalHeight = " + image.naturalHeight);
+
+                let w = image.naturalWidth;
+                let h = image.naturalHeight;
+
+                let aspectRatio = w / h;
+                console.log("aspect ratio = " + aspectRatio);
+
+                if (aspectRatio >= 1) {
+                    w = cardSize;
+                    h = w / aspectRatio;
+                }
+                else {
+                    h = cardSize;
+                    w = aspectRatio * h;
+                }
+
+                console.log(`w = ${w}, h = ${h}`);
+
                 thisRef.setState({
                     ...thisRef.state,
-                    div: <div className={"photo"} style={{backgroundImage: `url(${image.src})`}} />
+                    div: <div className={"photo"}
+                              style={{
+                                  backgroundImage: `url(${image.src})`,
+                                  width: w,
+                                  height: h
+                              }} />
                 });
             });
             return Promise.all(promises);
