@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
 
+// import AsyncImage from "./AsyncImage";
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
@@ -32,36 +33,64 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            left: "100vw",
-            divWidth: 0
+            loaded: false,
+            img: <img src={""} alt={""} />
         }
-        this.divRef = React.createRef();
     }
 
     componentDidMount() {
-        this.setState({
-            ...this.state,
-            divWidth: this.divRef.current.offsetWidth
+
+        const load = url => {
+            return new Promise(res => {
+                const img = new Image();
+                // we disable cache for demo
+                img.src = url + '?r=' + Math.random();
+                // further wait for the decoding
+                img.onload = (evt) => {
+                    console.log('loaded data of a single image');
+                    img.decode().then(() => res(img));
+                };
+            });
+        }
+
+
+        let thisRef = this;
+
+
+        const getImgs = imgs => {
+            const promises = imgs.map(async url => {
+                const img = await load(url);
+                console.log("map.promise");
+                this.setState({...this.state, img: <img src={img.src} alt={""} />});
+            });
+            return Promise.all(promises);
+        }
+
+        getImgs([img1]).then(() => {
+            console.log("then() callback");
+            this.setState({...this.state, loaded: true});
         });
     }
 
-    render() {
+    // setImage() {
+    //     if (this.state.loaded) {
+    //         return (<img style={{width: 300, height: "auto"}} src={img1} loading={"lazy"} alt={""}/>);
+    //     }
+    //     return [];
+    // }
 
-        console.log(`this.state.divWidth = ${this.state.divWidth}`);
+    render() {
 
         return (
             <div style={{
                 width: "100%",
                 height: "100%",
-                background: "green"}}
-                 onClick={() => {
-                     this.setState({...this.state, left: `calc(100vw - ${this.state.divWidth}px)`})
-                 }}>
+                background: "green"
+            }}>
 
-                <div ref={this.divRef} id={"target"} style={{left: this.state.left}}>
-                    <div className={"inside-fixed"}></div>
-                    <div className={"inside-fixed"}></div>
-                </div>
+                {this.state.img}
+
+                <div className={"button"}/>
             </div>
         );
     }
@@ -71,6 +100,5 @@ export default connect(
     state => ({
         storeData: state
     }),
-    dispatch => ({
-    })
+    dispatch => ({})
 )(App);

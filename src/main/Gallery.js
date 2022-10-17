@@ -84,20 +84,20 @@ class Gallery extends React.Component {
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class2: "class-visible"});
-            }, 2000);
+            }, 900);
 
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class3: "class-visible"});
-            }, 4000);
+            }, 1000);
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class4: "class-visible"});
-            }, 6000);
+            }, 1100);
 
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class5: "class-visible"});
-            }, 10000);
+            }, 1200);
 
             setTimeout(() => {
                 thisRef.setState({
@@ -105,7 +105,7 @@ class Gallery extends React.Component {
                     classLeft: "left",
                     classRight: "right"
                 });
-            }, 10500);
+            }, 1300);
         }
     }
 
@@ -205,7 +205,7 @@ class Gallery extends React.Component {
                          display: display,
                          transform: `skew(0deg, ${skewAngle}deg) rotateY(${rotYAngle}deg)`
                      }}>
-                    <img src={images[i]} alt={""}/>
+                    <img src={images[i]} alt={""} />
                     {/*<ImageHelper src={images[i]} alt={""} />*/}
                 </div>
             );

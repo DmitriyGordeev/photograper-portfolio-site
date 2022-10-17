@@ -19,8 +19,8 @@ class Polaroid extends React.Component {
         this.imgRef = React.createRef();
     }
 
-    ПОПРОБОВАТЬ ЗАГРУЗКУ В ГАЛАРЕЕ ЧЕРЕЗ div background,
-    и, если это сработает, вернуться сюда и подумать как брать размер изображения в onLoad
+    // ПОПРОБОВАТЬ ЗАГРУЗКУ В ГАЛАРЕЕ ЧЕРЕЗ div background,
+    // и, если это сработает, вернуться сюда и подумать как брать размер изображения в onLoad
 
     onImageLoad = () => {
         // console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
