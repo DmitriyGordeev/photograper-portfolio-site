@@ -54,8 +54,6 @@ class Gallery extends React.Component {
             start_index: 0,
             focusedImageIndex: -1,
             focused: false,
-            classLeft: "left",
-            classRight: "right-expanded",
             class1: "class-invisible",
         }
 
