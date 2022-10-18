@@ -34,8 +34,6 @@ const images = [
 let startIndex = 0;
 let scrollDirection = 0;
 
-const scroll2rotAngle = 1 / 300;     // 1deg of rotation per 40px of scrolling
-
 const galleryCardSize = 220;
 
 function angle2opacity(startAngle, endAngle, currentAngle) {
@@ -56,13 +54,9 @@ class Gallery extends React.Component {
             start_index: 0,
             focusedImageIndex: -1,
             focused: false,
-            classLeft: "left-collapsed",
+            classLeft: "left",
             classRight: "right-expanded",
             class1: "class-invisible",
-            // class2: "class-invisible",
-            // class3: "class-invisible",
-            // class4: "class-invisible",
-            // class5: "class-invisible"
         }
 
         this.firstUpdateHappend = false;
@@ -305,15 +299,16 @@ class Gallery extends React.Component {
             overlayWidth = "100%";
             cardOpacity = 1.0;
             idx = (idx === -1) ? 0 : idx;       // if idx == -1 we set it to 0, otherwise leave as is
-            console.log("idx = " + idx);
         }
-
-        console.log("WARNING! idx = " + idx);
 
         return (
             <div className={"gallery-container " + this.state.class1}>
 
-                <div className={this.state.classLeft}>
+
+                <div className={"left"}>
+                    <div className={"gallery"}>
+                        {this.updateGallery()}
+                    </div>
                     <div className={"control-panel"}>
                         <div className={"gallery-button next"} onClick={() => this.prevButton()}>
                             <div><img className={"arrow"} src={arrowUp} alt={""}/></div>
@@ -324,20 +319,11 @@ class Gallery extends React.Component {
                             <p>next</p>
                         </div>
                     </div>
-                    <div className={"gallery"}>
-                        {this.updateGallery()}
-                    </div>
                 </div>
 
-                <div className={this.state.classRight}>
-                    <div className={"text-container"}>
-                        {/*<h1 className={"description text center-text " + this.state.class2}>Hi, my name is </h1>*/}
-                        {/*<h2 className={"description text left-text " + this.state.class3}>I like photography and video-editing</h2>*/}
-                        {/*<h2 className={"description text right-text " + this.state.class4}>I travel around the world <br/>to capture memorable moments</h2>*/}
-                        {/*<h2 className={"description text left-text " + this.state.class5}>You can find my profile here</h2>*/}
-                    </div>
-                </div>
 
+
+                {/* FOCUSED IMAGE and OVERLAY */}
                 <div className={"gallery-overlay"}
                      onClick={() => this.removeOverlay()}
                      style={{
@@ -345,29 +331,14 @@ class Gallery extends React.Component {
                          height: "100%"
                      }}>
 
-                    {/* appears when we click on the gallery image */}
-                    {/*<div className={"gallery-focus-image"}*/}
-                    {/*     style={{opacity: cardOpacity}}*/}
-                    {/*     onClick={() => this.removeOverlay()}>*/}
-
-                    {/*    <img style={{display: this.state.focused ? "block" : "none"}}*/}
-                    {/*         src={images[idx]}*/}
-                    {/*         alt={""}/>*/}
-                    {/*</div>*/}
-
-
                     <div className={"gallery-focus-image-holder"}
                          style={{
                              opacity: cardOpacity,
-                             // display: this.state.focused ? "block" : "none"
                              left: this.state.focused ? 0 : "100vw"
                          }}
                          onClick={() => this.removeOverlay()}>
-
                         <AsyncImage tag={"OVERLAY"} size={400} src={images[idx]} hfix={false} />
                     </div>
-
-
                 </div>
 
             </div>
