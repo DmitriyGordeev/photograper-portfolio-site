@@ -231,16 +231,6 @@ img.arrow {
     /*transform: skew(60deg);*/
 }
 
-.class-invisible {
-    opacity: 0.0;
-    transition: 850ms linear;
-}
-
-.class-visible {
-    opacity: 1.0;
-    transition: 850ms linear;
-}
-
 .description {
     margin: 30px 0;
     width: 90%;

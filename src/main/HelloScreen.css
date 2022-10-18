@@ -1,0 +1,35 @@
+#hello-screen-overlay {
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#hello-screen-overlay > div {
+    background: #484848;
+    width: 50%;
+    height: fit-content;
+    min-height: 2px;
+    position: absolute;
+    margin: auto auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#hello-screen-overlay h1,h2 {
+    margin: 7%;
+}
+
+.class-invisible {
+    opacity: 0.0;
+    transition: 850ms linear;
+}
+
+.class-visible {
+    opacity: 1.0;
+    transition: 850ms linear;
+}

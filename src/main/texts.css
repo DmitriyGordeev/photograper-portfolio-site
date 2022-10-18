@@ -2,7 +2,6 @@
     color: #eee5e9;
     padding: 5px;
     font-weight: 400;
-    /*background: #1E4BA2;*/
     cursor: default;
 }
 
@@ -31,8 +30,6 @@ h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
     font-weight: 600;
-    /*background: red;*/
-    /*text-align: center;*/
 }
 
 h2 {

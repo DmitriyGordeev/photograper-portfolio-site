@@ -9,21 +9,16 @@ import './texts.css';
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
 import Gallery from "./Gallery";
+import HelloScreen from "./HelloScreen";
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImageSvg from './../../resources/images/camera-lense4.svg';
 import room from "../../resources/images/room.jpg";
-import manPhoto from "../../resources/images/man_photo.jpg";
 import closeButton from "../../resources/images/close.svg";
 import instagramIcon from "../../resources/images/instagram_icon.svg";
 import vkIcon from "../../resources/images/vk_icon.svg";
 
-
-// this is a ratio meaning that per each 100px
-// scroll the object will rotate on 180degrees
-const deg2px = 180 / 2000;
-const scale2px = 1.0 / 3000;
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
@@ -391,6 +386,20 @@ class App extends React.Component {
                         </p>
                     </div>
                 </div>
+
+
+
+                {/*/!* ----- HELLO SCREEN ------- *!/*/}
+                {/*<div id={"hello-screen-overlay"}>*/}
+                {/*    <div>*/}
+                {/*        <h1 className={"text center-text "}>Hi, my name is </h1>*/}
+                {/*        <h2 className={"text left-text "}>I like photography and video-editing</h2>*/}
+                {/*        <h2 className={"text right-text "}>I travel around the world <br/>to capture memorable moments</h2>*/}
+                {/*        <h2 className={"text left-text "}>You can find my profile here</h2>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+                <HelloScreen />
 
             </div>
         );

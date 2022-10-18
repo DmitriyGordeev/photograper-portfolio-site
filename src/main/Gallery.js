@@ -59,10 +59,10 @@ class Gallery extends React.Component {
             classLeft: "left-collapsed",
             classRight: "right-expanded",
             class1: "class-invisible",
-            class2: "class-invisible",
-            class3: "class-invisible",
-            class4: "class-invisible",
-            class5: "class-invisible"
+            // class2: "class-invisible",
+            // class3: "class-invisible",
+            // class4: "class-invisible",
+            // class5: "class-invisible"
         }
 
         this.firstUpdateHappend = false;
@@ -83,31 +83,31 @@ class Gallery extends React.Component {
                 thisRef.setState({...thisRef.state, class1: "class-visible"});
             }, 800);
 
-
-            setTimeout(() => {
-                thisRef.setState({...thisRef.state, class2: "class-visible"});
-            }, 900);
-
-
-            setTimeout(() => {
-                thisRef.setState({...thisRef.state, class3: "class-visible"});
-            }, 1000);
-
-            setTimeout(() => {
-                thisRef.setState({...thisRef.state, class4: "class-visible"});
-            }, 1100);
-
-            setTimeout(() => {
-                thisRef.setState({...thisRef.state, class5: "class-visible"});
-            }, 1200);
-
-            setTimeout(() => {
-                thisRef.setState({
-                    ...thisRef.state,
-                    classLeft: "left",
-                    classRight: "right"
-                });
-            }, 1300);
+        //
+        //     setTimeout(() => {
+        //         thisRef.setState({...thisRef.state, class2: "class-visible"});
+        //     }, 900);
+        //
+        //
+        //     setTimeout(() => {
+        //         thisRef.setState({...thisRef.state, class3: "class-visible"});
+        //     }, 1000);
+        //
+        //     setTimeout(() => {
+        //         thisRef.setState({...thisRef.state, class4: "class-visible"});
+        //     }, 1100);
+        //
+        //     setTimeout(() => {
+        //         thisRef.setState({...thisRef.state, class5: "class-visible"});
+        //     }, 1200);
+        //
+        //     setTimeout(() => {
+        //         thisRef.setState({
+        //             ...thisRef.state,
+        //             classLeft: "left",
+        //             classRight: "right"
+        //         });
+        //     }, 1300);
         }
     }
 
@@ -331,10 +331,10 @@ class Gallery extends React.Component {
 
                 <div className={this.state.classRight}>
                     <div className={"text-container"}>
-                        <h1 className={"description text center-text " + this.state.class2}>Hi, my name is </h1>
-                        <h2 className={"description text left-text " + this.state.class3}>I like photography and video-editing</h2>
-                        <h2 className={"description text right-text " + this.state.class4}>I travel around the world <br/>to capture memorable moments</h2>
-                        <h2 className={"description text left-text " + this.state.class5}>You can find my profile here</h2>
+                        {/*<h1 className={"description text center-text " + this.state.class2}>Hi, my name is </h1>*/}
+                        {/*<h2 className={"description text left-text " + this.state.class3}>I like photography and video-editing</h2>*/}
+                        {/*<h2 className={"description text right-text " + this.state.class4}>I travel around the world <br/>to capture memorable moments</h2>*/}
+                        {/*<h2 className={"description text left-text " + this.state.class5}>You can find my profile here</h2>*/}
                     </div>
                 </div>
 
