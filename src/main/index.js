@@ -21,7 +21,7 @@ document.addEventListener("wheel", (event) => {
 
 
 
-const initialState = {galleryMode: false};
+const initialState = { helloScreen: true, galleryMode: false};
 
 function reducer(state = initialState, action) {
 
@@ -81,6 +81,10 @@ function reducer(state = initialState, action) {
     else if (action.type === "GALLERY_MODE_OFF") {
         // console.log("[reducer()] GALLERY_MODE_OFF");
         return {...state, galleryMode: false};
+    }
+
+    else if (action.type === "HELLOSCREEN_HIDDEN") {
+        return {...state, helloScreen: false};
     }
 
     return state;
