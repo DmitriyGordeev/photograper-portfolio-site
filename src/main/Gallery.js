@@ -76,32 +76,6 @@ class Gallery extends React.Component {
             setTimeout(() => {
                 thisRef.setState({...thisRef.state, class1: "class-visible"});
             }, 800);
-
-        //
-        //     setTimeout(() => {
-        //         thisRef.setState({...thisRef.state, class2: "class-visible"});
-        //     }, 900);
-        //
-        //
-        //     setTimeout(() => {
-        //         thisRef.setState({...thisRef.state, class3: "class-visible"});
-        //     }, 1000);
-        //
-        //     setTimeout(() => {
-        //         thisRef.setState({...thisRef.state, class4: "class-visible"});
-        //     }, 1100);
-        //
-        //     setTimeout(() => {
-        //         thisRef.setState({...thisRef.state, class5: "class-visible"});
-        //     }, 1200);
-        //
-        //     setTimeout(() => {
-        //         thisRef.setState({
-        //             ...thisRef.state,
-        //             classLeft: "left",
-        //             classRight: "right"
-        //         });
-        //     }, 1300);
         }
     }
 
