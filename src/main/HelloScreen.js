@@ -49,7 +49,7 @@ class HelloScreen extends React.Component {
                  className={this.state.overlayClass}
                  style={{left: this.state.overlayLeftOffset}}>
                 <div>
-                    <h1 className={"text center-text " + this.state.class1} style={{marginTop: 80}}>Hi, my name is </h1>
+                    <h1 className={"text center-text " + this.state.class1} style={{marginTop: 100}}>Hi, my name is </h1>
                     <h2 className={"text left-text " + this.state.class2}>I like photography and video-editing</h2>
                     <h2 className={"text right-text " + this.state.class3}>I travel around the world <br/>to capture memorable moments</h2>
                     <h2 className={"text left-text " + this.state.class4}>You can find my profile here</h2>
