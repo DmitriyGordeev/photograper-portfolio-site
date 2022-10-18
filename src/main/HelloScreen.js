@@ -26,15 +26,15 @@ class HelloScreen extends React.Component {
 
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class2: "class-visible"});
-        }, 1500);
-
-        setTimeout(() => {
-            thisRef.setState({...thisRef.state, class3: "class-visible"});
         }, 3000);
 
         setTimeout(() => {
+            thisRef.setState({...thisRef.state, class3: "class-visible"});
+        }, 5000);
+
+        setTimeout(() => {
             thisRef.setState({...thisRef.state, class4: "class-visible"});
-        }, 4000);
+        }, 7000);
     }
 
     render() {
@@ -47,7 +47,7 @@ class HelloScreen extends React.Component {
                     <h2 className={"text left-text " + this.state.class4}>You can find my profile here</h2>
                 </div>
 
-                <div id={"continue-button"}><span>CONTINUE</span></div>
+                <div id={"continue-button"} className={this.state.class2}><span>CONTINUE</span></div>
             </div>
         )
     }
