@@ -208,14 +208,6 @@ class App extends React.Component {
     }
 
 
-    // getGallery() {
-    //     if (this.props.storeData.galleryMode) {
-    //         return <Gallery />;
-    //     }
-    //     return [];
-    // }
-
-
     render() {
 
         let overlayOpacity = 1.0;
@@ -294,41 +286,11 @@ class App extends React.Component {
                                  }}>
                             </div>
 
-                            {/*{this.updatePolaroids(polaroidScale, polaroidTranslateUp)}*/}
-
-                            <Polaroid
-                                style={{
-                                    opacity: (this.state.active_polaroid_index === 2) ? 1.0 : 0.0,
-                                    transition: `${transitionTime} ease`,
-                                    transform: `
-                                scale(${polaroidScale}) 
-                                translate(${0}px, ${-polaroidTranslateUp}px)`
-                                }}
-                                src={images[0]}
-                                alt={""}/>
-
-                            <Polaroid
-                                style={{
-                                    opacity: (this.state.active_polaroid_index === 1) ? 1.0 : 0.0,
-                                    transition: `${transitionTime} ease`,
-                                    transform: `
-                                scale(${polaroidScale}) 
-                                translate(${0}px, ${-polaroidTranslateUp}px)`
-                                }}
-                                src={images[1]}
-                                alt={""}/>
-
-                            <Polaroid
-                                style={{
-                                    opacity: (this.state.active_polaroid_index === 0) ? 1.0 : 0.0,
-                                    transition: `${transitionTime} ease`,
-                                    transform: `
-                                scale(${polaroidScale}) 
-                                translate(${0}px, ${-polaroidTranslateUp}px)`
-                                }}
-                                src={images[2]}
-                                alt={""}/>
-
+                            <Polaroid style={{
+                                opacity: 1.0,
+                                transition: `${transitionTime} ease`,
+                                transform: `scale(${polaroidScale}) translate(${0}px, ${-polaroidTranslateUp}px)`
+                            }} src={images[this.state.active_polaroid_index]}/>
 
                         </div>
                     </div>

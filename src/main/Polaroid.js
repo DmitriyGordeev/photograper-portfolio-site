@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./Polaroid.css";
-import jquery from "jquery";
 
-
-import reflection from './../../resources/images/camera_reflection.png';
 import AsyncImage from "./AsyncImage";
-
-const cardSize = "320px";
 
 class Polaroid extends React.Component {
     constructor(props) {
@@ -17,41 +12,17 @@ class Polaroid extends React.Component {
             width: "auto",
             height: "auto"
         }
-        this.imgRef = React.createRef();
     }
-
-    // ПОПРОБОВАТЬ ЗАГРУЗКУ В ГАЛАРЕЕ ЧЕРЕЗ div background,
-    // и, если это сработает, вернуться сюда и подумать как брать размер изображения в onLoad
-
-    onImageLoad = () => {
-        // console.log(this.imgRef.current.clientWidth + ", " + this.imgRef.current.clientHeight); // actual image size
-        // let w = this.imgRef.current.clientWidth;
-        // let h = this.imgRef.current.clientHeight;
-        //
-        // if (w >= h) {
-        //     this.setState({
-        //         width: cardSize,
-        //         height: "auto"
-        //     })
-        // } else {
-        //     this.setState({
-        //         width: "auto",
-        //         height: cardSize
-        //     })
-        // }
-    };
 
     getClassFocused() {
         let className = this.state.className.replace("polaroid-card-hover", "");
         className = className + " active";
-        // // console.log(`className = ${className}`);
         return className
     }
 
     getClassUnfocused() {
         let className = this.state.className.replace("active", "");
         className = className + " polaroid-card-hover";
-        // // console.log(`className = ${className}`);
         return className
     }
 
@@ -78,32 +49,11 @@ class Polaroid extends React.Component {
                  style={{
                      ...this.props.style,
             }}>
-
                 <div className={"inner"}>
-
-                {/*    <img ref={this.imgRef}*/}
-                {/*         style={{*/}
-                {/*             width: this.state.width,*/}
-                {/*             height: this.state.height*/}
-                {/*         }}*/}
-                {/*         onClick={this.props.onClick}*/}
-                {/*         onLoad={this.onImageLoad}*/}
-                {/*         src={this.props.src}*/}
-                {/*         alt={this.props.alt}/>*/}
-
-
-                    {/*<div className={"polaroid-image-background"}*/}
-                    {/*     ref={this.imgRef}*/}
-                    {/*     style={{backgroundImage: `url(${this.props.src})`}} />*/}
-
-
                     <AsyncImage size={330} src={this.props.src} tag={"polaroid"} hfix={false} />
-
                     <div className={"filter"} style={{
                         opacity: this.props.storeData.focused ? 0.0 : 1.0
-                    }}>
-                    </div>
-
+                    }}/>
                 </div>
             </div>
         )
