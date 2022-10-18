@@ -25,11 +25,11 @@
     display: block;
     width: fit-content;
     height: fit-content;
-    padding: 5px 5px 20px;
-    background: transparent;
+    /*background: #d64933;*/
+    /*border: 4px solid #92DCE5;*/
     transition: 850ms ease-in-out;
 
-    border-radius: 3px;
+    /*border-radius: 30px;*/
 }
 
 
@@ -39,9 +39,12 @@
     /*background: red;*/
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: transparent;
 
     -webkit-transform: translate3d(0,0,1px);
     -webkit-backface-visibility: hidden;
+
+    border-radius: 20px;
 }
 
 
@@ -58,7 +61,7 @@
 
 
 .active > .inner {
-    background: #eee5e9;
+    /*background: #eee5e9;*/
     transition: 450ms ease-in-out;
 }
 

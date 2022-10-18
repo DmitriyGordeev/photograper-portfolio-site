@@ -5,6 +5,7 @@ import jquery from "jquery";
 
 
 import reflection from './../../resources/images/camera_reflection.png';
+import AsyncImage from "./AsyncImage";
 
 const cardSize = "320px";
 
@@ -79,6 +80,7 @@ class Polaroid extends React.Component {
             }}>
 
                 <div className={"inner"}>
+
                 {/*    <img ref={this.imgRef}*/}
                 {/*         style={{*/}
                 {/*             width: this.state.width,*/}
@@ -89,14 +91,20 @@ class Polaroid extends React.Component {
                 {/*         src={this.props.src}*/}
                 {/*         alt={this.props.alt}/>*/}
 
-                    <div className={"polaroid-image-background"}
-                         ref={this.imgRef}
-                         style={{backgroundImage: `url(${this.props.src})`}} />
 
-                    <div className={"filter"} style={{
-                        opacity: this.props.storeData.focused ? 0.0 : 1.0
-                    }}>
-                    </div>
+                    {/*<div className={"polaroid-image-background"}*/}
+                    {/*     ref={this.imgRef}*/}
+                    {/*     style={{backgroundImage: `url(${this.props.src})`}} />*/}
+
+
+                    <AsyncImage size={330} src={this.props.src} tag={"polaroid"} hfix={false} />
+
+                    {/*<div className={"filter"} style={{*/}
+                    {/*    opacity: this.props.storeData.focused ? 0.0 : 1.0*/}
+                    {/*}}>*/}
+                    {/*</div>*/}
+
+
                 </div>
             </div>
         )

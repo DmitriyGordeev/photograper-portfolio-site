@@ -12,6 +12,5 @@
     height: 400px;      /* default size of the placeholder before image is loaded */
     background: #eee5e9;
     background-size: cover;
-
     transition: 350ms ease-in-out;
 }
