@@ -99,11 +99,10 @@ class Polaroid extends React.Component {
 
                     <AsyncImage size={330} src={this.props.src} tag={"polaroid"} hfix={false} />
 
-                    {/*<div className={"filter"} style={{*/}
-                    {/*    opacity: this.props.storeData.focused ? 0.0 : 1.0*/}
-                    {/*}}>*/}
-                    {/*</div>*/}
-
+                    <div className={"filter"} style={{
+                        opacity: this.props.storeData.focused ? 0.0 : 1.0
+                    }}>
+                    </div>
 
                 </div>
             </div>
