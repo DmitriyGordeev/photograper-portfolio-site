@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 
 import './texts.css';
-import './helloscreen.css';
+import './HelloScreen.css';
 
 
 class HelloScreen extends React.Component {
@@ -26,7 +26,7 @@ class HelloScreen extends React.Component {
 
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class2: "class-visible"});
-        }, 1200);
+        }, 1500);
 
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class3: "class-visible"});
@@ -46,6 +46,8 @@ class HelloScreen extends React.Component {
                     <h2 className={"text right-text " + this.state.class3}>I travel around the world <br/>to capture memorable moments</h2>
                     <h2 className={"text left-text " + this.state.class4}>You can find my profile here</h2>
                 </div>
+
+                <div id={"continue-button"}><span>CONTINUE</span></div>
             </div>
         )
     }
