@@ -28,7 +28,7 @@ class AsyncImage extends React.Component {
                 img.decode().then(() => res(img));
             };
 
-            console.log("reaching this code");
+            // console.log("reaching this code");
         });
     }
 
@@ -72,22 +72,22 @@ class AsyncImage extends React.Component {
 
 
     componentDidMount() {
-        console.log("AsyncImage: componentDidMount()");
+        // console.log("AsyncImage: componentDidMount()");
         this.getImages([this.props.src]).then(() => {
-            console.log("AsyncImage: then() callback");
+            // console.log("AsyncImage: then() callback");
         });
     }
 
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log(this.props.tag + " AsyncImage: shouldComponentUpdate()");
+        // console.log(this.props.tag + " AsyncImage: shouldComponentUpdate()");
 
-        console.log(this.props.tag + " AsyncImage: this.state.src = " + this.state.src);
-        console.log(this.props.tag + " AsyncImage: nextState.src = " + nextState.src);
-        console.log(this.props.tag + " AsyncImage: nextProps.src = " + nextProps.src);
+        // console.log(this.props.tag + " AsyncImage: this.state.src = " + this.state.src);
+        // console.log(this.props.tag + " AsyncImage: nextState.src = " + nextState.src);
+        // console.log(this.props.tag + " AsyncImage: nextProps.src = " + nextProps.src);
 
         if (this.state.src === nextState.src && this.state.src === nextProps.src) {
-            console.log(this.props.tag + " AsyncImage: shouldComponentUpdate() return false");
+            // console.log(this.props.tag + " AsyncImage: shouldComponentUpdate() return false");
             return false;
         }
 
@@ -97,7 +97,7 @@ class AsyncImage extends React.Component {
 
     render() {
 
-        console.log(this.props.tag + " AsyncImage: render()");
+        // console.log(this.props.tag + " AsyncImage: render()");
 
         let element = this.state.div;
         if (typeof this.props.src === 'undefined') {

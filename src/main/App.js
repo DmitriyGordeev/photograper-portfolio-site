@@ -61,7 +61,7 @@ class App extends React.Component {
             aboutDialogWidth: this.aboutRef.current.offsetWidth
         });
 
-        // console.log("Component Did Mount");
+        // // console.log("Component Did Mount");
     }
 
 
@@ -96,7 +96,7 @@ class App extends React.Component {
             return;
         }
 
-        // console.log("Scrolling inside component: deltaY", event.deltaY);
+        // // console.log("Scrolling inside component: deltaY", event.deltaY);
         let scrollAmount = event.deltaY;
         let angle = 0;
         let scale = 0;
@@ -153,7 +153,7 @@ class App extends React.Component {
 
 
     removeOverlay() {
-        // console.log("overlayRemove()");
+        // // console.log("overlayRemove()");
         this.props.onPolaroidUnfocus();
     }
 
@@ -163,7 +163,7 @@ class App extends React.Component {
             return [];
         }
 
-        // console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
+        // // console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
         let out = [];
         for (let i = 0; i < images.length; i++) {
             let opacity = 0.0;
@@ -225,21 +225,24 @@ class App extends React.Component {
 
 
         let aboutPos = "100vw";
-        // console.log("this.props.storeData.aboutMe = " + this.props.storeData.aboutMe);
         if (this.props.storeData.aboutMe) {
             aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
-            // console.log("AboutMe: aboutPos = " + aboutPos);
         }
 
+
+        TODO: remove 100vh
         let socialsTopPos = "100vh";
         if (this.props.storeData.socialOpen) {
             socialsTopPos = 0;
         }
 
-        let contactBottomPos = "100vh";
+        let contactBottomPos = window.innerHeight;
         if (this.props.storeData.contactDialogOpen) {
-            contactBottomPos = 0;
+            contactBottomPos = window.innerHeight - document.body.clientHeight;
         }
+
+        console.log(`document.body.clientHeight = ${document.body.clientHeight}`);
+        console.log(`window.innerHeight = ${window.innerHeight}`);
 
         return (
             <div className={"main"}>
@@ -362,8 +365,14 @@ class App extends React.Component {
                 </div>
 
 
+                {/*<div style={{bottom: contactBottomPos}} className={"test-box"} />*/}
+
+
                 <div className={"contact-dialog-overlay"}
-                     style={{bottom: contactBottomPos}}
+                     style={{
+                         bottom: contactBottomPos,
+                         width: document.body.clientWidth,
+                         height: document.body.clientHeight}}
                      onClick={() => {this.props.closeContactDialog()}}>
 
                     <div id={"contact-dialog"}
@@ -386,18 +395,6 @@ class App extends React.Component {
                         </p>
                     </div>
                 </div>
-
-
-
-                {/*/!* ----- HELLO SCREEN ------- *!/*/}
-                {/*<div id={"hello-screen-overlay"}>*/}
-                {/*    <div>*/}
-                {/*        <h1 className={"text center-text "}>Hi, my name is </h1>*/}
-                {/*        <h2 className={"text left-text "}>I like photography and video-editing</h2>*/}
-                {/*        <h2 className={"text right-text "}>I travel around the world <br/>to capture memorable moments</h2>*/}
-                {/*        <h2 className={"text left-text "}>You can find my profile here</h2>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
 
                 <HelloScreen />
 

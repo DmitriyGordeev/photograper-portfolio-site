@@ -1,9 +1,10 @@
 
 /* TODO: this is duplication of social-dialog from socials.css - need refactoring! */
 .contact-dialog-overlay {
-    width: 100vw;
-    height: 100vh;
+    /*width: 100vw;*/
+    /*height: 100vh;*/
     background: rgba(7, 11, 20, 0.7);
+    /*background: #d64933;*/
     position: fixed;
 
     left: 0;
@@ -143,6 +144,20 @@ input#submit:hover {
 
 #plain-email :nth-child(3) {
     color: #1E4BA2;
+}
+
+
+
+/* ---- TEST ----- */
+.test-box {
+    width: 100px;
+    height: 100px;
+    background: rgba(214, 73, 51, 0.3);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    transition: 1650ms ease-in-out;
 }
 
 
