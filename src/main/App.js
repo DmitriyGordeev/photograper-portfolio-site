@@ -269,6 +269,10 @@ class App extends React.Component {
             sideMenuContainerWidth = '30%';
             cameraViewContainerHeight = '70%';
             camContainerWidth = window.screen.width * 0.6;
+
+            if (this.props.storeData.focused) {
+                polaroidScale += 0.5;
+            }
         }
 
         console.log(`sideMenuContainerWidth = ${sideMenuContainerWidth}`);

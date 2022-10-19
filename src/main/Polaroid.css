@@ -106,5 +106,6 @@
         clip-path: circle(500% at 49% 47%);
         transition: 850ms ease-in-out;
         display: inline-block;
+        width: 200px;
     }
 }
