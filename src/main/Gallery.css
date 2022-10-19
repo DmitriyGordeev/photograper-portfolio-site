@@ -251,7 +251,7 @@ h1.description:nth-of-type(1) {
         position: relative;
         margin: 0 auto;
         display: block;
-        width: 80%;
+        width: 90%;
         float: none;
     }
 
@@ -259,6 +259,7 @@ h1.description:nth-of-type(1) {
         display: block;
         width: fit-content;
         height: fit-content;
+        margin-right: 15px;
     }
 
     .next {

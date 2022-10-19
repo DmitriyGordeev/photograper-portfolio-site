@@ -134,6 +134,14 @@
 }
 
 
+@media screen and (max-width: 480px) {
+    .side-menu-container {
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+        transition: 450ms ease-in-out;
+    }
+}
 
 
 

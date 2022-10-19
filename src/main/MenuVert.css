@@ -18,7 +18,7 @@
 }
 
 .menu-simple {
-    width: 100%;
+    width: fit-content;
     height: 100%;
     padding-left: 40px;
     margin-top: 20px;
@@ -27,7 +27,7 @@
 
 .menu-item {
     color: white;
-    /*background: cyan;*/
+    /*background: #d64933;*/
 }
 
 .menu-item > span {
