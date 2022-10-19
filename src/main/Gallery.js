@@ -282,11 +282,13 @@ class Gallery extends React.Component {
                         {this.updateGallery()}
                     </div>
                     <div className={"control-panel"}>
-                        <div className={"gallery-button next"} onClick={() => this.prevButton()}>
+
+                        <div className={"gallery-button prev"} onClick={() => this.prevButton()}>
                             <div><img className={"arrow"} src={arrowUp} alt={""}/></div>
                             <p>previous</p>
                         </div>
-                        <div className={"gallery-button prev"} onClick={() => this.nextButton()}>
+
+                        <div className={"gallery-button next"} onClick={() => this.nextButton()}>
                             <div><img className={"arrow"} src={arrowDown} alt={""}/></div>
                             <p>next</p>
                         </div>
