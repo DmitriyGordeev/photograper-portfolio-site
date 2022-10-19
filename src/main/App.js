@@ -257,13 +257,18 @@ class App extends React.Component {
         console.log(`window.innerHeight = ${window.innerHeight}`);
 
 
-        // Mobile
+
+
+        // Mobile -----------------------------------------------------------------------
         let sideMenuContainerWidth = "100%";
         console.log("window.innerWidth = " + window.innerWidth);
         console.log("window.screen.width = " + window.screen.width);
+
+        let cameraViewContainerHeight = "100%";
         if (window.screen.width <= 480) {
             sideMenuContainerWidth = '30%';
-            camContainerWidth = 200;
+            cameraViewContainerHeight = '70%';
+            camContainerWidth = window.screen.width * 0.6;
         }
 
         console.log(`sideMenuContainerWidth = ${sideMenuContainerWidth}`);
@@ -282,7 +287,8 @@ class App extends React.Component {
 
                 {/* CAMERA VIEW ------------------------------------*/}
                 <div className={"camera-view-container"} style={{
-                    height: this.props.storeData.galleryMode ? 0 : "100%",
+                    // height: this.props.storeData.galleryMode ? 0 : "100%",
+                    height: this.props.storeData.galleryMode ? 0 : cameraViewContainerHeight,
                 }}>
                     <div className={this.state.cameraClass}>
 

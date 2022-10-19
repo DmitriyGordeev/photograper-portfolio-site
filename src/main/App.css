@@ -143,9 +143,9 @@
     }
 
     .camera-view-container {
-        background: cyan;
+        /*background: cyan;*/
         width: 100%;
-        height: 100%;
+        /*height: 100%;*/
         display: inline-block;
         position: relative;
     }
@@ -157,23 +157,19 @@
         height: 100%;
     }
 
-    /*.background-photo {*/
-    /*    width: 60%;*/
-    /*    height: 500px;*/
+    #round-point {
+        width: 20px;
+        height: 20px;
+        background: #eee5e9;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        border-radius: 20px;
+        clip-path: circle(50% at 50% 50%);
+        transition: 850ms ease;
+    }
 
-    /*    margin: auto auto;*/
-
-    /*    -webkit-border-radius: 20px;*/
-    /*    -moz-border-radius: 20px;*/
-    /*    border-radius: 20px;*/
-    /*    !*border: 1px solid red;*!*/
-
-    /*    background-repeat: no-repeat;*/
-    /*    background-size: 100%;*/
-    /*    background-position: 0 43%;*/
-    /*}*/
-
-    /*.camera-view > .camera-container {*/
+    .camera-view > .camera-container {
     /*    position: absolute;*/
     /*    margin: auto auto;*/
     /*    top: 0;*/
@@ -181,29 +177,18 @@
     /*    left: 0;*/
     /*    right: 0;*/
 
-    /*    border-radius: 70px;*/
+        border-radius: 60px;
     /*    transition: 450ms ease-in-out;*/
     /*    box-sizing: border-box;*/
     /*    border: 12px solid #1E4BA2;*/
     /*    !*border: 8px solid #92DCE5;*!*/
-    /*}*/
+    }
 
 
     .camera-background {
         --size: 150px;
         width: var(--size);
         height: var(--size);
-        /*!*margin: 0 auto;*!*/
-        /*background-repeat:no-repeat;*/
-        /*background-size:contain;*/
-
-        /*position: absolute;*/
-
-        /*margin: auto auto;*/
-        /*top: 0;*/
-        /*right: 0;*/
-        /*left: 0;*/
-        /*bottom: 0;*/
     }
 
 }
