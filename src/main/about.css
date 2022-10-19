@@ -1,13 +1,8 @@
 .about-dialog {
-    width: 60vw;
-    height: 100vh;
     position: fixed;
     background: #17172c;
-
     top: 0;
-    /*left: 100vw;*/
     transition: 450ms ease-in-out;
-    /*border-left: 4px solid #1E4BA2;*/
 }
 
 .header-bar {
@@ -20,12 +15,9 @@
 }
 
 #about-close-button {
-    /*background: red;*/
     width: 30px;
     height: 30px;
     display: inline-block;
-    /*background: #92DCE5;*/
-    /*clip-path: circle(100% at 50% 50%);*/
     transition: 100ms ease;
     border-radius: 3px;
 }
@@ -49,10 +41,6 @@
 #about-top-block > p {
     font-size: 18px;
     width: 100%;
-    /*background: blueviolet;*/
-    /*display: inline-block;*/
-    /*vertical-align: top;*/
-    /*height: 40px;*/
     text-align: center;
     color: white;
 }
@@ -170,15 +158,10 @@
 /* -------- MOBILE ----------- */
 @media screen and (max-width: 480px) {
     .about-dialog {
-        width: 100vw;
-        height: 100vh;
         position: fixed;
         background: #17172c;
-
         top: 0;
-        /*left: 100vw;*/
         transition: 450ms ease-in-out;
-        /*border-left: 4px solid #1E4BA2;*/
     }
 
     #about-close-button {
@@ -196,7 +179,6 @@
         display: inline-block;
         padding: 5px 5px 20px 5px;
         background: #eee5e9;
-        /*box-sizing: border-box;*/
         border-radius: 3px;
     }
 

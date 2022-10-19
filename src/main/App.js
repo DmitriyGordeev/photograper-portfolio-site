@@ -231,6 +231,13 @@ class App extends React.Component {
             // aboutPos = window.innerWidth - this.state.aboutDialogWidth;
         }
 
+        // adjusting sizes for `AboutMe` in case it's mobile device
+        let aboutMeDialogWidth = document.body.clientWidth * 0.6;
+        let aboutMeDialogHeight = document.body.clientHeight;
+        if (document.body.clientWidth <= 480) {
+            aboutMeDialogWidth = document.body.clientWidth;
+        }
+
 
         // TODO: remove 100vh
         // let socialsTopPos = "100vh";
@@ -307,7 +314,7 @@ class App extends React.Component {
                 {/* 'ABOUT ME' DIALOG ------------------------------------*/}
                 <div ref={this.aboutRef}
                      className={"about-dialog"}
-                     style={{left: aboutPos}}>
+                     style={{left: aboutPos, width: aboutMeDialogWidth, height: aboutMeDialogHeight }}>
 
                     <div className={"header-bar"}>
                         <div id={"about-close-button"} onClick={() => {this.props.closeAboutDialog()}}>
