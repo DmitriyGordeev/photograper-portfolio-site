@@ -5,7 +5,7 @@
     background: #17172c;
 
     top: 0;
-    left: 100vw;
+    /*left: 100vw;*/
     transition: 450ms ease-in-out;
     /*border-left: 4px solid #1E4BA2;*/
 }
@@ -27,17 +27,14 @@
     /*background: #92DCE5;*/
     /*clip-path: circle(100% at 50% 50%);*/
     transition: 100ms ease;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 #about-close-button:hover {
-    /*clip-path: circle(50% at 50% 50%);*/
-    /*background: rgba(146, 220, 229, 0.2);*/
-    /*background: #070B14;*/
     background: #d64933;
     transform: scale(1.2);
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: 100ms ease;
 }
 
@@ -168,3 +165,43 @@
     width: 100%;
     height: auto;
 }
+
+
+/* -------- MOBILE ----------- */
+@media screen and (max-width: 480px) {
+    .about-dialog {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background: #17172c;
+
+        top: 0;
+        /*left: 100vw;*/
+        transition: 450ms ease-in-out;
+        /*border-left: 4px solid #1E4BA2;*/
+    }
+
+    #about-close-button {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        transition: 100ms ease;
+    }
+
+    .about-photo-wrapper {
+        --image-height: 160px;
+        height: var(--image-height);
+        width: auto;
+
+        display: inline-block;
+        padding: 5px 5px 20px 5px;
+        background: #eee5e9;
+        /*box-sizing: border-box;*/
+        border-radius: 3px;
+    }
+
+    .about-photo-wrapper img {
+        height: var(--image-height);
+    }
+}
+

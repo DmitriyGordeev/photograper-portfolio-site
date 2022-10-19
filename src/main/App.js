@@ -225,13 +225,16 @@ class App extends React.Component {
 
 
         let aboutPos = "100vw";
+        // let aboutPos = window.innerWidth;
         if (this.props.storeData.aboutMe) {
             aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
+            // aboutPos = window.innerWidth - this.state.aboutDialogWidth;
         }
 
 
-        TODO: remove 100vh
-        let socialsTopPos = "100vh";
+        // TODO: remove 100vh
+        // let socialsTopPos = "100vh";
+        let socialsTopPos = window.innerHeight;
         if (this.props.storeData.socialOpen) {
             socialsTopPos = 0;
         }
