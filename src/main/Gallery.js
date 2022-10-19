@@ -275,6 +275,7 @@ class Gallery extends React.Component {
             focusedImageLeftPos = 0;
         }
 
+        /* Adjust size of the focused image on mobile screens */
         let focusedImageSize = 400;
         if (document.body.clientWidth <= 480) {
             focusedImageSize = document.body.clientWidth * 0.9;

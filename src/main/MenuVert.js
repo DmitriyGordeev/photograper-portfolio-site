@@ -61,14 +61,12 @@ class MenuVert extends React.Component {
     render() {
 
         let itemClass = " large";
-        let marginTop = 0;
         if (this.props.storeData.galleryMode) {
             itemClass = "menu-item small";
-            marginTop = 0;
         }
 
         return (
-            <div className={"menu-side"} style={{marginTop: marginTop}}>
+            <div className={"menu-side"}>
                 <div className={this.props.storeData.galleryMode ? "menu-simple" : "menu-center"}>
                     {this.addItems(itemClass)}
                 </div>

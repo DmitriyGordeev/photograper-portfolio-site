@@ -21,7 +21,14 @@ document.addEventListener("wheel", (event) => {
 
 
 
-const initialState = { helloScreen: true, galleryMode: false};
+const initialState = {
+    helloScreen: true,
+    galleryMode: false,
+    focused: false,
+    aboutMe: false,
+    socialOpen: false,
+    contactDialogOpen: false,
+};
 
 function reducer(state = initialState, action) {
 

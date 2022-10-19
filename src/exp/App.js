@@ -31,15 +31,22 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loaded: false,
-            idx: 0
+            active: false
         }
     }
 
 
     render() {
 
-        console.log(this.state.idx);
+        let leftPos = "100vw";
+        if (this.state.active) {
+            leftPos = 0;
+        }
+
+        console.log(`window.screen.width = ${window.screen.width}`);
+        console.log(`window.innerWidth = ${window.innerWidth}`);
+        // console.log(`document.html.clientWidth = ${document.html.clientWidth}`);
+        console.log(`document.body.clientWidth = ${document.body.clientWidth}`);
 
         return (
             <div style={{
@@ -47,11 +54,16 @@ class App extends React.Component {
                 height: "100%",
                 background: "green"
             }}>
-                <AsyncImage size={300} src={images[this.state.idx]} hfix={true} />
+                {/*<AsyncImage size={300} src={images[this.state.idx]} hfix={true} />*/}
+
                 <div className={"button"}
                      onClick={() => {
-                         this.setState({...this.state, idx: this.state.idx + 1})}
+                         this.setState({...this.state, active: true})}
                 }/>
+
+                <div className={"overlay"}
+                     onClick={() => {this.setState({...this.state, active: false})}}
+                     style={{left: leftPos}} />
             </div>
         );
     }

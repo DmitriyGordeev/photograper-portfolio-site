@@ -1,5 +1,4 @@
 .polaroid-card {
-    /* width должен быть 350px как cardSize TODO: сделать динамически ? */
     width: 350px;
     position: absolute;
     top: 0;
@@ -84,4 +83,28 @@
             transparent 17%,
             rgba(0, 0, 0, 0.5) 40%
     );
+}
+
+
+/* -------- MOBILE ----------- */
+@media screen and (max-width: 480px) {
+    .polaroid-card {
+        width: 160px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto auto;
+        background: transparent;
+        --padding: 3px;
+        clip-path: circle(calc(23% - var(--padding)) at 50% 50%);
+        transition: clip-path 0.5s, 850ms ease-in-out;
+    }
+
+    .active {
+        clip-path: circle(500% at 49% 47%);
+        transition: 850ms ease-in-out;
+        display: inline-block;
+    }
 }

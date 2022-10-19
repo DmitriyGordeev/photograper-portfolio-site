@@ -43,6 +43,11 @@ class Polaroid extends React.Component {
             className = this.getClassFocused();
         }
 
+        let imageSize = 330;
+        if (window.screen.width <= 480) {
+            imageSize = 160;
+        }
+
         return (
             <div className={className}
                  onClick={this.click}
@@ -50,7 +55,7 @@ class Polaroid extends React.Component {
                      ...this.props.style,
             }}>
                 <div className={"inner"}>
-                    <AsyncImage size={330} src={this.props.src} tag={"polaroid"} hfix={false} />
+                    <AsyncImage size={imageSize} src={this.props.src} tag={"polaroid"} hfix={false} />
                     <div className={"filter"} style={{
                         opacity: this.props.storeData.focused ? 0.0 : 1.0
                     }}/>

@@ -247,19 +247,34 @@ class App extends React.Component {
         }
 
         let contactBottomPos = window.innerHeight;
+        // let contactBottomPos = 1467;
         if (this.props.storeData.contactDialogOpen) {
             contactBottomPos = window.innerHeight - document.body.clientHeight;
         }
 
+        console.log("this.props.storeData.contactDialogOpen = " + this.props.storeData.contactDialogOpen);
         console.log(`document.body.clientHeight = ${document.body.clientHeight}`);
         console.log(`window.innerHeight = ${window.innerHeight}`);
+
+
+        // Mobile
+        let sideMenuContainerWidth = "100%";
+        console.log("window.innerWidth = " + window.innerWidth);
+        console.log("window.screen.width = " + window.screen.width);
+        if (window.screen.width <= 480) {
+            sideMenuContainerWidth = '30%';
+            camContainerWidth = 200;
+        }
+
+        console.log(`sideMenuContainerWidth = ${sideMenuContainerWidth}`);
 
         return (
             <div className={"main"}>
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
-                    height: this.props.storeData.galleryMode ? "fit-content" : "100%",
+                    // height: this.props.storeData.galleryMode ? "fit-content" : "100%",
+                    height: this.props.storeData.galleryMode ? "fit-content" : sideMenuContainerWidth,
                 }}>
                     <MenuVert/>
                 </div>
