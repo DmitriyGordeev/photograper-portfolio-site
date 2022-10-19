@@ -105,27 +105,27 @@
     margin: 0 auto;
 }
 
-.gallery-focus-image {
-    --focus-image-height: 300px;
-    height: var(--focus-image-height);
-    width: auto;
-    transition: 850ms;
-}
+/*.gallery-focus-image {*/
+/*    --focus-image-height: 300px;*/
+/*    height: var(--focus-image-height);*/
+/*    width: auto;*/
+/*    transition: 850ms;*/
+/*}*/
 
-.gallery-focus-image img {
-    height: var(--focus-image-height);
-    background: white;
-    padding: 5px 5px 20px 5px;
-    position: fixed;
+/*.gallery-focus-image img {*/
+/*    height: var(--focus-image-height);*/
+/*    background: white;*/
+/*    padding: 5px 5px 20px 5px;*/
+/*    position: fixed;*/
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto auto;
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    margin: auto auto;*/
 
-    border-radius: 3px;
-}
+/*    border-radius: 3px;*/
+/*}*/
 
 .gallery-focus-image-holder {
     top: 0;
@@ -134,7 +134,7 @@
     bottom: 0;
     margin: auto auto;
     width: fit-content;
-    height: fit-content;          /* TODO: this repeats size attribute of AsyncImage in Gallery (fix this?) */
+    height: fit-content;
     position: fixed;
     transition: 450ms ease-in-out;
 }
@@ -142,7 +142,6 @@
 .gallery-focus-image-holder:hover {
     transform: scale(1.08);
 }
-
 
 .gallery-button > div {
     background: #1E4BA2;
@@ -231,6 +230,7 @@ h1.description:nth-of-type(1) {
 }
 
 
+/* ---------- MOBILE ---------- */
 
 @media screen and (max-width: 480px) {
     .gallery-container {

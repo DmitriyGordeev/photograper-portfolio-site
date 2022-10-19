@@ -267,11 +267,19 @@ class Gallery extends React.Component {
         let overlayWidth = 0;
         let cardOpacity = 0;
         let idx = this.state.focusedImageIndex;
+        let focusedImageLeftPos = document.body.clientWidth;
         if (this.state.focused) {
             overlayWidth = "100%";
             cardOpacity = 1.0;
             idx = (idx === -1) ? 0 : idx;       // if idx == -1 we set it to 0, otherwise leave as is
+            focusedImageLeftPos = 0;
         }
+
+        let focusedImageSize = 400;
+        if (document.body.clientWidth <= 480) {
+            focusedImageSize = document.body.clientWidth * 0.9;
+        }
+
 
         return (
             <div className={"gallery-container " + this.state.class1}>
@@ -308,10 +316,10 @@ class Gallery extends React.Component {
                     <div className={"gallery-focus-image-holder"}
                          style={{
                              opacity: cardOpacity,
-                             left: this.state.focused ? 0 : "100vw"
+                             left: focusedImageLeftPos
                          }}
                          onClick={() => this.removeOverlay()}>
-                        <AsyncImage tag={"OVERLAY"} size={400} src={images[idx]} hfix={false} />
+                        <AsyncImage tag={""} size={focusedImageSize} src={images[idx]} hfix={false} />
                     </div>
                 </div>
 
