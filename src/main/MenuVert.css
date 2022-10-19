@@ -82,9 +82,28 @@
     color: #d64933;
 }
 
-/* ------ MOBILE ----- */
 
+/* ------ MOBILE ----- */
 @media screen and (max-width: 480px) {
+
+    .menu-center {
+        /*background: green;*/
+        width: 100%;
+    }
+
+    .large {
+        font-size: 30px;
+        /*padding-left: 20px;*/
+    }
+
+    #gallery-button.menu-item {
+        margin-top: 30px;
+    }
+}
+
+
+/* --- PADS --- */
+@media screen and (min-width: 481px) and (max-width: 900px)  {
 
     .menu-center {
         /*background: green;*/

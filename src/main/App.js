@@ -275,6 +275,19 @@ class App extends React.Component {
             }
         }
 
+        // PADS -----------------------------------------------------------------------
+        // todo: this is a duplicate with above
+        if (window.screen.width > 480 && window.screen.width <= 900) {
+            sideMenuContainerWidth = '30%';
+            cameraViewContainerHeight = '70%';
+            camContainerWidth = window.screen.width * 0.55;
+
+            if (this.props.storeData.focused) {
+                polaroidScale += 0.5;
+            }
+        }
+
+
         console.log(`sideMenuContainerWidth = ${sideMenuContainerWidth}`);
 
         return (

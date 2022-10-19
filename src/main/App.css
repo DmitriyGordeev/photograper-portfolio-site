@@ -134,6 +134,7 @@
 }
 
 
+/* MOBILE --------------------- */
 @media screen and (max-width: 480px) {
     .side-menu-container {
         width: 100%;
@@ -167,11 +168,72 @@
     }
 
     .camera-view > .camera-container {
-        border-radius: 60px;
+        border-radius: 50px;
     }
 
     .camera-background {
         --size: 150px;
+        width: var(--size);
+        height: var(--size);
+    }
+
+    .overlay {
+        opacity: 1.0;
+        background: #1E4BA2;
+
+        width: 100%;
+        height: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        transition: 850ms ease;
+
+        /*transform: skewY(25deg) translateY(-40vh);*/
+        transform: skewY(30deg);
+    }
+
+}
+
+
+/* PADS --------------------- */
+@media screen and (min-width: 481px) and (max-width: 900px) {
+    .side-menu-container {
+        width: 100%;
+        display: block;
+        transition: 450ms ease-in-out;
+        margin-top: 20px;
+    }
+
+    .camera-view-container {
+        width: 100%;
+        display: inline-block;
+        position: relative;
+    }
+
+    .camera-view {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #round-point {
+        width: 30px;
+        height: 30px;
+        background: #eee5e9;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        border-radius: 20px;
+        clip-path: circle(50% at 50% 50%);
+        transition: 850ms ease;
+    }
+
+    .camera-view > .camera-container {
+        border-radius: 70px;
+    }
+
+    .camera-background {
+        --size: 300px;
         width: var(--size);
         height: var(--size);
     }

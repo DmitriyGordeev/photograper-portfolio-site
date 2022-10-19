@@ -148,16 +148,16 @@ input#submit:hover {
 
 
 
-/* ---- TEST ----- */
-.test-box {
-    width: 100px;
-    height: 100px;
-    background: rgba(214, 73, 51, 0.3);
-    position: fixed;
-    left: 0;
-    bottom: 0;
+/*!* ---- TEST ----- *!*/
+/*.test-box {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    background: rgba(214, 73, 51, 0.3);*/
+/*    position: fixed;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
 
-    transition: 1650ms ease-in-out;
-}
+/*    transition: 1650ms ease-in-out;*/
+/*}*/
 
 
