@@ -177,7 +177,7 @@ class Gallery extends React.Component {
                     {/*<img src={images[i]} alt={""} />*/}
                     {/*<ImageHelper src={images[i]} alt={""} />*/}
 
-                    <AsyncImage size={galleryCardSize} hfix={true} src={images[i]} />
+                    <AsyncImage size={galleryCardSize} hfix={true} src={images[i]}/>
                 </div>
             );
         }
@@ -262,7 +262,6 @@ class Gallery extends React.Component {
     }
 
 
-
     render() {
         let overlayWidth = 0;
         let cardOpacity = 0;
@@ -292,18 +291,27 @@ class Gallery extends React.Component {
                     </div>
                     <div className={"control-panel"}>
 
-                        <div className={"gallery-button prev"} onClick={() => this.prevButton()}>
+                        <div className={"gallery-button prev"}
+                             style={{
+                                 opacity: this.state.start_index === 0 ? 0.0 : 1.0,
+                                 cursor: this.state.start_index === 0 ? "default" : "pointer"
+                             }}
+                             onClick={() => this.prevButton()}>
                             <div><img className={"arrow"} src={arrowUp} alt={""}/></div>
                             <p>previous</p>
                         </div>
 
-                        <div className={"gallery-button next"} onClick={() => this.nextButton()}>
+                        <div className={"gallery-button next"}
+                             style={{
+                                 opacity: this.state.start_index >= (images.length - 1) ? 0.0 : 1.0,
+                                 cursor: this.state.start_index >= (images.length - 1) ? "default" : "pointer"
+                             }}
+                             onClick={() => this.nextButton()}>
                             <div><img className={"arrow"} src={arrowDown} alt={""}/></div>
                             <p>next</p>
                         </div>
                     </div>
                 </div>
-
 
 
                 {/* FOCUSED IMAGE and OVERLAY */}
@@ -320,7 +328,7 @@ class Gallery extends React.Component {
                              left: focusedImageLeftPos
                          }}
                          onClick={() => this.removeOverlay()}>
-                        <AsyncImage tag={""} size={focusedImageSize} src={images[idx]} hfix={false} />
+                        <AsyncImage tag={""} size={focusedImageSize} src={images[idx]} hfix={false}/>
                     </div>
                 </div>
 
