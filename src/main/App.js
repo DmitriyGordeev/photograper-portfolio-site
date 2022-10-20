@@ -291,9 +291,7 @@ class App extends React.Component {
 
 
         // gallery-label:
-        // let galleryLabelTop = "100%";
         if (this.props.storeData.galleryMode) {
-            // galleryLabelTop = 0;
             if (!this.state.galleryLabelClass.includes('label-small')) {
                 this.setState({
                     ...this.state,
