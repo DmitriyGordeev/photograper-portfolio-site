@@ -289,6 +289,20 @@ class App extends React.Component {
             }
         }
 
+
+        // gallery-label:
+        // let galleryLabelTop = "100%";
+        if (this.props.storeData.galleryMode) {
+            // galleryLabelTop = 0;
+            if (!this.state.galleryLabelClass.includes('label-small')) {
+                this.setState({
+                    ...this.state,
+                    galleryLabelClass: this.state.galleryLabelClass + " label-small"
+                })
+            }
+        }
+
+
         return (
             <div className={"main"}>
 
