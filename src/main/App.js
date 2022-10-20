@@ -14,7 +14,7 @@ import HelloScreen from "./HelloScreen";
 
 import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
-import cameraImageSvg from './../../resources/images/camera-lense9.svg';
+import cameraImageSvg from './../../resources/images/camera-lense11.svg';
 import room from "../../resources/images/room.jpg";
 import closeButton from "../../resources/images/close.svg";
 import instagramIcon from "../../resources/images/instagram_icon.svg";
