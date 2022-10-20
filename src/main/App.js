@@ -289,27 +289,6 @@ class App extends React.Component {
             }
         }
 
-
-        // gallery-label:
-        let galleryLabelTop = "100%";
-        if (this.props.storeData.galleryMode) {
-            galleryLabelTop = 0;
-            if (!this.state.galleryLabelClass.includes('label-small')) {
-                // setTimeout(() => {
-                //     this.setState({
-                //         ...this.state,
-                //         galleryLabelClass: this.state.galleryLabelClass + " label-small"
-                //     })
-                // }, 2000);
-
-                this.setState({
-                    ...this.state,
-                    galleryLabelClass: this.state.galleryLabelClass + " label-small"
-                })
-            }
-        }
-
-
         return (
             <div className={"main"}>
 
@@ -466,7 +445,7 @@ class App extends React.Component {
 
                 <HelloScreen />
 
-                <div className={this.state.galleryLabelClass} style={{top: galleryLabelTop}}>
+                <div className={this.state.galleryLabelClass}>
                     <p>Gallery</p>
                 </div>
 
