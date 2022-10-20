@@ -5,6 +5,7 @@ import "./about.css";
 import './socials.css';
 import './contact.css';
 import './texts.css';
+import './GalleryLabel.css';
 
 import Polaroid from "./Polaroid";
 import MenuVert from "./MenuVert";
@@ -39,7 +40,8 @@ let state0 = {
     active_polaroid_index: images.length - 1,
     galleryOpacity: 0.0,
     galleryMode: false,
-    socialsOn: false
+    socialsOn: false,
+    galleryLabelClass: "gallery-label "
 };
 
 
@@ -288,7 +290,20 @@ class App extends React.Component {
         }
 
 
-        console.log(`sideMenuContainerWidth = ${sideMenuContainerWidth}`);
+        // gallery-label:
+        let galleryLabelTop = "100%";
+        if (this.props.storeData.galleryMode) {
+            galleryLabelTop = 0;
+            if (!this.state.galleryLabelClass.includes('label-small')) {
+                setTimeout(() => {
+                    this.setState({
+                        ...this.state,
+                        galleryLabelClass: this.state.galleryLabelClass + " label-small"
+                    })
+                }, 950);
+            }
+        }
+
 
         return (
             <div className={"main"}>
@@ -445,6 +460,10 @@ class App extends React.Component {
                 </div>
 
                 <HelloScreen />
+
+                <div className={this.state.galleryLabelClass} style={{top: galleryLabelTop}}>
+                    <p>Gallery</p>
+                </div>
 
             </div>
         );
