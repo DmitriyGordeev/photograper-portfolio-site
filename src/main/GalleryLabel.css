@@ -6,7 +6,6 @@
     top: 100%;
     left: 0;
     margin: 0 auto;
-    /*transition: 450ms;*/
 }
 
 .gallery-label > p {
@@ -21,8 +20,7 @@
     height: fit-content;
     width: fit-content;
     background: #d64933;
-    /*padding: 5px 10px;*/
-    /*border-radius: 10px;*/
+    cursor: default;
 }
 
 
