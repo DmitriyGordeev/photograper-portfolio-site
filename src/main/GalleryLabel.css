@@ -21,26 +21,29 @@
     height: fit-content;
     width: fit-content;
     background: #d64933;
-    padding: 5px 10px;
-    border-radius: 10px;
+    /*padding: 5px 10px;*/
+    /*border-radius: 10px;*/
 }
 
 
 .label-small {
-    width: 60%;
-    height: 10%;
+    width: 100px;
+    height: 30px;
     animation: label 1400ms ease-in-out;
-    padding-top: 60px;
-    background: none;
     left: 0;
     right: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 4px;
 }
 
 .label-small > p {
     font-size: 16px;
     font-weight: 200;
     color: #eee5e9;
-    background: none;
+    /*background: #d64933;*/
+    /*top: auto;*/
+    /*bottom: 0;*/
 }
 
 @keyframes label {
@@ -57,9 +60,13 @@
     }
 
     100% {
-        width: 60%;
-        height: 10%;
-        background: none;
-        padding-top: 60px;
+        width: 100px;
+        height: 30px;
+        animation: label 1400ms ease-in-out;
+        left: 0;
+        right: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding-bottom: 4px;
     }
 }
