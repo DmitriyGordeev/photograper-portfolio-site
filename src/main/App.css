@@ -106,7 +106,7 @@
 }
 
 .camera-background {
-    --size: 300px;      /* should be equal to cardSize = 350px in Polaroid.js - TODO: fix this! */
+    --size: 250px;      /* should be equal to cardSize = 350px in Polaroid.js - TODO: fix this! */
     width: var(--size);
     height: var(--size);
     /*margin: 0 auto;*/
@@ -172,7 +172,7 @@
     }
 
     .camera-background {
-        --size: 150px;
+        --size: 120px;
         width: var(--size);
         height: var(--size);
     }
@@ -233,7 +233,7 @@
     }
 
     .camera-background {
-        --size: 300px;
+        --size: 260px;
         width: var(--size);
         height: var(--size);
     }
