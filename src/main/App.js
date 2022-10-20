@@ -295,12 +295,17 @@ class App extends React.Component {
         if (this.props.storeData.galleryMode) {
             galleryLabelTop = 0;
             if (!this.state.galleryLabelClass.includes('label-small')) {
-                setTimeout(() => {
-                    this.setState({
-                        ...this.state,
-                        galleryLabelClass: this.state.galleryLabelClass + " label-small"
-                    })
-                }, 950);
+                // setTimeout(() => {
+                //     this.setState({
+                //         ...this.state,
+                //         galleryLabelClass: this.state.galleryLabelClass + " label-small"
+                //     })
+                // }, 2000);
+
+                this.setState({
+                    ...this.state,
+                    galleryLabelClass: this.state.galleryLabelClass + " label-small"
+                })
             }
         }
 
