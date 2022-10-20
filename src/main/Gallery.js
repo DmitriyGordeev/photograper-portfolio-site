@@ -14,6 +14,8 @@ import img3 from "../../resources/images/img3.jpg";
 import arrowUp from "../../resources/images/arrow_up.svg";
 import arrowDown from "../../resources/images/arrow_down.svg";
 
+import overlayArrow from "../../resources/images/overlay_arrow.svg";
+
 import AsyncImage from "./AsyncImage";
 
 const angleOffsetDeg = 16;     // in degrees
@@ -253,6 +255,31 @@ class Gallery extends React.Component {
     }
 
 
+    nextOverlayButton(e) {
+        e.stopPropagation();
+        if (this.state.focusedImageIndex >= images.length - 1) {
+            return;
+        }
+
+        this.setState({
+            ...this.state,
+            focusedImageIndex: this.state.focusedImageIndex + 1
+        });
+    }
+
+    prevOverlayButton(e) {
+        e.stopPropagation();
+        if (this.state.focusedImageIndex <= 0) {
+            return;
+        }
+
+        this.setState({
+            ...this.state,
+            focusedImageIndex: this.state.focusedImageIndex - 1
+        });
+    }
+
+
     removeOverlay() {
         this.setState({
             ...this.state,
@@ -266,6 +293,7 @@ class Gallery extends React.Component {
         let overlayWidth = 0;
         let cardOpacity = 0;
         let idx = this.state.focusedImageIndex;
+        console.log("FOCUSED IMAGE idx = " + idx);
         let focusedImageLeftPos = document.body.clientWidth;
         if (this.state.focused) {
             overlayWidth = "100%";
@@ -330,6 +358,27 @@ class Gallery extends React.Component {
                          onClick={() => this.removeOverlay()}>
                         <AsyncImage tag={""} size={focusedImageSize} src={images[idx]} hfix={false}/>
                     </div>
+
+                    <div className={"overlay-button-holder"}>
+                        <div className={"overlay-button"}
+                             style={{
+                                 opacity: this.state.focusedImageIndex === 0 ? 0.0 : 1.0,
+                                 cursor: this.state.focusedImageIndex === 0 ? "default" : "pointer"
+                             }}
+                             onClick={(e) => this.prevOverlayButton(e)}>
+                            <img className={"arrow"} src={overlayArrow} alt={""}/>
+                        </div>
+                        <div className={"overlay-button"}
+                             style={{
+                                 opacity: this.state.focusedImageIndex >= (images.length - 1) ? 0.0 : 1.0,
+                                 cursor: this.state.focusedImageIndex >= (images.length - 1) ? "default" : "pointer"
+                             }}
+                             onClick={(e) => this.nextOverlayButton(e)}>
+                            <div><img className={"arrow"} style={{transform: "scaleX(-1)"}} src={overlayArrow} alt={""}/></div>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
