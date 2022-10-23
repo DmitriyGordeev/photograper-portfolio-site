@@ -20,7 +20,7 @@ import AsyncImage from "./AsyncImage";
 
 const angleOffsetDeg = 16;     // in degrees
 
-const btnRotSpeed = 1;
+const btnRotSpeed = 1.0;
 const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
 const images = [
@@ -57,11 +57,11 @@ class Gallery extends React.Component {
             focusedImageIndex: -1,
             focused: false,
             class1: "class-invisible",
+            gallerySwitchButtonLocked: false,
         }
 
         this.firstUpdateHappend = false;
     }
-
 
     componentDidMount() {
         // window.addEventListener('wheel', this.handleScroll);
@@ -78,7 +78,6 @@ class Gallery extends React.Component {
             }, 800);
         }
     }
-
 
     handleScroll = (event) => {
         // // // // console.log("event.deltaY = " + event.deltaY);
@@ -101,7 +100,6 @@ class Gallery extends React.Component {
         // });
     }
 
-
     onPhotoClick(index) {
         // // // console.log(`Clicked on ${index}`);
 
@@ -117,7 +115,6 @@ class Gallery extends React.Component {
 
         // this.props.onFocus(index);
     }
-
 
     updateGallery() {
 
@@ -187,10 +184,8 @@ class Gallery extends React.Component {
         return out.reverse();       // reverse because we need the right order of images layered
     }
 
-
     nextButton() {
-        // // // console.log(`[ nextButton() ] state.start_index = ${this.state.start_index} vs startIndex = ${startIndex}`);
-        if (startIndex >= images.length - 1) {
+        if (startIndex >= images.length - 1 || this.state.gallerySwitchButtonLocked) {
             return;
         }
 
@@ -203,7 +198,8 @@ class Gallery extends React.Component {
                 componentRef.setState({
                     ...this.state,
                     angle: this.state.angle += btnRotSpeed,
-                    start_index: startIndex
+                    start_index: startIndex,
+                    gallerySwitchButtonLocked: true
                 });
             } else {
                 // Once we stopped rotating, clear interval and reset scrollDirection
@@ -214,15 +210,15 @@ class Gallery extends React.Component {
                 componentRef.setState({
                     ...this.state,
                     angle: this.state.angle,
-                    start_index: startIndex
+                    start_index: startIndex,
+                    gallerySwitchButtonLocked: false
                 });
             }
         }, 30);
     }
 
-
     prevButton() {
-        if (this.state.start_index === 0) {
+        if (this.state.start_index === 0 || this.state.gallerySwitchButtonLocked) {
             return;
         }
 
@@ -232,12 +228,13 @@ class Gallery extends React.Component {
         startIndex -= 1;
 
         let id = setInterval(() => {
-            // // // console.log(`angle = ${this.state.angle}, endAngle = ${endAngle}`);
-            if (this.state.angle !== endAngle) {
+            // if (this.state.angle !== endAngle) {
+            if (this.state.angle > endAngle) {
                 componentRef.setState({
                     ...this.state,
                     angle: this.state.angle -= btnRotSpeed,
-                    start_index: startIndex
+                    start_index: startIndex,
+                    gallerySwitchButtonLocked: true
                 });
             } else {
                 // Once we stopped rotating, clear interval and reset scrollDirection
@@ -248,12 +245,12 @@ class Gallery extends React.Component {
                 componentRef.setState({
                     ...this.state,
                     angle: this.state.angle,
-                    start_index: startIndex
+                    start_index: startIndex,
+                    gallerySwitchButtonLocked: false
                 });
             }
         }, 30);
     }
-
 
     nextOverlayButton(e) {
         e.stopPropagation();
@@ -279,7 +276,6 @@ class Gallery extends React.Component {
         });
     }
 
-
     removeOverlay() {
         this.setState({
             ...this.state,
@@ -287,7 +283,6 @@ class Gallery extends React.Component {
             focusedImageIndex: -1
         })
     }
-
 
     render() {
         let overlayWidth = 0;
@@ -325,8 +320,10 @@ class Gallery extends React.Component {
                                  cursor: this.state.start_index === 0 ? "default" : "pointer"
                              }}
                              onClick={() => this.prevButton()}>
-                            <div><img className={"arrow"} src={arrowUp} alt={""}/></div>
-                            <p>previous</p>
+                            <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
+                                <img className={"arrow"} src={arrowUp} alt={""}/>
+                            </div>
+                            <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>previous</p>
                         </div>
 
                         <div className={"gallery-button next"}
@@ -335,8 +332,10 @@ class Gallery extends React.Component {
                                  cursor: this.state.start_index >= (images.length - 1) ? "default" : "pointer"
                              }}
                              onClick={() => this.nextButton()}>
-                            <div><img className={"arrow"} src={arrowDown} alt={""}/></div>
-                            <p>next</p>
+                            <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
+                                <img className={"arrow"} src={arrowDown} alt={""}/>
+                            </div>
+                            <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>next</p>
                         </div>
                     </div>
                 </div>
@@ -374,7 +373,8 @@ class Gallery extends React.Component {
                                  cursor: this.state.focusedImageIndex >= (images.length - 1) ? "default" : "pointer"
                              }}
                              onClick={(e) => this.nextOverlayButton(e)}>
-                            <div><img className={"arrow"} style={{transform: "scaleX(-1)"}} src={overlayArrow} alt={""}/></div>
+                             <div><img className={"arrow"} style={{transform: "scaleX(-1)"}} src={overlayArrow}
+                                      alt={""}/></div>
                         </div>
                     </div>
 

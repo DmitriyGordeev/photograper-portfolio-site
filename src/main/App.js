@@ -20,6 +20,7 @@ import closeButton from "../../resources/images/close.svg";
 import instagramIcon from "../../resources/images/instagram_icon.svg";
 import vkIcon from "../../resources/images/vk_icon.svg";
 
+import jquery from 'jquery';
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
@@ -202,6 +203,20 @@ class App extends React.Component {
             active_polaroid_index: images.length - 1,
             cameraClass: cameraClass,
             galleryMode: false});
+    }
+
+
+    sendEmail() {
+        console.log("sendEmail click()");
+        jquery.post(
+            "./request.php",
+            {"text": "HELLO THERE!"}
+        ).done(
+            function( data ) {
+                console.log("POST RESPONSE:" + data);
+                alert("RESPONSE data:" + data);
+            }
+        );
     }
 
 
@@ -446,7 +461,7 @@ class App extends React.Component {
                             <textarea rows={5} id={"message"} placeholder={"Your message"} required />
                         </div>
 
-                        <input id={"submit"} type={"submit"} value={"SEND"} />
+                        <input id={"submit"} type={"submit"} value={"SEND"} onClick={() => {this.sendEmail()}}/>
 
                         <p id={"plain-email"}>
                             <span>or you can copy my email</span><br/>

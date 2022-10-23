@@ -138,10 +138,17 @@
 
 .gallery-button:hover > div {
     background: #d64933;
-    /*background: #eee5e9;*/
 }
 
 
+.gallery-button > div.locked-button {
+    background: #444655;
+    opacity: 0.5;
+}
+
+.gallery-button > p.locked-button {
+    opacity: 0.5;
+}
 
 .overlay-button-holder {
     /*background: blue;*/
