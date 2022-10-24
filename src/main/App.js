@@ -57,14 +57,13 @@ class App extends React.Component {
 
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
+        // window.addEventListener('touchmove', this.handleScroll);
 
         // this will define how wide is 'About Me' dialog window
         this.setState({
             ...this.state,
             aboutDialogWidth: this.aboutRef.current.offsetWidth
         });
-
-        // // console.log("Component Did Mount");
     }
 
 

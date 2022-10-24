@@ -40,8 +40,9 @@ class MenuVert extends React.Component {
             elements.push(
                 <div key={elements.length}
                      id={"gallery-button"}
-                     onClick={() => {this.props.galleryOn()}}
-                     className={"menu-item"}><span className={itemClass}>GALLERY</span></div>
+                     className={"menu-item"}>
+                    <span onClick={() => {this.props.galleryOn()}}
+                          className={itemClass}>GALLERY</span></div>
             );
 
             return elements;
