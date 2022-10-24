@@ -58,10 +58,7 @@ class App extends React.Component {
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
 
-        window.addEventListener('touchmove',
-            (event) => {
-            console.log("touch[0].clientY = " + event.touches[0].clientY);
-        });
+        window.addEventListener('touchmove', this.handleTouchMove);
 
         // this will define how wide is 'About Me' dialog window
         this.setState({
@@ -93,17 +90,32 @@ class App extends React.Component {
 
 
     handleScroll = (event) => {
-
         if (this.props.storeData.galleryMode) {
             return;
         }
-
         if (this.locked) {
             return;
         }
+        this.scrollDelegate(event.deltaY);
+    }
 
-        // // console.log("Scrolling inside component: deltaY", event.deltaY);
-        let scrollAmount = event.deltaY;
+
+    handleTouchMove = (event) =>  {
+        if (this.props.storeData.galleryMode) {
+            return;
+        }
+        if (this.locked) {
+            console.log("LOCKED: " + this.locked);
+            return;
+        }
+        if (event.touches.length === 1) {
+            // TODO: can be a conflict when wheel and touchmove together ?
+            this.scrollDelegate(event.touches[0].clientY);
+        }
+    }
+
+
+    scrollDelegate(scrollAmount) {
         let angle = 0;
         let scale = 0;
         let active_polaroid_index = this.state.active_polaroid_index;
@@ -156,6 +168,7 @@ class App extends React.Component {
             thisRef.locked = false;
         }, 750);            // timeout in ms
     }
+
 
 
     removeOverlay() {
