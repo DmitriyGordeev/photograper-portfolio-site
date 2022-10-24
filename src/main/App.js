@@ -53,7 +53,7 @@ class App extends React.Component {
         this.locked = false;
         this.aboutRef = React.createRef();
 
-        this.touchActive = false;
+        // this.touchActive = false;
         this.touchMovePrevY = 0;
     }
 
@@ -61,11 +61,17 @@ class App extends React.Component {
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
 
-        window.addEventListener('touchstart', () => {this.touchActive = true;});
+        // window.addEventListener('touchstart', () => {
+        //     this.touchActive = true;
+        //     let wind/*owHeight = screen.height;
+        //     let windowWidth = screen.width;
+        //     alert(`${windowWidth} x ${windowHeight}`);*/
+        // });
+
         window.addEventListener('touchmove', this.handleTouchMove);
         window.addEventListener('touchend', () => {
-            console.log("touchend");
-            this.touchActive = false;
+            // console.log("touchend");
+            // this.touchActive = false;
             this.touchMovePrevY = 0;
         });
 
