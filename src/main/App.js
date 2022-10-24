@@ -57,7 +57,11 @@ class App extends React.Component {
 
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
-        // window.addEventListener('touchmove', this.handleScroll);
+
+        window.addEventListener('touchmove',
+            (event) => {
+            console.log("touch[0].clientY = " + event.touches[0].clientY);
+        });
 
         // this will define how wide is 'About Me' dialog window
         this.setState({

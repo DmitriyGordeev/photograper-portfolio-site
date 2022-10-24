@@ -7,18 +7,19 @@ import App from "./App";
 import './index.css'
 
 
+// document.addEventListener('touchstart', function(e){
+//     console.log("touchstart");
+// }, false);
 
 
-document.addEventListener("wheel", (event) => {
-    // event.preventDefault();
-    // event.stopPropagation();
-    // now define custom functionality
-
-    // // // console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
-
-}, { passive: false });
-
-
+// document.addEventListener("wheel", (event) => {
+//     // event.preventDefault();
+//     // event.stopPropagation();
+//     // now define custom functionality
+//
+//     // // // console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
+//
+// }, { passive: false });
 
 
 const initialState = {
