@@ -140,7 +140,6 @@
     background: #d64933;
 }
 
-
 .gallery-button > div.locked-button {
     background: #444655;
     opacity: 0.5;
@@ -179,15 +178,6 @@
     width: 20px;
     height: auto;
 }
-
-
-
-
-
-
-/*.button-inactive {*/
-/*    background: #b6b6b6;*/
-/*}*/
 
 .gallery-button .arrow {
     width: 25%;
