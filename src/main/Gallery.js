@@ -38,6 +38,8 @@ let scrollDirection = 0;
 
 const galleryCardSize = 220;
 
+let overlaySwitchButtonLockTime = 100;  // ms
+
 function angle2opacity(startAngle, endAngle, currentAngle) {
     let value = (1 - (currentAngle - startAngle) / (endAngle - startAngle));
     if (value > 1.0)
@@ -61,6 +63,7 @@ class Gallery extends React.Component {
         }
 
         this.firstUpdateHappend = false;
+        this.overlaySwitchButtonLocked = false;
     }
 
     componentDidMount() {
@@ -80,7 +83,7 @@ class Gallery extends React.Component {
     }
 
     handleScroll = (event) => {
-        // // // // console.log("event.deltaY = " + event.deltaY);
+
         // let angle = this.state.angle + event.deltaY * scroll2rotAngle;
         //
         //
@@ -101,19 +104,11 @@ class Gallery extends React.Component {
     }
 
     onPhotoClick(index) {
-        // // // console.log(`Clicked on ${index}`);
-
         this.setState({
             ...this.state,
             focusedImageIndex: index,
             focused: true
         })
-
-        // TODO: enable overlay
-        // TODO: make centered Polaroid visible
-        // TODO: enable focus
-
-        // this.props.onFocus(index);
     }
 
     updateGallery() {
@@ -128,13 +123,9 @@ class Gallery extends React.Component {
              i < Math.min(images.length, this.state.start_index + numMaxImages);
              i++) {
 
-            // // // console.log(`[Cycle debug] [${i}] startIndex = ${startIndex}`);
-
             let angle = this.state.angle - i * angleOffsetDeg;
             let skewAngle = angle * 0.76;
             let rotYAngle = angle * 1.2;
-
-            // // // console.log(`[Cycle debug] [${i}] angle = ${angle}`);
 
             let opacity = 1.0;
             if (angle >= minAngle) {
@@ -143,8 +134,6 @@ class Gallery extends React.Component {
             if (angle <= -minAngle) {
                 opacity = angle2opacity(-minAngle, maxNegAngle, angle);
             }
-
-            // // // console.log(`[Cycle debug] [${i}] opacity = ${opacity}`);
 
             let display = "block";
             if (opacity <= 0.0) {
@@ -172,10 +161,6 @@ class Gallery extends React.Component {
                          display: display,
                          transform: `skew(0deg, ${skewAngle}deg) rotateY(${rotYAngle}deg)`
                      }}>
-
-                    {/*<img src={images[i]} alt={""} />*/}
-                    {/*<ImageHelper src={images[i]} alt={""} />*/}
-
                     <AsyncImage size={galleryCardSize} hfix={true} src={images[i]}/>
                 </div>
             );
@@ -254,25 +239,49 @@ class Gallery extends React.Component {
 
     nextOverlayButton(e) {
         e.stopPropagation();
+
+        if (this.overlaySwitchButtonLocked) {
+            console.log("Button is locked!");
+            return;
+        }
+
         if (this.state.focusedImageIndex >= images.length - 1) {
             return;
         }
 
+        this.overlaySwitchButtonLocked = true;
+
         this.setState({
             ...this.state,
             focusedImageIndex: this.state.focusedImageIndex + 1
+        }, () => {
+            // adding a little cooldown on the overlay-buttons, so can't spam
+            setTimeout(() => {this.overlaySwitchButtonLocked = false;},
+                overlaySwitchButtonLockTime);
         });
     }
 
     prevOverlayButton(e) {
         e.stopPropagation();
+
+        if (this.overlaySwitchButtonLocked) {
+            console.log("Button is locked!");
+            return;
+        }
+
         if (this.state.focusedImageIndex <= 0) {
             return;
         }
 
+        this.overlaySwitchButtonLocked = true;
+
         this.setState({
             ...this.state,
             focusedImageIndex: this.state.focusedImageIndex - 1
+        }, () => {
+            // adding a little cooldown on the overlay-buttons, so can't spam
+            setTimeout(() => {this.overlaySwitchButtonLocked = false;},
+                overlaySwitchButtonLockTime);
         });
     }
 
@@ -373,7 +382,7 @@ class Gallery extends React.Component {
                                  cursor: this.state.focusedImageIndex >= (images.length - 1) ? "default" : "pointer"
                              }}
                              onClick={(e) => this.nextOverlayButton(e)}>
-                             <div><img className={"arrow"} style={{transform: "scaleX(-1)"}} src={overlayArrow}
+                            <div><img className={"arrow"} style={{transform: "scaleX(-1)"}} src={overlayArrow}
                                       alt={""}/></div>
                         </div>
                     </div>
