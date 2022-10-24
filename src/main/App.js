@@ -52,13 +52,22 @@ class App extends React.Component {
         this.state = state0;
         this.locked = false;
         this.aboutRef = React.createRef();
+
+        this.touchActive = false;
+        this.touchMovePrevY = 0;
     }
 
 
     componentDidMount() {
         window.addEventListener('wheel', this.handleScroll);
 
+        window.addEventListener('touchstart', () => {this.touchActive = true;});
         window.addEventListener('touchmove', this.handleTouchMove);
+        window.addEventListener('touchend', () => {
+            console.log("touchend");
+            this.touchActive = false;
+            this.touchMovePrevY = 0;
+        });
 
         // this will define how wide is 'About Me' dialog window
         this.setState({
@@ -67,7 +76,7 @@ class App extends React.Component {
         });
     }
 
-
+    /* TODO: CHANGE SIGNATURE TO CORRECT */
     componentDidUpdate(prevProps) {
         // // Typical usage (don't forget to compare props):
         // if (this.props.userID !== prevProps.userID) {
@@ -101,16 +110,36 @@ class App extends React.Component {
 
 
     handleTouchMove = (event) =>  {
+        // if (this.props.storeData.galleryMode) {
+        //     return;
+        // }
+        // if (this.locked) {
+        //     return;
+        // }
+        // if (event.touches.length === 1) {
+        //     // TODO: can be a conflict when wheel and touchmove together ?
+        //     console.log("touches[0].clientY = " + event.touches[0].clientY);
+        //     console.log("changedTouches[0].clientY = " + event.changedTouches[0].clientY);
+        //
+        //     this.scrollDelegate(event.touches[0].clientY);
+        // }
+
+
         if (this.props.storeData.galleryMode) {
             return;
         }
         if (this.locked) {
-            console.log("LOCKED: " + this.locked);
             return;
         }
+
         if (event.touches.length === 1) {
-            // TODO: can be a conflict when wheel and touchmove together ?
-            this.scrollDelegate(event.touches[0].clientY);
+            let touchMoveYAmount = 0;
+            if (this.touchMovePrevY !== 0)
+                touchMoveYAmount = event.touches[0].clientY - this.touchMovePrevY;
+            this.touchMovePrevY = event.touches[0].clientY;
+            console.log("touchMoveAmount = " + touchMoveYAmount);
+
+            this.scrollDelegate(-touchMoveYAmount);
         }
     }
 
@@ -119,6 +148,11 @@ class App extends React.Component {
         let angle = 0;
         let scale = 0;
         let active_polaroid_index = this.state.active_polaroid_index;
+
+        if (scrollAmount === 0)
+            return;
+
+        console.log(`scrollDelegate(${scrollAmount})`);
 
         if (scrollAmount > 0) {
             angle = this.state.angle + fixedDegAdded;
@@ -160,6 +194,9 @@ class App extends React.Component {
             cameraEnabled: cameraEnabled,
             active_polaroid_index: active_polaroid_index,
         });
+
+
+
 
         // adds cooldown to the scrolling event
         this.locked = true;
@@ -304,7 +341,8 @@ class App extends React.Component {
             camContainerWidth = window.screen.width * 0.6;
 
             if (this.props.storeData.focused) {
-                polaroidScale += 0.5;
+                polaroidScale += 0.6;
+                polaroidTranslateUp = 60;
             }
         }
 
@@ -316,7 +354,7 @@ class App extends React.Component {
             camContainerWidth = window.screen.width * 0.55;
 
             if (this.props.storeData.focused) {
-                polaroidScale += 0.5;
+                polaroidScale += 0.6;
             }
         }
 

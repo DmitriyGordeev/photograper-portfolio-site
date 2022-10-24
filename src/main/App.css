@@ -172,7 +172,7 @@
     }
 
     .camera-background {
-        --size: 120px;
+        --size: 130px;
         width: var(--size);
         height: var(--size);
     }
