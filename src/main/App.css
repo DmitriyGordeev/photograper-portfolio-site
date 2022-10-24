@@ -189,7 +189,7 @@
         transition: 850ms ease;
 
         /*transform: skewY(25deg) translateY(-40vh);*/
-        transform: skewY(30deg);
+        transform: skewY(15deg);
     }
 
 }
@@ -250,7 +250,7 @@
         transition: 850ms ease;
 
         /*transform: skewY(25deg) translateY(-40vh);*/
-        transform: skewY(30deg);
+        transform: skewY(15deg);
     }
 
 }

@@ -261,9 +261,8 @@ class App extends React.Component {
         if (this.props.storeData.focused) {
 
             // change overlay's opacity to 1.0 (make it visible)
-            // and size to 100% of the screen
             overlayOpacity = 1.0;
-            overlayHeight = "160vh";
+            overlayHeight = window.innerHeight * 1.6;
 
             // change polaroid scale to const 1.0
             polaroidScale = 1.2;
