@@ -81,12 +81,12 @@
     }
 
     #hello-screen-overlay h1 {
-        font-size: 20px;
+        font-size: 24px;
         max-width: 100%;
     }
 
     #hello-screen-overlay h2 {
-        font-size: 14px;
+        font-size: 17px;
         max-width: 50%;
     }
 
@@ -95,7 +95,7 @@
     }
 
     #continue-button > span {
-        font-size: 14px;
+        font-size: 17px;
     }
 }
 
@@ -114,7 +114,7 @@
     }
 
     #hello-screen-overlay h1, h2 {
-        margin: 0 auto 70px;
+        margin: 0 auto 10%;
         padding: 0;
     }
 

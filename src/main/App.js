@@ -59,22 +59,6 @@ class App extends React.Component {
 
 
     componentDidMount() {
-        window.addEventListener('wheel', this.handleScroll);
-
-        // window.addEventListener('touchstart', () => {
-        //     this.touchActive = true;
-        //     let wind/*owHeight = screen.height;
-        //     let windowWidth = screen.width;
-        //     alert(`${windowWidth} x ${windowHeight}`);*/
-        // });
-
-        window.addEventListener('touchmove', this.handleTouchMove);
-        window.addEventListener('touchend', () => {
-            // console.log("touchend");
-            // this.touchActive = false;
-            this.touchMovePrevY = 0;
-        });
-
         // this will define how wide is 'About Me' dialog window
         this.setState({
             ...this.state,
@@ -82,13 +66,12 @@ class App extends React.Component {
         });
     }
 
-    /* TODO: CHANGE SIGNATURE TO CORRECT */
-    componentDidUpdate(prevProps) {
-        // // Typical usage (don't forget to compare props):
-        // if (this.props.userID !== prevProps.userID) {
-        //     this.fetchData(this.props.userID);
-        // }
 
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(!this.props.storeData.helloScreen) {
+            this.assignScrollingEvents();
+        }
 
         if (!this.state.galleryMode && this.props.storeData.galleryMode) {
             this.setState({...this.state,
@@ -104,6 +87,13 @@ class App extends React.Component {
     }
 
 
+    assignScrollingEvents() {
+        window.addEventListener('wheel', this.handleScroll);
+        window.addEventListener('touchmove', this.handleTouchMove);
+        window.addEventListener('touchend', () => { this.touchMovePrevY = 0; });
+    }
+
+
     handleScroll = (event) => {
         if (this.props.storeData.galleryMode) {
             return;
@@ -116,35 +106,17 @@ class App extends React.Component {
 
 
     handleTouchMove = (event) =>  {
-        // if (this.props.storeData.galleryMode) {
-        //     return;
-        // }
-        // if (this.locked) {
-        //     return;
-        // }
-        // if (event.touches.length === 1) {
-        //     // TODO: can be a conflict when wheel and touchmove together ?
-        //     console.log("touches[0].clientY = " + event.touches[0].clientY);
-        //     console.log("changedTouches[0].clientY = " + event.changedTouches[0].clientY);
-        //
-        //     this.scrollDelegate(event.touches[0].clientY);
-        // }
-
-
         if (this.props.storeData.galleryMode) {
             return;
         }
         if (this.locked) {
             return;
         }
-
         if (event.touches.length === 1) {
             let touchMoveYAmount = 0;
             if (this.touchMovePrevY !== 0)
                 touchMoveYAmount = event.touches[0].clientY - this.touchMovePrevY;
             this.touchMovePrevY = event.touches[0].clientY;
-            console.log("touchMoveAmount = " + touchMoveYAmount);
-
             this.scrollDelegate(-touchMoveYAmount);
         }
     }
@@ -211,7 +183,6 @@ class App extends React.Component {
             thisRef.locked = false;
         }, 750);            // timeout in ms
     }
-
 
 
     removeOverlay() {

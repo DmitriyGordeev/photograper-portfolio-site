@@ -44,10 +44,19 @@ class HelloScreen extends React.Component {
 
 
     render() {
+
+        let overlayLeftOffset = "-100vw";
+        let overlayClass = "helloscreen-invisible";
+        if (this.props.storeData.helloScreen) {
+            overlayClass = "helloscreen-visible";
+            overlayLeftOffset = 0;
+        }
+
+
         return (
             <div id={"hello-screen-overlay"}
-                 className={this.state.overlayClass}
-                 style={{left: this.state.overlayLeftOffset}}>
+                 className={overlayClass}
+                 style={{left: overlayLeftOffset}}>
                 <div>
                     <h1 className={"text center-text " + this.state.class1} style={{marginTop: 100}}>Hi, my name is </h1>
                     <h2 className={"text left-text " + this.state.class2}>I like photography and video-editing</h2>
@@ -57,11 +66,11 @@ class HelloScreen extends React.Component {
 
                 <div id={"continue-button"}
                      className={this.state.class2}
-                     onClick={() => { this.setState({
+                     onClick={() => { this.props.hideScreen() /*this.setState({
                          ...this.state,
                          overlayLeftOffset: "-100vw",
                          overlayClass: "helloscreen-invisible"
-                     }) }}>
+                     })*/ }}>
                     <span>CONTINUE</span>
                 </div>
             </div>
