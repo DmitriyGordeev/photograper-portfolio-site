@@ -23,15 +23,15 @@
     display: block;
     width: fit-content;
     height: fit-content;
-    transition: 850ms ease-in-out;
+    transition: 650ms ease-in-out;
     clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
 }
+
 
 
 .polaroid-image-background {
     width: 250px;
     height: 250px;
-    /*background: red;*/
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;

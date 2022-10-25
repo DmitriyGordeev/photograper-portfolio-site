@@ -361,8 +361,9 @@ class App extends React.Component {
                     <div className={this.state.cameraClass}>
 
                         <div className={"camera-container"} style={{
-                            width: camContainerWidth * this.state.scale,
+                            // width: camContainerWidth * this.state.scale,
                             // height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
+                            width: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.5,
                             height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.5
                         }}>
 

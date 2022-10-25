@@ -6,13 +6,13 @@
 }
 
 .side-menu-container {
-    width: 400px;
+    width: 30%;
     display: inline-block;
     transition: 450ms ease-in-out;
 }
 
 .camera-view-container {
-    width: calc(100% - 400px);      /* -400px because of the side-menu-container  */
+    width: 70%;
     height: 100%;
     display: inline-block;
     position: relative;
