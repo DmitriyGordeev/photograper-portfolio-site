@@ -21,11 +21,13 @@
     background: #eee5e9;
 }
 
-p {
+.socials-dialog p,a {
     text-align: center;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
+    display: block;
+    text-decoration: none;
 }
 
 .socials-dialog > div > p:nth-child(1) {
@@ -57,7 +59,7 @@ p {
     display: inline-block;
 }
 
-.socials-item p {
+.socials-item p,a {
     line-height: var(--item-height);
     color: #0a0a1a;
 }
@@ -66,7 +68,7 @@ p {
     background: #e0d8dc;
 }
 
-.socials-item:hover p {
+.socials-item:hover a {
     color: #1E4BA2;
 }
 

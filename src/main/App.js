@@ -436,7 +436,9 @@ class App extends React.Component {
                             </div><br/>
                             <p className={"about-socials"}>Or, You can also find me here</p>
                             <div className={"socials-stroke"}>
-                                <div><img src={instagramIcon} alt={"instagram_icon"}/></div>
+                                <div><img src={instagramIcon} alt={"instagram_icon"} onClick={() => {
+                                    window.open("https://google.com");
+                                }}/></div>
                                 <div><img src={vkIcon} alt={"instagram_icon"}/></div>
                             </div>
                         </div>
@@ -452,13 +454,13 @@ class App extends React.Component {
 
                         <div className={"socials-item"}>
                             <div>
-                                <p>Instagram</p>
+                                <a  target="_blank" href={"https://google.com"}>Instagram</a>
                             </div>
                         </div>
 
                         <div className={"socials-item"}>
                             <div>
-                                <p>VK</p>
+                                <a  target="_blank" href={"https://google.com"}>VK</a>
                             </div>
                         </div>
 
