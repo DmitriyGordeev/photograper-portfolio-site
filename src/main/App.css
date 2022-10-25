@@ -24,21 +24,6 @@
     height: 100%;
 }
 
-.background-photo {
-    width: 60%;
-    height: 500px;
-
-    margin: auto auto;
-
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 0 43%;
-}
-
 .camera-view > .camera-container {
     width: 450px;
     height: 450px;
@@ -55,7 +40,6 @@
     transition: 450ms ease-in-out;
     box-sizing: border-box;
     border: 18px solid #1E4BA2;
-    /*border: 8px solid #92DCE5;*/
 }
 
 #round-point {
@@ -102,18 +86,16 @@
     --size: 250px;      /* should be equal to cardSize = 350px in Polaroid.js - TODO: fix this! */
     width: var(--size);
     height: var(--size);
-    /*margin: 0 auto;*/
     background-repeat:no-repeat;
     background-size:contain;
-
     position: absolute;
-
     margin: auto auto;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
 }
+
 
 .gallery-side {
     display: inline-block;

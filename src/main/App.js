@@ -261,7 +261,7 @@ class App extends React.Component {
 
             // change overlay's opacity to 1.0 (make it visible)
             overlayOpacity = 1.0;
-            overlayHeight = window.innerHeight * 1.5;
+            overlayHeight = window.innerHeight * 1.55;
 
             // change polaroid scale to const 1.0
             polaroidScale = 1.2;

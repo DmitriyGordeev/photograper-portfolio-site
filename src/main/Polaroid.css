@@ -23,10 +23,14 @@
     display: block;
     width: fit-content;
     height: fit-content;
-    transition: 650ms ease-in-out;
+    transition: 450ms ease-in-out;
     clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
 }
 
+
+.inner:hover {
+    clip-path: circle(calc(32% - var(--padding)) at 50% 50%);
+}
 
 
 .polaroid-image-background {
