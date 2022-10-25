@@ -25,6 +25,10 @@
     margin: 7%;
 }
 
+#hello-screen-overlay h2 {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .class-invisible {
     opacity: 0.0;
     transition: 850ms linear;
