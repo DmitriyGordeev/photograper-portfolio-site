@@ -73,6 +73,13 @@
 
 
 /* MOBILE MEDIA QUERIES ========================================== */
+@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {
+    #continue-button {
+        bottom: 60px;
+    }
+}
+
+
 @media screen and (max-width: 480px) {
 
     #hello-screen-overlay h1, h2 {
