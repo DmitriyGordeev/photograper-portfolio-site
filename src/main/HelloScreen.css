@@ -50,14 +50,13 @@
 
 #continue-button {
     color: #92DCE5;
-
     padding: 5px 15px;
     border-radius: 10px;
     transition: 250ms ease;
     width: fit-content;
     margin: 0 auto;
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     right: 0;
     left: 0;
     cursor: pointer;
@@ -143,4 +142,28 @@
         font-size: 22px;
     }
 
+}
+
+
+/* Big screens */
+@media screen and (min-width: 1440px) and (min-height: 1080px) {
+    #hello-screen-overlay h1.text {
+        font-size: 30px;
+    }
+
+    #hello-screen-overlay h2.text {
+        font-size: 26px;
+    }
+
+    #hello-screen-overlay h1,h2 {
+        margin: 80px;
+    }
+
+    #continue-button {
+        bottom: 140px;
+    }
+
+    #continue-button > span {
+        font-size: 18px;
+    }
 }

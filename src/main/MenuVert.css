@@ -121,3 +121,10 @@
 }
 
 
+/* Big screens */
+@media screen and (min-width: 1440px) and (min-height: 1080px) {
+    .large {
+        padding-left: 100px;
+    }
+}
+

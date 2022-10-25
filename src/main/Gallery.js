@@ -39,6 +39,9 @@ let galleryCardSize = 220;
 if (window.screen.height < 600) {
     galleryCardSize = 180;
 }
+else if (window.screen.height > 800 && window.screen.width > window.screen.height) {
+    galleryCardSize = 260;
+}
 
 let overlaySwitchButtonLockTime = 100;  // ms
 
@@ -310,8 +313,11 @@ class Gallery extends React.Component {
 
         /* Adjust size of the focused image on mobile screens */
         let focusedImageSize = 400;
-        if (document.body.clientWidth <= 480) {
-            focusedImageSize = document.body.clientWidth * 0.9;
+        if (window.screen.width <= 480) {
+            focusedImageSize = window.innerWidth * 0.9;
+        }
+        else if (window.screen.width >= 1440) {
+            focusedImageSize =  window.innerWidth * 0.4;
         }
 
 
