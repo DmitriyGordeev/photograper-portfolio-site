@@ -8,7 +8,6 @@
     margin: auto auto;
     background: transparent;
     --padding: 10px;
-    /*clip-path: circle(calc(23% - var(--padding)) at 50% 50%);*/
     transition: clip-path 0.5s, 850ms ease-in-out;
 }
 
@@ -44,11 +43,6 @@
 }
 
 
-.polaroid-card-hover:hover {
-    /*clip-path: circle(calc(25% - var(--padding)) at 50% 50%);*/
-}
-
-
 .active {
     clip-path: circle(500% at 49% 47%);
     transition: 850ms ease-in-out;
@@ -57,7 +51,6 @@
 
 
 .active > .inner {
-    /*background: #eee5e9;*/
     transition: 450ms ease-in-out;
     clip-path: circle(500% at 49% 47%);
 }
@@ -65,7 +58,6 @@
 
 .polaroid-card div.img {
     display: block;
-    /*background: red;*/
 }
 
 
@@ -101,7 +93,7 @@
         background: transparent;
         --padding: 3px;
         transition: clip-path 0.5s, 850ms ease-in-out;
-        clip-path: none;  /* to disable desktop's layout */
+        /*clip-path: none;  !* to disable desktop's layout *!*/
     }
 
     .inner {
@@ -109,7 +101,7 @@
     }
 
     .active {
-        clip-path: none;
+        /*clip-path: none;*/
         transition: 650ms ease-in-out;
         display: inline-block;
         width: 100%;

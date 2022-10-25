@@ -2,19 +2,16 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    /*border: 1px solid black;*/
     position: relative;
 }
 
 .side-menu-container {
-    /*height: 100%;*/
     width: 400px;
     display: inline-block;
     transition: 450ms ease-in-out;
 }
 
 .camera-view-container {
-    /*background: cyan;*/
     width: calc(100% - 400px);      /* -400px because of the side-menu-container  */
     height: 100%;
     display: inline-block;
@@ -22,7 +19,6 @@
 }
 
 .camera-view {
-    /*background: #b0b0c2;*/
     position: relative;
     width: 100%;
     height: 100%;
@@ -37,7 +33,6 @@
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    /*border: 1px solid red;*/
 
     background-repeat: no-repeat;
     background-size: 100%;
@@ -47,8 +42,6 @@
 .camera-view > .camera-container {
     width: 450px;
     height: 450px;
-    /*background: #1E4BA2;*/
-    /*background: #eee5e9;*/
     position: absolute;
     opacity: 1.0;
 
@@ -61,7 +54,7 @@
     border-radius: 70px;
     transition: 450ms ease-in-out;
     box-sizing: border-box;
-    border: 12px solid #1E4BA2;
+    border: 18px solid #1E4BA2;
     /*border: 8px solid #92DCE5;*/
 }
 
@@ -169,6 +162,7 @@
 
     .camera-view > .camera-container {
         border-radius: 50px;
+        border: 12px solid #1E4BA2;
     }
 
     .camera-background {
@@ -231,6 +225,7 @@
 
     .camera-view > .camera-container {
         border-radius: 70px;
+        border: 18px solid #1E4BA2;
     }
 
     .camera-background {
