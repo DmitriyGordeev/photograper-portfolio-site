@@ -35,8 +35,10 @@ const images = [
 
 let startIndex = 0;
 let scrollDirection = 0;
-
-const galleryCardSize = 220;
+let galleryCardSize = 220;
+if (window.screen.height < 600) {
+    galleryCardSize = 180;
+}
 
 let overlaySwitchButtonLockTime = 100;  // ms
 
