@@ -14,3 +14,10 @@
     background-size: cover;
     transition: 350ms ease-in-out;
 }
+
+@media screen and (max-width: 480px) {
+    .async-photo-border {
+        padding: 3px 3px 10px 3px;
+    }
+
+}

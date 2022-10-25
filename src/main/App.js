@@ -262,14 +262,14 @@ class App extends React.Component {
 
             // change overlay's opacity to 1.0 (make it visible)
             overlayOpacity = 1.0;
-            overlayHeight = window.innerHeight * 1.6;
+            overlayHeight = window.innerHeight;
 
             // change polaroid scale to const 1.0
             polaroidScale = 1.2;
             polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
 
-
+        // TODO: vw -> to innerWidth
         let aboutPos = "100vw";
         // let aboutPos = window.innerWidth;
         if (this.props.storeData.aboutMe) {
@@ -284,25 +284,22 @@ class App extends React.Component {
             aboutMeDialogWidth = document.body.clientWidth;
         }
 
-
-        // TODO: remove 100vh
-        // let socialsTopPos = "100vh";
         let socialsTopPos = window.innerHeight;
         if (this.props.storeData.socialOpen) {
             socialsTopPos = 0;
         }
 
         let contactBottomPos = window.innerHeight;
-        // let contactBottomPos = 1467;
+        let contactTopPos = -window.innerHeight;
         if (this.props.storeData.contactDialogOpen) {
             contactBottomPos = window.innerHeight - document.body.clientHeight;
+            contactTopPos = 0;
+            // contactBottomPos = window.innerHeight;
         }
 
         console.log("this.props.storeData.contactDialogOpen = " + this.props.storeData.contactDialogOpen);
         console.log(`document.body.clientHeight = ${document.body.clientHeight}`);
         console.log(`window.innerHeight = ${window.innerHeight}`);
-
-
 
 
         // Mobile -----------------------------------------------------------------------
@@ -351,7 +348,6 @@ class App extends React.Component {
 
                 {/* MENU ----------------------------------------- */}
                 <div className={"side-menu-container"} style={{
-                    // height: this.props.storeData.galleryMode ? "fit-content" : "100%",
                     height: this.props.storeData.galleryMode ? "fit-content" : sideMenuContainerWidth,
                 }}>
                     <MenuVert/>
@@ -360,7 +356,6 @@ class App extends React.Component {
 
                 {/* CAMERA VIEW ------------------------------------*/}
                 <div className={"camera-view-container"} style={{
-                    // height: this.props.storeData.galleryMode ? 0 : "100%",
                     height: this.props.storeData.galleryMode ? 0 : cameraViewContainerHeight,
                 }}>
                     <div className={this.state.cameraClass}>
@@ -370,7 +365,7 @@ class App extends React.Component {
                             height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
                         }}>
 
-                            <div id={"round-point"} onClick={() => {}}/>
+                            <div id={"round-point"}/>
 
                             <div className={"camera-background"}
                                  style={{
@@ -474,7 +469,7 @@ class App extends React.Component {
 
                 <div className={"contact-dialog-overlay"}
                      style={{
-                         bottom: contactBottomPos,
+                         top: contactTopPos,
                          width: document.body.clientWidth,
                          height: document.body.clientHeight}}
                      onClick={() => {this.props.closeContactDialog()}}>
