@@ -52,8 +52,6 @@ class App extends React.Component {
         this.state = state0;
         this.locked = false;
         this.aboutRef = React.createRef();
-
-        // this.touchActive = false;
         this.touchMovePrevY = 0;
     }
 
@@ -263,7 +261,7 @@ class App extends React.Component {
 
             // change overlay's opacity to 1.0 (make it visible)
             overlayOpacity = 1.0;
-            overlayHeight = window.innerHeight;
+            overlayHeight = window.innerHeight * 1.6;
 
             // change polaroid scale to const 1.0
             polaroidScale = 1.2;
@@ -317,6 +315,7 @@ class App extends React.Component {
             if (this.props.storeData.focused) {
                 polaroidScale += 0.6;
                 polaroidTranslateUp = 60;
+                overlayHeight = window.innerHeight;
             }
         }
 

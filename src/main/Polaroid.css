@@ -8,7 +8,7 @@
     margin: auto auto;
     background: transparent;
     --padding: 10px;
-    clip-path: circle(calc(23% - var(--padding)) at 50% 50%);
+    /*clip-path: circle(calc(23% - var(--padding)) at 50% 50%);*/
     transition: clip-path 0.5s, 850ms ease-in-out;
 }
 
@@ -25,6 +25,7 @@
     width: fit-content;
     height: fit-content;
     transition: 850ms ease-in-out;
+    clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
 }
 
 
@@ -44,7 +45,7 @@
 
 
 .polaroid-card-hover:hover {
-    clip-path: circle(calc(25% - var(--padding)) at 50% 50%);
+    /*clip-path: circle(calc(25% - var(--padding)) at 50% 50%);*/
 }
 
 
@@ -58,6 +59,7 @@
 .active > .inner {
     /*background: #eee5e9;*/
     transition: 450ms ease-in-out;
+    clip-path: circle(500% at 49% 47%);
 }
 
 
