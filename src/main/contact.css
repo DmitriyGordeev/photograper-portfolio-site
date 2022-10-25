@@ -38,6 +38,12 @@
     color: white;
     margin-top: 18px;
     font-size: 12px;
+    font-family: 'Oswald', sans-serif;
+    width: 100%;
+}
+
+#contact-dialog p {
+    text-align: center;
 }
 
 

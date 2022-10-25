@@ -468,9 +468,6 @@ class App extends React.Component {
                 </div>
 
 
-                {/*<div style={{bottom: contactBottomPos}} className={"test-box"} />*/}
-
-
                 <div className={"contact-dialog-overlay"}
                      style={{
                          top: contactTopPos,

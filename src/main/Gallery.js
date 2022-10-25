@@ -313,8 +313,12 @@ class Gallery extends React.Component {
 
         /* Adjust size of the focused image on mobile screens */
         let focusedImageSize = 400;
+        let nextIMG = arrowDown;
+        let prevIMG = arrowUp;
         if (window.screen.width <= 480) {
             focusedImageSize = window.innerWidth * 0.9;
+            nextIMG = overlayArrow;
+            prevIMG = overlayArrow;
         }
         else if (window.screen.width >= 1440) {
             focusedImageSize =  window.innerWidth * 0.4;
@@ -323,7 +327,6 @@ class Gallery extends React.Component {
 
         return (
             <div className={"gallery-container " + this.state.class1}>
-
 
                 <div className={"left"}>
                     <div className={"gallery"}>
@@ -338,7 +341,7 @@ class Gallery extends React.Component {
                              }}
                              onClick={() => this.prevButton()}>
                             <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
-                                <img className={"arrow"} src={arrowUp} alt={""}/>
+                                <img className={"arrow"} src={prevIMG} alt={""}/>
                             </div>
                             <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>previous</p>
                         </div>
@@ -350,7 +353,7 @@ class Gallery extends React.Component {
                              }}
                              onClick={() => this.nextButton()}>
                             <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
-                                <img className={"arrow"} src={arrowDown} alt={""}/>
+                                <img className={"arrow"} src={nextIMG} alt={""}/>
                             </div>
                             <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>next</p>
                         </div>
