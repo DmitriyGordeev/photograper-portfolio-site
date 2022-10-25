@@ -98,14 +98,24 @@
         margin: auto auto;
         background: transparent;
         --padding: 3px;
-        clip-path: circle(calc(23% - var(--padding)) at 50% 50%);
         transition: clip-path 0.5s, 850ms ease-in-out;
+        clip-path: none;  /* to disable desktop's layout */
+    }
+
+    .inner {
+        clip-path: circle(calc(30% - var(--padding)) at 50% 50%);
     }
 
     .active {
-        clip-path: circle(500% at 49% 47%);
-        transition: 850ms ease-in-out;
+        clip-path: none;
+        transition: 650ms ease-in-out;
         display: inline-block;
         width: 100%;
+    }
+
+    .active > .inner {
+        /*background: #eee5e9;*/
+        transition: 650ms ease-in-out;
+        clip-path: circle(500% at 49% 47%);
     }
 }

@@ -24,7 +24,7 @@ import jquery from 'jquery';
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
-const transitionTime = "850ms";
+const transitionTime = "650ms";
 
 
 const images = [
@@ -254,6 +254,7 @@ class App extends React.Component {
 
         let overlayOpacity = 1.0;
         let overlayHeight = 0;
+
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
 
@@ -362,7 +363,8 @@ class App extends React.Component {
 
                         <div className={"camera-container"} style={{
                             width: camContainerWidth * this.state.scale,
-                            height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
+                            // height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
+                            height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.5
                         }}>
 
                             <div id={"round-point"}/>
