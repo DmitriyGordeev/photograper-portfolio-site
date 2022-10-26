@@ -1,6 +1,7 @@
 .about-dialog {
     position: fixed;
-    background: #17172c;
+    /*background: #17172c;*/
+    background: #eee5e9;
     top: 0;
     transition: 450ms ease-in-out;
 }
@@ -42,7 +43,8 @@
     font-size: 18px;
     width: 100%;
     text-align: center;
-    color: white;
+    font-family: 'Overpass', sans-serif;
+    font-weight: 300;
 }
 
 #about-content-wrapper {
@@ -60,7 +62,7 @@
 
 #about-content-wrapper p,h1 {
     /*background: blueviolet;*/
-    color: white;
+    color: #0a0a1a;
     /*color: black;*/
 }
 
@@ -97,9 +99,14 @@
 #about-bottom-block p {
     margin-bottom: 10px;
     font-size: 13px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    color: #e7e7e7;
+    /*font-family: 'Open Sans', sans-serif;*/
+    /*font-weight: 400;*/
+
+
+    font-family: 'Overpass', sans-serif;
+    font-weight: 300;
+
+    color: #0a0a1a;
     /*color: black;*/
     /*font-weight: 600;*/
     line-height: 1.8em;
@@ -113,7 +120,7 @@
     background: #1E4BA2;
     width: 100px;
     height: fit-content;
-    color: white;
+    color: #eee5e9;
     text-align: center;
     padding: 5px;
     cursor: pointer;
@@ -160,7 +167,6 @@
 @media screen and (max-width: 480px) {
     .about-dialog {
         position: fixed;
-        background: #17172c;
         top: 0;
         transition: 450ms ease-in-out;
     }
@@ -193,7 +199,6 @@
 @media screen and (min-width: 481px) and (max-width: 900px)  {
     .about-dialog {
         position: fixed;
-        background: #17172c;
         top: 0;
         transition: 450ms ease-in-out;
     }

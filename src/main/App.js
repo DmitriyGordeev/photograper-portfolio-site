@@ -423,7 +423,7 @@ class App extends React.Component {
                             </div>
                         </div>
                         <div id={"about-bottom-block"}>
-                            <br/><p style={{fontSize: 19, textAlign: "center", color: "white"}}>HI, MY NAME IS </p>
+                            <br/><p style={{fontSize: 19, textAlign: "center", color: "#0a0a1a"}}>HI, MY NAME IS </p>
 
                             {/* TODO: текстовые элементы появляются постепенно (но только впервый раз?) */}
 
