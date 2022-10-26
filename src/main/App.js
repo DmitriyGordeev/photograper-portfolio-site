@@ -237,7 +237,7 @@ class App extends React.Component {
     sendEmail() {
         console.log("sendEmail click()");
         jquery.post(
-            "./request.php",
+            "./send_email.php",
             {"text": "HELLO THERE!"}
         ).done(
             function( data ) {
