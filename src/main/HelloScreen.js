@@ -40,9 +40,6 @@ class HelloScreen extends React.Component {
     }
 
 
-
-
-
     render() {
 
         let overlayLeftOffset = "-100vw";
