@@ -98,21 +98,18 @@
 #about-bottom-block p {
     margin-bottom: 10px;
     font-size: 13px;
-    /*font-family: 'Open Sans', sans-serif;*/
-    /*font-weight: 400;*/
-
-
     font-family: 'Overpass', sans-serif;
     font-weight: 300;
-
     color: #0a0a1a;
-    /*color: black;*/
-    /*font-weight: 600;*/
     line-height: 1.8em;
-
-    /*background: #002827;*/
     padding: 5px;
     border-radius: 10px;
+}
+
+#about-bottom-block p.mini-header {
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
 }
 
 .write-me-button {
@@ -170,6 +167,13 @@
         transition: 450ms ease-in-out;
     }
 
+    #about-bottom-block {
+        /*background: red;*/
+        width: 100%;
+        height: 40%;
+        margin: 0 auto;
+    }
+
     #about-close-button {
         width: 20px;
         height: 20px;
@@ -192,6 +196,44 @@
         height: var(--image-height);
     }
 }
+
+/* very small phone screen */
+@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) and (max-width: 480px) {
+    .about-dialog {
+        position: fixed;
+        top: 0;
+        transition: 450ms ease-in-out;
+    }
+
+    .about-photo-wrapper {
+        --image-height: 100px;
+        height: var(--image-height);
+        width: auto;
+
+        display: inline-block;
+        padding: 3px 3px 7px 3px;
+        background: #eee5e9;
+        border-radius: 3px;
+    }
+
+    .about-photo-wrapper img {
+        height: var(--image-height);
+    }
+
+    #about-bottom-block {
+        /*background: red;*/
+        width: 100%;
+        height: 40%;
+        margin: 0 auto;
+    }
+
+    #about-bottom-block p.mini-header {
+        font-size: 15px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
 
 
 /* -------- PADS ----------- */
@@ -224,4 +266,6 @@
         height: var(--image-height);
     }
 }
+
+
 
