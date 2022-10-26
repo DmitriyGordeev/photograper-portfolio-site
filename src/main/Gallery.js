@@ -14,7 +14,9 @@ import img3 from "../../resources/images/img3.jpg";
 import arrowUp from "../../resources/images/arrow_up.svg";
 import arrowDown from "../../resources/images/arrow_down.svg";
 
-import overlayArrow from "../../resources/images/overlay_arrow.svg";
+import overlayArrowPrev from "../../resources/images/overlay_arrow_prev.svg";
+import overlayArrowNext from "../../resources/images/overlay_arrow_next.svg";
+
 
 import AsyncImage from "./AsyncImage";
 
@@ -313,12 +315,12 @@ class Gallery extends React.Component {
 
         /* Adjust size of the focused image on mobile screens */
         let focusedImageSize = 400;
-        let nextIMG = arrowDown;
-        let prevIMG = arrowUp;
+        let nextImg = arrowDown;
+        let prevImg = arrowUp;
         if (window.screen.width <= 480) {
             focusedImageSize = window.innerWidth * 0.9;
-            nextIMG = overlayArrow;
-            prevIMG = overlayArrow;
+            nextImg = overlayArrowNext;
+            prevImg = overlayArrowPrev;
         }
         else if (window.screen.width >= 1440) {
             focusedImageSize =  window.innerWidth * 0.4;
@@ -341,7 +343,7 @@ class Gallery extends React.Component {
                              }}
                              onClick={() => this.prevButton()}>
                             <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
-                                <img className={"arrow"} src={prevIMG} alt={""}/>
+                                <img className={"arrow"} src={prevImg} alt={""}/>
                             </div>
                             <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>previous</p>
                         </div>
@@ -353,7 +355,7 @@ class Gallery extends React.Component {
                              }}
                              onClick={() => this.nextButton()}>
                             <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
-                                <img className={"arrow"} src={nextIMG} alt={""}/>
+                                <img className={"arrow"} src={nextImg} alt={""}/>
                             </div>
                             <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>next</p>
                         </div>
@@ -385,7 +387,7 @@ class Gallery extends React.Component {
                                  cursor: this.state.focusedImageIndex === 0 ? "default" : "pointer"
                              }}
                              onClick={(e) => this.prevOverlayButton(e)}>
-                            <img className={"arrow"} src={overlayArrow} alt={""}/>
+                            <img className={"arrow"} src={overlayArrowPrev} alt={""}/>
                         </div>
                         <div className={"overlay-button"}
                              style={{
@@ -393,7 +395,7 @@ class Gallery extends React.Component {
                                  cursor: this.state.focusedImageIndex >= (images.length - 1) ? "default" : "pointer"
                              }}
                              onClick={(e) => this.nextOverlayButton(e)}>
-                            <div><img className={"arrow"} style={{transform: "scaleX(-1)"}} src={overlayArrow}
+                            <div><img className={"arrow"} src={overlayArrowNext}
                                       alt={""}/></div>
                         </div>
                     </div>
