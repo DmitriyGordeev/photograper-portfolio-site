@@ -177,6 +177,7 @@
 .overlay-button .arrow {
     width: 20px;
     height: auto;
+    margin-top: 4px;
 }
 
 .gallery-button .arrow {
