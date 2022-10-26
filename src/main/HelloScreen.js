@@ -24,19 +24,19 @@ class HelloScreen extends React.Component {
         let thisRef = this;
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class1: "class-visible"});
-        }, 1000);
+        }, 900);
 
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class2: "class-visible"});
-        }, 3000);
+        }, 1800);
 
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class3: "class-visible"});
-        }, 5000);
+        }, 2700);
 
         setTimeout(() => {
             thisRef.setState({...thisRef.state, class4: "class-visible"});
-        }, 7000);
+        }, 3600);
     }
 
 
