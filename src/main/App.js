@@ -16,7 +16,7 @@ import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImageSvg from './../../resources/images/camera-lense12.svg';
 import room from "../../resources/images/room.jpg";
-import closeButton from "../../resources/images/close.svg";
+import closeButton from "../../resources/images/close_dark.svg";
 import instagramIcon from "../../resources/images/instagram_icon.svg";
 import vkIcon from "../../resources/images/vk_icon.svg";
 

@@ -1,7 +1,6 @@
 .about-dialog {
     position: fixed;
-    /*background: #17172c;*/
-    background: #eee5e9;
+    background: #92DCE5;
     top: 0;
     transition: 450ms ease-in-out;
 }
