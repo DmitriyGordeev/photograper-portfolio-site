@@ -75,7 +75,7 @@
 
 
 
-/* MOBILE MEDIA QUERIES ========================================== */
+/* Mobile */
 @media screen and (max-width: 480px) {
 
     #hello-screen-overlay h1, h2 {
@@ -103,10 +103,7 @@
 }
 
 
-@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {}
-
-
-/* PADS MEDIA QUERIES ========================================== */
+/* Pads */
 @media screen and (min-width: 481px) and (max-width: 900px) {
 
     #hello-screen-overlay {

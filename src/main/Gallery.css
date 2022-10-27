@@ -261,9 +261,7 @@ h1.description:nth-of-type(1) {
 }
 
 
-/* ---------- MOBILE ---------- */
-/*@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {*/
-
+/* Mobile */
 @media screen and (max-width: 400px) and (max-height: 600px) {
     .gallery-container {
         width: 100%;
@@ -311,7 +309,7 @@ h1.description:nth-of-type(1) {
     }
 }
 
-
+/* Pads */
 @media screen and (max-width: 900px) {
     .gallery-container {
         width: 100%;

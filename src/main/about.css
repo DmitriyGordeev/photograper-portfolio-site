@@ -204,7 +204,7 @@
 }
 
 /* very small phone screen */
-@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) and (max-width: 480px) {
+@media screen and (max-height: 600px) and (max-width: 480px) {
     .about-dialog {
         position: fixed;
         top: 0;
