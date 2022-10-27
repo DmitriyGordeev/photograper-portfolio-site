@@ -340,7 +340,7 @@ class App extends React.Component {
                 </div>
 
 
-                {/* CAMERA VIEW ------------------------------------*/}
+                {/* Camera view  ------------------------------------*/}
                 <div className={"camera-view-container"} style={{
                     top: cameraViewContainerTopOffset,
                     height: this.props.storeData.galleryMode ? 0 : cameraViewContainerHeight,
@@ -348,8 +348,6 @@ class App extends React.Component {
                     <div className={this.state.cameraClass}>
 
                         <div className={"camera-container"} style={{
-                            // width: camContainerWidth * this.state.scale,
-                            // height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.3,
                             width: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.5,
                             height: camContainerWidth + camContainerWidth * (this.state.scale - 1) * 0.5
                         }}>
@@ -383,13 +381,13 @@ class App extends React.Component {
                 </div>
 
 
-                {/* GALLERY VIEW ------------------------------------*/}
+                {/* Gallery view ------------------------------------*/}
                 <div className={"gallery-side"}>
                     <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
                 </div>
 
 
-                {/* 'ABOUT ME' DIALOG ------------------------------------*/}
+                {/* 'About Me' dialog ------------------------------------*/}
                 <div ref={this.aboutRef}
                      className={"about-dialog"}
                      style={{left: aboutPos, width: aboutMeDialogWidth, height: aboutMeDialogHeight }}>
@@ -411,8 +409,6 @@ class App extends React.Component {
                         </div>
                         <div id={"about-bottom-block"}>
                             <br/><p className={"mini-header"}>HI, MY NAME IS </p>
-
-                            {/* TODO: текстовые элементы появляются постепенно (но только впервый раз?) */}
 
                             <p>I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR.
                                 I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>

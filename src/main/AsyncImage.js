@@ -66,24 +66,31 @@ class AsyncImage extends React.Component {
     }
 
 
-    componentDidMount() {
+    update() {
         if (typeof this.props.src === 'undefined') {
             if (!this.state.blank) {
                 let element = <div className={"async-photo"}
-                               style={{
-                                   width: 200,
-                                   height: 200
-                               }}/>;
+                                   style={{
+                                       width: 200,
+                                       height: 200
+                                   }}/>;
                 this.setState({...this.state, div: element, blank: true, src: ""});
             }
         }
         else {
             this.getImages([this.props.src]).then(() => {});
         }
-
-        // this.getImages([this.props.src]).then(() => {});
     }
 
+
+    componentDidMount() {
+        this.update();
+    }
+
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.update();
+    }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return !(this.state.src === nextState.src && this.state.src === nextProps.src);
@@ -91,21 +98,6 @@ class AsyncImage extends React.Component {
 
 
     render() {
-        // let element = this.state.div;
-        // if (typeof this.props.src === 'undefined') {
-        //     if (!this.state.blank) {
-        //         element = <div className={"async-photo"}
-        //                        style={{
-        //                            width: 200,
-        //                            height: 200
-        //                        }}/>;
-        //         this.setState({...this.state, div: element, blank: true, src: ""});
-        //     }
-        // }
-        // else {
-        //     this.getImages([this.props.src]).then(() => {});
-        // }
-
         return (
             <div className={"async-photo-border"}>{this.state.div}</div>
         );
