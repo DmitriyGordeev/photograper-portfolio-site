@@ -25,6 +25,7 @@ const angleOffsetDeg = 16;     // in degrees
 const btnRotSpeed = 1.0;
 const numMaxImages = 3;    // how many images rolling gallery can show at the same time
 
+
 const images = [
     portraitExample,
     portraitExample2,
@@ -328,7 +329,8 @@ class Gallery extends React.Component {
 
 
         return (
-            <div className={"gallery-container " + this.state.class1}>
+            <div className={"gallery-container " + this.state.class1}
+                 style={{opacity: this.props.opacity}}>
 
                 <div className={"left"}>
                     <div className={"gallery"}>
