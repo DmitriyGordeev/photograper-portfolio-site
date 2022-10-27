@@ -307,6 +307,7 @@ class App extends React.Component {
         console.log("window.screen.width = " + window.screen.width);
 
         let cameraViewContainerHeight = "100%";
+        let cameraViewContainerTopOffset = 0;
         if (window.screen.width <= 480) {
             sideMenuContainerWidth = '30%';
             cameraViewContainerHeight = '70%';
@@ -317,6 +318,10 @@ class App extends React.Component {
                 polaroidTranslateUp = 60;
                 overlayHeight = window.innerHeight;
             }
+        }
+        if (window.screen.height <= 600) {
+            cameraViewContainerTopOffset = '5%';
+            cameraViewContainerHeight = '65%';
         }
 
         // PADS -----------------------------------------------------------------------
@@ -356,6 +361,7 @@ class App extends React.Component {
 
                 {/* CAMERA VIEW ------------------------------------*/}
                 <div className={"camera-view-container"} style={{
+                    top: cameraViewContainerTopOffset,
                     height: this.props.storeData.galleryMode ? 0 : cameraViewContainerHeight,
                 }}>
                     <div className={this.state.cameraClass}>
