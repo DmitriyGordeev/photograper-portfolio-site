@@ -51,9 +51,6 @@ class HelloScreen extends React.Component {
 
         let continueTopPos = window.innerHeight * 0.8;
         let headerMarginTop = 100;
-        if (window.screen.width < window.screen.height) {
-            headerMarginTop = 60;
-        }
 
         return (
             <div id={"hello-screen-overlay"}

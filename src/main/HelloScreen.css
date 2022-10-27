@@ -98,16 +98,12 @@
     }
 
     #continue-button > span {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
 
-@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {
-    #continue-button {
-        /*bottom: 60px;*/
-    }
-}
+@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {}
 
 
 /* PADS MEDIA QUERIES ========================================== */
