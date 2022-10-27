@@ -167,6 +167,10 @@
         transition: 450ms ease-in-out;
     }
 
+    #about-content-wrapper {
+        min-height: 70%;
+    }
+
     #about-bottom-block {
         /*background: red;*/
         width: 100%;
@@ -195,6 +199,8 @@
     .about-photo-wrapper img {
         height: var(--image-height);
     }
+
+
 }
 
 /* very small phone screen */
@@ -203,6 +209,10 @@
         position: fixed;
         top: 0;
         transition: 450ms ease-in-out;
+    }
+
+    #about-content-wrapper {
+        min-height: 80%;
     }
 
     .about-photo-wrapper {
@@ -233,8 +243,6 @@
         text-align: center;
     }
 }
-
-
 
 /* -------- PADS ----------- */
 @media screen and (min-width: 481px) and (max-width: 900px)  {

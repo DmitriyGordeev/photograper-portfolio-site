@@ -49,25 +49,27 @@ class HelloScreen extends React.Component {
             overlayLeftOffset = 0;
         }
 
+        let continueTopPos = window.innerHeight * 0.8;
+        let headerMarginTop = 100;
+        if (window.screen.width < window.screen.height) {
+            headerMarginTop = 60;
+        }
 
         return (
             <div id={"hello-screen-overlay"}
                  className={overlayClass}
                  style={{left: overlayLeftOffset}}>
                 <div>
-                    <h1 className={"text center-text " + this.state.class1} style={{marginTop: 100}}>Hi, my name is </h1>
+                    <h1 className={"text center-text " + this.state.class1} style={{ marginTop: headerMarginTop }}>Hi, my name is </h1>
                     <h2 className={"text left-text " + this.state.class2}>I like photography and video-editing</h2>
                     <h2 className={"text right-text " + this.state.class3}>I travel around the world <br/>to capture memorable moments</h2>
                     <h2 className={"text left-text " + this.state.class4}>You can find my profile here</h2>
                 </div>
 
                 <div id={"continue-button"}
+                     style={{top: continueTopPos}}
                      className={this.state.class2}
-                     onClick={() => { this.props.hideScreen() /*this.setState({
-                         ...this.state,
-                         overlayLeftOffset: "-100vw",
-                         overlayClass: "helloscreen-invisible"
-                     })*/ }}>
+                     onClick={() => { this.props.hideScreen() }}>
                     <span>CONTINUE</span>
                 </div>
             </div>

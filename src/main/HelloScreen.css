@@ -60,7 +60,7 @@
     width: fit-content;
     margin: 0 auto;
     position: absolute;
-    bottom: 80px;
+    /*bottom: 80px;*/
     right: 0;
     left: 0;
     cursor: pointer;
@@ -76,13 +76,6 @@
 
 
 /* MOBILE MEDIA QUERIES ========================================== */
-@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {
-    #continue-button {
-        bottom: 60px;
-    }
-}
-
-
 @media screen and (max-width: 480px) {
 
     #hello-screen-overlay h1, h2 {
@@ -105,7 +98,14 @@
     }
 
     #continue-button > span {
-        font-size: 17px;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (min-aspect-ratio: 10/16) and (max-height: 600px) {
+    #continue-button {
+        /*bottom: 60px;*/
     }
 }
 
