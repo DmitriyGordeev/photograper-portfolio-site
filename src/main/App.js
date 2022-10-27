@@ -128,7 +128,7 @@ class App extends React.Component {
         if (scrollAmount === 0)
             return;
 
-        console.log(`scrollDelegate(${scrollAmount})`);
+        // // console.log(`scrollDelegate(${scrollAmount})`);
 
         if (scrollAmount > 0) {
             angle = this.state.angle + fixedDegAdded;
@@ -184,7 +184,7 @@ class App extends React.Component {
 
 
     removeOverlay() {
-        // // console.log("overlayRemove()");
+        // // // // console.log("overlayRemove()");
         this.props.onPolaroidUnfocus();
     }
 
@@ -194,7 +194,7 @@ class App extends React.Component {
             return [];
         }
 
-        // // console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
+        // // // // console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
         let out = [];
         for (let i = 0; i < images.length; i++) {
             let opacity = 0.0;
@@ -235,13 +235,13 @@ class App extends React.Component {
 
 
     sendEmail() {
-        console.log("sendEmail click()");
+        // // console.log("sendEmail click()");
         jquery.post(
             "./send_email.php",
             {"text": "HELLO THERE!"}
         ).done(
             function( data ) {
-                console.log("POST RESPONSE:" + data);
+                // // console.log("POST RESPONSE:" + data);
                 alert("RESPONSE data:" + data);
             }
         );
@@ -296,15 +296,15 @@ class App extends React.Component {
             // contactBottomPos = window.innerHeight;
         }
 
-        console.log("this.props.storeData.contactDialogOpen = " + this.props.storeData.contactDialogOpen);
-        console.log(`document.body.clientHeight = ${document.body.clientHeight}`);
-        console.log(`window.innerHeight = ${window.innerHeight}`);
+        // // console.log("this.props.storeData.contactDialogOpen = " + this.props.storeData.contactDialogOpen);
+        // // console.log(`document.body.clientHeight = ${document.body.clientHeight}`);
+        // // console.log(`window.innerHeight = ${window.innerHeight}`);
 
 
         // Mobile -----------------------------------------------------------------------
         let sideMenuContainerWidth = "100%";
-        console.log("window.innerWidth = " + window.innerWidth);
-        console.log("window.screen.width = " + window.screen.width);
+        // // console.log("window.innerWidth = " + window.innerWidth);
+        // // console.log("window.screen.width = " + window.screen.width);
 
         let cameraViewContainerHeight = "100%";
         let cameraViewContainerTopOffset = 0;

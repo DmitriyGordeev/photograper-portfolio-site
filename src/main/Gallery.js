@@ -249,7 +249,7 @@ class Gallery extends React.Component {
         e.stopPropagation();
 
         if (this.overlaySwitchButtonLocked) {
-            console.log("Button is locked!");
+            // console.log("Button is locked!");
             return;
         }
 
@@ -273,7 +273,7 @@ class Gallery extends React.Component {
         e.stopPropagation();
 
         if (this.overlaySwitchButtonLocked) {
-            console.log("Button is locked!");
+            // console.log("Button is locked!");
             return;
         }
 
@@ -305,7 +305,7 @@ class Gallery extends React.Component {
         let overlayWidth = 0;
         let cardOpacity = 0;
         let idx = this.state.focusedImageIndex;
-        console.log("FOCUSED IMAGE idx = " + idx);
+        // console.log("FOCUSED IMAGE idx = " + idx);
         let focusedImageLeftPos = document.body.clientWidth;
         if (this.state.focused) {
             overlayWidth = "100%";

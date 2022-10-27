@@ -18,17 +18,12 @@ class AsyncImage extends React.Component {
     load = url => {
         return new Promise(res => {
             const img = new Image();
-
-            // we disable cache for demo
-            // img.src = url + '?r=' + Math.random();
             img.src = url;
 
             // further wait for the decoding
             img.onload = (evt) => {
                 img.decode().then(() => res(img));
             };
-
-            // console.log("reaching this code");
         });
     }
 
@@ -72,37 +67,9 @@ class AsyncImage extends React.Component {
 
 
     componentDidMount() {
-        // console.log("AsyncImage: componentDidMount()");
-        this.getImages([this.props.src]).then(() => {
-            // console.log("AsyncImage: then() callback");
-        });
-    }
-
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        // console.log(this.props.tag + " AsyncImage: shouldComponentUpdate()");
-
-        // console.log(this.props.tag + " AsyncImage: this.state.src = " + this.state.src);
-        // console.log(this.props.tag + " AsyncImage: nextState.src = " + nextState.src);
-        // console.log(this.props.tag + " AsyncImage: nextProps.src = " + nextProps.src);
-
-        if (this.state.src === nextState.src && this.state.src === nextProps.src) {
-            // console.log(this.props.tag + " AsyncImage: shouldComponentUpdate() return false");
-            return false;
-        }
-
-        return true;
-    }
-
-
-    render() {
-
-        // console.log(this.props.tag + " AsyncImage: render()");
-
-        let element = this.state.div;
         if (typeof this.props.src === 'undefined') {
             if (!this.state.blank) {
-                element = <div className={"async-photo"}
+                let element = <div className={"async-photo"}
                                style={{
                                    width: 200,
                                    height: 200
@@ -114,8 +81,33 @@ class AsyncImage extends React.Component {
             this.getImages([this.props.src]).then(() => {});
         }
 
+        // this.getImages([this.props.src]).then(() => {});
+    }
+
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return !(this.state.src === nextState.src && this.state.src === nextProps.src);
+    }
+
+
+    render() {
+        // let element = this.state.div;
+        // if (typeof this.props.src === 'undefined') {
+        //     if (!this.state.blank) {
+        //         element = <div className={"async-photo"}
+        //                        style={{
+        //                            width: 200,
+        //                            height: 200
+        //                        }}/>;
+        //         this.setState({...this.state, div: element, blank: true, src: ""});
+        //     }
+        // }
+        // else {
+        //     this.getImages([this.props.src]).then(() => {});
+        // }
+
         return (
-            <div className={"async-photo-border"}>{element}</div>
+            <div className={"async-photo-border"}>{this.state.div}</div>
         );
     }
 }
