@@ -76,6 +76,7 @@ class App extends React.Component {
                 galleryMode: true,
                 angle: 0,
                 scale: 1.0,
+                galleryLabelClass: this.state.galleryLabelClass + " label-small",
                 cameraClass: this.state.cameraClass + " camera-view-zooming",
                 active_polaroid_index: images.length - 1});
         }
@@ -128,8 +129,6 @@ class App extends React.Component {
         if (scrollAmount === 0)
             return;
 
-        // // console.log(`scrollDelegate(${scrollAmount})`);
-
         if (scrollAmount > 0) {
             angle = this.state.angle + fixedDegAdded;
             scale = this.state.scale + fixedScaleAdded;
@@ -157,7 +156,6 @@ class App extends React.Component {
         }
 
         // when there is no images left on the camera-view we navigate to the gallery
-
         if (active_polaroid_index < 0) {
             cameraClass += " camera-view-zooming";
             this.props.galleryOn();
@@ -171,9 +169,6 @@ class App extends React.Component {
             active_polaroid_index: active_polaroid_index,
         });
 
-
-
-
         // adds cooldown to the scrolling event
         this.locked = true;
         let thisRef = this;
@@ -184,7 +179,6 @@ class App extends React.Component {
 
 
     removeOverlay() {
-        // // // // console.log("overlayRemove()");
         this.props.onPolaroidUnfocus();
     }
 
@@ -194,7 +188,6 @@ class App extends React.Component {
             return [];
         }
 
-        // // // // console.log(`active_polaroid_index = ${this.state.active_polaroid_index}`);
         let out = [];
         for (let i = 0; i < images.length; i++) {
             let opacity = 0.0;
@@ -224,7 +217,6 @@ class App extends React.Component {
 
 
     resetValuesOnBack() {
-        // let cameraClass = this.state.cameraClass.replace(" camera-view-zooming", "");
         this.setState({...this.state,
             angle: 0,
             scale: 1.0,
@@ -333,17 +325,6 @@ class App extends React.Component {
 
             if (this.props.storeData.focused) {
                 polaroidScale += 0.6;
-            }
-        }
-
-
-        // gallery-label:
-        if (this.props.storeData.galleryMode) {
-            if (!this.state.galleryLabelClass.includes('label-small')) {
-                this.setState({
-                    ...this.state,
-                    galleryLabelClass: this.state.galleryLabelClass + " label-small"
-                })
             }
         }
 

@@ -373,6 +373,7 @@ class Gallery extends React.Component {
                          height: "100%"
                      }}>
 
+
                     <div className={"gallery-focus-image-holder"}
                          style={{
                              opacity: cardOpacity,
@@ -381,6 +382,7 @@ class Gallery extends React.Component {
                          onClick={() => this.removeOverlay()}>
                         <AsyncImage tag={""} size={focusedImageSize} src={images[idx]} hfix={false}/>
                     </div>
+
 
                     <div className={"overlay-button-holder"}>
                         <div className={"overlay-button"}
