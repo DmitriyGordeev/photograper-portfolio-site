@@ -37,8 +37,6 @@ class AsyncImage extends React.Component {
         const promises = imgs.map(async url => {
             const image = await thisRef.load(url);
 
-            console.log("after calling load()");
-
             let w = image.naturalWidth;
             let h = image.naturalHeight;
             let aspectRatio = w / h;
