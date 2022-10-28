@@ -211,16 +211,12 @@ class App extends React.Component {
 
 
     render() {
-
         let overlayOpacity = 1.0;
         let overlayHeight = 0;
-
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
-
         let camContainerWidth = 450;
         if (this.props.storeData.focused) {
-
             // change overlay's opacity to 1.0 (make it visible)
             overlayOpacity = 1.0;
             overlayHeight = window.innerHeight * 1.55;
@@ -231,20 +227,25 @@ class App extends React.Component {
         }
 
 
-        // Mobile -----------------------------------------------------------------------
+        // Mobile screen adjustments ----------------
         let sideMenuContainerWidth = "100%";
-
         let cameraViewContainerHeight = "100%";
         let cameraViewContainerTopOffset = 0;
-        if (window.screen.width <= 480) {
+        if (window.screen.width <= 900) {
             sideMenuContainerWidth = '30%';
             cameraViewContainerHeight = '70%';
-            camContainerWidth = window.screen.width * 0.6;
+            camContainerWidth = window.screen.width * 0.55;
+
+            if (window.screen.width <= 480) {
+                camContainerWidth = window.screen.width * 0.6;
+            }
 
             if (this.props.storeData.focused) {
                 polaroidScale += 0.6;
-                polaroidTranslateUp = 60;
-                overlayHeight = window.innerHeight;
+                if (window.screen.width <= 480) {
+                    polaroidTranslateUp = 60;
+                    overlayHeight = window.innerHeight;
+                }
             }
         }
         if (window.screen.height <= 600) {
@@ -252,17 +253,6 @@ class App extends React.Component {
             cameraViewContainerHeight = '65%';
         }
 
-        // Pads -----------------------------------------------------------------------
-        // todo: this is a duplicate with above
-        if (window.screen.width > 480 && window.screen.width <= 900) {
-            sideMenuContainerWidth = '30%';
-            cameraViewContainerHeight = '70%';
-            camContainerWidth = window.screen.width * 0.55;
-
-            if (this.props.storeData.focused) {
-                polaroidScale += 0.6;
-            }
-        }
 
 
         return (
