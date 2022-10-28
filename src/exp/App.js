@@ -43,7 +43,7 @@ class App extends React.Component {
                 height: "100%",
                 background: "green"
             }}>
-                <AsyncImage size={300} src={img1} hfix={true} />
+                <AsyncImage size={300} src={img2} hfix={true} />
             </div>
         );
     }

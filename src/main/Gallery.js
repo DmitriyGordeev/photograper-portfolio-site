@@ -32,7 +32,7 @@ const images = [
     room,
     reflection,
     img1,
-    // img2,
+    img2,
     img3
 ]
 
