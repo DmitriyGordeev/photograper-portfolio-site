@@ -18,6 +18,7 @@ import room from "../../resources/images/room.jpg";
 import jquery from 'jquery';
 import AboutDialog from "./AboutDialog";
 import SocialsDialog from "./SocialsDialog";
+import ContactDialog from "./ContactDialog";
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
@@ -209,17 +210,6 @@ class App extends React.Component {
     }
 
 
-    sendEmail() {
-        jquery.post(
-            "./send_email.php",
-            {"text": "HELLO THERE!"}
-        ).done(
-            function( data ) {
-                alert("RESPONSE data:" + data);
-            }
-        );
-    }
-
 
     render() {
 
@@ -339,44 +329,14 @@ class App extends React.Component {
                 </div>
 
                 <AboutDialog />
-
                 <SocialsDialog />
-
-
-                <div className={"contact-dialog-overlay"}
-                     style={{
-                         top: contactTopPos,
-                         width: document.body.clientWidth,
-                         height: document.body.clientHeight}}
-                     onClick={() => {this.props.closeContactDialog()}}>
-
-                    <div id={"contact-dialog"}
-                         onClick={(e) => {this.stopClickPropagation(e)}}>
-
-                        <p>WRITE ME</p>
-                        <div>
-                            <input type="email" id="email" placeholder={"your email"}
-                                   size="30" required />
-                        </div>
-                        <div>
-                            <textarea rows={5} id={"message"} placeholder={"Your message"} required />
-                        </div>
-
-                        <input id={"submit"} type={"submit"} value={"SEND"} onClick={() => {this.sendEmail()}}/>
-
-                        <p id={"plain-email"}>
-                            <span>or you can copy my email</span><br/>
-                            <span>email@email.com</span>
-                        </p>
-                    </div>
-                </div>
-
+                <ContactDialog />
                 <HelloScreen />
 
+                {/* Red bar with the animation */}
                 <div className={this.state.galleryLabelClass}>
                     <p>Gallery</p>
                 </div>
-
             </div>
         );
     }
@@ -393,15 +353,15 @@ export default connect(
         // closeAboutDialog: (values) => {
         //     dispatch({type: 'ABOUT_DIALOG_CLOSE'});
         // },
-        closeSocialDialog: (values) => {
-            dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
-        },
+        // closeSocialDialog: (values) => {
+        //     dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
+        // },
         openContactDialog: (values) => {
             dispatch({type: 'CONTACT_DIALOG_OPEN'});
         },
-        closeContactDialog: (values) => {
-            dispatch({type: 'CONTACT_DIALOG_CLOSE'});
-        },
+        // closeContactDialog: (values) => {
+        //     dispatch({type: 'CONTACT_DIALOG_CLOSE'});
+        // },
         galleryOn: (values) => {
             dispatch({type: 'GALLERY_MODE_ON'});
         }
