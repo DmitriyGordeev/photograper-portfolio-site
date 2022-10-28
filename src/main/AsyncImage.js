@@ -9,7 +9,11 @@ class AsyncImage extends React.Component {
         super(props);
         this.state = {
             src: "",
-            div: <div className={"photo"}/>,
+            div: <div className={"async-photo"}
+                      style={{
+                          width: this.props.size,
+                          height: this.props.size
+                      }}/>,
             blank: false
         };
     }
@@ -32,6 +36,8 @@ class AsyncImage extends React.Component {
         let thisRef = this;
         const promises = imgs.map(async url => {
             const image = await thisRef.load(url);
+
+            console.log("after calling load()");
 
             let w = image.naturalWidth;
             let h = image.naturalHeight;
@@ -71,14 +77,14 @@ class AsyncImage extends React.Component {
             if (!this.state.blank) {
                 let element = <div className={"async-photo"}
                                    style={{
-                                       width: 200,
-                                       height: 200
+                                       width: this.props.size,
+                                       height: this.props.size
                                    }}/>;
                 this.setState({...this.state, div: element, blank: true, src: ""});
             }
-        }
-        else {
-            this.getImages([this.props.src]).then(() => {});
+        } else {
+            this.getImages([this.props.src]).then(() => {
+            });
         }
     }
 
