@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
-import './contact.css';
 import './texts.css';
 import './GalleryLabel.css';
 
@@ -232,11 +231,6 @@ class App extends React.Component {
         }
 
 
-        let contactTopPos = -window.innerHeight;
-        if (this.props.storeData.contactDialogOpen) {
-            contactTopPos = 0;
-        }
-
         // Mobile -----------------------------------------------------------------------
         let sideMenuContainerWidth = "100%";
 
@@ -350,18 +344,9 @@ export default connect(
         onPolaroidUnfocus: (values) => {
             dispatch({type: 'POLAROID_UNFOCUSED', values: values});
         },
-        // closeAboutDialog: (values) => {
-        //     dispatch({type: 'ABOUT_DIALOG_CLOSE'});
-        // },
-        // closeSocialDialog: (values) => {
-        //     dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
-        // },
         openContactDialog: (values) => {
             dispatch({type: 'CONTACT_DIALOG_OPEN'});
         },
-        // closeContactDialog: (values) => {
-        //     dispatch({type: 'CONTACT_DIALOG_CLOSE'});
-        // },
         galleryOn: (values) => {
             dispatch({type: 'GALLERY_MODE_ON'});
         }

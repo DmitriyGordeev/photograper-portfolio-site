@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import "./contact.css";
+import "./ContactDialog.css";
 import jquery from "jquery";
 
 
