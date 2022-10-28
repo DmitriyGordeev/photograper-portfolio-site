@@ -21,6 +21,7 @@ import instagramIcon from "../../resources/images/instagram_icon.svg";
 import vkIcon from "../../resources/images/vk_icon.svg";
 
 import jquery from 'jquery';
+import AboutDialog from "./AboutDialog";
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
@@ -51,19 +52,8 @@ class App extends React.Component {
         super(props);
         this.state = state0;
         this.locked = false;
-        this.aboutRef = React.createRef();
         this.touchMovePrevY = 0;
     }
-
-
-    componentDidMount() {
-        // this will define how wide is 'About Me' dialog window
-        this.setState({
-            ...this.state,
-            aboutDialogWidth: this.aboutRef.current.offsetWidth
-        });
-    }
-
 
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -227,13 +217,11 @@ class App extends React.Component {
 
 
     sendEmail() {
-        // // console.log("sendEmail click()");
         jquery.post(
             "./send_email.php",
             {"text": "HELLO THERE!"}
         ).done(
             function( data ) {
-                // // console.log("POST RESPONSE:" + data);
                 alert("RESPONSE data:" + data);
             }
         );
@@ -260,43 +248,19 @@ class App extends React.Component {
             polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
 
-        // TODO: vw -> to innerWidth
-        let aboutPos = "100vw";
-        // let aboutPos = window.innerWidth;
-        if (this.props.storeData.aboutMe) {
-            aboutPos = `calc(100vw - ${this.state.aboutDialogWidth}px)`;
-            // aboutPos = window.innerWidth - this.state.aboutDialogWidth;
-        }
-
-        // adjusting sizes for `AboutMe` in case it's mobile device
-        let aboutMeDialogWidth = document.body.clientWidth * 0.6;
-        let aboutMeDialogHeight = document.body.clientHeight;
-        if (document.body.clientWidth <= 480) {
-            aboutMeDialogWidth = document.body.clientWidth;
-        }
 
         let socialsTopPos = window.innerHeight;
         if (this.props.storeData.socialOpen) {
             socialsTopPos = 0;
         }
 
-        let contactBottomPos = window.innerHeight;
         let contactTopPos = -window.innerHeight;
         if (this.props.storeData.contactDialogOpen) {
-            contactBottomPos = window.innerHeight - document.body.clientHeight;
             contactTopPos = 0;
-            // contactBottomPos = window.innerHeight;
         }
-
-        // // console.log("this.props.storeData.contactDialogOpen = " + this.props.storeData.contactDialogOpen);
-        // // console.log(`document.body.clientHeight = ${document.body.clientHeight}`);
-        // // console.log(`window.innerHeight = ${window.innerHeight}`);
-
 
         // Mobile -----------------------------------------------------------------------
         let sideMenuContainerWidth = "100%";
-        // // console.log("window.innerWidth = " + window.innerWidth);
-        // // console.log("window.screen.width = " + window.screen.width);
 
         let cameraViewContainerHeight = "100%";
         let cameraViewContainerTopOffset = 0;
@@ -316,7 +280,7 @@ class App extends React.Component {
             cameraViewContainerHeight = '65%';
         }
 
-        // PADS -----------------------------------------------------------------------
+        // Pads -----------------------------------------------------------------------
         // todo: this is a duplicate with above
         if (window.screen.width > 480 && window.screen.width <= 900) {
             sideMenuContainerWidth = '30%';
@@ -386,48 +350,7 @@ class App extends React.Component {
                     <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
                 </div>
 
-
-                {/* 'About Me' dialog ------------------------------------*/}
-                <div ref={this.aboutRef}
-                     className={"about-dialog"}
-                     style={{left: aboutPos, width: aboutMeDialogWidth, height: aboutMeDialogHeight }}>
-
-                    <div className={"header-bar"}>
-                        <div id={"about-close-button"} onClick={() => {this.props.closeAboutDialog()}}>
-                            <img src={closeButton} alt={""}/>
-                        </div>
-                    </div>
-
-                    <div id={"about-content-wrapper"}>
-                        <div id={"about-top-block"}>
-                            <p>About Me</p><br/>
-                            <div style={{margin: "0 auto", width: "fit-content"}}>
-                                <div className={"about-photo-wrapper"}>
-                                    <img src={portraitExample2} alt={""}/>
-                                </div>
-                            </div>
-                        </div>
-                        <div id={"about-bottom-block"}>
-                            <br/><p className={"mini-header"}>HI, MY NAME IS </p>
-
-                            <p>I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR.
-                                I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>
-
-                            <div className={"write-me-button"}
-                                 onClick={() => {this.props.openContactDialog()}}>
-                                WRITE ME
-                            </div><br/>
-                            <p className={"about-socials"}>Or, You can also find me here</p>
-                            <div className={"socials-stroke"}>
-                                <div><img src={instagramIcon} alt={"instagram_icon"} onClick={() => {
-                                    window.open("https://google.com");
-                                }}/></div>
-                                <div><img src={vkIcon} alt={"instagram_icon"}/></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <AboutDialog />
 
                 <div className={"socials-dialog"}
                      style={{top: socialsTopPos}}
@@ -498,9 +421,9 @@ export default connect(
         onPolaroidUnfocus: (values) => {
             dispatch({type: 'POLAROID_UNFOCUSED', values: values});
         },
-        closeAboutDialog: (values) => {
-            dispatch({type: 'ABOUT_DIALOG_CLOSE'});
-        },
+        // closeAboutDialog: (values) => {
+        //     dispatch({type: 'ABOUT_DIALOG_CLOSE'});
+        // },
         closeSocialDialog: (values) => {
             dispatch({type: 'SOCIAL_DIALOG_CLOSE'});
         },
