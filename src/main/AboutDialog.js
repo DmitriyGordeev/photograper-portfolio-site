@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import "./about.css";
+import "./AboutDialog.css";
 import closeButton from "../../resources/images/close_dark.svg";
 import portraitExample2 from "../../resources/images/portrait2.jpg";
 import instagramIcon from "../../resources/images/instagram_icon.svg";

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import "./App.css";
-import "./about.css";
-import './socials.css';
 import './contact.css';
 import './texts.css';
 import './GalleryLabel.css';
@@ -16,12 +14,10 @@ import portraitExample from './../../resources/images/portrait.jpg';
 import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImageSvg from './../../resources/images/camera-lense12.svg';
 import room from "../../resources/images/room.jpg";
-import closeButton from "../../resources/images/close_dark.svg";
-import instagramIcon from "../../resources/images/instagram_icon.svg";
-import vkIcon from "../../resources/images/vk_icon.svg";
 
 import jquery from 'jquery';
 import AboutDialog from "./AboutDialog";
+import SocialsDialog from "./SocialsDialog";
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
@@ -42,7 +38,6 @@ let state0 = {
     active_polaroid_index: images.length - 1,
     galleryOpacity: 0.0,
     galleryMode: false,
-    socialsOn: false,
     galleryLabelClass: "gallery-label "
 };
 
@@ -201,9 +196,7 @@ class App extends React.Component {
     }
 
 
-    stopClickPropagation(e) {
-        e.stopPropagation();
-    }
+
 
 
     resetValuesOnBack() {
@@ -248,11 +241,6 @@ class App extends React.Component {
             polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
 
-
-        let socialsTopPos = window.innerHeight;
-        if (this.props.storeData.socialOpen) {
-            socialsTopPos = 0;
-        }
 
         let contactTopPos = -window.innerHeight;
         if (this.props.storeData.contactDialogOpen) {
@@ -352,26 +340,7 @@ class App extends React.Component {
 
                 <AboutDialog />
 
-                <div className={"socials-dialog"}
-                     style={{top: socialsTopPos}}
-                     onClick={() => {this.props.closeSocialDialog()}}>
-                    <div onClick={(e) => {this.stopClickPropagation(e)}}>
-                        <p style={{marginTop: 20, marginBottom: 20}}>MY SOCIALS</p>
-
-                        <div className={"socials-item"}>
-                            <div>
-                                <a  target="_blank" href={"https://google.com"}>Instagram</a>
-                            </div>
-                        </div>
-
-                        <div className={"socials-item"}>
-                            <div>
-                                <a  target="_blank" href={"https://google.com"}>VK</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <SocialsDialog />
 
 
                 <div className={"contact-dialog-overlay"}
