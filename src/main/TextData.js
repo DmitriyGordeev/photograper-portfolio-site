@@ -24,6 +24,15 @@ class TextData {
                 writeMeButton: ["WRITE ME", "НАПИСАТЬ МНЕ"],
                 bottomLine: ["Or, You can also find me here", "Вы также можете найти меня здесь"]
             },
+            socials: {
+                title: ["MY SOCIALS", "МОИ СОЦ.СЕТИ"]
+            },
+            contact: {
+                title: ["WRITE ME", "НАПИШИТЕ МНЕ"],
+                messagePlaceholder: ["Your message", "Сообщение"],
+                sendButton: ["SEND", "ОТПРАВИТЬ"],
+                bottom: ["or you can copy my email", "или скопируйте мой email"]
+            },
             helloScreen: {
 
             }
@@ -69,6 +78,24 @@ class TextData {
     aboutDialogBottomLine() {
         return this.data.aboutDialog.bottomLine[this.lang];
     }
+
+    socialsTitle() {
+        return this.data.socials.title[this.lang];
+    }
+
+    contactTitle() {
+        return this.data.contact.title[this.lang];
+    }
+    contactMessagePlaceholder() {
+        return this.data.contact.messagePlaceholder[this.lang];
+    }
+    contactSendButton() {
+        return this.data.contact.sendButton[this.lang];
+    }
+    contactBottom() {
+        return this.data.contact.bottom[this.lang];
+    }
+
 }
 
 let textData = new TextData();

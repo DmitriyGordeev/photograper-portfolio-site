@@ -4,6 +4,9 @@ import "./ContactDialog.css";
 import jquery from "jquery";
 
 
+import textData from "./TextData";
+
+
 class ContactDialog extends React.Component {
     constructor(props) {
         super(props);
@@ -42,19 +45,23 @@ class ContactDialog extends React.Component {
                 <div id={"contact-dialog"}
                      onClick={(e) => {this.stopClickPropagation(e)}}>
 
-                    <p>WRITE ME</p>
+                    <p>{textData.contactTitle()}</p>
                     <div>
-                        <input type="email" id="email" placeholder={"your email"}
+                        <input type="email" id="email" placeholder={"email"}
                                size="30" required />
                     </div>
                     <div>
-                        <textarea rows={5} id={"message"} placeholder={"Your message"} required />
+                        <textarea rows={5}
+                                  id={"message"}
+                                  placeholder={textData.contactMessagePlaceholder()} required />
                     </div>
 
-                    <input id={"submit"} type={"submit"} value={"SEND"} onClick={() => {this.sendEmail()}}/>
+                    <input id={"submit"}
+                           type={"submit"}
+                           value={textData.contactSendButton()} onClick={() => {this.sendEmail()}}/>
 
                     <p id={"plain-email"}>
-                        <span>or you can copy my email</span><br/>
+                        <span>{textData.contactBottom()}</span><br/>
                         <span>email@email.com</span>
                     </p>
                 </div>

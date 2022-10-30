@@ -3,6 +3,9 @@ import {connect} from "react-redux";
 import './SocialsDialog.css';
 
 
+import textData from "./TextData";
+
+
 class SocialsDialog extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +27,7 @@ class SocialsDialog extends React.Component {
                  style={{top: socialsTopPos}}
                  onClick={() => {this.props.closeSocialDialog()}}>
                 <div onClick={(e) => {this.stopClickPropagation(e)}}>
-                    <p style={{marginTop: 20, marginBottom: 20}}>MY SOCIALS</p>
+                    <p style={{marginTop: 20, marginBottom: 20}}>{textData.socialsTitle()}</p>
 
                     <div className={"socials-item"}>
                         <div>
