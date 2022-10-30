@@ -313,12 +313,13 @@ class App extends React.Component {
                     <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
                 </div>
 
-                <div className={"lang-button"} onClick={() => {this.props.switchLang()}}></div>
 
                 <AboutDialog />
                 <SocialsDialog />
                 <ContactDialog />
                 <HelloScreen />
+
+                <div className={"lang-button"} onClick={() => {this.props.switchLang()}}></div>
 
                 {/* Red bar with the animation */}
                 <div className={this.state.galleryLabelClass}>

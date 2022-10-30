@@ -58,17 +58,17 @@ class HelloScreen extends React.Component {
                  className={overlayClass}
                  style={{left: overlayLeftOffset}}>
                 <div>
-                    <h1 className={"text center-text " + this.state.class1} style={{ marginTop: headerMarginTop }}>Hi, my name is </h1>
-                    <h2 className={"text left-text " + this.state.class2}>I like photography and video-editing</h2>
-                    <h2 className={"text right-text " + this.state.class3}>I travel around the world <br/>to capture memorable moments</h2>
-                    <h2 className={"text left-text " + this.state.class4}>You can find my profile here</h2>
+                    <h1 className={"text center-text " + this.state.class1} style={{ marginTop: headerMarginTop }}>{textData.helloScreenTitle()}</h1>
+                    <h2 className={"text left-text " + this.state.class2}>{textData.helloScreenText1()}</h2>
+                    <h2 className={"text right-text " + this.state.class3}>{textData.helloScreenText2()}</h2>
+                    <h2 className={"text left-text " + this.state.class4}>{textData.helloScreenText3()}</h2>
                 </div>
 
                 <div id={"continue-button"}
                      style={{top: continueTopPos}}
                      className={this.state.class2}
                      onClick={() => { this.props.hideScreen() }}>
-                    <span>CONTINUE</span>
+                    <span>{textData.helloScreenContinue()}</span>
                 </div>
             </div>
         )

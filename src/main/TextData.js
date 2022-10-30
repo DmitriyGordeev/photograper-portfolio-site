@@ -35,11 +35,11 @@ class TextData {
                 bottom: ["or you can copy my email", "или скопируйте мой email"]
             },
             helloScreen: {
-                title: ["", ""],
-                text1: ["", ""],
-                text2: ["", ""],
-                text3: ["", ""],
-                continue: ["", ""]
+                title: ["Hi, my name is ", "Привет, меня зовут"],
+                text1: ["I like photography and video-editing", "Мне нравится фотография и видеомонтаж"],
+                text2: ["I travel around the world to capture memorable moments", "Я путешествую по всему миру, чтобы запечатлеть лучшие моменты"],
+                text3: ["You can find my profile here", "Вы можете найти мой профиль здесь"],
+                continue: ["CONTINUE", "ПРОДОЛЖИТЬ"]
             },
             gallery: {
                 prev: ["previous", "назад"],
@@ -118,6 +118,23 @@ class TextData {
     galleryLabel() {
         return this.data.gallery.galleryLabel[this.lang];
     }
+
+    helloScreenTitle() {
+        return this.data.helloScreen.title[this.lang];
+    }
+    helloScreenText1() {
+        return this.data.helloScreen.text1[this.lang];
+    }
+    helloScreenText2() {
+        return this.data.helloScreen.text2[this.lang];
+    }
+    helloScreenText3() {
+        return this.data.helloScreen.text3[this.lang];
+    }
+    helloScreenContinue() {
+        return this.data.helloScreen.continue[this.lang];
+    }
+
 
 }
 
