@@ -7,6 +7,9 @@ import instagramIcon from "../../resources/images/instagram_icon.svg";
 import vkIcon from "../../resources/images/vk_icon.svg";
 
 
+import textData from "./TextData";
+
+
 class AboutDialog extends React.Component {
     constructor(props) {
         super(props);
@@ -54,7 +57,7 @@ class AboutDialog extends React.Component {
 
                 <div id={"about-content-wrapper"}>
                     <div id={"about-top-block"}>
-                        <p>About Me</p><br/>
+                        <p>{textData.aboutDialogTitle()}</p><br/>
                         <div style={{margin: "0 auto", width: "fit-content"}}>
                             <div className={"about-photo-wrapper"}>
                                 <img src={portraitExample2} alt={""}/>
@@ -62,16 +65,15 @@ class AboutDialog extends React.Component {
                         </div>
                     </div>
                     <div id={"about-bottom-block"}>
-                        <br/><p className={"mini-header"}>HI, MY NAME IS </p>
+                        <br/><p className={"mini-header"}>{textData.aboutDialogName()}</p>
 
-                        <p>I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR.
-                            I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE</p>
+                        <p>{textData.aboutDialogMain()}</p>
 
                         <div className={"write-me-button"}
                              onClick={() => {this.props.openContactDialog()}}>
-                            WRITE ME
+                            {textData.aboutDialogWriteMeButton()}
                         </div><br/>
-                        <p className={"about-socials"}>Or, You can also find me here</p>
+                        <p className={"about-socials"}>{textData.aboutDialogBottomLine()}</p>
                         <div className={"socials-stroke"}>
                             <div><img src={instagramIcon} alt={"instagram_icon"} onClick={() => {
                                 window.open("https://google.com");
