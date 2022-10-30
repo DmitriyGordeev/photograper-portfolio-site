@@ -1,3 +1,11 @@
+.main {
+    background: green;
+    transition: 250ms ease-in-out;
+}
+
+.main:hover {
+    background: blue;
+}
 
 .button {
     width: 100px;

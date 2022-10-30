@@ -15,9 +15,6 @@ import App from "./App.js";
 const initialState = {};
 
 function reducer(state = initialState, action) {
-
-    console.log("[reducer()] STORE:", state);
-
     if(action.type === "POLAROID_FOCUSED") {
         console.log("[reducer()] POLAROID_FOCUSED");
         return {...state, focused: true};

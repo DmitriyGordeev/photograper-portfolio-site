@@ -24,6 +24,8 @@ class AsyncImage extends React.Component {
             const img = new Image();
             img.src = url;
 
+            // как выглядит функция res????
+
             // further wait for the decoding
             img.onload = (evt) => {
                 img.decode().then(() => res(img));
@@ -32,10 +34,46 @@ class AsyncImage extends React.Component {
     }
 
 
-    getImages = imgs => {
+    getImage = img => {
         let thisRef = this;
-        const promises = imgs.map(async url => {
-            const image = await thisRef.load(url);
+
+
+        // const promises = imgs.map(async url => {
+        //     const image = await thisRef.load(url);
+        //
+        //     let w = image.naturalWidth;
+        //     let h = image.naturalHeight;
+        //     let aspectRatio = w / h;
+        //
+        //     if (this.props.hfix) {
+        //         h = this.props.size;
+        //         w = aspectRatio * h;
+        //     } else {
+        //         if (aspectRatio >= 1) {
+        //             w = this.props.size;
+        //             h = w / aspectRatio;
+        //         } else {
+        //             h = this.props.size;
+        //             w = aspectRatio * h;
+        //         }
+        //     }
+        //
+        //     thisRef.setState({
+        //         ...thisRef.state,
+        //         src: image.src,
+        //         blank: false,
+        //         div: <div className={"async-photo"}
+        //                   style={{
+        //                       backgroundImage: `url(${image.src})`,
+        //                       width: w,
+        //                       height: h
+        //                   }}/>
+        //     });
+        // });
+
+
+        const promise = new Promise(async () => {
+            const image = await thisRef.load(img);
 
             let w = image.naturalWidth;
             let h = image.naturalHeight;
@@ -66,7 +104,11 @@ class AsyncImage extends React.Component {
                           }}/>
             });
         });
-        return Promise.all(promises);
+
+
+
+        // return Promise.all(promises);
+        return promise;
     }
 
 
@@ -81,8 +123,8 @@ class AsyncImage extends React.Component {
                 this.setState({...this.state, div: element, blank: true, src: ""});
             }
         } else {
-            this.getImages([this.props.src]).then(() => {
-            });
+            // todo: что будет, если уберем '.then(() => {})' ??
+            this.getImage(this.props.src).then(() => {});
         }
     }
 
