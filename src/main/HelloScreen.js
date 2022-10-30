@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
-
-
 import './texts.css';
 import './HelloScreen.css';
+
+
+import textData from "./TextData";
 
 
 class HelloScreen extends React.Component {

@@ -18,6 +18,8 @@ import overlayArrowPrev from "../../resources/images/overlay_arrow_prev.svg";
 import overlayArrowNext from "../../resources/images/overlay_arrow_next.svg";
 
 
+import textData from "./TextData";
+
 import AsyncImage from "./AsyncImage";
 
 const angleOffsetDeg = 16;     // in degrees
@@ -347,7 +349,7 @@ class Gallery extends React.Component {
                             <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
                                 <img className={"arrow"} src={prevImg} alt={""}/>
                             </div>
-                            <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>previous</p>
+                            <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>{textData.galleryPrev()}</p>
                         </div>
 
                         <div className={"gallery-button next"}
@@ -359,7 +361,7 @@ class Gallery extends React.Component {
                             <div className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>
                                 <img className={"arrow"} src={nextImg} alt={""}/>
                             </div>
-                            <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>next</p>
+                            <p className={this.state.gallerySwitchButtonLocked ? "locked-button" : ""}>{textData.galleryNext()}</p>
                         </div>
                     </div>
                 </div>

@@ -54,7 +54,7 @@ class MenuVert extends React.Component {
             elements.splice(0, 0,
                 <div key={elements.length}
                      className={"menu-item back-button"}>
-                    <span className={itemClass} onClick={() => {this.props.galleryOff()}}>BACK</span>
+                    <span className={itemClass} onClick={() => {this.props.galleryOff()}}>{textData.menuBack()}</span>
                 </div>);
         }
 

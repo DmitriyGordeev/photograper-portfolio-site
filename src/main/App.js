@@ -18,6 +18,7 @@ import jquery from 'jquery';
 import AboutDialog from "./AboutDialog";
 import SocialsDialog from "./SocialsDialog";
 import ContactDialog from "./ContactDialog";
+import textData from "./TextData";
 
 const fixedDegAdded = 36;
 const fixedScaleAdded = 0.2;
@@ -321,7 +322,7 @@ class App extends React.Component {
 
                 {/* Red bar with the animation */}
                 <div className={this.state.galleryLabelClass}>
-                    <p>Gallery</p>
+                    <p>{textData.galleryLabel()}</p>
                 </div>
             </div>
         );

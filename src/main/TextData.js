@@ -10,6 +10,7 @@ class TextData {
                 socials: ["SOCIALS", "МОИ СОЦСЕТИ"],
                 contact: ["CONTACT ME", "НАПИСАТЬ МНЕ"],
                 gallery: ["GALLERY", "ГАЛЕРЕЯ"],
+                back: ["BACK", "НАЗАД"]
             },
             aboutDialog: {
                 title: ["ABOUT ME", "ОБО МНЕ"],
@@ -34,7 +35,16 @@ class TextData {
                 bottom: ["or you can copy my email", "или скопируйте мой email"]
             },
             helloScreen: {
-
+                title: ["", ""],
+                text1: ["", ""],
+                text2: ["", ""],
+                text3: ["", ""],
+                continue: ["", ""]
+            },
+            gallery: {
+                prev: ["previous", "назад"],
+                next: ["next", "вперед"],
+                galleryLabel: ["Gallery", "Галерея"]
             }
         };
     }
@@ -60,6 +70,9 @@ class TextData {
     }
     menuGallery() {
         return this.data.menu.gallery[this.lang];
+    }
+    menuBack() {
+        return this.data.menu.back[this.lang];
     }
 
 
@@ -94,6 +107,16 @@ class TextData {
     }
     contactBottom() {
         return this.data.contact.bottom[this.lang];
+    }
+
+    galleryPrev() {
+        return this.data.gallery.prev[this.lang];
+    }
+    galleryNext() {
+        return this.data.gallery.next[this.lang];
+    }
+    galleryLabel() {
+        return this.data.gallery.galleryLabel[this.lang];
     }
 
 }
