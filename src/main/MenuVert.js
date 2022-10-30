@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import './MenuVert.css';
 
 
+import textData from "./TextData";
+
+
 class MenuVert extends React.Component {
     constructor(props) {
         super(props);
@@ -17,14 +20,14 @@ class MenuVert extends React.Component {
             <div key={elements.length}
                  className={"menu-item"}>
                 <span className={itemClass}
-                      onClick={() => {this.props.openSocialDialog()}}>SOCIALS</span>
+                      onClick={() => {this.props.openSocialDialog()}}>{textData.menuSocials()}</span>
             </div>
         );
         elements.push(
             <div key={elements.length}
                  className={"menu-item"}>
                 <span className={itemClass}
-                      onClick={() => {this.props.openContactDialog()}}>CONTACT</span>
+                      onClick={() => {this.props.openContactDialog()}}>{textData.menuContact()}</span>
             </div>
         );
 
@@ -34,7 +37,7 @@ class MenuVert extends React.Component {
                      className={"menu-item"}>
                     <span className={itemClass} onClick={() => {
                         this.props.openAboutDialog()
-                    }}>ABOUT ME</span>
+                    }}>{textData.menuAboutMe()}</span>
                 </div>);
 
             elements.push(
@@ -42,7 +45,7 @@ class MenuVert extends React.Component {
                      id={"gallery-button"}
                      className={"menu-item"}>
                     <span onClick={() => {this.props.galleryOn()}}
-                          className={itemClass}>GALLERY</span></div>
+                          className={itemClass}>{textData.menuGallery()}</span></div>
             );
 
             return elements;

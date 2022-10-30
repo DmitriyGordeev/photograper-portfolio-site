@@ -104,8 +104,19 @@
     width: 100%;
 }
 
+
 #back-button {
     color: white;
+}
+
+
+.lang-button {
+    background: #1E4BA2;
+    width: 60px;
+    height: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
 }
 
 
@@ -295,6 +306,9 @@
     }
 
 }
+
+
+
 
 
 

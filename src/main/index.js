@@ -7,15 +7,10 @@ import App from "./App";
 import './index.css'
 
 
+import textData from "./TextData";
 
-// document.addEventListener("wheel", (event) => {
-//     // event.preventDefault();
-//     // event.stopPropagation();
-//     // now define custom functionality
-//
-//     // // // console.log("event.deltaX = " + event.deltaX, " | event.deltaY = ", event.deltaY);
-//
-// }, { passive: false });
+
+console.log(textData.menuAboutMe());
 
 
 const initialState = {
@@ -25,7 +20,9 @@ const initialState = {
     aboutMe: false,
     socialOpen: false,
     contactDialogOpen: false,
+    lang: 0
 };
+
 
 function reducer(state = initialState, action) {
 
@@ -85,11 +82,18 @@ function reducer(state = initialState, action) {
         return {...state, helloScreen: false};
     }
 
+    else if (action.type === "LANG") {
+        textData.switch();
+        return {...state, lang: textData.lang};
+    }
+
     return state;
 }
 
+
 const store = createStore(reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 
 const root = document.getElementById('app');
 ReactDOM.render(

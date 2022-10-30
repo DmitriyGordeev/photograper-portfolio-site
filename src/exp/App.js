@@ -11,6 +11,12 @@ import img2 from "../../resources/images/img2.jpg";
 import img3 from "../../resources/images/img3.jpg";
 
 
+// import {TextData} from "../main/TextData";
+// let td = new TextData();
+// td.foo();
+
+
+
 import AsyncImage from "../main/AsyncImage";
 
 const images = [

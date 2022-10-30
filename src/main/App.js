@@ -312,6 +312,8 @@ class App extends React.Component {
                     <Gallery opacity={this.props.storeData.galleryMode ? 1.0 : 0.0} />
                 </div>
 
+                <div className={"lang-button"} onClick={() => {this.props.switchLang()}}></div>
+
                 <AboutDialog />
                 <SocialsDialog />
                 <ContactDialog />
@@ -339,6 +341,10 @@ export default connect(
         },
         galleryOn: (values) => {
             dispatch({type: 'GALLERY_MODE_ON'});
+        },
+        switchLang: () => {
+            dispatch({type: 'LANG'});
         }
+
     })
 )(App);
