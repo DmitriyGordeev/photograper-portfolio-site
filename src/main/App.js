@@ -14,6 +14,11 @@ import portraitExample2 from './../../resources/images/portrait2.jpg';
 import cameraImageSvg from './../../resources/images/camera-lense12.svg';
 import room from "../../resources/images/room.jpg";
 
+
+import imageLangRu from './../../resources/images/rus_icon.png';
+import imageLangEn from './../../resources/images/eng_icon.png';
+
+
 import jquery from 'jquery';
 import AboutDialog from "./AboutDialog";
 import SocialsDialog from "./SocialsDialog";
@@ -253,6 +258,10 @@ class App extends React.Component {
         }
 
 
+        // language icon switch:
+        let langIcon = imageLangRu;
+        if (textData.lang === 1)
+            langIcon = imageLangEn;
 
         return (
             <div className={"main"}>
@@ -317,7 +326,10 @@ class App extends React.Component {
                 <ContactDialog />
                 <HelloScreen />
 
-                <div className={"lang-button"} onClick={() => {this.props.switchLang()}}></div>
+                <div className={"lang-button"}
+                     onClick={() => {this.props.switchLang()}}>
+                    <img alt={"language"} src={langIcon} />
+                </div>
 
                 {/* Red bar with the animation */}
                 <div className={this.state.galleryLabelClass}>

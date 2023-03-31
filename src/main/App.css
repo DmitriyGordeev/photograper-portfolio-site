@@ -112,12 +112,22 @@
 
 
 .lang-button {
-    background: #1E4BA2;
-    width: 60px;
-    height: 20px;
+    /*background: #1E4BA2;*/
+    width: fit-content;
+    height: auto;
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 20px;
+    top: 10px;
+}
+
+.lang-button img {
+    width: 30px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
 }
 
 

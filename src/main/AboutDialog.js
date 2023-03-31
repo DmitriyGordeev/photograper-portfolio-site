@@ -75,10 +75,15 @@ class AboutDialog extends React.Component {
                         </div><br/>
                         <p className={"about-socials"}>{textData.aboutDialogBottomLine()}</p>
                         <div className={"socials-stroke"}>
+
                             <div><img src={instagramIcon} alt={"instagram_icon"} onClick={() => {
-                                window.open("https://google.com");
+                                window.open(textData.getProfileUrl());
                             }}/></div>
-                            <div><img src={vkIcon} alt={"instagram_icon"}/></div>
+
+                            <div><img src={vkIcon} alt={"vkontakte_icon"} onClick={() => {
+                                window.open(textData.getProfileUrl());
+                            }}/></div>
+
                         </div>
                     </div>
                 </div>
