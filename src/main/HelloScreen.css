@@ -74,6 +74,15 @@
 }
 
 
+#hello-screen-overlay .link-ref {
+    display: inline;
+    color: #92DCE5;
+    /*border: 1px solid white;*/
+    padding: 0 5px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 19px;
+}
+
 
 /* Mobile */
 @media screen and (max-width: 480px) {
@@ -153,7 +162,7 @@
     }
 
     #hello-screen-overlay h1,h2 {
-        margin: 80px;
+        margin: 100px;
     }
 
     #continue-button {

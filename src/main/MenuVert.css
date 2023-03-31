@@ -1,5 +1,4 @@
 .menu-side {
-    /*background: red;*/
     height: 100%;
     position: relative;
     width: 100%;
@@ -122,7 +121,7 @@
 
 
 /* Big screens */
-@media screen and (min-width: 1440px) and (min-height: 1080px) {
+@media screen and (min-width: 1000px) and (min-height: 1080px) {
     .large {
         padding-left: 100px;
     }

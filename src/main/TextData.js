@@ -14,7 +14,7 @@ class TextData {
             },
             aboutDialog: {
                 title: ["ABOUT ME", "ОБО МНЕ"],
-                name: ["HI, MY NAME IS", "ПРИВЕТ, МЕНЯ ЗОВУТ"],
+                name: ["MY NAME IS IVAN", "МЕНЯ ЗОВУТ ИВАН"],
                 main: [
                     "I'M A PROFESSIONAL PHOTOGRAPHER AND VIDEO EDITOR." +
                     "I TRAVEL AROUND THE WORLD AND CAPTURE MOMENTS TO SHARE WITH EVERYONE",
@@ -35,10 +35,11 @@ class TextData {
                 bottom: ["or you can copy my email", "или скопируйте мой email"]
             },
             helloScreen: {
-                title: ["Hi, my name is ", "Привет, меня зовут"],
+                title: ["Hi, my name is Ivan", "Привет, меня зовут Иван"],
                 text1: ["I like photography and video-editing", "Мне нравится фотография и видеомонтаж"],
                 text2: ["I travel around the world to capture memorable moments", "Я путешествую по всему миру, чтобы запечатлеть лучшие моменты"],
-                text3: ["You can find my profile here", "Вы можете найти мой профиль здесь"],
+                text3: ["You can find my profile", "Вы можете найти мой профиль"],
+                textRef: ["here", "здесь"],
                 continue: ["CONTINUE", "ПРОДОЛЖИТЬ"]
             },
             gallery: {
@@ -131,10 +132,16 @@ class TextData {
     helloScreenText3() {
         return this.data.helloScreen.text3[this.lang];
     }
+    helloScreenTextRef() {
+        return this.data.helloScreen.textRef[this.lang];
+    }
     helloScreenContinue() {
         return this.data.helloScreen.continue[this.lang];
     }
 
+    getProfileUrl() {
+        return "//jgrdev.ru"
+    }
 
 }
 

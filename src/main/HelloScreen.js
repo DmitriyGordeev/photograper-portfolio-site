@@ -61,7 +61,10 @@ class HelloScreen extends React.Component {
                     <h1 className={"text center-text " + this.state.class1} style={{ marginTop: headerMarginTop }}>{textData.helloScreenTitle()}</h1>
                     <h2 className={"text left-text " + this.state.class2}>{textData.helloScreenText1()}</h2>
                     <h2 className={"text right-text " + this.state.class3}>{textData.helloScreenText2()}</h2>
-                    <h2 className={"text left-text " + this.state.class4}>{textData.helloScreenText3()}</h2>
+                    <h2 className={"text left-text " + this.state.class4}>
+                        {textData.helloScreenText3()}
+                        <a className={"link-ref"} href={textData.getProfileUrl()}>{textData.helloScreenTextRef()}</a>
+                    </h2>
                 </div>
 
                 <div id={"continue-button"}

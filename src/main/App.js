@@ -216,14 +216,15 @@ class App extends React.Component {
         let overlayHeight = 0;
         let polaroidScale = this.state.scale;
         let polaroidTranslateUp = 0;
-        let camContainerWidth = 450;
+        let camContainerWidth = 550;
         if (this.props.storeData.focused) {
             // change overlay's opacity to 1.0 (make it visible)
             overlayOpacity = 1.0;
             overlayHeight = window.innerHeight * 1.55;
 
             // change polaroid scale to const 1.0
-            polaroidScale = 1.2;
+            // polaroidScale = 1.2;
+            polaroidScale = 2.0;
             polaroidTranslateUp = 30;       // when polaroid is focused lift it up a bit
         }
 
@@ -242,7 +243,7 @@ class App extends React.Component {
             }
 
             if (this.props.storeData.focused) {
-                polaroidScale += 0.6;
+                polaroidScale = this.state.scale + 0.8;
                 if (window.screen.width <= 480) {
                     polaroidTranslateUp = 60;
                     overlayHeight = window.innerHeight;

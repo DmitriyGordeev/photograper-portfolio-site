@@ -6,7 +6,7 @@ import './texts.css';
 import portraitExample from "../../resources/images/portrait.jpg";
 import portraitExample2 from "../../resources/images/portrait2.jpg";
 import room from "../../resources/images/room.jpg";
-import reflection from "../../resources/images/camera_reflection.png";
+// import reflection from "../../resources/images/camera_reflection.png";
 import img1 from "../../resources/images/img1.jpg";
 import img2 from "../../resources/images/img2.jpg";
 import img3 from "../../resources/images/img3.jpg";
@@ -32,7 +32,6 @@ const images = [
     portraitExample,
     portraitExample2,
     room,
-    reflection,
     img1,
     img2,
     img3

@@ -27,6 +27,7 @@
 .camera-view > .camera-container {
     width: 450px;
     height: 450px;
+
     position: absolute;
     opacity: 1.0;
 
@@ -83,7 +84,7 @@
 }
 
 .camera-background {
-    --size: 250px;      /* should be equal to cardSize = 350px in Polaroid.js - TODO: fix this! */
+    --size: 270px;      /* should be equal to cardSize = 350px in Polaroid.js - TODO: fix this! */
     width: var(--size);
     height: var(--size);
     background-repeat:no-repeat;
