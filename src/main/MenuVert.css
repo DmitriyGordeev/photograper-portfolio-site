@@ -21,6 +21,7 @@
     padding-left: 40px;
     margin-top: 20px;
     transition: 650ms ease-in-out;
+    /*background: antiquewhite;*/
 }
 
 .menu-item {
@@ -31,7 +32,7 @@
 .menu-item > span {
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
-    /*background: green;*/
+    /*background: gray;*/
 }
 
 .menu-item span:hover {
@@ -43,7 +44,8 @@
 
 .large {
     font-size: 50px;
-    padding-left: 40px;
+    padding-left: 160px;
+    padding-right: 10px;
 }
 
 .small {
@@ -92,7 +94,7 @@
 
     .large {
         font-size: 30px;
-        /*padding-left: 20px;*/
+        padding-left: 20px;
     }
 
     #gallery-button.menu-item {
@@ -111,7 +113,7 @@
 
     .large {
         font-size: 40px;
-        /*padding-left: 20px;*/
+        padding-left: 80px;
     }
 
     #gallery-button.menu-item {
@@ -123,7 +125,7 @@
 /* Big screens */
 @media screen and (min-width: 1000px) and (min-height: 1080px) {
     .large {
-        padding-left: 100px;
+        padding-left: 160px;
     }
 }
 
